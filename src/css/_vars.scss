@@ -1,0 +1,79 @@
+@use "sass:map";
+
+$uni-colors: (
+  grey: (
+    light: #E6E6E6,
+    base: #808080,
+    dark: #303030
+  ),
+  blue: (
+    light: unknown,
+    base: #1CABE2,
+    dark: #374EA2,
+  ),
+  green: (
+    light: unknown,
+    base: #80BD41,
+    dark: #00833D
+  ),
+  yellow: (
+    light: unknown,
+    base: #FFC20E,
+    dark: #CC990C
+  ),
+  orange: (
+    light: unknown,
+    base: #F26A21,
+    dark: #BD511A
+  ),
+  red: (
+    light: unknown,
+    base: #E2231A,
+    dark: #961A49
+  )
+);
+
+$primary-font-face: "Futura", sans-serif;
+$accent-font-face: "Graphik", sans-serif;
+
+$styles: (
+  h1: (
+    font-size: 3rem,
+    font-family: var(--font-accent),
+  ),
+  h2: (
+    font-size: 2rem,
+    font-family: var(--font-accent),
+  ),
+  h3: (
+    font-size: calc(5rem / 3),
+    font-family: var(--font-accent),
+  ),
+  h4: (
+    font-size: 1.5rem,
+    font-family: var(--font-accent),
+  ),
+  h5: (
+    font-size: 1rem,
+    font-family: var(--font-accent),
+  ),
+  h6: (
+    font-size: 1rem,
+    font-family: var(--font-accent),
+  ),
+  caption: (
+    font-size: calc(2rem / 3),
+    font-family: var(--font-accent),
+    text-transform: uppercase
+  )
+);
+
+@mixin useFontStyle($name) {
+  @if map.has_key($styles, $name) != true {
+    @error "Unknown Font Style '#{$name}'"
+  }
+
+  @each $key, $val in map.get($styles, $name) {
+    #{$key}: #{$val};
+  }
+}

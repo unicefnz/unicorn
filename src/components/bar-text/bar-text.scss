@@ -1,0 +1,13 @@
+@use "../../css/vars";
+
+:host {
+  display: block;
+}
+
+h1 {
+  @include vars.useFontStyle(h1);
+  color: #FFF;
+  background: var(--uni-color-blue);
+  padding: 4px 0;
+  display: inline;
+}

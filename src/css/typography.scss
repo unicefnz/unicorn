@@ -1,0 +1,28 @@
+@use "sass:list";
+@use "vars";
+
+:root {
+  font-size: 18px;
+}
+
+:root, .paragraph {
+  font-family: vars.$primary-font-face;
+}
+
+$headings: h1, h2, h3, h4, h5, h6;
+
+// Dynamically build selectors and output useFontStyle for each
+@each $name, $style in vars.$styles {
+  $selector: ".display-" + $name;
+  @if list.index($headings, $name) {
+    $selector: $selector + ", " + $name;
+  }
+
+  #{$selector} {
+    @include vars.useFontStyle($name);
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: vars.$accent-font-face;
+}

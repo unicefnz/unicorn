@@ -1,0 +1,26 @@
+:host {
+  --background-color: var(--uni-color-yellow);
+  --color: white;
+
+  display: inline-block;
+  min-width: 120px;
+  margin: 0.5rem 1rem;
+}
+
+.button {
+  background: var(--background-color);
+  padding: 0 1rem;
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+  width: 100%;
+  transition: opacity 0.3s;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--color);
+}
+
+.button:hover {
+  opacity: 0.8;
+}
