@@ -7,14 +7,27 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  ButtonStyle,
+} from './components/button/button';
 
 export namespace Components {
   interface UniBarText {}
-  interface UniButton {}
+  interface UniButton {
+    'buttonStyle': ButtonStyle;
+    'color': string | null;
+    'textColor': string | null;
+  }
+  interface UniDialog {
+    'open': boolean;
+  }
+  interface UniDialogContent {}
+  interface UniDialogTitle {}
   interface UniHero {
     'backgroundUrl'?: string;
   }
+  interface UniTagline {}
+  interface UniUnderline {}
 }
 
 declare global {
@@ -32,29 +45,81 @@ declare global {
     new (): HTMLUniButtonElement;
   };
 
+  interface HTMLUniDialogElement extends Components.UniDialog, HTMLStencilElement {}
+  var HTMLUniDialogElement: {
+    prototype: HTMLUniDialogElement;
+    new (): HTMLUniDialogElement;
+  };
+
+  interface HTMLUniDialogContentElement extends Components.UniDialogContent, HTMLStencilElement {}
+  var HTMLUniDialogContentElement: {
+    prototype: HTMLUniDialogContentElement;
+    new (): HTMLUniDialogContentElement;
+  };
+
+  interface HTMLUniDialogTitleElement extends Components.UniDialogTitle, HTMLStencilElement {}
+  var HTMLUniDialogTitleElement: {
+    prototype: HTMLUniDialogTitleElement;
+    new (): HTMLUniDialogTitleElement;
+  };
+
   interface HTMLUniHeroElement extends Components.UniHero, HTMLStencilElement {}
   var HTMLUniHeroElement: {
     prototype: HTMLUniHeroElement;
     new (): HTMLUniHeroElement;
   };
+
+  interface HTMLUniTaglineElement extends Components.UniTagline, HTMLStencilElement {}
+  var HTMLUniTaglineElement: {
+    prototype: HTMLUniTaglineElement;
+    new (): HTMLUniTaglineElement;
+  };
+
+  interface HTMLUniUnderlineElement extends Components.UniUnderline, HTMLStencilElement {}
+  var HTMLUniUnderlineElement: {
+    prototype: HTMLUniUnderlineElement;
+    new (): HTMLUniUnderlineElement;
+  };
   interface HTMLElementTagNameMap {
     'uni-bar-text': HTMLUniBarTextElement;
     'uni-button': HTMLUniButtonElement;
+    'uni-dialog': HTMLUniDialogElement;
+    'uni-dialog-content': HTMLUniDialogContentElement;
+    'uni-dialog-title': HTMLUniDialogTitleElement;
     'uni-hero': HTMLUniHeroElement;
+    'uni-tagline': HTMLUniTaglineElement;
+    'uni-underline': HTMLUniUnderlineElement;
   }
 }
 
 declare namespace LocalJSX {
   interface UniBarText {}
-  interface UniButton {}
+  interface UniButton {
+    'buttonStyle'?: ButtonStyle;
+    'color'?: string | null;
+    'textColor'?: string | null;
+  }
+  interface UniDialog {
+    'onClose'?: (event: CustomEvent<any>) => void;
+    'open'?: boolean;
+  }
+  interface UniDialogContent {}
+  interface UniDialogTitle {}
   interface UniHero {
     'backgroundUrl'?: string;
   }
+  interface UniTagline {}
+  interface UniUnderline {}
 
   interface IntrinsicElements {
     'uni-bar-text': UniBarText;
     'uni-button': UniButton;
+    'uni-dialog': UniDialog;
+    'uni-dialog-content': UniDialogContent;
+    'uni-dialog-title': UniDialogTitle;
     'uni-hero': UniHero;
+    'uni-tagline': UniTagline;
+    'uni-underline': UniUnderline;
   }
 }
 
@@ -66,7 +131,12 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       'uni-bar-text': LocalJSX.UniBarText & JSXBase.HTMLAttributes<HTMLUniBarTextElement>;
       'uni-button': LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
+      'uni-dialog': LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
+      'uni-dialog-content': LocalJSX.UniDialogContent & JSXBase.HTMLAttributes<HTMLUniDialogContentElement>;
+      'uni-dialog-title': LocalJSX.UniDialogTitle & JSXBase.HTMLAttributes<HTMLUniDialogTitleElement>;
       'uni-hero': LocalJSX.UniHero & JSXBase.HTMLAttributes<HTMLUniHeroElement>;
+      'uni-tagline': LocalJSX.UniTagline & JSXBase.HTMLAttributes<HTMLUniTaglineElement>;
+      'uni-underline': LocalJSX.UniUnderline & JSXBase.HTMLAttributes<HTMLUniUnderlineElement>;
     }
   }
 }

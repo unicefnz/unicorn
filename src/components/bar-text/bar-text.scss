@@ -8,6 +8,6 @@ h1 {
   @include vars.useFontStyle(h1);
   color: #FFF;
   background: var(--uni-color-blue);
-  padding: 4px 0;
+  padding: 0.6rem 0;
   display: inline;
 }

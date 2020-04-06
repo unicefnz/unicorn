@@ -1,4 +1,6 @@
-import { Component, Host, h } from '@stencil/core';
+import {Component, Host, h, Prop} from '@stencil/core';
+
+export type ButtonStyle = 'solid' | 'border';
 
 @Component({
   tag: 'uni-button',
@@ -6,13 +8,24 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true
 })
 export class Button {
+  @Prop()
+  readonly color: string | null = null;
+
+  @Prop()
+  readonly textColor: string | null = null;
+
+  @Prop()
+  readonly buttonStyle: ButtonStyle = 'solid';
 
   render() {
+    const color = this.color && `var(--uni-color-` + this.color + ')';
+    const textColor = this.textColor && 'var(--uni-color-' + this.textColor + ')';
     return (
-      <Host>
-        <button class="button"><slot></slot></button>
+      <Host style={{ '--color': color, '--text-color': textColor }} class={"style-" + this.buttonStyle}>
+        <button class="button">
+          <slot />
+        </button>
       </Host>
     );
   }
-
 }

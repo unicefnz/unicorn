@@ -1,18 +1,24 @@
 @use "sass:map";
 
 $uni-colors: (
+  white: (
+    base: #FFFFFF
+  ),
+  black: (
+    base: #000000
+  ),
   grey: (
     light: #E6E6E6,
     base: #808080,
     dark: #303030
   ),
   blue: (
-    light: unknown,
+    light: #00AFF2,
     base: #1CABE2,
-    dark: #374EA2,
+    dark: #374EA2
   ),
   green: (
-    light: unknown,
+    light: #83B94A,
     base: #80BD41,
     dark: #00833D
   ),
@@ -27,7 +33,7 @@ $uni-colors: (
     dark: #BD511A
   ),
   red: (
-    light: unknown,
+    light: #EF626C,
     base: #E2231A,
     dark: #961A49
   )
@@ -36,34 +42,46 @@ $uni-colors: (
 $primary-font-face: "Futura", sans-serif;
 $accent-font-face: "Graphik", sans-serif;
 
+$graphik-bold: 700;
+$graphik-semibold: 600;
+$graphik-medium: 500;
+
 $styles: (
   h1: (
     font-size: 3rem,
     font-family: var(--font-accent),
+    font-weight: $graphik-semibold,
+    line-height: 1.4
   ),
   h2: (
     font-size: 2rem,
+    font-weight: $graphik-semibold,
     font-family: var(--font-accent),
   ),
   h3: (
     font-size: calc(5rem / 3),
+    font-weight: $graphik-medium,
     font-family: var(--font-accent),
   ),
   h4: (
     font-size: 1.5rem,
+    font-weight: $graphik-medium,
     font-family: var(--font-accent),
   ),
   h5: (
-    font-size: 1rem,
+    font-size: calc(4rem / 3),
+    font-weight: $graphik-medium,
     font-family: var(--font-accent),
   ),
   h6: (
     font-size: 1rem,
+    font-weight: $graphik-medium,
     font-family: var(--font-accent),
   ),
   caption: (
     font-size: calc(2rem / 3),
-    font-family: var(--font-accent),
+    font-family: var(--font-primary),
+    font-weight: bold,
     text-transform: uppercase
   )
 );

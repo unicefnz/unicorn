@@ -1,0 +1,9 @@
+@use "../../css/vars";
+
+:host {
+  --underline-color: var(--uni-color-blue);
+  @include vars.useFontStyle(h5);
+  display: inline-block;
+  padding: 4px 0;
+  border-bottom: 2px var(--underline-color) solid;
+}

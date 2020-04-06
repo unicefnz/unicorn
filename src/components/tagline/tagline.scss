@@ -1,0 +1,15 @@
+@use "../../css/vars";
+
+:host {
+  --background-color: var(--uni-color-red);
+  --color: #FFF;
+
+  @include vars.useFontStyle(caption);
+  display: inline-block;
+  margin: 0.5rem 0;
+  min-width: 40px;
+  text-align: center;
+  padding: 0.7em 1em;
+  background: var(--background-color);
+  color: var(--color);
+}
