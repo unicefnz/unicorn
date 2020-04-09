@@ -19,13 +19,23 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
+    "lint": "eslint src --ext .ts,.tsx,.js",
     "generate": "stencil generate",
     "css": "sass src/css:./www/css",
     "css.watch": "sass src/css:./www/css --watch"
   },
   "devDependencies": {
     "@stencil/core": "^1.8.8",
+    "@stencil/eslint-plugin": "^0.3.1",
     "@stencil/sass": "^1.1.1",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "@unicefnz/eslint-config": "^1.2.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
     "sass": "^1.26.3"
   },
   "license": "UNLICENSED"
