@@ -1,4 +1,4 @@
-import {Component, Host, h, Prop} from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'uni-hero',
@@ -6,19 +6,29 @@ import {Component, Host, h, Prop} from '@stencil/core';
   shadow: true
 })
 export class Hero {
-  @Prop()
-  public backgroundUrl?: string;
+  /**
+   * URL of an image to use for the background
+  * */
+  @Prop() public backgroundUrl?: string;
+
+  /**
+   * How to align the text
+   * */
+  @Prop() public align?: 'left' | 'start' | 'center' | 'right' | 'end'; // TODO Make a type for this
 
   render() {
     return (
-      <Host>
-        <div class="hero-wrapper" style={{ backgroundImage: `url("${this.backgroundUrl}")` }}>
-          <div class="hero-content">
-            <slot></slot>
-          </div>
+      <div
+        class="hero-wrapper"
+        style={{
+          backgroundImage: `url("${this.backgroundUrl}")`,
+          align: this.align
+        }}
+      >
+        <div class="hero-content">
+          <slot />
         </div>
-      </Host>
+      </div>
     );
   }
-
 }

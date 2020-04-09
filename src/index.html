@@ -4,14 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
     <title>Stencil Component Starter</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/themes/unicef.css">
     <script type="module" src="/build/uniform-alpha.esm.js"></script>
     <script nomodule src="/build/uniform-alpha.js"></script>
   </head>
   <body>
     <div style="height: 100vh; overflow-y: auto">
-      <uni-dialog id="theDialog">
+      <uni-dialog id="theDialog" backdrop-dismiss="false">
         <uni-dialog-content>
           <uni-dialog-title>Underliney thing</uni-dialog-title>
           <p style="max-width: 500px">The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil
@@ -27,9 +29,14 @@
       </uni-dialog>
       <uni-hero background-url="assets/1.jpg">
         <a href="#"><uni-tagline>Our Supporters</uni-tagline></a>
-        <uni-bar-text>This is a hero with a really long title that keeps going and going and going</uni-bar-text>
+        <h1>
+          <uni-bar-text>This is a hero with a really long title that keeps going and going and going</uni-bar-text>
+        </h1>
         <uni-button id="openButton">Call to action!</uni-button>
       </uni-hero>
+      <uni-text-field placeholder="Placeholder!" label="Label!" errors="Something is borked"></uni-text-field>
+      <uni-text-field placeholder="Other amount" label="Amount" optional prepend-icon="warning"></uni-text-field>
+      <uni-checkbox>Checkbox!</uni-checkbox>
     </div>
     <script>
       const clickListener = () => {
@@ -43,5 +50,7 @@
       closeButton.addEventListener('click', clickListener);
       openButton.addEventListener('click', clickListener);
     </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
   </body>
 </html>

@@ -6,13 +6,11 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true
 })
 export class Tagline {
-
   render() {
     return (
       <Host>
-        <slot></slot>
+        <slot />
       </Host>
     );
   }
-
 }

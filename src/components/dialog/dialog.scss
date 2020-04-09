@@ -10,6 +10,10 @@
   justify-content: center;
 }
 
+:host(:not(.is-open)) {
+  display: none;
+}
+
 .dialog-backdrop {
   position: absolute;
   z-index: -1;
@@ -19,6 +23,22 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
-:host(:not(.is-open)) {
-  display: none;
+.dialog-pane {
+  position: relative;
+  margin: 32px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.dialog-pane.shaking {
+  animation: 0.1s ease-in-out alternate infinite uni-dialog-grow;
+}
+
+@keyframes uni-dialog-grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.02);
+  }
 }

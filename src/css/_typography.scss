@@ -1,0 +1,83 @@
+@use "sass:map";
+@use "sass:list";
+
+$_textElems: h1, h2, h3, h4, h5, h6, p, i, code, b;
+
+$graphik-bold: 700;
+$graphik-semibold: 600;
+$graphik-medium: 500;
+
+$uni-styles: (
+  h1: (
+    font-size: 3rem,
+    font-family: var(--font-header),
+    font-weight: $graphik-semibold,
+    line-height: 1.4
+  ),
+  h2: (
+    font-size: 2rem,
+    font-weight: $graphik-semibold,
+    font-family: var(--font-header),
+  ),
+  h3: (
+    font-size: calc(5rem / 3),
+    font-weight: $graphik-medium,
+    font-family: var(--font-header),
+  ),
+  h4: (
+    font-size: 1.5rem,
+    font-weight: $graphik-medium,
+    font-family: var(--font-header),
+  ),
+  h5: (
+    font-size: calc(4rem / 3),
+    font-weight: $graphik-medium,
+    font-family: var(--font-header),
+  ),
+  h6: (
+    font-size: 1rem,
+    font-weight: $graphik-medium,
+    font-family: var(--font-header),
+  ),
+  overline: (
+    font-size: calc(2rem / 3),
+    font-family: var(--font-body),
+    font-weight: bold,
+    text-transform: uppercase
+  ),
+  body: ( // This is the root style
+    font-size: 18px,
+    font-family: var(--font-body)
+  )
+);
+
+@mixin useStyle($name) {
+  @if map.has_key($uni-styles, $name) != true {
+    @error "Unknown Font Style '#{$name}'"
+  }
+
+  @each $key, $val in map.get($uni-styles, $name) {
+    #{$key}: #{$val};
+  }
+}
+
+@mixin useAll() {
+  @if not map.has_key($uni-styles, body) {
+    @error "You must include a body font style"
+  }
+
+  @each $name, $val in $uni-styles {
+    $selector: ".display-" + $name;
+    @if list.index($_textElems, $name) {
+      $selector: $selector + ", " + $name;
+    }
+
+    @if $name == "body" {
+      $selector: $selector + ", :root";
+    }
+
+    #{$selector} {
+      @include useStyle($name);
+    }
+  }
+}

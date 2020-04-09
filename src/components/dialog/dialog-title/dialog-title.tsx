@@ -6,7 +6,6 @@ import { Component, h } from '@stencil/core';
   shadow: true
 })
 export class DialogTitle {
-
   render() {
     return (
       <h2 class="dialog-title">
@@ -16,5 +15,4 @@ export class DialogTitle {
       </h2>
     );
   }
-
 }

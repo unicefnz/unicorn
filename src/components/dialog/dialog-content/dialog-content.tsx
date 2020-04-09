@@ -6,7 +6,6 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true
 })
 export class DialogContent {
-
   render() {
     return (
       <Host>

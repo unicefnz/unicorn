@@ -1,0 +1,45 @@
+@use "sass:map";
+@use "typography";
+
+@mixin _useFontVars($fonts) {
+  @if map.has_key($fonts, body) {
+    --font-body: #{map.get($fonts, body)};
+  } @else {
+    --font-body: Arial, sans-serif;
+  }
+
+  @if map.has_key($fonts, header) {
+    --font-header: #{map.get($fonts, header)};
+  } @else {
+    --font-header: Arial, sans-serif;
+  }
+}
+
+@mixin _useColorVars($colors) {
+  // The `"" + $name` is because the sass compiler gets angry when we include color names in interpolation
+  @each $name, $tints in $colors {
+    @each $tint-name, $color in $tints {
+      --uni-color-#{"" + $name}-#{$tint-name}: #{$color};
+    }
+    @if map_has_key($tints, "base") {
+      --uni-color-#{"" + $name}: #{map_get($tints, "base")};
+    }
+  }
+}
+
+
+@mixin createTheme($colors, $fonts) { // TODO keyword args?
+  :root {
+    @include _useFontVars($fonts);
+    @include _useColorVars($colors);
+
+    font-size: 18px; // TODO is it worth this being configurable?
+  }
+
+  @include typography.useAll();
+}
+
+
+body {
+  margin: 0;
+}
