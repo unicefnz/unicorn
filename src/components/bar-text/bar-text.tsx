@@ -9,7 +9,7 @@ export class BarText {
   render() {
     return (
       <Host>
-        <span><slot /></span>
+        <slot />
       </Host>
     );
   }

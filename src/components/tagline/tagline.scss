@@ -1,15 +1,12 @@
 @use "../../css/typography";
 
 :host {
-  --background-color: var(--uni-color-red);
-  --color: #FFF;
-
   @include typography.useStyle(overline);
   display: inline-block;
   margin: 0.5rem 0;
   min-width: 40px;
   text-align: center;
   padding: 0.7em 1em;
-  background: var(--background-color);
-  color: var(--color);
+  background: var(--uni-current, var(--uni-accent));
+  color: var(--uni-current-contrast, var(--uni-accent-contrast));
 }

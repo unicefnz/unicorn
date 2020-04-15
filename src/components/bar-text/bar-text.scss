@@ -1,10 +1,8 @@
-:host {
-  display: block;
-}
+@use "../../css/color";
 
-span {
-  color: #FFF;
-  background: var(--uni-color-blue);
-  padding: 0.6rem 0;
+:host {
   display: inline;
+  background: var(--uni-current, var(--uni-primary));
+  color: var(--uni-current-contrast, var(--uni-primary-contrast));
+  padding: 0.6rem 0;
 }

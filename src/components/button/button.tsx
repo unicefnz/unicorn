@@ -14,10 +14,10 @@ export class Button {
    * Defines the main color of the button
    * Eg. blue or blue-dark
    * */
-  @Prop() readonly color: string | null = null;
+  @Prop() readonly color: string | null = 'yellow';
 
   /**
-   * Defines the text color (hover text color on a border button)
+   * Overrides the text color (hover text color on a border button)
    * Eg. grey or grey-dark
    * */
   @Prop() readonly textColor: string | null = null;
@@ -36,10 +36,15 @@ export class Button {
   @Prop() readonly type: string = 'button';
 
   render() {
-    const color = this.color && `var(--uni-color-${this.color})`;
-    const textColor = this.textColor && `var(--uni-color-${this.textColor})`;
+    // const color = getColor(this.color);
+    // const textColor = this.textColor ? getColor(this.textColor) : getTextColor(this.color);
     return (
-      <Host style={{ '--color': color, '--text-color': textColor }} class={'style-' + this.buttonStyle}>
+      <Host class={{
+        ['style-' + this.buttonStyle]: true,
+        [`uni-color-${this.color}`]: true
+      }}
+      >
+        {/*<Host class={'style-' + this.buttonStyle}>*/}
         {/* eslint-disable-next-line react/button-has-type */}
         <button class="button" type={this.type}>
           <slot />

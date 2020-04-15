@@ -1,47 +1,50 @@
 @use "../theme";
 
-$fonts: (
+$typeConfig: (
   body: unquote("Futura, sans-serif"),
-  header: unquote("Graphik, sans-serif")
+  header: unquote("Graphik, sans-serif"),
+
+  light: #FFFFFF, // Light colored text
+  dark: #303030
 );
 
 $colors: (
-  white: (
-    base: #FFFFFF
-  ),
-  black: (
-    base: #000000
-  ),
-  grey: (
-    light: #E6E6E6,
-    base: #808080,
-    dark: #303030
-  ),
-  blue: (
-    light: #00AFF2,
+  primary: (
     base: #1CABE2,
-    dark: #374EA2
+    dark: #374EA2,
+    light: #49BDEB,
+    contrast: light
   ),
-  green: (
-    light: #83B94A,
-    base: #80BD41,
-    dark: #00833D
-  ),
-  yellow: (
-    light: unknown,
+  accent: (
     base: #FFC20E,
-    dark: #CC990C
+    dark: #F0A800,
+    light: #FFD119,
+    contrast: dark
   ),
-  orange: (
-    light: unknown,
-    base: #F26A21,
-    dark: #BD511A
+  success: (
+    base: #80BD41,
+    dark: #6EA82C,
+    light: #81C74C,
+    contrast: dark
   ),
-  red: (
-    light: #EF626C,
+  danger: (
     base: #E2231A,
-    dark: #961A49
+    dark: #CF1B0A,
+    light: #F02E2B,
+    contrast: dark
+  ),
+  dark: (
+    base: #303030,
+    dark: #262424,
+    light: #3D3D3D,
+    contrast: light
+  ),
+  light: (
+    base: #D6D6D6,
+    dark: #B3B3B3,
+    light: #E6E6E6,
+    contrast: dark
   )
 );
 
-@include theme.createTheme($colors, $fonts);
+@include theme.createTheme($colors, $typeConfig);

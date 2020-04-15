@@ -3,9 +3,9 @@
 
 $_textElems: h1, h2, h3, h4, h5, h6, p, i, code, b;
 
-$graphik-bold: 700;
-$graphik-semibold: 600;
 $graphik-medium: 500;
+$graphik-semibold: 600;
+$graphik-bold: 700;
 
 $uni-styles: (
   h1: (
@@ -51,6 +51,7 @@ $uni-styles: (
   )
 );
 
+/* Outputs the rules for a single style */
 @mixin useStyle($name) {
   @if map.has_key($uni-styles, $name) != true {
     @error "Unknown Font Style '#{$name}'"
@@ -61,7 +62,8 @@ $uni-styles: (
   }
 }
 
-@mixin useAll() {
+/* Outputs selectors configuring each style */
+@mixin _outputStyles() {
   @if not map.has_key($uni-styles, body) {
     @error "You must include a body font style"
   }
@@ -80,4 +82,37 @@ $uni-styles: (
       @include useStyle($name);
     }
   }
+}
+
+/* Configures default font families */
+@mixin _useFontFamilyVars($fonts) {
+  @if map.has_key($fonts, body) {
+    --font-body: #{map.get($fonts, body)};
+  } @else {
+    --font-body: Arial, sans-serif;
+  }
+
+  @if map.has_key($fonts, header) {
+    --font-header: #{map.get($fonts, header)};
+  } @else {
+    --font-header: Arial, sans-serif;
+  }
+}
+
+/* Outputs type configuration, should only be used in theming */
+@mixin useType($typeConfig) {
+  :root {
+    @include _useFontFamilyVars($typeConfig);
+
+    --uni-text-light: #{map.get($typeConfig, light)};
+    --uni-text-dark: #{map.get($typeConfig, dark)};
+
+    @if map.has_key($typeConfig, font-size) {
+      font-size: map.get($typeConfig, font-size);
+    } @else {
+      font-size: 18px;
+    }
+  }
+
+  @include _outputStyles();
 }

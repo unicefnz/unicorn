@@ -26,7 +26,7 @@
 .uni-checkbox .uni-checkbox-visual {
   width: 16px;
   height: 16px;
-  border: 2px solid var(--uni-color-grey-dark);
+  border: 2px solid var(--uni-accent-contrast);
   border-radius: 4px;
 }
 
@@ -35,11 +35,11 @@
   display: none;
   align-items: center;
   overflow: hidden;
-  color: var(--uni-color-grey-dark);
+  color: var(--uni-accent-contrast);
 }
 
 .uni-checkbox input:checked ~ .uni-checkbox-visual {
-  background: var(--uni-color-yellow);
+  background: var(--uni-accent);
 }
 
 .uni-checkbox input:checked ~ .uni-checkbox-check {

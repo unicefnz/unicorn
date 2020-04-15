@@ -12,7 +12,7 @@
 }
 
 .optional-label {
-  color: var(--uni-color-grey);
+  color: var(--uni-light-dark);
 }
 
 .input-field {
@@ -20,7 +20,7 @@
   overflow: hidden;
   display: inline-flex;
   align-items: stretch;
-  border: 1px solid var(--uni-color-grey-dark);
+  border: 1px solid var(--uni-dark);
   border-radius: 4px;
 }
 
@@ -33,7 +33,7 @@
   align-items: center;
   user-select: none;
   padding: 0 10px;
-  background: var(--uni-color-grey-light);
+  background: var(--uni-light);
 }
 
 .input-elem {
@@ -45,7 +45,7 @@
 
 .input-errors {
   margin-top: 0.3rem;
-  color: var(--uni-color-red);
+  color: var(--uni-danger);
 
   ion-icon {
     vertical-align: top;

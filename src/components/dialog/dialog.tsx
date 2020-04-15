@@ -1,7 +1,6 @@
 import {
   Component, Host, h, Prop, Event, EventEmitter, Element, State
 } from '@stencil/core';
-import c from '../../utils/class';
 
 /*
 * When open is set to true, do present action
@@ -9,7 +8,6 @@ import c from '../../utils/class';
 * */
 /*
 * TODO Add esc key handler to support dismissing via keyboard
-*  Click to shake
 * */
 
 @Component({
@@ -46,7 +44,7 @@ export class Dialog {
     if (this.shakeTimer) clearTimeout(this.shakeTimer);
     this.shakeTimer = setTimeout(() => {
       this.shakeTimer = null;
-    }, 200);
+    }, 200) as unknown as number; // TODO Fix typing so setTimeout uses correct browser types
   }
 
   private backdropClick() {
@@ -56,11 +54,20 @@ export class Dialog {
 
   render() {
     return (
-      <Host class={c(this.open && 'is-open')}>
+      <Host
+        class={{
+          'is-open': this.open
+        }}
+      >
         {/* The backdrop is a graphical only way of dismissing the dialog, there should be a cancel button somewhere? */}
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
         <div class="dialog-backdrop" onClick={() => this.backdropClick()} />
-        <div class={c('dialog-pane', this.shakeTimer && 'shaking')}>
+        <div
+          class={{
+            'dialog-pane': true,
+            shaking: !!this.shakeTimer
+          }}
+        >
           <slot />
         </div>
       </Host>

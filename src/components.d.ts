@@ -23,7 +23,7 @@ export namespace Components {
     */
     'color': string | null;
     /**
-    * Defines the text color (hover text color on a border button) Eg. grey or grey-dark
+    * Overrides the text color (hover text color on a border button) Eg. grey or grey-dark
     */
     'textColor': string | null;
     /**
@@ -53,12 +53,6 @@ export namespace Components {
     * URL of an image to use for the background
     */
     'backgroundUrl'?: string;
-  }
-  interface UniIcon {
-    /**
-    * Icon name
-    */
-    'name': string;
   }
   interface UniTagline {}
   interface UniTextField {
@@ -135,12 +129,6 @@ declare global {
     new (): HTMLUniHeroElement;
   };
 
-  interface HTMLUniIconElement extends Components.UniIcon, HTMLStencilElement {}
-  var HTMLUniIconElement: {
-    prototype: HTMLUniIconElement;
-    new (): HTMLUniIconElement;
-  };
-
   interface HTMLUniTaglineElement extends Components.UniTagline, HTMLStencilElement {}
   var HTMLUniTaglineElement: {
     prototype: HTMLUniTaglineElement;
@@ -166,7 +154,6 @@ declare global {
     'uni-dialog-content': HTMLUniDialogContentElement;
     'uni-dialog-title': HTMLUniDialogTitleElement;
     'uni-hero': HTMLUniHeroElement;
-    'uni-icon': HTMLUniIconElement;
     'uni-tagline': HTMLUniTaglineElement;
     'uni-text-field': HTMLUniTextFieldElement;
     'uni-underline': HTMLUniUnderlineElement;
@@ -185,7 +172,7 @@ declare namespace LocalJSX {
     */
     'color'?: string | null;
     /**
-    * Defines the text color (hover text color on a border button) Eg. grey or grey-dark
+    * Overrides the text color (hover text color on a border button) Eg. grey or grey-dark
     */
     'textColor'?: string | null;
     /**
@@ -219,12 +206,6 @@ declare namespace LocalJSX {
     * URL of an image to use for the background
     */
     'backgroundUrl'?: string;
-  }
-  interface UniIcon {
-    /**
-    * Icon name
-    */
-    'name'?: string;
   }
   interface UniTagline {}
   interface UniTextField {
@@ -263,7 +244,6 @@ declare namespace LocalJSX {
     'uni-dialog-content': UniDialogContent;
     'uni-dialog-title': UniDialogTitle;
     'uni-hero': UniHero;
-    'uni-icon': UniIcon;
     'uni-tagline': UniTagline;
     'uni-text-field': UniTextField;
     'uni-underline': UniUnderline;
@@ -283,7 +263,6 @@ declare module "@stencil/core" {
       'uni-dialog-content': LocalJSX.UniDialogContent & JSXBase.HTMLAttributes<HTMLUniDialogContentElement>;
       'uni-dialog-title': LocalJSX.UniDialogTitle & JSXBase.HTMLAttributes<HTMLUniDialogTitleElement>;
       'uni-hero': LocalJSX.UniHero & JSXBase.HTMLAttributes<HTMLUniHeroElement>;
-      'uni-icon': LocalJSX.UniIcon & JSXBase.HTMLAttributes<HTMLUniIconElement>;
       'uni-tagline': LocalJSX.UniTagline & JSXBase.HTMLAttributes<HTMLUniTaglineElement>;
       'uni-text-field': LocalJSX.UniTextField & JSXBase.HTMLAttributes<HTMLUniTextFieldElement>;
       'uni-underline': LocalJSX.UniUnderline & JSXBase.HTMLAttributes<HTMLUniUnderlineElement>;

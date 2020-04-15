@@ -1,9 +1,9 @@
 @use "../../css/typography";
+@use "../../css/color";
 
 :host {
-  --underline-color: var(--uni-color-blue);
   @include typography.useStyle(h5);
   display: inline-block;
   padding: 4px 0;
-  border-bottom: 2px var(--underline-color) solid;
+  border-bottom: 2px var(--uni-current, var(--uni-primary)) solid;
 }

@@ -1,0 +1,53 @@
+@use "sass:map";
+
+@function useVar($name, $shade: base) {
+  @warn this is probably a bad idea;
+
+  @if $shade == base {
+    @return var(--uni-current, var(--uni-#{$name}));
+  } @else {
+    @return var(--uni-current-#{$shade}, var(--uni-#{$name}-#{$shade}));
+  }
+}
+
+@mixin _outputColorVars($name, $color-def) {
+  // Output base
+  @if map_has_key($color-def, base) {
+    --uni-#{$name}: #{map_get($color-def, base)};
+  } @else {
+    @error No base shade for color $name;
+  }
+
+  // Output contrast color
+  @if map.get($color-def, contrast) == light {
+    --uni-#{$name}-contrast: var(--uni-text-light);
+  } @else {
+    --uni-#{$name}-contrast: var(--uni-text-dark);
+  }
+
+  // Output tints
+  --uni-#{$name}-dark: #{map.get($color-def, dark)};
+  --uni-#{$name}-light: #{map.get($color-def, light)};
+}
+
+@mixin _outputClass($name, $color-def) {
+  .uni-color-#{$name} {
+    --uni-current: #{map.get($color-def, base)};
+    --uni-current-light: #{map.get($color-def, light)};
+    --uni-current-dark: #{map.get($color-def, dark)};
+    --uni-current-contrast: var(--uni-text-#{map.get($color-def, contrast)});
+  }
+}
+
+
+@mixin useColors($colors) {
+  :root {
+    @each $name, $def in $colors { // Sets up CSS variables defining every color
+      @include _outputColorVars($name, $def);
+    }
+  }
+
+  @each $name, $def in $colors {
+    @include _outputClass($name, $def);
+  }
+}
