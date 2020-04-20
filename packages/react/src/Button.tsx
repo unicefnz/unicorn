@@ -1,5 +1,3 @@
-import React from 'react';
+import { createComponent } from './createComponent';
 
-export default ({ children }: React.PropsWithChildren<void>) => (
-  <button type="button">{children}</button>
-);
+export default createComponent('uni-button');

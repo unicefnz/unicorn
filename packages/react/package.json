@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "React Components for the Uniform Design System",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "npm run clean && npm run compile",
     "clean": "rm -rf dist-transpiled && rm -rf dist",
