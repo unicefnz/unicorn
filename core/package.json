@@ -15,16 +15,16 @@
     "loader/"
   ],
   "scripts": {
-    "build": "../node_modules/.bin/stencil build --docs",
-    "start": "../node_modules/.bin/stencil build --dev --watch --serve",
-    "test": "../node_modules/.bin/stencil test --spec --e2e",
-    "test.watch": "../node_modules/.bin/stencil test --spec --e2e --watchAll",
-    "lint": "../node_modules/.bin/eslint src --ext .ts,.tsx,.js",
-    "generate": "../node_modules/.bin/stencil generate",
-    "css": "../node_modules/.bin/sass src/css:./www/css",
-    "css.watch": "../node_modules/.bin/sass src/css:./www/css --watch",
-    "storybook": "../node_modules/.bin/start-storybook -p 6006",
-    "build-storybook": "../node_modules/.bin/build-storybook"
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "lint": "eslint src --ext .ts,.tsx,.js",
+    "generate": "stencil generate",
+    "css": "sass src/css:./css",
+    "css.watch": "sass src/css:./www/css --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

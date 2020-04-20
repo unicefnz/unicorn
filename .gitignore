@@ -1,6 +1,8 @@
 dist/
 dist-transpiled/
 core/www/
+core/css/
+core/loader/
 .stencil/
 
 *~

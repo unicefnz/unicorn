@@ -14,14 +14,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",
-    "jsxFactory": "h",
-    "types": ["./src/types"]
+    "jsxFactory": "h"
   },
   "include": [
     "src",
     "types/jsx.d.ts"
-  ],
-  "exclude": [
-    "../node_modules"
   ]
 }

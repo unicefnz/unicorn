@@ -1,5 +1,5 @@
 import {
-  Component, Host, h, Prop, EventEmitter
+  Component, Host, h, Prop
 } from '@stencil/core';
 
 export type ButtonStyle = 'solid' | 'border';
