@@ -5,5 +5,5 @@
   @include typography.useStyle(h5);
   display: inline-block;
   padding: 4px 0;
-  border-bottom: 2px var(--uni-current, var(--uni-primary)) solid;
+  border-bottom: 2px color.useVar(primary) solid;
 }

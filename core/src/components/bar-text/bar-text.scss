@@ -1,0 +1,8 @@
+@use "../../css/color";
+
+:host {
+  display: inline;
+  background: color.useVar(primary);
+  color: color.useVar(primary, contrast);
+  padding: 0.6rem 0;
+}

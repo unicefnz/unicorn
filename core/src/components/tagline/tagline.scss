@@ -1,4 +1,5 @@
 @use "../../css/typography";
+@use "../../css/color";
 
 :host {
   @include typography.useStyle(overline);
@@ -7,6 +8,6 @@
   min-width: 40px;
   text-align: center;
   padding: 0.7em 1em;
-  background: var(--uni-current, var(--uni-accent));
-  color: var(--uni-current-contrast, var(--uni-accent-contrast));
+  background: color.useVar(accent);
+  color: color.useVar(accent, contrast);
 }

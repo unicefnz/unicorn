@@ -2,7 +2,8 @@ import { Config } from '@stencil/core';
 import {sass} from "@stencil/sass";
 
 export const config: Config = {
-  namespace: 'uniform-alpha',
+  namespace: 'uniform-components',
+  globalStyle: 'src/css/themes/unicef.scss',
   outputTargets: [
     {
       type: 'dist',

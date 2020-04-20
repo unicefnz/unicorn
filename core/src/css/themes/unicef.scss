@@ -11,38 +11,44 @@ $typeConfig: (
 $colors: (
   primary: (
     base: #1CABE2,
-    dark: #374EA2,
-    light: #49BDEB,
+    shade: #374EA2,
+    tint: #49BDEB,
     contrast: light
   ),
   accent: (
     base: #FFC20E,
-    dark: #F0A800,
-    light: #FFD119,
+    shade: #F0A800,
+    tint: #FFD119,
     contrast: dark
   ),
   success: (
     base: #80BD41,
-    dark: #6EA82C,
-    light: #81C74C,
+    shade: #6EA82C,
+    tint: #81C74C,
     contrast: dark
   ),
   danger: (
     base: #E2231A,
-    dark: #CF1B0A,
-    light: #F02E2B,
-    contrast: dark
+    shade: #CF1B0A,
+    tint: #F02E2B,
+    contrast: light
   ),
   dark: (
     base: #303030,
-    dark: #262424,
-    light: #3D3D3D,
+    shade: #262424,
+    tint: #3D3D3D,
+    contrast: light
+  ),
+  medium: (
+    base: #6A6A6A,
+    shade: #535353,
+    tint: #767676,
     contrast: light
   ),
   light: (
     base: #D6D6D6,
-    dark: #B3B3B3,
-    light: #E6E6E6,
+    shade: #B3B3B3,
+    tint: #E6E6E6,
     contrast: dark
   )
 );

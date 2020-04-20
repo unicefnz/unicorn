@@ -1,5 +1,5 @@
 import {
-  Component, Host, h, Prop
+  Component, Host, h, Prop, EventEmitter
 } from '@stencil/core';
 
 export type ButtonStyle = 'solid' | 'border';
@@ -12,9 +12,9 @@ export type ButtonStyle = 'solid' | 'border';
 export class Button {
   /**
    * Defines the main color of the button
-   * Eg. blue or blue-dark
+   * Eg. accent, primary
    * */
-  @Prop() readonly color: string | null = 'yellow';
+  @Prop() readonly color: string | null = 'accent';
 
   /**
    * Overrides the text color (hover text color on a border button)
@@ -36,15 +36,12 @@ export class Button {
   @Prop() readonly type: string = 'button';
 
   render() {
-    // const color = getColor(this.color);
-    // const textColor = this.textColor ? getColor(this.textColor) : getTextColor(this.color);
     return (
       <Host class={{
         ['style-' + this.buttonStyle]: true,
         [`uni-color-${this.color}`]: true
       }}
       >
-        {/*<Host class={'style-' + this.buttonStyle}>*/}
         {/* eslint-disable-next-line react/button-has-type */}
         <button class="button" type={this.type}>
           <slot />

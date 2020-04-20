@@ -19,7 +19,7 @@ export namespace Components {
     */
     'buttonStyle': ButtonStyle;
     /**
-    * Defines the main color of the button Eg. blue or blue-dark
+    * Defines the main color of the button Eg. accent, primary
     */
     'color': string | null;
     /**
@@ -168,7 +168,7 @@ declare namespace LocalJSX {
     */
     'buttonStyle'?: ButtonStyle;
     /**
-    * Defines the main color of the button Eg. blue or blue-dark
+    * Defines the main color of the button Eg. accent, primary
     */
     'color'?: string | null;
     /**

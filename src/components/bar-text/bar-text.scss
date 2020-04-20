@@ -1,8 +1,0 @@
-@use "../../css/color";
-
-:host {
-  display: inline;
-  background: var(--uni-current, var(--uni-primary));
-  color: var(--uni-current-contrast, var(--uni-primary-contrast));
-  padding: 0.6rem 0;
-}

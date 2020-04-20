@@ -1,12 +1,10 @@
-@use "sass:map";
+@use "color";
 
 @function useVar($name, $shade: base) {
-  @warn this is probably a bad idea;
-
   @if $shade == base {
-    @return var(--uni-current, var(--uni-#{$name}));
+    @return var(--uni-color, var(--uni-#{$name}));
   } @else {
-    @return var(--uni-current-#{$shade}, var(--uni-#{$name}-#{$shade}));
+    @return var(--uni-color-#{$shade}, var(--uni-#{$name}-#{$shade}));
   }
 }
 
@@ -26,16 +24,16 @@
   }
 
   // Output tints
-  --uni-#{$name}-dark: #{map.get($color-def, dark)};
-  --uni-#{$name}-light: #{map.get($color-def, light)};
+  --uni-#{$name}-shade: #{map.get($color-def, shade)};
+  --uni-#{$name}-tint: #{map.get($color-def, tint)};
 }
 
 @mixin _outputClass($name, $color-def) {
   .uni-color-#{$name} {
-    --uni-current: #{map.get($color-def, base)};
-    --uni-current-light: #{map.get($color-def, light)};
-    --uni-current-dark: #{map.get($color-def, dark)};
-    --uni-current-contrast: var(--uni-text-#{map.get($color-def, contrast)});
+    --uni-color: #{map.get($color-def, base)};
+    --uni-color-shade: #{map.get($color-def, shade)};
+    --uni-color-tint: #{map.get($color-def, tint)};
+    --uni-color-contrast: var(--uni-text-#{map.get($color-def, contrast)});
   }
 }
 

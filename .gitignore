@@ -1,6 +1,7 @@
 dist/
-www/
-loader/
+dist-transpiled/
+core/www/
+.stencil/
 
 *~
 *.sw[mnpcod]
