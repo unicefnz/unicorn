@@ -22,10 +22,10 @@ export class Hero {
         class="hero-wrapper"
         style={{
           backgroundImage: `url("${this.backgroundUrl}")`,
-          align: this.align
+          justifyContent: this.align
         }}
       >
-        <div class="hero-content">
+        <div class="hero-content" style={{ textAlign: this.align }}>
           <slot />
         </div>
       </div>

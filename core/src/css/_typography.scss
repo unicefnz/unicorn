@@ -51,7 +51,7 @@ $uni-styles: (
   )
 );
 
-/* Outputs the rules for a single style */
+// Outputs the rules for a single style
 @mixin useStyle($name) {
   @if map.has_key($uni-styles, $name) != true {
     @error "Unknown Font Style '#{$name}'"
@@ -62,7 +62,7 @@ $uni-styles: (
   }
 }
 
-/* Outputs selectors configuring each style */
+// Outputs selectors configuring each style
 @mixin _outputStyles() {
   @if not map.has_key($uni-styles, body) {
     @error "You must include a body font style"
@@ -84,7 +84,7 @@ $uni-styles: (
   }
 }
 
-/* Configures default font families */
+// Configures default font families
 @mixin _useFontFamilyVars($fonts) {
   @if map.has_key($fonts, body) {
     --font-body: #{map.get($fonts, body)};
@@ -99,7 +99,7 @@ $uni-styles: (
   }
 }
 
-/* Outputs type configuration, should only be used in theming */
+// Outputs type configuration, should only be used in theming
 @mixin useType($typeConfig) {
   :root {
     @include _useFontFamilyVars($typeConfig);
