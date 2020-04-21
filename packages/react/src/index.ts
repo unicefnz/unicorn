@@ -1,8 +1,15 @@
 import { defineCustomElements } from '@uniform/core/loader';
-import Button from './Button';
+
+import UniButton from './components/UniButton';
+import UniBarText from './components/UniBarText';
+import UniHero from './components/UniHero';
+import UniTagline from './components/UniTagline';
 
 export {
-  Button
+  UniBarText,
+  UniButton,
+  UniHero,
+  UniTagline
 };
 
 defineCustomElements(window).then(() => console.log(

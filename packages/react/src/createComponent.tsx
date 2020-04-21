@@ -1,7 +1,11 @@
 import React from 'react';
 
-export type ReactProps<PropType, ElementType> = React.HTMLAttributes<ElementType>;
+export type ReactProps<PropType, ElementType> = PropType & React.HTMLAttributes<ElementType>;
 
+/**
+ * This function wraps a Web Component with a React friendly layer, fixing compatibility issues
+ * between the standards
+ * */
 export function createComponent<PropType, ElementType>(tagName: string): React.FC<ReactProps<PropType, ElementType>> {
   return ({ children, className, ...props }: ReactProps<PropType, ElementType>) => {
     const newProps = { ...props };
