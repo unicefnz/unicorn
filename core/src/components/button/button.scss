@@ -9,6 +9,7 @@ $contrast: color.useVar(accent, contrast);
 }
 
 .button {
+  background: none;
   padding: 0 1rem;
   border: none;
   border-radius: 20px;

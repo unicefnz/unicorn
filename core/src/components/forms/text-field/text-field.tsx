@@ -42,6 +42,11 @@ export class TextField {
 
   private uniqueId = 'uni-input-' + nextUniqueId++;
 
+  private get errorList(): string[] {
+    const errors = Array.isArray(this.errors) ? this.errors : [this.errors];
+    return errors.filter(e => e);
+  }
+
   render() {
     const optional = this.optional && (<span class="optional-label">(optional)</span>);
     const prependIcon = this.prependIcon && (<ion-icon name={this.prependIcon} />);
@@ -51,7 +56,7 @@ export class TextField {
     const errors = this.renderErrors();
 
     return (
-      <Host>
+      <Host class={{ 'input--has-errors': !!this.errorList.length }}>
         {this.label && <label htmlFor={this.uniqueId} class="caption">{this.label} {optional}</label>}
         <div class="input-field">
           {prepend}
@@ -63,9 +68,7 @@ export class TextField {
   }
 
   private renderErrors() {
-    let errors = Array.isArray(this.errors) ? this.errors : [this.errors];
-    errors = errors.filter(e => e); // Remove nulls
-
+    const errors = this.errorList;
     if (!errors.length) return null;
 
     return (

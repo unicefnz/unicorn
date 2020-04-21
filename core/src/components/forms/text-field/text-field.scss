@@ -1,3 +1,4 @@
+@use "../../../css/color";
 @use "../../../css/typography";
 
 :host {
@@ -15,6 +16,7 @@
   color: var(--uni-medium);
 }
 
+
 .input-field {
   position: relative;
   overflow: hidden;
@@ -22,6 +24,9 @@
   align-items: stretch;
   border: 1px solid var(--uni-dark);
   border-radius: 4px;
+}
+:host(.input--has-errors) .input-field {
+  border-color: color.useVar(danger);
 }
 
 .input-field:focus-within {
@@ -31,9 +36,11 @@
 .input-prepend {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   user-select: none;
   padding: 0 10px;
   background: var(--uni-light);
+  min-width: 20px;
 }
 
 .input-elem {
