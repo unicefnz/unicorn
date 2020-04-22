@@ -16,17 +16,16 @@
   color: var(--uni-medium);
 }
 
-
 .input-field {
   position: relative;
   overflow: hidden;
   display: inline-flex;
   align-items: stretch;
-  border: 1px solid var(--uni-dark);
+  border: 1px solid color.useVar(dark);
   border-radius: 4px;
 }
 :host(.input--has-errors) .input-field {
-  border-color: color.useVar(danger);
+  border-color: var(--uni-danger);
 }
 
 .input-field:focus-within {

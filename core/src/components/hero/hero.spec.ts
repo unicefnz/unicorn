@@ -1,6 +1,6 @@
 import { Hero } from './hero';
 
-describe('uniform-hero', () => {
+describe('uni-hero', () => {
   it('builds', () => {
     expect(new Hero()).toBeTruthy();
   });

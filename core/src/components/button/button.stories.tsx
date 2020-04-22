@@ -13,17 +13,9 @@ export const Default = () => `
 `;
 
 export const Interactivity = () => {
-  const onClick = action('onClick');
-
   const button = document.createElement('uni-button');
   button.innerHTML = text('Text', 'Button Text!');
-  button.onclick = onClick;
+  button.onclick = action('onclick');
 
   return button;
 };
-
-// export const Default = () => (
-//   <uni-button onclick={onClick}>
-//     {text('Text!', 'Hello')}
-//   </uni-button>
-// );

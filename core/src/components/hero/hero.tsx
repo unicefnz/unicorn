@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'uni-hero',
@@ -18,17 +18,16 @@ export class Hero {
 
   render() {
     return (
-      <div
-        class="hero-wrapper"
+      <Host
         style={{
-          backgroundImage: `url("${this.backgroundUrl}")`,
+          backgroundImage: this.backgroundUrl && `url("${this.backgroundUrl}")`,
           justifyContent: this.align
         }}
       >
         <div class="hero-content" style={{ textAlign: this.align }}>
           <slot />
         </div>
-      </div>
+      </Host>
     );
   }
 }

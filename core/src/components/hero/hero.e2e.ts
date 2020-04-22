@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('uniform-hero', () => {
+describe('uni-hero', () => {
   it('renders', async () => {
     const page = await newE2EPage();
-    await page.setContent('<uniform-hero></uniform-hero>');
+    await page.setContent('<uni-hero></uni-hero>');
 
-    const element = await page.find('uniform-hero');
+    const element = await page.find('uni-hero');
     expect(element).toHaveClass('hydrated');
   });
 });

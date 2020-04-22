@@ -5,8 +5,9 @@ export default {
 };
 
 export const Default = () => `
-<p class="caption">No Props</p>
 <uni-text-field></uni-text-field>
+<uni-text-field placeholder="Placeholder" label="Label"></uni-text-field>
+<uni-text-field optional label="Label here"></uni-text-field>
 `;
 
 export const PrependIcon = () => `
