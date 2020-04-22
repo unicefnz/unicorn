@@ -17,16 +17,16 @@ export class Button {
   @Prop() readonly color: string | null = 'accent';
 
   /**
-   * Overrides the text color (hover text color on a border button)
-   * Eg. grey or grey-dark
-   * */
-  @Prop() readonly textColor: string | null = null;
-
-  /**
    * Sets the style of the button
    * One of 'solid' or 'border'
    * */
   @Prop() readonly buttonStyle: ButtonStyle = 'solid';
+
+  /**
+   * Name of a icon to prepend inside the button
+   * Eg. logo-google
+   * */
+  @Prop() readonly prependIcon?: string;
 
   /**
    * Type of the underlying button
@@ -44,7 +44,8 @@ export class Button {
       >
         {/* eslint-disable-next-line react/button-has-type */}
         <button class="button" type={this.type}>
-          <slot />
+          {this.prependIcon && <ion-icon name={this.prependIcon} class="prepend-icon" />}
+          <div><slot /></div>
         </button>
       </Host>
     );

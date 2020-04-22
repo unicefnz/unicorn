@@ -10,6 +10,9 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
   ButtonStyle,
 } from './components/button/button';
+import {
+  ComboOption,
+} from './components/forms/combo-group/combo-group';
 
 export namespace Components {
   interface UniBarText {}
@@ -23,15 +26,26 @@ export namespace Components {
     */
     'color': string | null;
     /**
-    * Overrides the text color (hover text color on a border button) Eg. grey or grey-dark
+    * Name of a icon to prepend inside the button Eg. logo-google
     */
-    'textColor': string | null;
+    'prependIcon'?: string;
     /**
     * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
     */
     'type': string;
   }
   interface UniCheckbox {}
+  interface UniComboGroup {
+    /**
+    * Available options in the combo group
+    */
+    'options': ComboOption[];
+    /**
+    * ID of the selected option
+    */
+    'value': string;
+  }
+  interface UniComboItem {}
   interface UniDialog {
     /**
     * Controls whether clicking on the backdrop will dismiss the dialog
@@ -105,6 +119,18 @@ declare global {
     new (): HTMLUniCheckboxElement;
   };
 
+  interface HTMLUniComboGroupElement extends Components.UniComboGroup, HTMLStencilElement {}
+  var HTMLUniComboGroupElement: {
+    prototype: HTMLUniComboGroupElement;
+    new (): HTMLUniComboGroupElement;
+  };
+
+  interface HTMLUniComboItemElement extends Components.UniComboItem, HTMLStencilElement {}
+  var HTMLUniComboItemElement: {
+    prototype: HTMLUniComboItemElement;
+    new (): HTMLUniComboItemElement;
+  };
+
   interface HTMLUniDialogElement extends Components.UniDialog, HTMLStencilElement {}
   var HTMLUniDialogElement: {
     prototype: HTMLUniDialogElement;
@@ -150,6 +176,8 @@ declare global {
     'uni-bar-text': HTMLUniBarTextElement;
     'uni-button': HTMLUniButtonElement;
     'uni-checkbox': HTMLUniCheckboxElement;
+    'uni-combo-group': HTMLUniComboGroupElement;
+    'uni-combo-item': HTMLUniComboItemElement;
     'uni-dialog': HTMLUniDialogElement;
     'uni-dialog-content': HTMLUniDialogContentElement;
     'uni-dialog-title': HTMLUniDialogTitleElement;
@@ -172,15 +200,35 @@ declare namespace LocalJSX {
     */
     'color'?: string | null;
     /**
-    * Overrides the text color (hover text color on a border button) Eg. grey or grey-dark
+    * Name of a icon to prepend inside the button Eg. logo-google
     */
-    'textColor'?: string | null;
+    'prependIcon'?: string;
     /**
     * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
     */
     'type'?: string;
   }
   interface UniCheckbox {}
+  interface UniComboGroup {
+    /**
+    * Emitted when the selected option changes
+    */
+    'onChange'?: (event: CustomEvent<any>) => void;
+    /**
+    * Available options in the combo group
+    */
+    'options'?: ComboOption[];
+    /**
+    * ID of the selected option
+    */
+    'value'?: string;
+  }
+  interface UniComboItem {
+    /**
+    * Emitted on click
+    */
+    'onClick'?: (event: CustomEvent<any>) => void;
+  }
   interface UniDialog {
     /**
     * Controls whether clicking on the backdrop will dismiss the dialog
@@ -240,6 +288,8 @@ declare namespace LocalJSX {
     'uni-bar-text': UniBarText;
     'uni-button': UniButton;
     'uni-checkbox': UniCheckbox;
+    'uni-combo-group': UniComboGroup;
+    'uni-combo-item': UniComboItem;
     'uni-dialog': UniDialog;
     'uni-dialog-content': UniDialogContent;
     'uni-dialog-title': UniDialogTitle;
@@ -259,6 +309,8 @@ declare module "@stencil/core" {
       'uni-bar-text': LocalJSX.UniBarText & JSXBase.HTMLAttributes<HTMLUniBarTextElement>;
       'uni-button': LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
       'uni-checkbox': LocalJSX.UniCheckbox & JSXBase.HTMLAttributes<HTMLUniCheckboxElement>;
+      'uni-combo-group': LocalJSX.UniComboGroup & JSXBase.HTMLAttributes<HTMLUniComboGroupElement>;
+      'uni-combo-item': LocalJSX.UniComboItem & JSXBase.HTMLAttributes<HTMLUniComboItemElement>;
       'uni-dialog': LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
       'uni-dialog-content': LocalJSX.UniDialogContent & JSXBase.HTMLAttributes<HTMLUniDialogContentElement>;
       'uni-dialog-title': LocalJSX.UniDialogTitle & JSXBase.HTMLAttributes<HTMLUniDialogTitleElement>;
