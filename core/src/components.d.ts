@@ -45,7 +45,6 @@ export namespace Components {
     */
     'value': string;
   }
-  interface UniComboItem {}
   interface UniDialog {
     /**
     * Controls whether clicking on the backdrop will dismiss the dialog
@@ -125,12 +124,6 @@ declare global {
     new (): HTMLUniComboGroupElement;
   };
 
-  interface HTMLUniComboItemElement extends Components.UniComboItem, HTMLStencilElement {}
-  var HTMLUniComboItemElement: {
-    prototype: HTMLUniComboItemElement;
-    new (): HTMLUniComboItemElement;
-  };
-
   interface HTMLUniDialogElement extends Components.UniDialog, HTMLStencilElement {}
   var HTMLUniDialogElement: {
     prototype: HTMLUniDialogElement;
@@ -177,7 +170,6 @@ declare global {
     'uni-button': HTMLUniButtonElement;
     'uni-checkbox': HTMLUniCheckboxElement;
     'uni-combo-group': HTMLUniComboGroupElement;
-    'uni-combo-item': HTMLUniComboItemElement;
     'uni-dialog': HTMLUniDialogElement;
     'uni-dialog-content': HTMLUniDialogContentElement;
     'uni-dialog-title': HTMLUniDialogTitleElement;
@@ -213,7 +205,7 @@ declare namespace LocalJSX {
     /**
     * Emitted when the selected option changes
     */
-    'onChange'?: (event: CustomEvent<any>) => void;
+    'onUniChange'?: (event: CustomEvent<any>) => void;
     /**
     * Available options in the combo group
     */
@@ -222,12 +214,6 @@ declare namespace LocalJSX {
     * ID of the selected option
     */
     'value'?: string;
-  }
-  interface UniComboItem {
-    /**
-    * Emitted on click
-    */
-    'onClick'?: (event: CustomEvent<any>) => void;
   }
   interface UniDialog {
     /**
@@ -289,7 +275,6 @@ declare namespace LocalJSX {
     'uni-button': UniButton;
     'uni-checkbox': UniCheckbox;
     'uni-combo-group': UniComboGroup;
-    'uni-combo-item': UniComboItem;
     'uni-dialog': UniDialog;
     'uni-dialog-content': UniDialogContent;
     'uni-dialog-title': UniDialogTitle;
@@ -310,7 +295,6 @@ declare module "@stencil/core" {
       'uni-button': LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
       'uni-checkbox': LocalJSX.UniCheckbox & JSXBase.HTMLAttributes<HTMLUniCheckboxElement>;
       'uni-combo-group': LocalJSX.UniComboGroup & JSXBase.HTMLAttributes<HTMLUniComboGroupElement>;
-      'uni-combo-item': LocalJSX.UniComboItem & JSXBase.HTMLAttributes<HTMLUniComboItemElement>;
       'uni-dialog': LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
       'uni-dialog-content': LocalJSX.UniDialogContent & JSXBase.HTMLAttributes<HTMLUniDialogContentElement>;
       'uni-dialog-title': LocalJSX.UniDialogTitle & JSXBase.HTMLAttributes<HTMLUniDialogTitleElement>;

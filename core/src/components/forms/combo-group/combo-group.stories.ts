@@ -21,7 +21,7 @@ export const Default = () => {
   group.options = OPTIONS;
   group.value = 'monthly';
 
-  group.addEventListener('change', action('change'));
+  group.addEventListener('uniChange', action('change'));
 
   return group;
 };

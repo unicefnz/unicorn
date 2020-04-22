@@ -27,7 +27,7 @@ export class ComboGroup {
   /**
    * Emitted when the selected option changes
    * */
-  @Event() readonly change: EventEmitter;
+  @Event() readonly uniChange: EventEmitter;
 
   @Watch('value')
   public onValueChange() {
@@ -43,7 +43,7 @@ export class ComboGroup {
   private optClick(opt: ComboOption) {
     if (this.internalSelected === opt.id) return;
     this.internalSelected = opt.id;
-    this.change.emit(opt.id);
+    this.uniChange.emit(opt.id);
   }
 
   render() {
