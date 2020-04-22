@@ -21,11 +21,13 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-  
+
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
+
+    - run: cd core # We only care about the core package currently
 
     - name: Cache Node.js modules
       uses: actions/cache@v1
@@ -37,12 +39,12 @@ jobs:
           ${{ runner.OS }}-
 
     - run: npm ci
-    
+
     - name: Run tests
       run: npm test
-    
+
     - name: Build Core
       run: npm run build
-      
+
     - name: Build Storybook
       run: npm run build:storybook

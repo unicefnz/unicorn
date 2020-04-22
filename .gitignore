@@ -4,6 +4,7 @@ core/www/
 core/css/
 core/loader/
 .stencil/
+storybook-static
 
 *~
 *.sw[mnpcod]
