@@ -1,0 +1,42 @@
+:host {
+  display: inline-block;
+  min-width: 120px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 20px;
+  background: none;
+  height: 40px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.prepend-icon {
+  margin-right: 10px;
+}
+
+:host(.style-border) .button {
+  border: 2px solid var(--uni-color, var(--uni-accent));
+  transition: background-color 0.3s, color 0.3s;
+  color: var(--uni-color, var(--uni-accent));
+}
+:host(.style-border) .button:hover, :host(.style-border) .button:focus {
+  color: var(--uni-color-contrast, var(--uni-accent-contrast));
+  background: var(--uni-color, var(--uni-accent));
+}
+
+:host(.style-solid) .button {
+  background: var(--uni-color, var(--uni-accent));
+  transition: filter 0.3s;
+  color: var(--uni-color-contrast, var(--uni-accent-contrast));
+}
+:host(.style-solid) .button:hover, :host(.style-solid) .button:focus {
+  filter: brightness(90%);
+}

@@ -1,0 +1,22 @@
+{
+  "entries": [
+    "components/bar-text/bar-text.js",
+    "components/button/button.js",
+    "components/dialog/dialog-content/dialog-content.js",
+    "components/dialog/dialog-title/dialog-title.js",
+    "components/dialog/dialog.js",
+    "components/forms/checkbox/checkbox.js",
+    "components/forms/combo-group/combo-group.js",
+    "components/forms/text-field/text-field.js",
+    "components/hero/hero.js",
+    "components/tagline/tagline.js",
+    "components/underline/underline.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.8.8",
+    "typescriptVersion": "3.7.5"
+  },
+  "collections": [],
+  "bundles": []
+}

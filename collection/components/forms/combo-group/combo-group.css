@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  justify-content: stretch;
+  border: 1px solid var(--uni-color, var(--uni-dark));
+  border-radius: 4px;
+}
+
+.combo-item:not(:last-child) {
+  border-right: 1px solid var(--uni-color, var(--uni-dark));
+}
+
+.combo-item {
+  flex: 1;
+  display: block;
+  text-align: center;
+  padding: 0.5em 1em;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+.combo-item.selected {
+  background: var(--uni-color, var(--uni-accent));
+}
+
+.combo-item:not(.selected) {
+  cursor: pointer;
+}
