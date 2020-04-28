@@ -46,9 +46,8 @@ jobs:
       working-directory: ./core
 
     - uses: chromaui/action@v1
-      working-directory: ./core
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         appCode: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-        buildScriptName: build:storybook
+        storybookBuildDir: core/storybook-static
         autoAcceptChanges: master
