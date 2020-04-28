@@ -34,7 +34,16 @@ export namespace Components {
     */
     'type': string;
   }
-  interface UniCheckbox {}
+  interface UniCheckbox {
+    /**
+    * When set to true, the state cannot be modified
+    */
+    'disabled': boolean;
+    /**
+    * Whether the checkbox is checked
+    */
+    'value': boolean;
+  }
   interface UniComboGroup {
     /**
     * Available options in the combo group
@@ -67,7 +76,12 @@ export namespace Components {
     */
     'backgroundUrl'?: string;
   }
-  interface UniTagline {}
+  interface UniTagline {
+    /**
+    * Override the default color
+    */
+    'color': string;
+  }
   interface UniTextField {
     /**
     * Displays errors below the input
@@ -200,7 +214,16 @@ declare namespace LocalJSX {
     */
     'type'?: string;
   }
-  interface UniCheckbox {}
+  interface UniCheckbox {
+    /**
+    * When set to true, the state cannot be modified
+    */
+    'disabled'?: boolean;
+    /**
+    * Whether the checkbox is checked
+    */
+    'value'?: boolean;
+  }
   interface UniComboGroup {
     /**
     * Emitted when the selected option changes
@@ -241,7 +264,12 @@ declare namespace LocalJSX {
     */
     'backgroundUrl'?: string;
   }
-  interface UniTagline {}
+  interface UniTagline {
+    /**
+    * Override the default color
+    */
+    'color'?: string;
+  }
   interface UniTextField {
     /**
     * Displays errors below the input

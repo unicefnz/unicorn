@@ -1,7 +1,7 @@
 import { Host, h } from "@stencil/core";
 export class Tagline {
     render() {
-        return (h(Host, null,
+        return (h(Host, { class: { ['uni-color-' + this.color]: !!this.color } },
             h("slot", null)));
     }
     static get is() { return "uni-tagline"; }
@@ -11,5 +11,24 @@ export class Tagline {
     }; }
     static get styleUrls() { return {
         "$": ["tagline.css"]
+    }; }
+    static get properties() { return {
+        "color": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "Override the default color"
+            },
+            "attribute": "color",
+            "reflect": false
+        }
     }; }
 }

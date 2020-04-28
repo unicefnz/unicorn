@@ -51,13 +51,21 @@ var nextUniqueId = 0;
 var Checkbox = /** @class */ (function () {
     function Checkbox(hostRef) {
         registerInstance(this, hostRef);
+        /**
+         * Whether the checkbox is checked
+         * */
+        this.value = false;
+        /**
+         * When set to true, the state cannot be modified
+         * */
+        this.disabled = false;
         this.uniqueId = 'uni-checkbox-' + nextUniqueId++;
     }
     Checkbox.prototype.render = function () {
-        return (h(Host, null, h("div", { class: "uni-checkbox" }, h("input", { id: this.uniqueId, type: "checkbox" }), h("ion-icon", { class: "uni-checkbox-check", name: "checkmark-sharp" }), h("div", { class: "uni-checkbox-visual" })), h("label", { htmlFor: this.uniqueId }, h("slot", null))));
+        return (h(Host, { class: { 'uni-disabled': this.disabled } }, h("div", { class: "uni-checkbox" }, h("input", { id: this.uniqueId, type: "checkbox", disabled: this.disabled, checked: this.value }), h("ion-icon", { class: "uni-checkbox-check", name: "checkmark-sharp" }), h("div", { class: "uni-checkbox-visual" })), h("label", { htmlFor: this.uniqueId }, h("slot", null))));
     };
     Object.defineProperty(Checkbox, "style", {
-        get: function () { return ":host{display:block}.uni-checkbox{position:relative;vertical-align:middle;margin-right:.5rem;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:24px;height:24px}.uni-checkbox input{margin:0;width:100%;height:100%;position:absolute;opacity:0;cursor:pointer;z-index:2}.uni-checkbox .uni-checkbox-visual{width:16px;height:16px;border:2px solid var(--uni-accent-contrast);border-radius:4px}.uni-checkbox .uni-checkbox-check{position:absolute;display:none;-ms-flex-align:center;align-items:center;overflow:hidden;color:var(--uni-accent-contrast)}.uni-checkbox input:checked~.uni-checkbox-visual{background:var(--uni-accent)}.uni-checkbox input:checked~.uni-checkbox-check{display:-ms-flexbox;display:flex}label{vertical-align:middle}"; },
+        get: function () { return ":host{display:block}:host(.uni-disabled) .uni-checkbox input,:host(.uni-disabled) label{cursor:not-allowed}:host(.uni-disabled) .uni-checkbox input:checked~.uni-checkbox-visual{background:var(--uni-light)}:host(.uni-disabled) label{opacity:.5}.uni-checkbox input,label{cursor:pointer}.uni-checkbox{position:relative;vertical-align:middle;margin-right:.5rem;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:24px;height:24px}.uni-checkbox input{margin:0;width:100%;height:100%;position:absolute;opacity:0;cursor:pointer;z-index:2}.uni-checkbox .uni-checkbox-visual{width:16px;height:16px;border:2px solid var(--uni-accent-contrast);border-radius:4px}.uni-checkbox .uni-checkbox-check{position:absolute;display:none;-ms-flex-align:center;align-items:center;overflow:hidden;color:var(--uni-accent-contrast)}.uni-checkbox input:checked~.uni-checkbox-visual{background:var(--uni-accent)}.uni-checkbox input:checked~.uni-checkbox-check{display:-ms-flexbox;display:flex}label{vertical-align:middle}"; },
         enumerable: true,
         configurable: true
     });
@@ -166,7 +174,8 @@ var Tagline = /** @class */ (function () {
         registerInstance(this, hostRef);
     }
     Tagline.prototype.render = function () {
-        return (h(Host, null, h("slot", null)));
+        var _a;
+        return (h(Host, { class: (_a = {}, _a['uni-color-' + this.color] = !!this.color, _a) }, h("slot", null)));
     };
     Object.defineProperty(Tagline, "style", {
         get: function () { return ":host{font-size:calc(2rem / 3);font-family:var(--font-body);font-weight:700;text-transform:uppercase;display:inline-block;margin:.5rem 0;min-width:40px;text-align:center;padding:.7em 1em;background:var(--uni-color,var(--uni-accent));color:var(--uni-color-contrast,var(--uni-accent-contrast))}"; },
