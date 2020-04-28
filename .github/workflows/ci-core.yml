@@ -52,3 +52,11 @@ jobs:
     - name: Build Storybook
       run: npm run build:storybook
       working-directory: ./core
+
+    - uses: chromaui/action@v1
+      working-directory: ./core
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        appCode: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        buildScriptName: build:storybook
+        autoAcceptChanges: master
