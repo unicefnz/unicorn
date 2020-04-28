@@ -9,3 +9,24 @@
 body {
   margin: 0;
 }
+
+
+@media (screen and min-width: 1000px) {
+  a:not(:hover), .display-link:not(:hover) {
+    text-decoration: none;
+  }
+}
+
+a, .display-link {
+  text-decoration: underline;
+}
+
+.block-link {
+  display: block;
+}
+.block-link::after {
+  content: '→';
+  margin-left: 6px;
+  display: inline-block;
+  font-weight: bold;
+}

@@ -12,7 +12,7 @@ module.exports = {
     '@storybook/addon-actions',
     '@storybook/addon-knobs'
   ],
-  stories: ['../src/components/**/*.stories.ts(|x)'],
+  stories: ['../src/**/*.stories.ts(|x)'],
   async webpackFinal(config) {
     // Configure storybook to play nice with stencil
 

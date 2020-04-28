@@ -45,6 +45,14 @@ $uni-styles: (
     font-weight: bold,
     text-transform: uppercase
   ),
+  caption: (
+    font-size: calc(9rem / 10),
+    font-family: var(--font-body),
+    color: var(--uni-medium)
+  ),
+  link: (
+    color: var(--uni-primary)
+  ),
   body: ( // This is the root style
     font-size: 18px,
     font-family: var(--font-body)
@@ -74,8 +82,12 @@ $uni-styles: (
       $selector: $selector + ", " + $name;
     }
 
-    @if $name == "body" {
+    @if $name == body {
       $selector: $selector + ", :root";
+    }
+
+    @if $name == link {
+      $selector: $selector + ", a";
     }
 
     #{$selector} {

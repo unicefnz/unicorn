@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'uni-tagline',
@@ -6,9 +6,14 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true
 })
 export class Tagline {
+  /**
+   * Override the default color
+   * */
+  @Prop() color: string;
+
   render() {
     return (
-      <Host>
+      <Host class={{ ['uni-color-' + this.color]: !!this.color }}>
         <slot />
       </Host>
     );

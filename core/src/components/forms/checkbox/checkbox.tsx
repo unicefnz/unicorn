@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
 
 let nextUniqueId = 0;
 
@@ -8,13 +8,23 @@ let nextUniqueId = 0;
   shadow: true
 })
 export class Checkbox {
+  /**
+   * Whether the checkbox is checked
+   * */
+  @Prop() public value: boolean = false;
+
+  /**
+   * When set to true, the state cannot be modified
+   * */
+  @Prop() public disabled: boolean = false;
+
   private uniqueId = 'uni-checkbox-' + nextUniqueId++;
 
   render() {
     return (
-      <Host>
+      <Host class={{ 'uni-disabled': this.disabled }}>
         <div class="uni-checkbox">
-          <input id={this.uniqueId} type="checkbox" />
+          <input id={this.uniqueId} type="checkbox" disabled={this.disabled} checked={this.value} />
           <ion-icon class="uni-checkbox-check" name="checkmark-sharp" />
           <div class="uni-checkbox-visual" />
         </div>

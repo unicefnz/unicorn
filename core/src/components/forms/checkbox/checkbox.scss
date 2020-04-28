@@ -2,6 +2,22 @@
   display: block;
 }
 
+:host(.uni-disabled) {
+  .uni-checkbox input, label {
+    cursor: not-allowed;
+  }
+  .uni-checkbox input:checked ~ .uni-checkbox-visual {
+    background: var(--uni-light);
+  }
+  label {
+    opacity: 0.5;
+  }
+}
+
+.uni-checkbox input, label {
+  cursor: pointer;
+}
+
 .uni-checkbox {
   position: relative;
   vertical-align: middle;
