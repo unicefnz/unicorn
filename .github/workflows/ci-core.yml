@@ -44,3 +44,5 @@ jobs:
     - name: Run Chromatic
       run: npm run chromatic -- --auto-accept-changes master
       working-directory: ./core
+      with:
+        CHROMATIC_APP_CODE: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
