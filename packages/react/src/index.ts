@@ -1,4 +1,4 @@
-import { defineCustomElements } from '@uniform/core/loader';
+import { defineCustomElements } from '@unicef-new-zealand/uniform-core/loader';
 
 import UniButton from './components/UniButton';
 import UniBarText from './components/UniBarText';
