@@ -1,0 +1,36 @@
+@use "../../../css/color";
+@use "../../../css/typography";
+
+:host {
+  display: block;
+}
+
+.select-label {
+  @include typography.useStyle(overline);
+  margin: 0.4em 0;
+}
+
+.select-box {
+  position: relative;
+}
+.select-box ion-icon {
+  position: absolute;
+  right: 16px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+select {
+  width: 100%;
+  border: 1px solid color.useVar(dark);
+  border-radius: 4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font: inherit;
+  padding: 10px 12px;
+  background: #FFF;
+}
+select:focus {
+  box-shadow: 0 0 0 2px rgba(0, 128, 255, 0.5);
+}
