@@ -76,6 +76,12 @@ export namespace Components {
     */
     'backgroundUrl'?: string;
   }
+  interface UniSelect {
+    /**
+    * Label to display above the select box
+    */
+    'label': string;
+  }
   interface UniTagline {
     /**
     * Override the default color
@@ -162,6 +168,12 @@ declare global {
     new (): HTMLUniHeroElement;
   };
 
+  interface HTMLUniSelectElement extends Components.UniSelect, HTMLStencilElement {}
+  var HTMLUniSelectElement: {
+    prototype: HTMLUniSelectElement;
+    new (): HTMLUniSelectElement;
+  };
+
   interface HTMLUniTaglineElement extends Components.UniTagline, HTMLStencilElement {}
   var HTMLUniTaglineElement: {
     prototype: HTMLUniTaglineElement;
@@ -188,6 +200,7 @@ declare global {
     'uni-dialog-content': HTMLUniDialogContentElement;
     'uni-dialog-title': HTMLUniDialogTitleElement;
     'uni-hero': HTMLUniHeroElement;
+    'uni-select': HTMLUniSelectElement;
     'uni-tagline': HTMLUniTaglineElement;
     'uni-text-field': HTMLUniTextFieldElement;
     'uni-underline': HTMLUniUnderlineElement;
@@ -264,6 +277,12 @@ declare namespace LocalJSX {
     */
     'backgroundUrl'?: string;
   }
+  interface UniSelect {
+    /**
+    * Label to display above the select box
+    */
+    'label'?: string;
+  }
   interface UniTagline {
     /**
     * Override the default color
@@ -307,6 +326,7 @@ declare namespace LocalJSX {
     'uni-dialog-content': UniDialogContent;
     'uni-dialog-title': UniDialogTitle;
     'uni-hero': UniHero;
+    'uni-select': UniSelect;
     'uni-tagline': UniTagline;
     'uni-text-field': UniTextField;
     'uni-underline': UniUnderline;
@@ -327,6 +347,7 @@ declare module "@stencil/core" {
       'uni-dialog-content': LocalJSX.UniDialogContent & JSXBase.HTMLAttributes<HTMLUniDialogContentElement>;
       'uni-dialog-title': LocalJSX.UniDialogTitle & JSXBase.HTMLAttributes<HTMLUniDialogTitleElement>;
       'uni-hero': LocalJSX.UniHero & JSXBase.HTMLAttributes<HTMLUniHeroElement>;
+      'uni-select': LocalJSX.UniSelect & JSXBase.HTMLAttributes<HTMLUniSelectElement>;
       'uni-tagline': LocalJSX.UniTagline & JSXBase.HTMLAttributes<HTMLUniTaglineElement>;
       'uni-text-field': LocalJSX.UniTextField & JSXBase.HTMLAttributes<HTMLUniTextFieldElement>;
       'uni-underline': LocalJSX.UniUnderline & JSXBase.HTMLAttributes<HTMLUniUnderlineElement>;
