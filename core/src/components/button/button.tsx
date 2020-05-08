@@ -11,6 +11,16 @@ export type ButtonStyle = 'solid' | 'border';
 })
 export class Button {
   /**
+   * Changes the button into a loading state
+   * */
+  @Prop() readonly loading: boolean;
+
+  /**
+   * Disables the button, preventing input
+   * */
+  @Prop() readonly disabled: boolean;
+
+  /**
    * Defines the main color of the button
    * Eg. accent, primary
    * */
@@ -33,19 +43,20 @@ export class Button {
    * See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md
    * One of 'button', 'submit', or 'reset'
    * */
-  @Prop() readonly type: string = 'button';
+  @Prop() readonly buttonType: string = 'button';
 
   render() {
     return (
       <Host class={{
         ['style-' + this.buttonStyle]: true,
-        [`uni-color-${this.color}`]: true
+        [`uni-color-${this.color}`]: true,
+        loading: this.loading
       }}
       >
         {/* eslint-disable-next-line react/button-has-type */}
-        <button class="button" type={this.type}>
+        <button class="button" type={this.buttonType} disabled={this.disabled || this.loading}>
           {this.prependIcon && <ion-icon name={this.prependIcon} class="prepend-icon" />}
-          <div><slot /></div>
+          <div class="button-content"><slot /></div>
         </button>
       </Host>
     );
