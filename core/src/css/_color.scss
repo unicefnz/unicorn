@@ -38,13 +38,12 @@
 }
 
 
-@mixin useColors($colors) {
-  :root {
-    @each $name, $def in $colors { // Sets up CSS variables defining every color
-      @include _outputColorVars($name, $def);
-    }
+@mixin colorRoot($colors) {
+  @each $name, $def in $colors { // Sets up CSS variables defining every color
+    @include _outputColorVars($name, $def);
   }
-
+}
+@mixin colorClasses($colors) {
   @each $name, $def in $colors {
     @include _outputClass($name, $def);
   }

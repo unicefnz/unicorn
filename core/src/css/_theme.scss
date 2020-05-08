@@ -1,32 +1,19 @@
 @use "typography";
 @use "color";
 
-@mixin createTheme($colors, $typeConfig) {
-  @include color.useColors($colors);
-  @include typography.useType($typeConfig);
-}
-
-body {
-  margin: 0;
-}
-
-
-@media (screen and min-width: 1000px) {
-  a:not(:hover), .display-link:not(:hover) {
-    text-decoration: none;
+@mixin createTheme($colors, $typeConfig, $scope: ":root") {
+  #{$scope} {
+    @include color.colorRoot($colors);
+    @include typography.typeRoot($typeConfig);
   }
-}
 
-a, .display-link {
-  text-decoration: underline;
-}
-
-.block-link {
-  display: block;
-}
-.block-link::after {
-  content: '→';
-  margin-left: 6px;
-  display: inline-block;
-  font-weight: bold;
+  @if ($scope != ":root") {
+    #{$scope} {
+      @include color.colorClasses($colors);
+      @include typography.typeClasses($typeConfig, $scope);
+    }
+  } @else {
+    @include color.colorClasses($colors);
+    @include typography.typeClasses($typeConfig, $scope);
+  }
 }

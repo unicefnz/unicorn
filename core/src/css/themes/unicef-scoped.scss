@@ -53,28 +53,27 @@ $colors: (
   )
 );
 
-@include theme.createTheme($colors, $typeConfig);
+@include theme.createTheme($colors, $typeConfig, unquote(".uniform-root"));
 
-body {
-  margin: 0;
-}
+.uniform-root {
+  a, .display-link {
+    text-decoration: underline;
+  }
 
-a, .display-link {
-  text-decoration: underline;
-}
+  @media (screen and min-width: 1000px) {
+    a:not(:hover), .display-link:not(:hover) {
+      text-decoration: none;
+    }
+  }
 
-@media (screen and min-width: 1000px) {
-  a:not(:hover), .display-link:not(:hover) {
-    text-decoration: none;
+  .block-link {
+    display: block;
+  }
+  .block-link::after {
+    content: '→';
+    margin-left: 6px;
+    display: inline-block;
+    font-weight: bold;
   }
 }
 
-.block-link {
-  display: block;
-}
-.block-link::after {
-  content: '→';
-  margin-left: 6px;
-  display: inline-block;
-  font-weight: bold;
-}

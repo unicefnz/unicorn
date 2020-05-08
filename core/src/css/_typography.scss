@@ -70,32 +70,6 @@ $uni-styles: (
   }
 }
 
-// Outputs selectors configuring each style
-@mixin _outputStyles() {
-  @if not map.has_key($uni-styles, body) {
-    @error "You must include a body font style"
-  }
-
-  @each $name, $val in $uni-styles {
-    $selector: ".display-" + $name;
-    @if list.index($_textElems, $name) {
-      $selector: $selector + ", " + $name;
-    }
-
-    @if $name == body {
-      $selector: $selector + ", :root";
-    }
-
-    @if $name == link {
-      $selector: $selector + ", a";
-    }
-
-    #{$selector} {
-      @include useStyle($name);
-    }
-  }
-}
-
 // Configures default font families
 @mixin _useFontFamilyVars($fonts) {
   @if map.has_key($fonts, body) {
@@ -112,19 +86,40 @@ $uni-styles: (
 }
 
 // Outputs type configuration, should only be used in theming
-@mixin useType($typeConfig) {
-  :root {
-    @include _useFontFamilyVars($typeConfig);
+@mixin typeRoot($typeConfig) {
+  @include _useFontFamilyVars($typeConfig);
 
-    --uni-text-light: #{map.get($typeConfig, light)};
-    --uni-text-dark: #{map.get($typeConfig, dark)};
+  --uni-text-light: #{map.get($typeConfig, light)};
+  --uni-text-dark: #{map.get($typeConfig, dark)};
 
-    @if map.has_key($typeConfig, font-size) {
-      font-size: map.get($typeConfig, font-size);
-    } @else {
-      font-size: 18px;
-    }
+  @include useStyle(body);
+  @if map.has_key($typeConfig, font-size) {
+    font-size: map.get($typeConfig, font-size);
+  } @else {
+    font-size: 18px;
+  }
+}
+@mixin typeClasses($typeConfig, $scope) {
+  @if not map.has_key($uni-styles, body) {
+    @error "You must include a body font style"
   }
 
-  @include _outputStyles();
+  @each $name, $val in $uni-styles {
+    $selector: ".display-" + $name;
+    @if list.index($_textElems, $name) {
+      $selector: $selector + ", " + $name;
+    }
+
+    //@if $name == body and $scope == ":root" {
+    //  $selector: $selector + ", :root";
+    //}
+
+    @if $name == link {
+      $selector: $selector + ", a";
+    }
+
+    #{$selector} {
+      @include useStyle($name);
+    }
+  }
 }
