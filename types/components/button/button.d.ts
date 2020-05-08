@@ -1,6 +1,14 @@
 export declare type ButtonStyle = 'solid' | 'border';
 export declare class Button {
     /**
+     * Changes the button into a loading state
+     * */
+    readonly loading: boolean;
+    /**
+     * Disables the button, preventing input
+     * */
+    readonly disabled: boolean;
+    /**
      * Defines the main color of the button
      * Eg. accent, primary
      * */
@@ -20,6 +28,6 @@ export declare class Button {
      * See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md
      * One of 'button', 'submit', or 'reset'
      * */
-    readonly type: string;
+    readonly buttonType: string;
     render(): any;
 }

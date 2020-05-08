@@ -30,7 +30,7 @@ export class TextField {
                 optional),
             h("div", { class: "input-field" },
                 prepend,
-                h("input", { class: "input-elem", id: this.uniqueId, placeholder: this.placeholder, required: !this.optional })),
+                h("input", { class: "input-elem", id: this.uniqueId, disabled: this.disabled, placeholder: this.placeholder, required: !this.optional, value: this.value, onChange: e => this.uniChange.emit(e.target.value), onInput: e => this.uniInput.emit(e.target.value) })),
             errors));
     }
     renderErrors() {
@@ -82,6 +82,23 @@ export class TextField {
                 "text": "Placeholder displayed inside the field"
             },
             "attribute": "placeholder",
+            "reflect": false
+        },
+        "disabled": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "Makes the field disabled and uneditable"
+            },
+            "attribute": "disabled",
             "reflect": false
         },
         "optional": {
@@ -153,6 +170,54 @@ export class TextField {
             "attribute": "errors",
             "reflect": false,
             "defaultValue": "''"
+        },
+        "value": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "Set the value of the field"
+            },
+            "attribute": "value",
+            "reflect": false
         }
     }; }
+    static get events() { return [{
+            "method": "uniChange",
+            "name": "uniChange",
+            "bubbles": true,
+            "cancelable": true,
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": "Emitted when form field value is committed"
+            },
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            }
+        }, {
+            "method": "uniInput",
+            "name": "uniInput",
+            "bubbles": true,
+            "cancelable": true,
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": "Emitted when the form field value changes"
+            },
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            }
+        }]; }
 }

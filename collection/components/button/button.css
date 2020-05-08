@@ -1,9 +1,12 @@
 :host {
   display: inline-block;
   min-width: 120px;
+  --background: var(--uni-color, var(--uni-accent));
+  --contrast: var(--uni-color-contrast, var(--uni-accent-contrast));
 }
 
 .button {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,30 +16,51 @@
   background: none;
   height: 40px;
   width: 100%;
-  cursor: pointer;
+  font: inherit;
   font-size: 1rem;
-  font-family: inherit;
+}
+
+.button:not([disabled]) {
+  cursor: pointer;
 }
 
 .prepend-icon {
   margin-right: 10px;
 }
 
-:host(.style-border) .button {
-  border: 2px solid var(--uni-color, var(--uni-accent));
-  transition: background-color 0.3s, color 0.3s;
-  color: var(--uni-color, var(--uni-accent));
+:host(.loading) .button-content, :host(.loading) .prepend-icon {
+  opacity: 0.5;
 }
-:host(.style-border) .button:hover, :host(.style-border) .button:focus {
-  color: var(--uni-color-contrast, var(--uni-accent-contrast));
-  background: var(--uni-color, var(--uni-accent));
+:host(.loading) .button {
+  background-image: linear-gradient(90deg, transparent 25%, rgba(255, 255, 255, 0.5) 37.5%, transparent 50%);
+  background-size: 400% 400%;
+  animation: uni-loading-pill 1.5s infinite linear;
 }
 
-:host(.style-solid) .button {
-  background: var(--uni-color, var(--uni-accent));
-  transition: filter 0.3s;
-  color: var(--uni-color-contrast, var(--uni-accent-contrast));
+:host(.style-border:not(.loading)) .button {
+  border: 2px solid var(--background);
+  transition: background-color 0.3s, color 0.3s;
+  color: var(--background);
 }
-:host(.style-solid) .button:hover, :host(.style-solid) .button:focus {
+:host(.style-border:not(.loading)) .button:not([disabled]):hover, :host(.style-border:not(.loading)) .button:focus {
+  color: var(--contrast);
+  background-color: var(--background);
+}
+
+:host(.style-solid) .button, :host(.loading) .button {
+  background-color: var(--background);
+  transition: filter 0.3s;
+  color: var(--contrast);
+}
+:host(.style-solid) .button:not([disabled]):hover, :host(.style-solid) .button:focus, :host(.loading) .button:not([disabled]):hover, :host(.loading) .button:focus {
   filter: brightness(90%);
+}
+
+@keyframes uni-loading-pill {
+  from {
+    background-position-x: 75%;
+  }
+  to {
+    background-position-x: 0;
+  }
 }

@@ -16,16 +16,17 @@ export class Button {
          * See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md
          * One of 'button', 'submit', or 'reset'
          * */
-        this.type = 'button';
+        this.buttonType = 'button';
     }
     render() {
         return (h(Host, { class: {
                 ['style-' + this.buttonStyle]: true,
-                [`uni-color-${this.color}`]: true
+                [`uni-color-${this.color}`]: true,
+                loading: this.loading
             } },
-            h("button", { class: "button", type: this.type },
+            h("button", { class: "button", type: this.buttonType, disabled: this.disabled || this.loading },
                 this.prependIcon && h("ion-icon", { name: this.prependIcon, class: "prepend-icon" }),
-                h("div", null,
+                h("div", { class: "button-content" },
                     h("slot", null)))));
     }
     static get is() { return "uni-button"; }
@@ -37,6 +38,40 @@ export class Button {
         "$": ["button.css"]
     }; }
     static get properties() { return {
+        "loading": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "Changes the button into a loading state"
+            },
+            "attribute": "loading",
+            "reflect": false
+        },
+        "disabled": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "Disables the button, preventing input"
+            },
+            "attribute": "disabled",
+            "reflect": false
+        },
         "color": {
             "type": "string",
             "mutable": false,
@@ -94,7 +129,7 @@ export class Button {
             "attribute": "prepend-icon",
             "reflect": false
         },
-        "type": {
+        "buttonType": {
             "type": "string",
             "mutable": false,
             "complexType": {
@@ -108,7 +143,7 @@ export class Button {
                 "tags": [],
                 "text": "Type of the underlying button\nSee https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md\nOne of 'button', 'submit', or 'reset'"
             },
-            "attribute": "type",
+            "attribute": "button-type",
             "reflect": false,
             "defaultValue": "'button'"
         }

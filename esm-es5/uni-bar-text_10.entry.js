@@ -31,17 +31,18 @@ var Button = /** @class */ (function () {
          * See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md
          * One of 'button', 'submit', or 'reset'
          * */
-        this.type = 'button';
+        this.buttonType = 'button';
     }
     Button.prototype.render = function () {
         var _a;
         return (h(Host, { class: (_a = {},
                 _a['style-' + this.buttonStyle] = true,
                 _a["uni-color-" + this.color] = true,
-                _a) }, h("button", { class: "button", type: this.type }, this.prependIcon && h("ion-icon", { name: this.prependIcon, class: "prepend-icon" }), h("div", null, h("slot", null)))));
+                _a.loading = this.loading,
+                _a) }, h("button", { class: "button", type: this.buttonType, disabled: this.disabled || this.loading }, this.prependIcon && h("ion-icon", { name: this.prependIcon, class: "prepend-icon" }), h("div", { class: "button-content" }, h("slot", null)))));
     };
     Object.defineProperty(Button, "style", {
-        get: function () { return ":host{display:inline-block;min-width:120px}.button{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;padding:0 1rem;border:none;border-radius:20px;background:none;height:40px;width:100%;cursor:pointer;font-size:1rem;font-family:inherit}.prepend-icon{margin-right:10px}:host(.style-border) .button{border:2px solid var(--uni-color,var(--uni-accent));-webkit-transition:background-color .3s,color .3s;transition:background-color .3s,color .3s;color:var(--uni-color,var(--uni-accent))}:host(.style-border) .button:focus,:host(.style-border) .button:hover,:host(.style-solid) .button{color:var(--uni-color-contrast,var(--uni-accent-contrast));background:var(--uni-color,var(--uni-accent))}:host(.style-solid) .button{-webkit-transition:-webkit-filter .3s;transition:-webkit-filter .3s;transition:filter .3s;transition:filter .3s,-webkit-filter .3s}:host(.style-solid) .button:focus,:host(.style-solid) .button:hover{-webkit-filter:brightness(90%);filter:brightness(90%)}"; },
+        get: function () { return ":host{display:inline-block;min-width:120px;--background:var(--uni-color,var(--uni-accent));--contrast:var(--uni-color-contrast,var(--uni-accent-contrast))}.button{position:relative;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;padding:0 1rem;border:none;border-radius:20px;background:none;height:40px;width:100%;font:inherit;font-size:1rem}.button:not([disabled]){cursor:pointer}.prepend-icon{margin-right:10px}:host(.loading) .button-content,:host(.loading) .prepend-icon{opacity:.5}:host(.loading) .button{background-image:-webkit-gradient(linear,left top,right top,color-stop(25%,transparent),color-stop(37.5%,hsla(0,0%,100%,.5)),color-stop(50%,transparent));background-image:linear-gradient(90deg,transparent 25%,hsla(0,0%,100%,.5) 37.5%,transparent 50%);background-size:400% 400%;-webkit-animation:uni-loading-pill 1.5s linear infinite;animation:uni-loading-pill 1.5s linear infinite}:host(.style-border:not(.loading)) .button{border:2px solid var(--background);-webkit-transition:background-color .3s,color .3s;transition:background-color .3s,color .3s;color:var(--background)}:host(.loading) .button,:host(.style-border:not(.loading)) .button:focus,:host(.style-border:not(.loading)) .button:not([disabled]):hover,:host(.style-solid) .button{color:var(--contrast);background-color:var(--background)}:host(.loading) .button,:host(.style-solid) .button{-webkit-transition:-webkit-filter .3s;transition:-webkit-filter .3s;transition:filter .3s;transition:filter .3s,-webkit-filter .3s}:host(.loading) .button:focus,:host(.loading) .button:not([disabled]):hover,:host(.style-solid) .button:focus,:host(.style-solid) .button:not([disabled]):hover{-webkit-filter:brightness(90%);filter:brightness(90%)}\@-webkit-keyframes uni-loading-pill{0%{background-position-x:75%}to{background-position-x:0}}\@keyframes uni-loading-pill{0%{background-position-x:75%}to{background-position-x:0}}"; },
         enumerable: true,
         configurable: true
     });
@@ -197,6 +198,8 @@ var TextField = /** @class */ (function () {
          * */
         this.errors = '';
         this.uniqueId = 'uni-input-' + nextUniqueId$1++;
+        this.uniChange = createEvent(this, "uniChange", 7);
+        this.uniInput = createEvent(this, "uniInput", 7);
     }
     Object.defineProperty(TextField.prototype, "errorList", {
         get: function () {
@@ -207,11 +210,12 @@ var TextField = /** @class */ (function () {
         configurable: true
     });
     TextField.prototype.render = function () {
+        var _this = this;
         var optional = this.optional && (h("span", { class: "optional-label" }, "(optional)"));
         var prependIcon = this.prependIcon && (h("ion-icon", { name: this.prependIcon }));
         var prepend = (this.prependText || this.prependIcon) && (h("span", { class: "input-prepend" }, prependIcon, this.prependText));
         var errors = this.renderErrors();
-        return (h(Host, { class: { 'input--has-errors': !!this.errorList.length } }, this.label && h("label", { htmlFor: this.uniqueId, class: "caption" }, this.label, " ", optional), h("div", { class: "input-field" }, prepend, h("input", { class: "input-elem", id: this.uniqueId, placeholder: this.placeholder, required: !this.optional })), errors));
+        return (h(Host, { class: { 'input--has-errors': !!this.errorList.length } }, this.label && h("label", { htmlFor: this.uniqueId, class: "caption" }, this.label, " ", optional), h("div", { class: "input-field" }, prepend, h("input", { class: "input-elem", id: this.uniqueId, disabled: this.disabled, placeholder: this.placeholder, required: !this.optional, value: this.value, onChange: function (e) { return _this.uniChange.emit(e.target.value); }, onInput: function (e) { return _this.uniInput.emit(e.target.value); } })), errors));
     };
     TextField.prototype.renderErrors = function () {
         var errors = this.errorList;
@@ -220,7 +224,7 @@ var TextField = /** @class */ (function () {
         return (h("div", { class: "input-errors" }, h("ion-icon", { name: "warning" }), h("ul", null, errors.map(function (e) { return h("li", null, e); }))));
     };
     Object.defineProperty(TextField, "style", {
-        get: function () { return ":host{display:block;margin:1rem 0}.caption{font-size:calc(2rem / 3);font-family:var(--font-body);font-weight:700;text-transform:uppercase;display:block;margin:4px 0}.optional-label{color:var(--uni-medium)}.input-field{position:relative;overflow:hidden;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:stretch;align-items:stretch;border:1px solid var(--uni-color,var(--uni-dark));border-radius:4px}:host(.input--has-errors) .input-field{border-color:var(--uni-danger)}.input-field:focus-within{-webkit-box-shadow:0 0 0 2px rgba(0,128,255,.5);box-shadow:0 0 0 2px rgba(0,128,255,.5)}.input-prepend{display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;padding:0 10px;background:var(--uni-light);min-width:20px}.input-elem{padding:10px 12px;font-family:inherit;font-size:1rem;border:none}.input-errors{margin-top:.3rem;color:var(--uni-danger)}.input-errors ion-icon{vertical-align:top;margin-right:.5rem;display:inline-block;font-size:24px}.input-errors ul{display:inline-block;padding:0;margin:0;list-style-type:none;font-size:.9rem}"; },
+        get: function () { return ":host{display:block;margin:1rem 0;text-align:start}.caption{font-size:calc(2rem / 3);font-family:var(--font-body);font-weight:700;text-transform:uppercase;display:block;margin:4px 0}.optional-label{color:var(--uni-medium)}.input-field{position:relative;overflow:hidden;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:stretch;align-items:stretch;border:1px solid var(--uni-color,var(--uni-dark));border-radius:4px}:host(.input--has-errors) .input-field{border-color:var(--uni-danger)}.input-field:focus-within{-webkit-box-shadow:0 0 0 2px rgba(0,128,255,.5);box-shadow:0 0 0 2px rgba(0,128,255,.5)}.input-prepend{display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;padding:0 10px;background:var(--uni-light);min-width:20px}.input-elem{padding:10px 12px;font-family:inherit;font-size:1rem;border:none}.input-errors{margin-top:.3rem;color:var(--uni-danger)}.input-errors ion-icon{vertical-align:top;margin-right:.5rem;display:inline-block;font-size:24px}.input-errors ul{display:inline-block;padding:0;margin:0;list-style-type:none;font-size:.9rem}"; },
         enumerable: true,
         configurable: true
     });

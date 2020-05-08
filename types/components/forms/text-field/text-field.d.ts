@@ -1,3 +1,4 @@
+import { EventEmitter } from '../../../stencil.core';
 export declare class TextField {
     /**
      * Label text above the field
@@ -7,6 +8,10 @@ export declare class TextField {
      * Placeholder displayed inside the field
      * */
     placeholder: string;
+    /**
+     * Makes the field disabled and uneditable
+     * */
+    disabled: boolean;
     /**
      * Marks the field as optional
      * */
@@ -23,6 +28,18 @@ export declare class TextField {
      * Displays errors below the input
      * */
     errors: string | string[];
+    /**
+     * Set the value of the field
+     * */
+    value: string;
+    /**
+     * Emitted when form field value is committed
+    * */
+    uniChange: EventEmitter<string>;
+    /**
+     * Emitted when the form field value changes
+    * */
+    uniInput: EventEmitter<string>;
     private uniqueId;
     private get errorList();
     render(): any;

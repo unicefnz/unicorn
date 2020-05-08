@@ -16,6 +16,11 @@ export const Icon = () => `
 <br>
 <uni-button button-style="border" prepend-icon="logo-facebook">Login with Facebook</uni-button>
 `;
+export const Loading = () => `
+<uni-button loading prepend-icon="logo-google">Logging in</uni-button>
+<uni-button loading color="danger">Deleting...</uni-button>
+<uni-button loading color="primary" button-style="border">Somethinging</uni-button>
+`;
 export const Interactivity = () => {
     const button = document.createElement('uni-button');
     button.innerHTML = text('Text', 'Button Text!');
