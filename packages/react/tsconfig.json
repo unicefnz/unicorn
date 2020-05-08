@@ -15,13 +15,13 @@
       "dom.iterable",
       "esnext"
     ],
-    "module": "esnext",
+    "module": "es2015",
     "moduleResolution": "node",
     "outDir": "dist-transpiled",
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "target": "es5"
+    "target": "es2017"
   },
   "include": [
     "src"
