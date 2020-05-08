@@ -22,17 +22,25 @@ export namespace Components {
     */
     'buttonStyle': ButtonStyle;
     /**
+    * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
+    */
+    'buttonType': string;
+    /**
     * Defines the main color of the button Eg. accent, primary
     */
     'color': string | null;
     /**
+    * Disables the button, preventing input
+    */
+    'disabled': boolean;
+    /**
+    * Changes the button into a loading state
+    */
+    'loading': boolean;
+    /**
     * Name of a icon to prepend inside the button Eg. logo-google
     */
     'prependIcon'?: string;
-    /**
-    * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
-    */
-    'type': string;
   }
   interface UniCheckbox {
     /**
@@ -90,6 +98,10 @@ export namespace Components {
   }
   interface UniTextField {
     /**
+    * Makes the field disabled and uneditable
+    */
+    'disabled': boolean;
+    /**
     * Displays errors below the input
     */
     'errors': string | string[];
@@ -113,6 +125,10 @@ export namespace Components {
     * Optionally prepend some text inside the field, eg a $ prefix
     */
     'prependText': string;
+    /**
+    * Set the value of the field
+    */
+    'value': string;
   }
   interface UniUnderline {}
 }
@@ -215,17 +231,25 @@ declare namespace LocalJSX {
     */
     'buttonStyle'?: ButtonStyle;
     /**
+    * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
+    */
+    'buttonType'?: string;
+    /**
     * Defines the main color of the button Eg. accent, primary
     */
     'color'?: string | null;
     /**
+    * Disables the button, preventing input
+    */
+    'disabled'?: boolean;
+    /**
+    * Changes the button into a loading state
+    */
+    'loading'?: boolean;
+    /**
     * Name of a icon to prepend inside the button Eg. logo-google
     */
     'prependIcon'?: string;
-    /**
-    * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
-    */
-    'type'?: string;
   }
   interface UniCheckbox {
     /**
@@ -291,6 +315,10 @@ declare namespace LocalJSX {
   }
   interface UniTextField {
     /**
+    * Makes the field disabled and uneditable
+    */
+    'disabled'?: boolean;
+    /**
     * Displays errors below the input
     */
     'errors'?: string | string[];
@@ -298,6 +326,14 @@ declare namespace LocalJSX {
     * Label text above the field
     */
     'label'?: string;
+    /**
+    * Emitted when form field value is committed
+    */
+    'onUniChange'?: (event: CustomEvent<string>) => void;
+    /**
+    * Emitted when the form field value changes
+    */
+    'onUniInput'?: (event: CustomEvent<string>) => void;
     /**
     * Marks the field as optional
     */
@@ -314,6 +350,10 @@ declare namespace LocalJSX {
     * Optionally prepend some text inside the field, eg a $ prefix
     */
     'prependText'?: string;
+    /**
+    * Set the value of the field
+    */
+    'value'?: string;
   }
   interface UniUnderline {}
 

@@ -1,5 +1,5 @@
 import {
-  Component, Host, h, Prop
+  Component, Host, h, Prop, EventEmitter, Event
 } from '@stencil/core';
 
 let nextUniqueId = 0;
@@ -21,6 +21,11 @@ export class TextField {
   @Prop() public placeholder: string;
 
   /**
+   * Makes the field disabled and uneditable
+   * */
+  @Prop() public disabled: boolean;
+
+  /**
    * Marks the field as optional
    * */
   @Prop() public optional = false;
@@ -39,6 +44,21 @@ export class TextField {
    * Displays errors below the input
    * */
   @Prop() public errors: string | string[] = '';
+
+  /**
+   * Set the value of the field
+   * */
+  @Prop() public value: string;
+
+  /**
+   * Emitted when form field value is committed
+  * */
+  @Event() public uniChange: EventEmitter<string>;
+
+  /**
+   * Emitted when the form field value changes
+  * */
+  @Event() public uniInput: EventEmitter<string>;
 
   private uniqueId = 'uni-input-' + nextUniqueId++;
 
@@ -60,7 +80,16 @@ export class TextField {
         {this.label && <label htmlFor={this.uniqueId} class="caption">{this.label} {optional}</label>}
         <div class="input-field">
           {prepend}
-          <input class="input-elem" id={this.uniqueId} placeholder={this.placeholder} required={!this.optional} />
+          <input
+            class="input-elem"
+            id={this.uniqueId}
+            disabled={this.disabled}
+            placeholder={this.placeholder}
+            required={!this.optional}
+            value={this.value}
+            onChange={e => this.uniChange.emit((e.target as any).value)}
+            onInput={e => this.uniInput.emit((e.target as any).value)}
+          />
         </div>
         {errors}
       </Host>
