@@ -21,9 +21,14 @@ export class TextField {
   @Prop() public placeholder: string;
 
   /**
-   * Makes the field disabled and uneditable
+   * Makes the field disabled and unselectable
    * */
   @Prop() public disabled: boolean;
+
+  /**
+   * Prevents editing the field, but allows selecting text
+   * */
+  @Prop() public readonly: boolean;
 
   /**
    * Marks the field as optional
@@ -84,6 +89,7 @@ export class TextField {
             class="input-elem"
             id={this.uniqueId}
             disabled={this.disabled}
+            readOnly={this.readonly}
             placeholder={this.placeholder}
             required={!this.optional}
             value={this.value}
