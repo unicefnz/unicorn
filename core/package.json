@@ -1,6 +1,6 @@
 {
   "name": "@unicef-new-zealand/uniform-core",
-  "version": "1.0.0-1",
+  "version": "1.0.0-2",
   "description": "Uniform Core Web Component Library",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -17,7 +17,8 @@
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "css/"
   ],
   "scripts": {
     "build": "npm run build:stencil && npm run build:css",
