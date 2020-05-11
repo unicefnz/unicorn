@@ -24,6 +24,9 @@
 .button:not([disabled]) {
   cursor: pointer;
 }
+.button[disabled] {
+  opacity: 0.7;
+}
 
 .prepend-icon {
   margin-right: 10px;
@@ -31,7 +34,6 @@
 
 :host(.loading) {
   .button-content, .prepend-icon {
-    //visibility: hidden;
     opacity: 0.5;
   }
   .button {
