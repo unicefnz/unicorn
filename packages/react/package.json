@@ -1,6 +1,6 @@
 {
   "name": "@unicef-new-zealand/uniform-react",
-  "version": "1.0.0-3",
+  "version": "1.0.0-4",
   "description": "React Components for the Uniform Design System",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
