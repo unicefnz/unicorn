@@ -21,7 +21,7 @@
     "css/"
   ],
   "scripts": {
-    "build": "npm run build:stencil && npm run build:css",
+    "build": "npm run build:css && npm run build:stencil",
     "build:css": "sass src/css:./css",
     "build:css-watch": "sass src/css:./www/css --watch",
     "build:stencil": "stencil build --docs",
