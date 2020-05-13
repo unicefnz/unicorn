@@ -98,7 +98,7 @@ export namespace Components {
   }
   interface UniTextField {
     /**
-    * Makes the field disabled and uneditable
+    * Makes the field disabled and unselectable
     */
     'disabled': boolean;
     /**
@@ -125,6 +125,10 @@ export namespace Components {
     * Optionally prepend some text inside the field, eg a $ prefix
     */
     'prependText': string;
+    /**
+    * Prevents editing the field, but allows selecting text
+    */
+    'readonly': boolean;
     /**
     * Set the value of the field
     */
@@ -315,7 +319,7 @@ declare namespace LocalJSX {
   }
   interface UniTextField {
     /**
-    * Makes the field disabled and uneditable
+    * Makes the field disabled and unselectable
     */
     'disabled'?: boolean;
     /**
@@ -350,6 +354,10 @@ declare namespace LocalJSX {
     * Optionally prepend some text inside the field, eg a $ prefix
     */
     'prependText'?: string;
+    /**
+    * Prevents editing the field, but allows selecting text
+    */
+    'readonly'?: boolean;
     /**
     * Set the value of the field
     */

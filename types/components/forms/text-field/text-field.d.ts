@@ -9,9 +9,13 @@ export declare class TextField {
      * */
     placeholder: string;
     /**
-     * Makes the field disabled and uneditable
+     * Makes the field disabled and unselectable
      * */
     disabled: boolean;
+    /**
+     * Prevents editing the field, but allows selecting text
+     * */
+    readonly: boolean;
     /**
      * Marks the field as optional
      * */

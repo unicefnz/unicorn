@@ -20,7 +20,7 @@
 .input-field {
   position: relative;
   overflow: hidden;
-  display: inline-flex;
+  display: flex;
   align-items: stretch;
   border: 1px solid var(--uni-color, var(--uni-dark));
   border-radius: 4px;

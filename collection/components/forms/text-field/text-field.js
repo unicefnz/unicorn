@@ -30,7 +30,7 @@ export class TextField {
                 optional),
             h("div", { class: "input-field" },
                 prepend,
-                h("input", { class: "input-elem", id: this.uniqueId, disabled: this.disabled, placeholder: this.placeholder, required: !this.optional, value: this.value, onChange: e => this.uniChange.emit(e.target.value), onInput: e => this.uniInput.emit(e.target.value) })),
+                h("input", { class: "input-elem", id: this.uniqueId, disabled: this.disabled, readOnly: this.readonly, placeholder: this.placeholder, required: !this.optional, value: this.value, onChange: e => this.uniChange.emit(e.target.value), onInput: e => this.uniInput.emit(e.target.value) })),
             errors));
     }
     renderErrors() {
@@ -96,9 +96,26 @@ export class TextField {
             "optional": false,
             "docs": {
                 "tags": [],
-                "text": "Makes the field disabled and uneditable"
+                "text": "Makes the field disabled and unselectable"
             },
             "attribute": "disabled",
+            "reflect": false
+        },
+        "readonly": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "Prevents editing the field, but allows selecting text"
+            },
+            "attribute": "readonly",
             "reflect": false
         },
         "optional": {

@@ -24,6 +24,10 @@
   cursor: pointer;
 }
 
+.button[disabled] {
+  opacity: 0.7;
+}
+
 .prepend-icon {
   margin-right: 10px;
 }

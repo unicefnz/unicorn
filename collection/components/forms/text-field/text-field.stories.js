@@ -7,6 +7,7 @@ export const Default = () => `
 <uni-text-field placeholder="Placeholder" label="Label"></uni-text-field>
 <uni-text-field optional label="Label here"></uni-text-field>
 <uni-text-field value="With value" label="Label here"></uni-text-field>
+<uni-text-field value="Read only text field" readonly></uni-text-field>
 `;
 export const PrependIcon = () => `
 <uni-text-field label="Label Text" prepend-icon="${text('Icon Name', 'warning')}" placeholder="Placeholder"></uni-text-field>

@@ -6,6 +6,7 @@ export default {
 export const Default = () => `
 <uni-button>Default</uni-button>
 <uni-button color="${text('Color', 'danger')}">Alt Color</uni-button>
+<uni-button disabled>Disabled</uni-button>
 `;
 export const Border = () => `
 <uni-button button-style="border">Border</uni-button>
