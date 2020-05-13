@@ -1,1 +1,1 @@
-import '!style-loader!css-loader!sass-loader!../src/css/themes/unicef.scss';
+import '!style-loader!css-loader!sass-loader!../src/css/prebuilt/unicef.scss';

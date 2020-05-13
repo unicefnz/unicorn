@@ -1,5 +1,5 @@
-@use "../../css/typography";
-@use "../../css/color";
+@use "../../css/theming/typography";
+@use "../../css/theming/color";
 
 :host {
   @include typography.useStyle(h5);

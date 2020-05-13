@@ -1,7 +1,7 @@
 dist/
 dist-transpiled/
 core/www/
-core/css/
+core/theming/
 core/loader/
 .stencil/
 storybook-static

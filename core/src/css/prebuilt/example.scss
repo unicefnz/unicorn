@@ -1,11 +1,12 @@
-@use "../theme"; // Import the theme constructor
+@use "../theming/theme";
 
 $typeConfig: (
   body: unquote("Futura, sans-serif"), // Default font to use (applied to :root)
   header: unquote("Graphik, sans-serif"), // Alternate font (usually used by headers)
 
   light: #FFFFFF, // Defines the light colored text (on a dark background)
-  dark: #000000 // The default, dark color on a light background
+  dark: #000000, // The default, dark color on a light background,
+  styles: () // [wip] Optionally, override the default typography styles
 );
 
 $colors: (

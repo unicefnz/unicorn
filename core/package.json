@@ -18,14 +18,14 @@
   "files": [
     "dist/",
     "loader/",
-    "css/"
+    "theming/"
   ],
   "scripts": {
-    "build": "npm run build:css && npm run build:stencil",
-    "build:css": "sass src/css:./css",
-    "build:css-watch": "sass src/css:./www/css --watch",
+    "build": "npm run clean && npm run build:css && npm run build:stencil",
+    "build:css": "cp -r src/css/theming/ theming && sass ./src/css/prebuilt:./theming/prebuilt --style compressed",
     "build:stencil": "stencil build --docs",
     "build:storybook": "build-storybook",
+    "clean": "rm -rf ./theming ./loader ./dist ./www ./.stencil",
     "generate": "stencil generate",
     "lint": "eslint src --ext .ts,.tsx,.js",
     "start": "stencil build --dev --watch --serve",

@@ -3,40 +3,40 @@
 
 $_textElems: h1, h2, h3, h4, h5, h6, p, i, code, b;
 
-$graphik-medium: 500;
-$graphik-semibold: 600;
-$graphik-bold: 700;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
 
-$uni-styles: (
+$uniStyles: (
   h1: (
     font-size: 3rem,
     font-family: var(--font-header),
-    font-weight: $graphik-semibold,
+    font-weight: $weight-semibold,
     line-height: 1.4
   ),
   h2: (
     font-size: 2rem,
-    font-weight: $graphik-semibold,
+    font-weight: $weight-semibold,
     font-family: var(--font-header),
   ),
   h3: (
     font-size: calc(5rem / 3),
-    font-weight: $graphik-medium,
+    font-weight: $weight-medium,
     font-family: var(--font-header),
   ),
   h4: (
     font-size: 1.5rem,
-    font-weight: $graphik-medium,
+    font-weight: $weight-medium,
     font-family: var(--font-header),
   ),
   h5: (
     font-size: calc(4rem / 3),
-    font-weight: $graphik-medium,
+    font-weight: $weight-medium,
     font-family: var(--font-header),
   ),
   h6: (
     font-size: 1rem,
-    font-weight: $graphik-medium,
+    font-weight: $weight-medium,
     font-family: var(--font-header),
   ),
   overline: (
@@ -61,11 +61,11 @@ $uni-styles: (
 
 // Outputs the rules for a single style
 @mixin useStyle($name) {
-  @if map.has_key($uni-styles, $name) != true {
+  @if map.has_key($uniStyles, $name) != true {
     @error "Unknown Font Style '#{$name}'"
   }
 
-  @each $key, $val in map.get($uni-styles, $name) {
+  @each $key, $val in map.get($uniStyles, $name) {
     #{$key}: #{$val};
   }
 }
@@ -100,19 +100,20 @@ $uni-styles: (
   }
 }
 @mixin typeClasses($typeConfig, $scope) {
-  @if not map.has_key($uni-styles, body) {
+  @if not map.has_key($uniStyles, body) {
     @error "You must include a body font style"
   }
 
-  @each $name, $val in $uni-styles {
+  $fontStyles: $uniStyles;
+  @if(map.has_key($typeConfig, styles)) {
+    $fontStyles: map.merge($fontStyles, map.get($typeConfig, styles));
+  }
+
+  @each $name, $val in $uniStyles {
     $selector: ".display-" + $name;
     @if list.index($_textElems, $name) {
       $selector: $selector + ", " + $name;
     }
-
-    //@if $name == body and $scope == ":root" {
-    //  $selector: $selector + ", :root";
-    //}
 
     @if $name == link {
       $selector: $selector + ", a";
