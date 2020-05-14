@@ -84,6 +84,12 @@ export namespace Components {
     */
     'backgroundUrl'?: string;
   }
+  interface UniProgressLinear {
+    /**
+    * Controls if the loading bar is visible *
+    */
+    'value': boolean;
+  }
   interface UniSelect {
     /**
     * Label to display above the select box
@@ -188,6 +194,12 @@ declare global {
     new (): HTMLUniHeroElement;
   };
 
+  interface HTMLUniProgressLinearElement extends Components.UniProgressLinear, HTMLStencilElement {}
+  var HTMLUniProgressLinearElement: {
+    prototype: HTMLUniProgressLinearElement;
+    new (): HTMLUniProgressLinearElement;
+  };
+
   interface HTMLUniSelectElement extends Components.UniSelect, HTMLStencilElement {}
   var HTMLUniSelectElement: {
     prototype: HTMLUniSelectElement;
@@ -220,6 +232,7 @@ declare global {
     'uni-dialog-content': HTMLUniDialogContentElement;
     'uni-dialog-title': HTMLUniDialogTitleElement;
     'uni-hero': HTMLUniHeroElement;
+    'uni-progress-linear': HTMLUniProgressLinearElement;
     'uni-select': HTMLUniSelectElement;
     'uni-tagline': HTMLUniTaglineElement;
     'uni-text-field': HTMLUniTextFieldElement;
@@ -305,6 +318,12 @@ declare namespace LocalJSX {
     */
     'backgroundUrl'?: string;
   }
+  interface UniProgressLinear {
+    /**
+    * Controls if the loading bar is visible *
+    */
+    'value'?: boolean;
+  }
   interface UniSelect {
     /**
     * Label to display above the select box
@@ -374,6 +393,7 @@ declare namespace LocalJSX {
     'uni-dialog-content': UniDialogContent;
     'uni-dialog-title': UniDialogTitle;
     'uni-hero': UniHero;
+    'uni-progress-linear': UniProgressLinear;
     'uni-select': UniSelect;
     'uni-tagline': UniTagline;
     'uni-text-field': UniTextField;
@@ -395,6 +415,7 @@ declare module "@stencil/core" {
       'uni-dialog-content': LocalJSX.UniDialogContent & JSXBase.HTMLAttributes<HTMLUniDialogContentElement>;
       'uni-dialog-title': LocalJSX.UniDialogTitle & JSXBase.HTMLAttributes<HTMLUniDialogTitleElement>;
       'uni-hero': LocalJSX.UniHero & JSXBase.HTMLAttributes<HTMLUniHeroElement>;
+      'uni-progress-linear': LocalJSX.UniProgressLinear & JSXBase.HTMLAttributes<HTMLUniProgressLinearElement>;
       'uni-select': LocalJSX.UniSelect & JSXBase.HTMLAttributes<HTMLUniSelectElement>;
       'uni-tagline': LocalJSX.UniTagline & JSXBase.HTMLAttributes<HTMLUniTaglineElement>;
       'uni-text-field': LocalJSX.UniTextField & JSXBase.HTMLAttributes<HTMLUniTextFieldElement>;

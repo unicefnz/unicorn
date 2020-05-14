@@ -10,6 +10,7 @@
     "components/forms/select/select.js",
     "components/forms/text-field/text-field.js",
     "components/hero/hero.js",
+    "components/progress-linear/progress-linear.js",
     "components/tagline/tagline.js",
     "components/underline/underline.js"
   ],
