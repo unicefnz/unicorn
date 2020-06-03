@@ -51,7 +51,7 @@ $uniStyles: (
     color: var(--uni-medium)
   ),
   link: (
-    color: var(--uni-primary)
+    color: var(--uni-color, var(--uni-primary))
   ),
   body: ( // This is the root style
     font-size: 18px,

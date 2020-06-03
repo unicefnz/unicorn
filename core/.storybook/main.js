@@ -5,7 +5,7 @@ const WriteFilePlugin = require('write-file-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const OUTPUT_DIR = '../dist';
-const PROJECT_NAME = 'uniform-components';
+const PROJECT_NAME = 'uniform';
 
 module.exports = {
   addons: [

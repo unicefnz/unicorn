@@ -1,8 +1,9 @@
 import { Config } from '@stencil/core';
 import { sass } from "@stencil/sass";
+import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
-  namespace: 'uniform-components',
+  namespace: 'Uniform',
   outputTargets: [
     {
       type: 'dist',
@@ -14,7 +15,11 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null // disable service workers
-    }
+    },
+    reactOutputTarget({
+      componentCorePackage: '@unicef-new-zealand/uniform-core',
+      proxiesFile: '../packages/react/src/proxies.ts',
+    })
   ],
   plugins: [
     sass()

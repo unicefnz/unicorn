@@ -56,16 +56,6 @@ $colors: (
 @include theme.createTheme($colors, $typeConfig, unquote(".uniform-root"));
 
 .uniform-root {
-  a, .display-link {
-    text-decoration: underline;
-  }
-
-  @media (screen and min-width: 1000px) {
-    a:not(:hover), .display-link:not(:hover) {
-      text-decoration: none;
-    }
-  }
-
   .block-link {
     display: block;
   }
