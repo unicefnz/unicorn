@@ -16,6 +16,9 @@
     "url": "git+https://github.com/unicef-new-zealand/uniform.git",
     "directory": "core/react"
   },
+  "files": [
+    "dist/"
+  ],
   "author": "Asher Foster <asher@unicef.org.nz>",
   "license": "UNLICENSED",
   "bugs": {
