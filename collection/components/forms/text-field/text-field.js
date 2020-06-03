@@ -1,4 +1,4 @@
-import { Host, h } from "@stencil/core";
+import { Component, Host, h, Prop, Event } from '@stencil/core';
 let nextUniqueId = 0;
 export class TextField {
     constructor() {

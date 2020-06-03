@@ -1,4 +1,4 @@
-import { Host, h } from "@stencil/core";
+import { Component, Host, h, Prop } from '@stencil/core';
 export class Tagline {
     render() {
         return (h(Host, { class: { ['uni-color-' + this.color]: !!this.color } },

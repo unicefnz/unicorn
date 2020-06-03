@@ -1,0 +1,1 @@
+import{r as t,h as a,H as i}from"./p-90d9bba9.js";class o{constructor(a){t(this,a)}render(){return a(i,null,a("slot",null),a("div",{class:"dialog-actions"},a("slot",{name:"actions"})))}}o.style=":host{display:block;background:white;border-radius:12px;padding:16px;min-width:300px}.dialog-actions{margin-top:16px;text-align:right}";export{o as uni_dialog_content}

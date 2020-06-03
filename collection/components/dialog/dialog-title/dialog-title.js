@@ -1,4 +1,4 @@
-import { h } from "@stencil/core";
+import { Component, h } from '@stencil/core';
 export class DialogTitle {
     render() {
         return (h("h2", { class: "dialog-title" },

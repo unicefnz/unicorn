@@ -1,4 +1,4 @@
-import { Host, h } from "@stencil/core";
+import { Component, Host, h, Prop, Event, Element, State } from '@stencil/core';
 /*
 * When open is set to true, do present action
 * When it's set to false, or dismissed otherwise, do dismiss action

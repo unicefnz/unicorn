@@ -1,4 +1,4 @@
-import { EventEmitter } from '../../../stencil.core';
+import { EventEmitter } from '../../../stencil-public-runtime';
 export declare class TextField {
     /**
      * Label text above the field

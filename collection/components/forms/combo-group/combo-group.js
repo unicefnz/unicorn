@@ -1,4 +1,4 @@
-import { Host, h } from "@stencil/core";
+import { Component, Host, h, Prop, Event, Watch, State } from '@stencil/core';
 export class ComboGroup {
     constructor() {
         /**

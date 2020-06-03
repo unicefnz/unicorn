@@ -1,4 +1,4 @@
-import { Host, h } from "@stencil/core";
+import { Component, Host, h, Prop } from '@stencil/core';
 export class ProgressLinear {
     constructor() {
         /**
@@ -7,7 +7,7 @@ export class ProgressLinear {
         this.value = true;
     }
     render() {
-        return (h(Host, { class: { 'uni-loading-active': this.value } },
+        return (h(Host, { class: { 'uni-loading-active': this.value, ['uni-color-' + this.color]: !!this.color } },
             h("slot", null)));
     }
     static get is() { return "uni-progress-linear"; }
@@ -36,6 +36,23 @@ export class ProgressLinear {
             "attribute": "value",
             "reflect": false,
             "defaultValue": "true"
+        },
+        "color": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": true,
+            "docs": {
+                "tags": [],
+                "text": "Set the bar's color"
+            },
+            "attribute": "color",
+            "reflect": false
         }
     }; }
 }

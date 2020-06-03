@@ -1,4 +1,4 @@
-import { Host, h } from "@stencil/core";
+import { Component, Host, h } from '@stencil/core';
 export class BarText {
     render() {
         return (h(Host, null,
