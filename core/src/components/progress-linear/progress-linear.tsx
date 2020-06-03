@@ -11,10 +11,14 @@ export class ProgressLinear {
    * * */
   @Prop() value: boolean = true;
 
+  /**
+   * Set the bar's color
+   * */
+  @Prop() color?: string;
 
   render() {
     return (
-      <Host class={{ 'uni-loading-active': this.value }}>
+      <Host class={{ 'uni-loading-active': this.value, ['uni-color-' + this.color]: !!this.color }}>
         <slot></slot>
       </Host>
     );
