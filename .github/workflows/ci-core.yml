@@ -43,14 +43,8 @@ jobs:
       run: npm run build
       working-directory: ./core
 
-    - name: Build Storybook
-      run: npm run build:storybook
+    - name: Run Chromatic
+      run: npm run chromatic -- --auto-accept-changes master --exit-zero-on-changes
       working-directory: ./core
-
-    - uses: chromaui/action@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-        storybookBuildDir: core/storybook-static
-        autoAcceptChanges: master
-        exitZeroOnChanges: true
+      env:
+        CHROMATIC_APP_CODE: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
