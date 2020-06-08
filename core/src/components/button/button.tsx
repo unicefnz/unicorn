@@ -45,19 +45,37 @@ export class Button {
    * */
   @Prop() readonly buttonType: string = 'button';
 
+  /**
+   * Make this button a link to `href` instead
+   * */
+  @Prop() readonly href?: string;
+
   render() {
+    const contents = (
+      <div>
+        {this.prependIcon && <ion-icon name={this.prependIcon} class="prepend-icon" />}
+        <div class="button-content"><slot /></div>
+      </div>
+    );
+
     return (
       <Host class={{
-        ['style-' + this.buttonStyle]: true,
+        ['uni-style-' + this.buttonStyle]: true,
         [`uni-color-${this.color}`]: true,
-        loading: this.loading
+        'uni-loading': this.loading,
+        'uni-disabled': this.disabled
       }}
       >
-        {/* eslint-disable-next-line react/button-has-type */}
-        <button class="button" type={this.buttonType} disabled={this.disabled || this.loading}>
-          {this.prependIcon && <ion-icon name={this.prependIcon} class="prepend-icon" />}
-          <div class="button-content"><slot /></div>
-        </button>
+        {this.href ? (
+          <a class="button" href={this.href} onClick={e => this.disabled && e.preventDefault()}>
+            {contents}
+          </a>
+        ) : (
+          // eslint-disable-next-line react/button-has-type
+          <button class="button" type={this.buttonType} disabled={this.disabled || this.loading}>
+            {contents}
+          </button>
+        )}
       </Host>
     );
   }

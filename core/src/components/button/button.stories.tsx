@@ -6,9 +6,16 @@ export default {
 };
 
 export const Default = () => `
-<uni-button>Default</uni-button>
-<uni-button color="${text('Color', 'danger')}">Alt Color</uni-button>
-<uni-button disabled>Disabled</uni-button>
+<div>
+  <uni-button>Default</uni-button>
+  <uni-button color="${text('Color', 'danger')}">Alt Color</uni-button>
+  <uni-button disabled>Disabled</uni-button>
+</div>
+<div>
+  <uni-button href="#link">Link</uni-button>
+  <uni-button href="#link2" color="${text('Color', 'danger')}">Colorful Link</uni-button>
+  <uni-button href="#link3" disabled>Disabled Link?</uni-button>
+</div>
 `;
 
 export const Border = () => `
