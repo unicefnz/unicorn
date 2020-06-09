@@ -1,6 +1,6 @@
 {
   "name": "@unicef-new-zealand/uniform-react",
-  "version": "1.0.0-6",
+  "version": "1.0.0-7",
   "description": "React Components for the Uniform Design System",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/unicef-new-zealand/uniform/blob/master/packages/react/#readme",
   "dependencies": {
-    "@unicef-new-zealand/uniform-core": "^1.0.0-5",
+    "@unicef-new-zealand/uniform-core": "^1.0.0-6",
     "tslib": "^1.11.1"
   },
   "peerDependencies": {
