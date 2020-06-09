@@ -2,12 +2,12 @@
 
 :host {
   display: inline-block;
-  min-width: 120px;
   --background: #{color.useVar(accent)};
   --contrast: #{color.useVar(accent, contrast)};
 }
 
 .button {
+  box-sizing: border-box;
   position: relative;
   display: flex;
   align-items: center;
@@ -17,14 +17,14 @@
   border-radius: 20px;
   background: none;
   height: 40px;
-  width: 100%;
+  min-width: 120px;
+  cursor: pointer;
   font: inherit;
   font-size: 1rem;
+  text-decoration: none;
 }
-.button:not([disabled]) {
-  cursor: pointer;
-}
-.button[disabled] {
+:host(.uni-disabled) .button {
+  cursor: not-allowed;
   opacity: 0.7;
 }
 
@@ -32,7 +32,8 @@
   margin-right: 10px;
 }
 
-:host(.loading) {
+// Loading State
+:host(.uni-loading) {
   .button-content, .prepend-icon {
     opacity: 0.5;
   }
@@ -43,27 +44,30 @@
   }
 }
 
-:host(.style-border:not(.loading)) {
-  .button {
-    border: 2px solid var(--background);
-    transition: background-color 0.3s, color 0.3s;
-    color: var(--background);
-  }
-
-  .button:not([disabled]):hover, .button:focus {
-    color: var(--contrast);
-    background-color: var(--background);
-  }
+// Border style (except loading)
+:host(.uni-style-border:not(.uni-loading)) .button {
+  border: 2px solid var(--background);
+  transition: background-color 0.3s, color 0.3s;
+  color: var(--background);
+}
+// Border style hover (except disabled)
+:host(.uni-style-border:not(.uni-disabled):hover) .button, :host(.uni-style-border:not(.uni-disabled)) .button:focus {
+  color: var(--contrast);
+  background-color: var(--background);
 }
 
-:host(.style-solid), :host(.loading) {
+// Solid style, or loading style
+:host(.uni-style-solid), :host(.uni-loading) {
   .button {
     background-color: var(--background);
     transition: filter 0.3s;
     color: var(--contrast);
   }
+}
 
-  .button:not([disabled]):hover, .button:focus {
+// Solid style hover, not disabled
+:host(.uni-style-solid:not(.uni-disabled)) {
+  .button:hover, .button:focus {
     filter: brightness(90%);
   }
 }

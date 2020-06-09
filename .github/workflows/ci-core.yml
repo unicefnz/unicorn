@@ -2,11 +2,11 @@ name: Core CI
 
 on:
   push:
-    branches: [ master ]
     # Currently, disable the path restrictions so that we get passing tests when nothing changes
+#    branches: [ master ]
 #    paths: [ 'core/**' ]
-  pull_request:
-    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
 #    path: [ 'core/**' ]
 
 jobs:
@@ -15,6 +15,8 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 20
 
     - name: Setup Node
       uses: actions/setup-node@v1
@@ -42,7 +44,7 @@ jobs:
       working-directory: ./core
 
     - name: Run Chromatic
-      run: npm run chromatic -- --auto-accept-changes master
+      run: npm run chromatic -- --auto-accept-changes master --exit-zero-on-changes
       working-directory: ./core
       env:
         CHROMATIC_APP_CODE: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
