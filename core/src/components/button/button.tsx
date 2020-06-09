@@ -51,28 +51,27 @@ export class Button {
   @Prop() readonly href?: string;
 
   render() {
-    const contents = (
-      <div>
-        {this.prependIcon && <ion-icon name={this.prependIcon} class="prepend-icon" />}
-        <div class="button-content"><slot /></div>
-      </div>
-    );
+    const isDisabled = this.disabled || this.loading;
+    const contents = [
+      this.prependIcon && <ion-icon name={this.prependIcon} class="prepend-icon" />,
+      (<div class="button-content"><slot /></div>)
+    ];
 
     return (
       <Host class={{
         ['uni-style-' + this.buttonStyle]: true,
         [`uni-color-${this.color}`]: true,
         'uni-loading': this.loading,
-        'uni-disabled': this.disabled
+        'uni-disabled': isDisabled
       }}
       >
         {this.href ? (
-          <a class="button" href={this.href} onClick={e => this.disabled && e.preventDefault()}>
+          <a class="button" href={this.href} onClick={e => isDisabled && e.preventDefault()}>
             {contents}
           </a>
         ) : (
           // eslint-disable-next-line react/button-has-type
-          <button class="button" type={this.buttonType} disabled={this.disabled || this.loading}>
+          <button class="button" type={this.buttonType} disabled={isDisabled}>
             {contents}
           </button>
         )}

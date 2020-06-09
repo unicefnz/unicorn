@@ -19,8 +19,16 @@ export const Default = () => `
 `;
 
 export const Border = () => `
-<uni-button button-style="border">Border</uni-button>
-<uni-button button-style="border" color="${text('Color', 'dark')}">Alt Color</uni-button>
+<div>
+  <uni-button button-style="border">Border</uni-button>
+  <uni-button button-style="border" color="${text('Color', 'danger')}">Alt Color</uni-button>
+  <uni-button button-style="border" disabled>Disabled</uni-button>
+</div>
+<div>
+  <uni-button button-style="border" href="#link">Link</uni-button>
+  <uni-button button-style="border" href="#link2" color="${text('Color', 'danger')}">Colorful Link</uni-button>
+  <uni-button button-style="border" href="#link3" disabled>Disabled Link?</uni-button>
+</div>
 `;
 
 export const Icon = () => `
