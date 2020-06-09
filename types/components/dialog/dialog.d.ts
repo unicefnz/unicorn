@@ -1,4 +1,4 @@
-import { EventEmitter } from '../../stencil-public-runtime';
+import { EventEmitter } from '@stencil/core';
 export declare class Dialog {
     el: HTMLUniDialogElement;
     /**

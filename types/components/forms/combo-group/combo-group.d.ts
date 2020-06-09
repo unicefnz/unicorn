@@ -1,4 +1,4 @@
-import { EventEmitter } from '../../../stencil-public-runtime';
+import { EventEmitter } from '@stencil/core';
 export interface ComboOption {
     id: string;
     title: string;

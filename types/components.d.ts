@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
-import { ButtonStyle } from "./components/button/button";
-import { ComboOption } from "./components/forms/combo-group/combo-group";
+import { ButtonStyle, } from "./components/button/button";
+import { ComboOption, } from "./components/forms/combo-group/combo-group";
 export namespace Components {
     interface UniBarText {
     }
@@ -27,6 +27,10 @@ export namespace Components {
           * Disables the button, preventing input
          */
         "disabled": boolean;
+        /**
+          * Make this button a link to `href` instead
+         */
+        "href"?: string;
         /**
           * Changes the button into a loading state
          */
@@ -74,7 +78,7 @@ export namespace Components {
         /**
           * How to align the text
          */
-        "align"?: 'left' | 'start' | 'center' | 'right' | 'end';
+        "align"?: "left" | "start" | "center" | "right" | "end";
         /**
           * URL of an image to use for the background
          */
@@ -259,6 +263,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * Make this button a link to `href` instead
+         */
+        "href"?: string;
+        /**
           * Changes the button into a loading state
          */
         "loading"?: boolean;
@@ -313,7 +321,7 @@ declare namespace LocalJSX {
         /**
           * How to align the text
          */
-        "align"?: 'left' | 'start' | 'center' | 'right' | 'end';
+        "align"?: "left" | "start" | "center" | "right" | "end";
         /**
           * URL of an image to use for the background
          */

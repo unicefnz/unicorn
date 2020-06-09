@@ -1,0 +1,1 @@
+import{r as t,h as l}from"./p-bddfebbe.js";const o=class{constructor(l){t(this,l)}render(){return l("h2",{class:"dialog-title"},l("uni-underline",null,l("slot",null)))}};o.style=":host{display:block;margin-bottom:16px}h2{margin:0}";export{o as uni_dialog_title}

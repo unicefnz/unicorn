@@ -19,15 +19,20 @@ export class Button {
         this.buttonType = 'button';
     }
     render() {
+        const isDisabled = this.disabled || this.loading;
+        const contents = [
+            this.prependIcon && h("ion-icon", { name: this.prependIcon, class: "prepend-icon" }),
+            (h("div", { class: "button-content" },
+                h("slot", null)))
+        ];
         return (h(Host, { class: {
-                ['style-' + this.buttonStyle]: true,
+                ['uni-style-' + this.buttonStyle]: true,
                 [`uni-color-${this.color}`]: true,
-                loading: this.loading
-            } },
-            h("button", { class: "button", type: this.buttonType, disabled: this.disabled || this.loading },
-                this.prependIcon && h("ion-icon", { name: this.prependIcon, class: "prepend-icon" }),
-                h("div", { class: "button-content" },
-                    h("slot", null)))));
+                'uni-loading': this.loading,
+                'uni-disabled': isDisabled
+            } }, this.href ? (h("a", { class: "button", href: this.href, onClick: e => isDisabled && e.preventDefault() }, contents)) : (
+        // eslint-disable-next-line react/button-has-type
+        h("button", { class: "button", type: this.buttonType, disabled: isDisabled }, contents))));
     }
     static get is() { return "uni-button"; }
     static get encapsulation() { return "shadow"; }
@@ -146,6 +151,23 @@ export class Button {
             "attribute": "button-type",
             "reflect": false,
             "defaultValue": "'button'"
+        },
+        "href": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": true,
+            "docs": {
+                "tags": [],
+                "text": "Make this button a link to `href` instead"
+            },
+            "attribute": "href",
+            "reflect": false
         }
     }; }
 }

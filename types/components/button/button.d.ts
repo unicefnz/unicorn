@@ -29,5 +29,9 @@ export declare class Button {
      * One of 'button', 'submit', or 'reset'
      * */
     readonly buttonType: string;
+    /**
+     * Make this button a link to `href` instead
+     * */
+    readonly href?: string;
     render(): any;
 }

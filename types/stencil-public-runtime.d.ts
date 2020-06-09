@@ -228,7 +228,7 @@ export declare const setMode: (handler: ResolutionHandler) => void;
 /**
  * getMode
  */
-export declare function getMode<T = string | undefined>(ref: any): T;
+export declare function getMode<T = (string | undefined)>(ref: any): T;
 /**
  * getAssetPath
  */
@@ -573,7 +573,7 @@ export declare namespace JSXBase {
         track: JSXBase.TrackHTMLAttributes<HTMLTrackElement>;
         u: JSXBase.HTMLAttributes;
         ul: JSXBase.HTMLAttributes<HTMLUListElement>;
-        var: JSXBase.HTMLAttributes;
+        'var': JSXBase.HTMLAttributes;
         video: JSXBase.VideoHTMLAttributes<HTMLVideoElement>;
         wbr: JSXBase.HTMLAttributes;
         animate: JSXBase.SVGAttributes;
@@ -635,7 +635,6 @@ export declare namespace JSXBase {
     interface SlotAttributes {
         name?: string;
         slot?: string;
-        onSlotchange?: (event: Event) => void;
     }
     interface AnchorHTMLAttributes<T> extends HTMLAttributes<T> {
         download?: any;
@@ -697,7 +696,6 @@ export declare namespace JSXBase {
     }
     interface DetailsHTMLAttributes<T> extends HTMLAttributes<T> {
         open?: boolean;
-        onToggle?: (event: Event) => void;
     }
     interface DelHTMLAttributes<T> extends HTMLAttributes<T> {
         cite?: string;
@@ -813,6 +811,7 @@ export declare namespace JSXBase {
         formtarget?: string;
         height?: number | string;
         indeterminate?: boolean;
+        inputmode?: string;
         list?: string;
         max?: number | string;
         maxLength?: number;
@@ -862,7 +861,6 @@ export declare namespace JSXBase {
         value?: string | string[] | number;
     }
     interface LinkHTMLAttributes<T> extends HTMLAttributes<T> {
-        as?: string;
         href?: string;
         hrefLang?: string;
         hreflang?: string;
@@ -1084,7 +1082,8 @@ export declare namespace JSXBase {
         hidden?: boolean;
         id?: string;
         lang?: string;
-        spellcheck?: 'true' | 'false' | any;
+        spellCheck?: boolean;
+        spellcheck?: boolean | string;
         style?: {
             [key: string]: string | undefined;
         };
@@ -1093,11 +1092,10 @@ export declare namespace JSXBase {
         title?: string;
         inputMode?: string;
         inputmode?: string;
-        enterKeyHint?: string;
-        enterkeyhint?: string;
         is?: string;
         radioGroup?: string;
         radiogroup?: string;
+        part?: string;
         role?: string;
         about?: string;
         datatype?: string;
@@ -1129,51 +1127,51 @@ export declare namespace JSXBase {
         unselectable?: boolean;
     }
     interface SVGAttributes<T = SVGElement> extends DOMAttributes<T> {
-        'class'?: string | {
+        class?: string | {
             [className: string]: boolean;
         };
-        'color'?: string;
-        'height'?: number | string;
-        'id'?: string;
-        'lang'?: string;
-        'max'?: number | string;
-        'media'?: string;
-        'method'?: string;
-        'min'?: number | string;
-        'name'?: string;
-        'style'?: {
+        color?: string;
+        height?: number | string;
+        id?: string;
+        lang?: string;
+        max?: number | string;
+        media?: string;
+        method?: string;
+        min?: number | string;
+        name?: string;
+        style?: {
             [key: string]: string | undefined;
         };
-        'target'?: string;
-        'type'?: string;
-        'width'?: number | string;
-        'role'?: string;
-        'tabindex'?: number;
+        target?: string;
+        type?: string;
+        width?: number | string;
+        role?: string;
+        tabindex?: number;
         'accent-height'?: number | string;
         'accumulate'?: 'none' | 'sum';
         'additive'?: 'replace' | 'sum';
         'alignment-baseline'?: 'auto' | 'baseline' | 'before-edge' | 'text-before-edge' | 'middle' | 'central' | 'after-edge' | 'text-after-edge' | 'ideographic' | 'alphabetic' | 'hanging' | 'mathematical' | 'inherit';
-        'allowReorder'?: 'no' | 'yes';
+        'allow-reorder'?: 'no' | 'yes';
         'alphabetic'?: number | string;
         'amplitude'?: number | string;
         'arabic-form'?: 'initial' | 'medial' | 'terminal' | 'isolated';
         'ascent'?: number | string;
-        'attributeName'?: string;
-        'attributeType'?: string;
-        'autoReverse'?: number | string;
+        'attribute-name'?: string;
+        'attribute-type'?: string;
+        'auto-reverse'?: number | string;
         'azimuth'?: number | string;
-        'baseFrequency'?: number | string;
+        'base-frequency'?: number | string;
         'baseline-shift'?: number | string;
         'baseProfile'?: number | string;
         'bbox'?: number | string;
         'begin'?: number | string;
         'bias'?: number | string;
         'by'?: number | string;
-        'calcMode'?: number | string;
+        'calc-mode'?: number | string;
         'cap-height'?: number | string;
         'clip'?: number | string;
         'clip-path'?: string;
-        'clipPathUnits'?: number | string;
+        'clip-path-units'?: number | string;
         'clip-rule'?: number | string;
         'color-interpolation'?: number | string;
         'color-interpolation-filters'?: 'auto' | 's-rGB' | 'linear-rGB' | 'inherit';
@@ -1187,7 +1185,7 @@ export declare namespace JSXBase {
         'd'?: string;
         'decelerate'?: number | string;
         'descent'?: number | string;
-        'diffuseConstant'?: number | string;
+        'diffuse-constant'?: number | string;
         'direction'?: number | string;
         'display'?: number | string;
         'divisor'?: number | string;
@@ -1200,13 +1198,13 @@ export declare namespace JSXBase {
         'enable-background'?: number | string;
         'end'?: number | string;
         'exponent'?: number | string;
-        'externalResourcesRequired'?: number | string;
+        'external-resources-required'?: number | string;
         'fill'?: string;
         'fill-opacity'?: number | string;
         'fill-rule'?: 'nonzero' | 'evenodd' | 'inherit';
         'filter'?: string;
-        'filterRes'?: number | string;
-        'filterUnits'?: number | string;
+        'filter-res'?: number | string;
+        'filter-units'?: number | string;
         'flood-color'?: number | string;
         'flood-opacity'?: number | string;
         'focusable'?: number | string;
@@ -1226,13 +1224,12 @@ export declare namespace JSXBase {
         'glyph-name'?: number | string;
         'glyph-orientation-horizontal'?: number | string;
         'glyph-orientation-vertical'?: number | string;
-        'glyphRef'?: number | string;
-        'gradientTransform'?: string;
-        'gradientUnits'?: string;
+        'glyph-ref'?: number | string;
+        'gradient-transform'?: string;
+        'gradient-units'?: string;
         'hanging'?: number | string;
         'horiz-adv-x'?: number | string;
         'horiz-origin-x'?: number | string;
-        'href'?: string;
         'ideographic'?: number | string;
         'image-rendering'?: number | string;
         'in2'?: number | string;
@@ -1243,29 +1240,29 @@ export declare namespace JSXBase {
         'k3'?: number | string;
         'k4'?: number | string;
         'k'?: number | string;
-        'kernelMatrix'?: number | string;
-        'kernelUnitLength'?: number | string;
+        'kernel-matrix'?: number | string;
+        'kernel-unit-length'?: number | string;
         'kerning'?: number | string;
-        'keyPoints'?: number | string;
-        'keySplines'?: number | string;
-        'keyTimes'?: number | string;
-        'lengthAdjust'?: number | string;
+        'key-points'?: number | string;
+        'key-splines'?: number | string;
+        'key-times'?: number | string;
+        'length-adjust'?: number | string;
         'letter-spacing'?: number | string;
         'lighting-color'?: number | string;
-        'limitingConeAngle'?: number | string;
+        'limiting-cone-angle'?: number | string;
         'local'?: number | string;
         'marker-end'?: string;
-        'markerHeight'?: number | string;
+        'marker-height'?: number | string;
         'marker-mid'?: string;
         'marker-start'?: string;
-        'markerUnits'?: number | string;
-        'markerWidth'?: number | string;
+        'marker-units'?: number | string;
+        'marker-width'?: number | string;
         'mask'?: string;
-        'maskContentUnits'?: number | string;
-        'maskUnits'?: number | string;
+        'mask-content-units'?: number | string;
+        'mask-units'?: number | string;
         'mathematical'?: number | string;
         'mode'?: number | string;
-        'numOctaves'?: number | string;
+        'num-octaves'?: number | string;
         'offset'?: number | string;
         'opacity'?: number | string;
         'operator'?: number | string;
@@ -1278,27 +1275,27 @@ export declare namespace JSXBase {
         'overline-thickness'?: number | string;
         'paint-order'?: number | string;
         'panose1'?: number | string;
-        'pathLength'?: number | string;
-        'patternContentUnits'?: string;
-        'patternTransform'?: number | string;
-        'patternUnits'?: string;
+        'path-length'?: number | string;
+        'pattern-content-units'?: string;
+        'pattern-transform'?: number | string;
+        'pattern-units'?: string;
         'pointer-events'?: number | string;
         'points'?: string;
-        'pointsAtX'?: number | string;
-        'pointsAtY'?: number | string;
-        'pointsAtZ'?: number | string;
-        'preserveAlpha'?: number | string;
+        'points-at-x'?: number | string;
+        'points-at-y'?: number | string;
+        'points-at-z'?: number | string;
+        'preserve-alpha'?: number | string;
         'preserveAspectRatio'?: string;
-        'primitiveUnits'?: number | string;
+        'primitive-units'?: number | string;
         'r'?: number | string;
         'radius'?: number | string;
         'ref-x'?: number | string;
         'ref-y'?: number | string;
         'rendering-intent'?: number | string;
-        'repeatCount'?: number | string;
-        'repeatDur'?: number | string;
-        'requiredextensions'?: number | string;
-        'requiredFeatures'?: number | string;
+        'repeat-count'?: number | string;
+        'repeat-dur'?: number | string;
+        'required-extensions'?: number | string;
+        'required-features'?: number | string;
         'restart'?: number | string;
         'result'?: string;
         'rotate'?: number | string;
@@ -1309,15 +1306,15 @@ export declare namespace JSXBase {
         'shape-rendering'?: number | string;
         'slope'?: number | string;
         'spacing'?: number | string;
-        'specularConstant'?: number | string;
-        'specularExponent'?: number | string;
+        'specular-constant'?: number | string;
+        'specular-exponent'?: number | string;
         'speed'?: number | string;
-        'spreadMethod'?: string;
-        'startOffset'?: number | string;
-        'stdDeviation'?: number | string;
+        'spread-method'?: string;
+        'start-offset'?: number | string;
+        'std-deviation'?: number | string;
         'stemh'?: number | string;
         'stemv'?: number | string;
-        'stitchTiles'?: number | string;
+        'stitch-tiles'?: number | string;
         'stop-color'?: string;
         'stop-opacity'?: number | string;
         'strikethrough-position'?: number | string;
@@ -1331,14 +1328,14 @@ export declare namespace JSXBase {
         'stroke-miterlimit'?: string;
         'stroke-opacity'?: number | string;
         'stroke-width'?: number | string;
-        'surfaceScale'?: number | string;
-        'systemLanguage'?: number | string;
-        'tableValues'?: number | string;
-        'targetX'?: number | string;
-        'targetY'?: number | string;
+        'surface-scale'?: number | string;
+        'system-language'?: number | string;
+        'table-values'?: number | string;
+        'target-x'?: number | string;
+        'target-y'?: number | string;
         'text-anchor'?: string;
         'text-decoration'?: number | string;
-        'textLength'?: number | string;
+        'text-length'?: number | string;
         'text-rendering'?: number | string;
         'to'?: number | string;
         'transform'?: string;
@@ -1360,7 +1357,7 @@ export declare namespace JSXBase {
         'v-hanging'?: number | string;
         'v-ideographic'?: number | string;
         'viewBox'?: string;
-        'viewTarget'?: number | string;
+        'view-target'?: number | string;
         'visibility'?: number | string;
         'v-mathematical'?: number | string;
         'widths'?: number | string;
@@ -1371,21 +1368,22 @@ export declare namespace JSXBase {
         'x'?: number | string;
         'x-channel-selector'?: string;
         'x-height'?: number | string;
-        'xlinkActuate'?: string;
-        'xlinkArcrole'?: string;
-        'xlinkHref'?: string;
-        'xlinkRole'?: string;
-        'xlinkShow'?: string;
-        'xlinkTitle'?: string;
-        'xlinkType'?: string;
-        'xmlBase'?: string;
-        'xmlLang'?: string;
+        'xlink-actuate'?: string;
+        'xlink-arcrole'?: string;
+        'xlink-href'?: string;
+        'xlink-role'?: string;
+        'xlink-show'?: string;
+        'xlink-title'?: string;
+        'xlink-type'?: string;
+        'xml-base'?: string;
+        'xml-lang'?: string;
         'xmlns'?: string;
-        'xmlSpace'?: string;
+        'xmlns-xlink'?: string;
+        'xml-space'?: string;
         'y1'?: number | string;
         'y2'?: number | string;
         'y'?: number | string;
-        'yChannelSelector'?: string;
+        'y-channel-selector'?: string;
         'z'?: number | string;
         'zoomAndPan'?: string;
     }
@@ -1393,8 +1391,6 @@ export declare namespace JSXBase {
         key?: string | number;
         ref?: (elm?: T) => void;
         slot?: string;
-        part?: string;
-        exportparts?: string;
         onCopy?: (event: ClipboardEvent) => void;
         onCopyCapture?: (event: ClipboardEvent) => void;
         onCut?: (event: ClipboardEvent) => void;
@@ -1409,10 +1405,6 @@ export declare namespace JSXBase {
         onCompositionUpdateCapture?: (event: CompositionEvent) => void;
         onFocus?: (event: FocusEvent) => void;
         onFocusCapture?: (event: FocusEvent) => void;
-        onFocusIn?: (event: FocusEvent) => void;
-        onFocusInCapture?: (event: FocusEvent) => void;
-        onFocusOut?: (event: FocusEvent) => void;
-        onFocusOutCapture?: (event: FocusEvent) => void;
         onBlur?: (event: FocusEvent) => void;
         onBlurCapture?: (event: FocusEvent) => void;
         onChange?: (event: Event) => void;

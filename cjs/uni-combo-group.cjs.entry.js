@@ -2,11 +2,11 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-80028a92.js');
+const index = require('./index-82b860da.js');
 
 const comboGroupCss = ":host{display:-ms-flexbox;display:flex;-ms-flex-pack:stretch;justify-content:stretch;border:1px solid var(--uni-color, var(--uni-dark));border-radius:4px}.combo-item:not(:last-child){border-right:1px solid var(--uni-color, var(--uni-dark))}.combo-item{-ms-flex:1;flex:1;display:block;text-align:center;padding:0.5em 1em;border:none;background:none;font:inherit}.combo-item.selected{background:var(--uni-color, var(--uni-accent))}.combo-item:not(.selected){cursor:pointer}";
 
-class ComboGroup {
+const ComboGroup = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
         /**
@@ -36,7 +36,7 @@ class ComboGroup {
     static get watchers() { return {
         "value": ["onValueChange"]
     }; }
-}
+};
 ComboGroup.style = comboGroupCss;
 
 exports.uni_combo_group = ComboGroup;

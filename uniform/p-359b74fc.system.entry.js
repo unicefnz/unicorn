@@ -1,0 +1,1 @@
+System.register(["./p-7464bddc.system.js"],(function(t){"use strict";var s,n;return{setters:[function(t){s=t.r;n=t.h}],execute:function(){const e=":host{display:block;margin-bottom:16px}h2{margin:0}";const r=t("uni_dialog_title",class{constructor(t){s(this,t)}render(){return n("h2",{class:"dialog-title"},n("uni-underline",null,n("slot",null)))}});r.style=e}}}));
