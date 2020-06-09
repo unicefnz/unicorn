@@ -2,11 +2,11 @@ name: Core CI
 
 on:
   push:
-    branches: [ master ]
     # Currently, disable the path restrictions so that we get passing tests when nothing changes
+#    branches: [ master ]
 #    paths: [ 'core/**' ]
-  pull_request:
-    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
 #    path: [ 'core/**' ]
 
 jobs:
