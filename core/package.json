@@ -1,6 +1,6 @@
 {
   "name": "@unicef-new-zealand/uniform-core",
-  "version": "1.0.0-5",
+  "version": "1.0.0-6",
   "description": "Uniform Core Web Component Library",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
