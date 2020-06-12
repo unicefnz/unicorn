@@ -2,20 +2,20 @@
   display: block;
 }
 
-:host(.uni-disabled) {
-  .uni-checkbox input, label {
-    cursor: not-allowed;
-  }
-  .uni-checkbox input:checked ~ .uni-checkbox-visual {
-    background: var(--uni-light);
-  }
-  label {
-    opacity: 0.5;
-  }
+.uni-checkbox-indeterminate {
+  width: 8px;
+  border: 1px solid var(--uni-accent-contrast);
+}
+.uni-checkbox-check {
+  color: var(--uni-accent-contrast);
 }
 
 .uni-checkbox input, label {
   cursor: pointer;
+}
+
+label {
+  vertical-align: middle;
 }
 
 .uni-checkbox {
@@ -46,7 +46,7 @@
   border-radius: 4px;
 }
 
-.uni-checkbox .uni-checkbox-check {
+.uni-checkbox .uni-checkbox-icon {
   position: absolute;
   display: none;
   align-items: center;
@@ -54,14 +54,38 @@
   color: var(--uni-accent-contrast);
 }
 
-.uni-checkbox input:checked ~ .uni-checkbox-visual {
-  background: var(--uni-accent);
+
+// Disabled state ( [disabled] )
+:host(.uni-disabled) {
+  .uni-checkbox input, label {
+    cursor: not-allowed;
+  }
+  .uni-checkbox input:checked ~ .uni-checkbox-visual {
+    background: var(--uni-light);
+  }
+  label {
+    opacity: 0.5;
+  }
 }
 
-.uni-checkbox input:checked ~ .uni-checkbox-check {
-  display: flex;
+// Checked state
+.uni-checkbox input:checked ~ , :host(.uni-indeterminate) {
+  .uni-checkbox-visual {
+    background: var(--uni-accent);
+  }
+  .uni-checkbox-icon {
+    display: flex;
+  }
 }
 
-label {
-  vertical-align: middle;
+// Hide when not indeterminate
+:host(:not(.uni-indeterminate)) .uni-checkbox-indeterminate {
+  display: none;
+}
+
+// Hide when indeterminate or not checked
+:host(.uni-indeterminate), .uni-checkbox input:not(:checked) ~ {
+  .uni-checkbox-icon .uni-checkbox-check {
+    display: none;
+  }
 }

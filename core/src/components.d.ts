@@ -42,13 +42,25 @@ export namespace Components {
     }
     interface UniCheckbox {
         /**
-          * When set to true, the state cannot be modified
+          * The checked state of the checkbox
+         */
+        "checked": boolean;
+        /**
+          * When true, the checkbox is marked as disabled and state cannot be modified
          */
         "disabled": boolean;
         /**
-          * Whether the checkbox is checked
+          * Puts the checkbox in an indeterminate state ( [-] )
          */
-        "value": boolean;
+        "indeterminate": boolean;
+        /**
+          * Prevents the state from being modified
+         */
+        "readonly": boolean;
+        /**
+          * HTML Form value. This is not the checked state, use checked instead
+         */
+        "value"?: string;
     }
     interface UniComboGroup {
         /**
@@ -277,13 +289,29 @@ declare namespace LocalJSX {
     }
     interface UniCheckbox {
         /**
-          * When set to true, the state cannot be modified
+          * The checked state of the checkbox
+         */
+        "checked"?: boolean;
+        /**
+          * When true, the checkbox is marked as disabled and state cannot be modified
          */
         "disabled"?: boolean;
         /**
-          * Whether the checkbox is checked
+          * Puts the checkbox in an indeterminate state ( [-] )
          */
-        "value"?: boolean;
+        "indeterminate"?: boolean;
+        /**
+          * Emitted when checkbox value is changed
+         */
+        "onUniChange"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Prevents the state from being modified
+         */
+        "readonly"?: boolean;
+        /**
+          * HTML Form value. This is not the checked state, use checked instead
+         */
+        "value"?: string;
     }
     interface UniComboGroup {
         /**
