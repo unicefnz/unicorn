@@ -12,10 +12,6 @@ export const config: Config = {
     {
       type: 'docs-readme'
     },
-    {
-      type: 'www',
-      serviceWorker: null // disable service workers
-    },
     reactOutputTarget({
       componentCorePackage: '@unicef-new-zealand/uniform-core',
       proxiesFile: '../packages/react/src/proxies.ts',
