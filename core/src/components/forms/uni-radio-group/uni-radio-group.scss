@@ -1,0 +1,13 @@
+@use "../../../css/theming/color";
+:host {
+  display: block;
+}
+
+fieldset {
+  display: flex;
+  justify-content: stretch;
+  border: 1px solid color.useVar(dark);
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 0;
+}

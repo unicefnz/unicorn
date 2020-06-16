@@ -1,29 +1,24 @@
 @use "../../../css/theming/color";
 
 :host {
-  display: flex;
-  justify-content: stretch;
-  border: 1px solid color.useVar(dark);
-  border-radius: 4px;
+  flex: 1;
+  display: block;
 }
-
-.combo-item:not(:last-child) {
+:host(:not(:last-child)) {
   border-right: 1px solid color.useVar(dark);
 }
 
-.combo-item {
-  flex: 1;
+.uni-radio-option {
   display: block;
+  width: 100%;
   text-align: center;
   padding: 0.5em 1em;
   border: none;
   background: none;
   font: inherit;
+  cursor: pointer;
 }
 
-.combo-item.selected {
+.uni-radio-option.uni-selected {
   background: color.useVar(accent);
-}
-.combo-item:not(.selected) {
-  cursor: pointer;
 }
