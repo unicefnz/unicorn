@@ -32,9 +32,15 @@ export const Border = () => `
 `;
 
 export const Icon = () => `
-<uni-button prepend-icon="${text('Icon', 'logo-google')}">Login with Google</uni-button>
+<uni-button>
+    <ion-icon slot="prepend-icon" name="${text('Icon', 'logo-google')}"></ion-icon>
+    Login with Google
+</uni-button>
 <br>
-<uni-button button-style="border" prepend-icon="logo-facebook">Login with Facebook</uni-button>
+<uni-button button-style="border" prepend-icon="logo-facebook">
+    <ion-icon slot="prepend-icon" name="logo-facebook"></ion-icon>
+    Login with Facebook
+</uni-button>
 `;
 
 export const Loading = () => `

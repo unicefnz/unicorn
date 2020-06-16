@@ -14,14 +14,18 @@
 .select-box {
   position: relative;
 }
-.select-box ion-icon {
+.select-icon {
   position: absolute;
   right: 16px;
   top: 0;
   bottom: 0;
+  height: 0;
   margin: auto;
+  border-style: solid;
+  border-width: 8px 7px 0 7px;
+  border-color: color.useVar(dark) transparent transparent transparent;
 }
-select {
+::slotted(select) {
   width: 100%;
   border: 1px solid color.useVar(dark);
   border-radius: 4px;
@@ -32,6 +36,6 @@ select {
   padding: 10px 12px;
   background: #FFF;
 }
-select:focus {
+::slotted(select:focus) {
   box-shadow: 0 0 0 2px rgba(0, 128, 255, 0.5);
 }

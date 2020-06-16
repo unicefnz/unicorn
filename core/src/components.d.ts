@@ -6,7 +6,6 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonStyle } from "./components/button/button";
-import { ComboOption } from "./components/forms/combo-group/combo-group";
 export namespace Components {
     interface UniBarText {
     }
@@ -62,16 +61,6 @@ export namespace Components {
          */
         "value"?: string;
     }
-    interface UniComboGroup {
-        /**
-          * Available options in the combo group
-         */
-        "options": ComboOption[];
-        /**
-          * ID of the selected option
-         */
-        "value": string;
-    }
     interface UniDialog {
         /**
           * Controls whether clicking on the backdrop will dismiss the dialog
@@ -105,6 +94,33 @@ export namespace Components {
           * Controls if the loading bar is visible *
          */
         "value": boolean;
+    }
+    interface UniRadioController {
+        /**
+          * Value of the selected option
+         */
+        "value": string;
+    }
+    interface UniRadioGroup {
+        /**
+          * Value of the selected option
+         */
+        "value": string;
+        /**
+          * Display a different style radio group, either a "combo" row or "button" group
+         */
+        "variant": 'combo' | 'button';
+    }
+    interface UniRadioOption {
+        /**
+          * Marks this option as disabled
+         */
+        "disabled": boolean;
+        "selected": boolean;
+        /**
+          * Machine value for the option
+         */
+        "value": string;
     }
     interface UniSelect {
         /**
@@ -140,14 +156,6 @@ export namespace Components {
          */
         "placeholder": string;
         /**
-          * Optionally prepend an icon to the inside of the field, eg a search icon
-         */
-        "prependIcon": string;
-        /**
-          * Optionally prepend some text inside the field, eg a $ prefix
-         */
-        "prependText": string;
-        /**
           * Prevents editing the field, but allows selecting text
          */
         "readonly": boolean;
@@ -177,12 +185,6 @@ declare global {
     var HTMLUniCheckboxElement: {
         prototype: HTMLUniCheckboxElement;
         new (): HTMLUniCheckboxElement;
-    };
-    interface HTMLUniComboGroupElement extends Components.UniComboGroup, HTMLStencilElement {
-    }
-    var HTMLUniComboGroupElement: {
-        prototype: HTMLUniComboGroupElement;
-        new (): HTMLUniComboGroupElement;
     };
     interface HTMLUniDialogElement extends Components.UniDialog, HTMLStencilElement {
     }
@@ -214,6 +216,24 @@ declare global {
         prototype: HTMLUniProgressLinearElement;
         new (): HTMLUniProgressLinearElement;
     };
+    interface HTMLUniRadioControllerElement extends Components.UniRadioController, HTMLStencilElement {
+    }
+    var HTMLUniRadioControllerElement: {
+        prototype: HTMLUniRadioControllerElement;
+        new (): HTMLUniRadioControllerElement;
+    };
+    interface HTMLUniRadioGroupElement extends Components.UniRadioGroup, HTMLStencilElement {
+    }
+    var HTMLUniRadioGroupElement: {
+        prototype: HTMLUniRadioGroupElement;
+        new (): HTMLUniRadioGroupElement;
+    };
+    interface HTMLUniRadioOptionElement extends Components.UniRadioOption, HTMLStencilElement {
+    }
+    var HTMLUniRadioOptionElement: {
+        prototype: HTMLUniRadioOptionElement;
+        new (): HTMLUniRadioOptionElement;
+    };
     interface HTMLUniSelectElement extends Components.UniSelect, HTMLStencilElement {
     }
     var HTMLUniSelectElement: {
@@ -242,12 +262,14 @@ declare global {
         "uni-bar-text": HTMLUniBarTextElement;
         "uni-button": HTMLUniButtonElement;
         "uni-checkbox": HTMLUniCheckboxElement;
-        "uni-combo-group": HTMLUniComboGroupElement;
         "uni-dialog": HTMLUniDialogElement;
         "uni-dialog-content": HTMLUniDialogContentElement;
         "uni-dialog-title": HTMLUniDialogTitleElement;
         "uni-hero": HTMLUniHeroElement;
         "uni-progress-linear": HTMLUniProgressLinearElement;
+        "uni-radio-controller": HTMLUniRadioControllerElement;
+        "uni-radio-group": HTMLUniRadioGroupElement;
+        "uni-radio-option": HTMLUniRadioOptionElement;
         "uni-select": HTMLUniSelectElement;
         "uni-tagline": HTMLUniTaglineElement;
         "uni-text-field": HTMLUniTextFieldElement;
@@ -313,20 +335,6 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
-    interface UniComboGroup {
-        /**
-          * Emitted when the selected option changes
-         */
-        "onUniChange"?: (event: CustomEvent<any>) => void;
-        /**
-          * Available options in the combo group
-         */
-        "options"?: ComboOption[];
-        /**
-          * ID of the selected option
-         */
-        "value"?: string;
-    }
     interface UniDialog {
         /**
           * Controls whether clicking on the backdrop will dismiss the dialog
@@ -364,6 +372,41 @@ declare namespace LocalJSX {
           * Controls if the loading bar is visible *
          */
         "value"?: boolean;
+    }
+    interface UniRadioController {
+        /**
+          * Emitted when the selected option changes
+         */
+        "onUniChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * Value of the selected option
+         */
+        "value"?: string;
+    }
+    interface UniRadioGroup {
+        /**
+          * Value of the selected option
+         */
+        "value"?: string;
+        /**
+          * Display a different style radio group, either a "combo" row or "button" group
+         */
+        "variant"?: 'combo' | 'button';
+    }
+    interface UniRadioOption {
+        /**
+          * Marks this option as disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Emitted when the button is clicked
+         */
+        "onUniSelect"?: (event: CustomEvent<void>) => void;
+        "selected"?: boolean;
+        /**
+          * Machine value for the option
+         */
+        "value"?: string;
     }
     interface UniSelect {
         /**
@@ -407,14 +450,6 @@ declare namespace LocalJSX {
          */
         "placeholder"?: string;
         /**
-          * Optionally prepend an icon to the inside of the field, eg a search icon
-         */
-        "prependIcon"?: string;
-        /**
-          * Optionally prepend some text inside the field, eg a $ prefix
-         */
-        "prependText"?: string;
-        /**
           * Prevents editing the field, but allows selecting text
          */
         "readonly"?: boolean;
@@ -429,12 +464,14 @@ declare namespace LocalJSX {
         "uni-bar-text": UniBarText;
         "uni-button": UniButton;
         "uni-checkbox": UniCheckbox;
-        "uni-combo-group": UniComboGroup;
         "uni-dialog": UniDialog;
         "uni-dialog-content": UniDialogContent;
         "uni-dialog-title": UniDialogTitle;
         "uni-hero": UniHero;
         "uni-progress-linear": UniProgressLinear;
+        "uni-radio-controller": UniRadioController;
+        "uni-radio-group": UniRadioGroup;
+        "uni-radio-option": UniRadioOption;
         "uni-select": UniSelect;
         "uni-tagline": UniTagline;
         "uni-text-field": UniTextField;
@@ -448,12 +485,14 @@ declare module "@stencil/core" {
             "uni-bar-text": LocalJSX.UniBarText & JSXBase.HTMLAttributes<HTMLUniBarTextElement>;
             "uni-button": LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
             "uni-checkbox": LocalJSX.UniCheckbox & JSXBase.HTMLAttributes<HTMLUniCheckboxElement>;
-            "uni-combo-group": LocalJSX.UniComboGroup & JSXBase.HTMLAttributes<HTMLUniComboGroupElement>;
             "uni-dialog": LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
             "uni-dialog-content": LocalJSX.UniDialogContent & JSXBase.HTMLAttributes<HTMLUniDialogContentElement>;
             "uni-dialog-title": LocalJSX.UniDialogTitle & JSXBase.HTMLAttributes<HTMLUniDialogTitleElement>;
             "uni-hero": LocalJSX.UniHero & JSXBase.HTMLAttributes<HTMLUniHeroElement>;
             "uni-progress-linear": LocalJSX.UniProgressLinear & JSXBase.HTMLAttributes<HTMLUniProgressLinearElement>;
+            "uni-radio-controller": LocalJSX.UniRadioController & JSXBase.HTMLAttributes<HTMLUniRadioControllerElement>;
+            "uni-radio-group": LocalJSX.UniRadioGroup & JSXBase.HTMLAttributes<HTMLUniRadioGroupElement>;
+            "uni-radio-option": LocalJSX.UniRadioOption & JSXBase.HTMLAttributes<HTMLUniRadioOptionElement>;
             "uni-select": LocalJSX.UniSelect & JSXBase.HTMLAttributes<HTMLUniSelectElement>;
             "uni-tagline": LocalJSX.UniTagline & JSXBase.HTMLAttributes<HTMLUniTaglineElement>;
             "uni-text-field": LocalJSX.UniTextField & JSXBase.HTMLAttributes<HTMLUniTextFieldElement>;

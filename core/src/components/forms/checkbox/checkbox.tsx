@@ -57,7 +57,19 @@ export class Checkbox {
             readOnly={this.readonly}
           />
           <div class="uni-checkbox-icon">
-            <ion-icon class="uni-checkbox-check" name="checkmark-sharp" />
+            {/* ionicons checkmark */}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="uni-checkbox-check">
+              <polyline
+                points="416 128 192 384 96 288"
+                style={{
+                  fill: 'none',
+                  stroke: '#000',
+                  strokeLinecap: 'round',
+                  strokeLinejoin: 'round',
+                  strokeWidth: '32px'
+                }}
+              />
+            </svg>
             <div class="uni-checkbox-indeterminate" />
           </div>
           <div class="uni-checkbox-visual" />

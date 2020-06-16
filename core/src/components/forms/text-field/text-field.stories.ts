@@ -13,8 +13,12 @@ export const Default = () => `
 `;
 
 export const PrependIcon = () => `
-<uni-text-field label="Label Text" prepend-icon="${text('Icon Name', 'warning')}" placeholder="Placeholder"></uni-text-field>
-<uni-text-field label="Label Text" prepend-text="${text('Prepend Text', '$')}" placeholder="Enter amount"></uni-text-field>
+<uni-text-field label="Label Text" placeholder="Placeholder">
+    <ion-icon slot="prepend" name="${text('Icon Name', 'warning')}"></p>
+</uni-text-field>
+<uni-text-field label="Label Text" placeholder="Enter amount">
+    <p slot="prepend">${text('Prepend Text', '$')}</p>
+</uni-text-field>
 `;
 
 export const Errors = () => `

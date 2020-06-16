@@ -3,7 +3,7 @@ import { Component, Host, h, Prop } from '@stencil/core';
 @Component({
   tag: 'uni-select',
   styleUrl: 'select.scss',
-  // shadow: true
+  shadow: true
 })
 export class Select {
   /**
@@ -15,7 +15,7 @@ export class Select {
     const select = (
       <div class="select-box">
         <slot />
-        <ion-icon name="caret-down" />
+        <div class="select-icon" />
       </div>
     );
     return (
