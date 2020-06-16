@@ -1,9 +1,11 @@
 @use "../../../css/theming/color";
+$border: 1px solid var(--uni-dark);
+
 :host {
   display: block;
 }
 
-.radio-fields {
+.radio-fieldset {
   padding: 0;
   border: none;
 }
@@ -11,8 +13,33 @@
 uni-radio-controller {
   display: flex;
   justify-content: stretch;
-  border: 1px solid color.useVar(dark);
+  flex-wrap: wrap;
+}
+
+::slotted(uni-radio-option) {
+  flex: 1;
+}
+
+::slotted(uni-radio-option.uni-selected) {
+  background: color.useVar(accent);
+}
+
+.uni-variant-combo uni-radio-controller {
+  border: $border;
   border-radius: 4px;
-  overflow: hidden;
-  padding: 0;
+
+  ::slotted(uni-radio-option:not(:last-child)) {
+    border-right: $border;
+  }
+}
+
+.uni-variant-button uni-radio-controller {
+  margin: -1rem;
+
+  ::slotted(uni-radio-option) {
+    margin: 1rem;
+    overflow: hidden;
+    border: $border;
+    border-radius: 4px;
+  }
 }

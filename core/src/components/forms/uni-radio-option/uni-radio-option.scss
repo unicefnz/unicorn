@@ -1,14 +1,11 @@
 @use "../../../css/theming/color";
 
 :host {
-  flex: 1;
   display: block;
-}
-:host(:not(:last-child)) {
-  border-right: 1px solid color.useVar(dark);
 }
 
 .uni-radio-option {
+  cursor: pointer;
   display: block;
   width: 100%;
   text-align: center;
@@ -16,9 +13,4 @@
   border: none;
   background: none;
   font: inherit;
-  cursor: pointer;
-}
-
-.uni-radio-option.uni-selected {
-  background: color.useVar(accent);
 }

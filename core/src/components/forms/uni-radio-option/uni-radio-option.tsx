@@ -26,10 +26,9 @@ export class UniRadioOption {
 
   render() {
     return (
-      <Host>
+      <Host class={{ 'uni-selected': this.selected }}>
         <button
           class={{
-            'uni-selected': this.selected,
             'uni-radio-option': true
           }}
           onClick={() => this.uniSelect.emit()}

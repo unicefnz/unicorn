@@ -11,22 +11,46 @@ export const Default = () => `
   <uni-radio-option value="once">Once</uni-radio-option>
 </uni-radio-group>
 
-<p>No values</p>
+<p>Without item values</p>
 <uni-radio-group>
   <uni-radio-option>Monthly</uni-radio-option>
   <uni-radio-option>Once</uni-radio-option>
 </uni-radio-group>
-`;
 
-export const WithSelected = () => `
-<p>Default</p>
+<p>With default</p>
 <uni-radio-group value="monthly">
   <uni-radio-option value="monthly">Monthly</uni-radio-option>
   <uni-radio-option value="once">Once</uni-radio-option>
 </uni-radio-group>
 
-<p>No values</p>
+<p>Default without values</p>
 <uni-radio-group value="0">
+  <uni-radio-option>Monthly</uni-radio-option>
+  <uni-radio-option>Once</uni-radio-option>
+</uni-radio-group>
+`;
+
+export const ButtonGroup = () => `
+<p>Default</p>
+<uni-radio-group variant="button">
+  <uni-radio-option value="monthly">Monthly</uni-radio-option>
+  <uni-radio-option value="once">Once</uni-radio-option>
+</uni-radio-group>
+
+<p>Without item values</p>
+<uni-radio-group variant="button">
+  <uni-radio-option>Monthly</uni-radio-option>
+  <uni-radio-option>Once</uni-radio-option>
+</uni-radio-group>
+
+<p>With default</p>
+<uni-radio-group variant="button" value="monthly">
+  <uni-radio-option value="monthly">Monthly</uni-radio-option>
+  <uni-radio-option value="once">Once</uni-radio-option>
+</uni-radio-group>
+
+<p>Default without values</p>
+<uni-radio-group variant="button" value="0">
   <uni-radio-option>Monthly</uni-radio-option>
   <uni-radio-option>Once</uni-radio-option>
 </uni-radio-group>
