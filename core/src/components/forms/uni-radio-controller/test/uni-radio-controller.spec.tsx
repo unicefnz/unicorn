@@ -1,5 +1,5 @@
-import { newSpecPage } from '@stencil/core/testing';
-import { UniRadioController } from '../uni-radio-controller';
+// import { newSpecPage } from '@stencil/core/testing';
+// import { UniRadioController } from '../uni-radio-controller';
 
 describe('uni-radio-controller', () => {
   it('renders', async () => {
