@@ -1,4 +1,4 @@
-import { Component, h, Element, Prop, Event, EventEmitter, Watch } from '@stencil/core';
+import { Component, h, Element, Prop, Event, EventEmitter, Watch, ComponentInterface } from '@stencil/core';
 import { HTMLStencilElement } from '@stencil/core/internal';
 
 interface HTMLUniRadioOptionElement extends HTMLStencilElement {
@@ -10,7 +10,7 @@ interface HTMLUniRadioOptionElement extends HTMLStencilElement {
   tag: 'uni-radio-controller',
   shadow: true,
 })
-export class UniRadioController {
+export class UniRadioController implements ComponentInterface {
   @Element() readonly el: HTMLUniRadioControllerElement;
 
   /**
@@ -31,12 +31,10 @@ export class UniRadioController {
 
   private selected: string;
 
-  private optRoot = this.el.querySelector('slot');
-
   private activeOpts: HTMLUniRadioOptionElement[] = [];
 
-  connectedCallback() {
-    // Initialise the opts
+  componentDidLoad() {
+    // Initialise the opts - called after shadow dom is ready!
     this.getOpts().forEach((opt, index) => {
       // eslint-disable-next-line no-param-reassign
       if (!opt.value) opt.value = index.toString();
@@ -44,13 +42,10 @@ export class UniRadioController {
     });
 
     if (this.value) this.onValueChange(this.value);
-
-    // this.optRoot.addEventListener('keydown', this.onKeydown);
   }
 
   disconnectedCallback() {
     this.activeOpts.forEach(opt => this.uninitOpt(opt));
-    // this.optRoot.removeEventListener('keydown', this.onKeydown);
   }
 
   render() {
@@ -76,30 +71,6 @@ export class UniRadioController {
     });
   }
 
-  // private onKeydown = (e: KeyboardEvent) => {
-  //   const opts = this.getOpts();
-  //   const activeOpt = opts.findIndex(opt => opt.value === this.selected);
-  //   let newOpt: HTMLUniRadioOptionElement;
-  //   if (e.key === 'ArrowRight') {
-  //     if (activeOpt > -1) {
-  //       if (activeOpt < opts.length - 1) newOpt = opts[(activeOpt + 1)];
-  //     } else {
-  //       newOpt = opts[0];
-  //     }
-  //   } else if (e.key === 'ArrowLeft') {
-  //     if (activeOpt > 0) {
-  //       newOpt = opts[(activeOpt - 1)];
-  //     } else if (activeOpt === -1) {
-  //       newOpt = opts[opts.length - 1];
-  //     }
-  //   }
-  //
-  //   if (newOpt) {
-  //     newOpt.focus();
-  //     this.selectOpt(newOpt);
-  //   }
-  // };
-
   private selectOpt(opt?: HTMLUniRadioOptionElement) {
     if (this.selected === opt?.value) return; // If it's already selected, do nothing
 
@@ -114,7 +85,7 @@ export class UniRadioController {
   }
 
   private getOpts(): HTMLUniRadioOptionElement[] {
-    return Array.from(this.optRoot.assignedElements()) as HTMLUniRadioOptionElement[];
+    return Array.from(this.el.shadowRoot.querySelector('slot').assignedElements()) as HTMLUniRadioOptionElement[];
   }
 
   private initOpt(opt: HTMLUniRadioOptionElement) {

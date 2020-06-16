@@ -18,9 +18,9 @@ export class UniRadioGroup {
 
   render() {
     return (
-      <Host class={'uni-variant-' + this.variant}>
+      <Host>
         <uni-radio-controller value={this.value}>
-          <fieldset>
+          <fieldset class={'uni-variant-' + this.variant}>
             <slot />
           </fieldset>
         </uni-radio-controller>

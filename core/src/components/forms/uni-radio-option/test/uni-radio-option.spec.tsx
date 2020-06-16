@@ -10,7 +10,9 @@ describe('uni-radio-option', () => {
     expect(page.root).toEqualHtml(`
       <uni-radio-option>
         <mock:shadow-root>
-          <slot></slot>
+          <button class="uni-radio-option" type="button">
+            <slot></slot>
+          </button>
         </mock:shadow-root>
       </uni-radio-option>
     `);
