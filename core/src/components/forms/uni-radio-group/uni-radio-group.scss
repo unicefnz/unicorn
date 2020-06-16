@@ -3,7 +3,12 @@
   display: block;
 }
 
-fieldset {
+.radio-fields {
+  padding: 0;
+  border: none;
+}
+
+uni-radio-controller {
   display: flex;
   justify-content: stretch;
   border: 1px solid color.useVar(dark);
