@@ -10,7 +10,11 @@ describe('uni-combo-group', () => {
     expect(page.root).toEqualHtml(`
       <uni-combo-group>
         <mock:shadow-root>
-          <slot></slot>
+          <fieldset class="radio-fieldset uni-variant-combo">
+            <uni-radio-controller>
+              <slot></slot>
+            </uni-radio-controller>
+          </fieldset>
         </mock:shadow-root>
       </uni-combo-group>
     `);
