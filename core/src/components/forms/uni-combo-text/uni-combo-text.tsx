@@ -20,13 +20,30 @@ export class UniComboText {
   @Prop() readonly disabled: boolean = false;
 
   /**
+   * When to fire the select event
+   * - focus: when the input is focused
+   * - change: when the input's value is changed
+   * */
+  @Prop() readonly selectOn: 'focus' | 'change' | 'input' = 'focus';
+
+  /**
    * Emitted when the button is clicked
    * */
   @Event() public uniSelect: EventEmitter<void>;
 
-  @Listen('focus')
+  @Listen('focusin')
   public onInputFocus() {
-    this.uniSelect.emit();
+    if (this.selectOn === 'focus') this.uniSelect.emit();
+  }
+
+  @Listen('uniChange')
+  public onInputChange() {
+    if (this.selectOn === 'change') this.uniSelect.emit();
+  }
+
+  @Listen('uniInput')
+  public onInput() {
+    if (this.selectOn === 'input') this.uniSelect.emit();
   }
 
   render() {

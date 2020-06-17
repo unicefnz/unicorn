@@ -3,7 +3,6 @@
 
 :host {
   display: block;
-  margin: 1rem 0;
   text-align: start;
 }
 
@@ -22,7 +21,7 @@
   overflow: hidden;
   display: flex;
   align-items: stretch;
-  border: 1px solid color.useVar(dark);
+  border: 2px solid var(--uni-dark);
   border-radius: 4px;
 }
 :host(.input--has-errors) .input-field {
@@ -37,7 +36,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--uni-light);
+  background: color.useVar(light);
   user-select: none;
 }
 ::slotted([slot=prepend]) {

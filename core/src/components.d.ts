@@ -87,6 +87,10 @@ export namespace Components {
           * Marks this option as disabled
          */
         "disabled": boolean;
+        /**
+          * When to fire the select event - focus: when the input is focused - change: when the input's value is changed
+         */
+        "selectOn": 'focus' | 'change' | 'input';
         "selected": boolean;
         /**
           * Machine value for the option
@@ -387,6 +391,10 @@ declare namespace LocalJSX {
           * Emitted when the button is clicked
          */
         "onUniSelect"?: (event: CustomEvent<void>) => void;
+        /**
+          * When to fire the select event - focus: when the input is focused - change: when the input's value is changed
+         */
+        "selectOn"?: 'focus' | 'change' | 'input';
         "selected"?: boolean;
         /**
           * Machine value for the option

@@ -1,5 +1,5 @@
 @use "../../../css/theming/color";
-$border: 1px solid var(--uni-dark);
+$border: 2px solid var(--uni-dark);
 
 :host {
   display: block;
@@ -7,6 +7,7 @@ $border: 1px solid var(--uni-dark);
 
 .radio-fieldset {
   padding: 0;
+  margin: 0;
   border: none;
   overflow: hidden;
 }
@@ -24,9 +25,14 @@ uni-radio-controller {
 .uni-variant-combo uni-radio-controller {
   border: $border;
   border-radius: 4px;
+  overflow: hidden;
 
-  ::slotted(uni-combo-item:not(:last-child)) {
-    border-right: $border;
+  ::slotted(uni-combo-item) {
+    margin: -1px;
+    border: 1px solid var(--uni-dark);
+  }
+  ::slotted(uni-combo-item:not(.uni-selected)) {
+    z-index: 1;
   }
 }
 
