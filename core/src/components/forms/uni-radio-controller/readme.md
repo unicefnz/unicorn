@@ -23,12 +23,12 @@
 
 ### Used by
 
- - [uni-radio-group](../uni-radio-group)
+ - [uni-combo-group](../uni-combo-group)
 
 ### Graph
 ```mermaid
 graph TD;
-  uni-radio-group --> uni-radio-controller
+  uni-combo-group --> uni-radio-controller
   style uni-radio-controller fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -4,9 +4,14 @@
   display: block;
 }
 
-.uni-radio-option {
+:host(.uni-selected) .combo-item {
+  background: color.useVar(accent);
+}
+
+.combo-item {
   cursor: pointer;
   display: block;
+  height: 100%;
   width: 100%;
   text-align: center;
   padding: 0.5em 1em;

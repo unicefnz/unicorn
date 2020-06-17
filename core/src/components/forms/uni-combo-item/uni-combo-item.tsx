@@ -1,11 +1,12 @@
 import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
+import RadioItemInterface from '../uni-radio-controller/radio-item-interface';
 
 @Component({
-  tag: 'uni-radio-option',
-  styleUrl: 'uni-radio-option.scss',
+  tag: 'uni-combo-item',
+  styleUrl: 'uni-combo-item.scss',
   shadow: true,
 })
-export class UniRadioOption {
+export class UniComboItem implements RadioItemInterface {
   /** @internal */
   @Prop() readonly selected: boolean;
 
@@ -28,9 +29,7 @@ export class UniRadioOption {
     return (
       <Host class={{ 'uni-selected': this.selected }}>
         <button
-          class={{
-            'uni-radio-option': true
-          }}
+          class="combo-item"
           onClick={() => this.uniSelect.emit()}
           disabled={this.disabled}
           type="button"

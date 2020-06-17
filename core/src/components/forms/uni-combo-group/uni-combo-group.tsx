@@ -1,11 +1,11 @@
-import { Component, h, Prop, Host } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'uni-radio-group',
-  styleUrl: 'uni-radio-group.scss',
+  tag: 'uni-combo-group',
+  styleUrl: 'uni-combo-group.scss',
   shadow: true,
 })
-export class UniRadioGroup {
+export class UniComboGroup {
   /**
    * Value of the selected option
    * */

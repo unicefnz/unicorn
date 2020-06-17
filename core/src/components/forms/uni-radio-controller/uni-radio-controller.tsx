@@ -1,10 +1,5 @@
 import { Component, h, Element, Prop, Event, EventEmitter, Watch, ComponentInterface, Listen } from '@stencil/core';
-import { HTMLStencilElement } from '@stencil/core/internal';
-
-interface HTMLUniRadioOptionElement extends HTMLStencilElement {
-  selected: boolean;
-  value: string;
-}
+import { HTMLUniRadioItemElement } from './radio-item-interface';
 
 @Component({
   tag: 'uni-radio-controller',
@@ -23,7 +18,7 @@ export class UniRadioController implements ComponentInterface {
    * */
   @Event() readonly uniChange: EventEmitter<string>;
 
-  private selected: HTMLUniRadioOptionElement;
+  private selected: HTMLUniRadioItemElement;
 
   componentDidLoad() {
     // Initialise the opts - called after shadow dom is ready!
@@ -49,11 +44,11 @@ export class UniRadioController implements ComponentInterface {
 
   @Listen('uniSelect')
   public onSelect(event: CustomEvent) {
-    this.selectOpt(event.target as HTMLUniRadioOptionElement);
+    this.selectOpt(event.target as HTMLUniRadioItemElement);
     event.stopPropagation();
   }
 
-  private selectOpt(opt?: HTMLUniRadioOptionElement) {
+  private selectOpt(opt?: HTMLUniRadioItemElement) {
     if (this.selected === opt) return; // If it's already selected, do nothing
 
     if (this.selected) this.selected.selected = false;
@@ -66,7 +61,7 @@ export class UniRadioController implements ComponentInterface {
     this.uniChange.emit(opt.value);
   }
 
-  private getOpts(): HTMLUniRadioOptionElement[] {
-    return Array.from(this.el.shadowRoot.querySelector('slot').assignedElements({ flatten: true })) as HTMLUniRadioOptionElement[];
+  private getOpts(): HTMLUniRadioItemElement[] {
+    return Array.from(this.el.shadowRoot.querySelector('slot').assignedElements({ flatten: true })) as HTMLUniRadioItemElement[];
   }
 }

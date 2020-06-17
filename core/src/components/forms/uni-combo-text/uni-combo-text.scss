@@ -1,0 +1,9 @@
+@use "../../../css/theming/color";
+
+:host {
+  display: block;
+}
+
+.uni-selected ::slotted(uni-text-field) {
+  background: color.useVar(accent);
+}

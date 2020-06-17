@@ -1,4 +1,4 @@
-# uni-radio-group
+# uni-combo-group
 
 
 
@@ -22,8 +22,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  uni-radio-group --> uni-radio-controller
-  style uni-radio-group fill:#f9f,stroke:#333,stroke-width:4px
+  uni-combo-group --> uni-radio-controller
+  style uni-combo-group fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

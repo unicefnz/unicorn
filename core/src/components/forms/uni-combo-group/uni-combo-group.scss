@@ -8,6 +8,7 @@ $border: 1px solid var(--uni-dark);
 .radio-fieldset {
   padding: 0;
   border: none;
+  overflow: hidden;
 }
 
 uni-radio-controller {
@@ -16,19 +17,15 @@ uni-radio-controller {
   flex-wrap: wrap;
 }
 
-::slotted(uni-radio-option) {
+::slotted(uni-combo-item) {
   flex: 1;
-}
-
-::slotted(uni-radio-option.uni-selected) {
-  background: color.useVar(accent);
 }
 
 .uni-variant-combo uni-radio-controller {
   border: $border;
   border-radius: 4px;
 
-  ::slotted(uni-radio-option:not(:last-child)) {
+  ::slotted(uni-combo-item:not(:last-child)) {
     border-right: $border;
   }
 }
@@ -36,7 +33,7 @@ uni-radio-controller {
 .uni-variant-button uni-radio-controller {
   margin: -1rem;
 
-  ::slotted(uni-radio-option) {
+  ::slotted(uni-combo-item) {
     margin: 1rem;
     overflow: hidden;
     border: $border;
