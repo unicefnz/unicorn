@@ -5,19 +5,19 @@ import {
   createForwardRef,
   dashToPascalCase,
   isCoveredByReact,
-} from './utils/index';
+} from './utils';
 
 interface IonicReactInternalProps<ElementType> extends React.HTMLAttributes<ElementType> {
   forwardedRef?: React.Ref<ElementType>;
   ref?: React.Ref<any>;
 }
 
-export const createReactComponent = <PropType, ElementType>(tagName: string) => {
+export const createReactComponent = <PropType, ElementType extends HTMLElement>(tagName: string) => {
   const displayName = dashToPascalCase(tagName);
   const ReactComponent = class extends React.Component<IonicReactInternalProps<ElementType>> {
-    
+
     private ref: React.RefObject<HTMLElement>;
-    
+
     constructor(props: IonicReactInternalProps<ElementType>) {
       super(props);
       this.ref = React.createRef<HTMLElement>();
@@ -28,7 +28,7 @@ export const createReactComponent = <PropType, ElementType>(tagName: string) => 
     }
 
     componentDidUpdate(prevProps: IonicReactInternalProps<ElementType>) {
-      const node = this.ref.current;
+      const node = this.ref.current as ElementType;
       attachEventProps(node, this.props, prevProps);
     }
 
@@ -42,7 +42,7 @@ export const createReactComponent = <PropType, ElementType>(tagName: string) => 
 
         if (isEventProp) {
           const eventName = name.substring(2).toLowerCase();
-          if (typeof document !== "undefined" && isCoveredByReact(eventName)) {
+          if (typeof document !== 'undefined' && isCoveredByReact(eventName)) {
             (acc as any)[name] = (cProps as any)[name];
           }
         } else if (isDataProp || isAriaProp) {
