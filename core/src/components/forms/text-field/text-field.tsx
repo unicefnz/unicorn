@@ -36,6 +36,11 @@ export class TextField {
   @Prop() public optional = false;
 
   /**
+   * Type for the underlying <input>
+   * */
+  @Prop() public type: string;
+
+  /**
    * Displays errors below the input
    * */
   @Prop() public errors: string | string[] = '';
@@ -76,6 +81,7 @@ export class TextField {
           <input
             class="input-elem"
             id={this.uniqueId}
+            type={this.type}
             disabled={this.disabled}
             readOnly={this.readonly}
             placeholder={this.placeholder}

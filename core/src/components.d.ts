@@ -175,6 +175,10 @@ export namespace Components {
          */
         "readonly": boolean;
         /**
+          * Type for the underlying <input>
+         */
+        "type": string;
+        /**
           * Set the value of the field
          */
         "value": string;
@@ -494,6 +498,10 @@ declare namespace LocalJSX {
           * Prevents editing the field, but allows selecting text
          */
         "readonly"?: boolean;
+        /**
+          * Type for the underlying <input>
+         */
+        "type"?: string;
         /**
           * Set the value of the field
          */
