@@ -44,7 +44,10 @@ export const Icon = () => `
 `;
 
 export const Loading = () => `
-<uni-button loading prepend-icon="logo-google">Logging in</uni-button>
+<uni-button loading prepend-icon="logo-google">
+    <ion-icon slot="prepend-icon" name="logo-google"></ion-icon>
+    Logging in
+</uni-button>
 <uni-button loading color="danger">Deleting...</uni-button>
 <uni-button loading color="primary" button-style="border">Somethinging</uni-button>
 `;
