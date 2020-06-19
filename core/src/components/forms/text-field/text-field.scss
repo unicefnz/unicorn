@@ -4,12 +4,13 @@
 :host {
   display: block;
   text-align: start;
+  margin: 1rem 0;
 }
 
 .caption {
   @include typography.useStyle(overline);
   display: block;
-  margin: 4px 0;
+  margin: 0 0 4px;
 }
 
 .optional-label {
