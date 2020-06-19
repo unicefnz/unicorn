@@ -8,7 +8,7 @@ export const WithTextField = () => `
   <uni-combo-item value="val2">Option two</uni-combo-item>
   <uni-combo-item value="val3">Option three</uni-combo-item>
   <uni-combo-item value="val4">Option four</uni-combo-item>
-  <uni-combo-text value="other" select-on="input">
+  <uni-combo-text value="other" select-on="uniInput">
     <uni-text-field placeholder="Other">
       <span slot="prepend">$</slot>
     </uni-text-field>

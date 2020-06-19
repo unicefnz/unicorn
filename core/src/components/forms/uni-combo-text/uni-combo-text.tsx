@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Event, EventEmitter, Listen } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter, Watch, Element } from '@stencil/core';
 
 @Component({
   tag: 'uni-combo-text',
@@ -6,6 +6,8 @@ import { Component, Host, h, Prop, Event, EventEmitter, Listen } from '@stencil/
   shadow: true,
 })
 export class UniComboText {
+  @Element() el: HTMLUniComboTextElement;
+
   /** @internal */
   @Prop() readonly selected: boolean;
 
@@ -20,30 +22,27 @@ export class UniComboText {
   @Prop() readonly disabled: boolean = false;
 
   /**
-   * When to fire the select event
+   * Event to fire the select event on
    * - focus: when the input is focused
-   * - change: when the input's value is changed
+   * - uniInput: when the input's value is changed
    * */
-  @Prop() readonly selectOn: 'focus' | 'change' | 'input' = 'focus';
+  @Prop() readonly selectOn: string = 'focusin';
 
   /**
    * Emitted when the button is clicked
    * */
   @Event() public uniSelect: EventEmitter<void>;
 
-  @Listen('focusin')
-  public onInputFocus() {
-    if (this.selectOn === 'focus') this.uniSelect.emit();
+  @Watch('selectOn')
+  public onSelectOnChange(newVal: string, oldVal?: string) {
+    if (oldVal) this.el.removeEventListener(oldVal, this.selectEmitter);
+    this.el.addEventListener(newVal, this.selectEmitter);
   }
 
-  @Listen('uniChange')
-  public onInputChange() {
-    if (this.selectOn === 'change') this.uniSelect.emit();
-  }
+  private selectEmitter = () => this.uniSelect.emit();
 
-  @Listen('uniInput')
-  public onInput() {
-    if (this.selectOn === 'input') this.uniSelect.emit();
+  public connectedCallback() {
+    this.onSelectOnChange(this.selectOn);
   }
 
   render() {

@@ -5,6 +5,10 @@
   margin: 1rem;
 }
 
+::slotted(uni-text-field) {
+  margin: 0;
+}
+
 :host(.uni-selected) ::slotted(uni-text-field) {
   --uni-color: var(--uni-accent);
 }

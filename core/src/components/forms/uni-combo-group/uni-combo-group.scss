@@ -15,6 +15,7 @@ $border: 2px solid var(--uni-dark);
 uni-radio-controller {
   display: flex;
   justify-content: stretch;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 
