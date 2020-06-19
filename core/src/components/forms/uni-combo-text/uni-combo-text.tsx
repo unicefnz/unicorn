@@ -48,7 +48,7 @@ export class UniComboText {
 
   render() {
     return (
-      <Host class={{ 'uni-selected': this.selected, 'uni-disabled': this.disabled }}>
+      <Host class={{ 'uni-selected': this.selected, 'uni-disabled': this.disabled }} uni-radio-option>
         <slot />
       </Host>
     );

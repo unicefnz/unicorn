@@ -27,7 +27,7 @@ export class UniComboItem implements RadioItemInterface {
 
   render() {
     return (
-      <Host class={{ 'uni-selected': this.selected }}>
+      <Host class={{ 'uni-selected': this.selected }} uni-radio-option>
         <button
           class="combo-item"
           onClick={() => this.uniSelect.emit()}

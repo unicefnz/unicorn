@@ -62,6 +62,10 @@ export class UniRadioController implements ComponentInterface {
   }
 
   private getOpts(): HTMLUniRadioItemElement[] {
-    return Array.from(this.el.shadowRoot.querySelector('slot').assignedElements({ flatten: true })) as HTMLUniRadioItemElement[];
+    const children = Array.from(this.el.shadowRoot.querySelector('slot').assignedElements({ flatten: true }));
+    return [].concat(...children.map((child) => {
+      if (child.matches('[uni-radio-option]')) return [child];
+      return Array.from(child.querySelectorAll('[uni-radio-option]'));
+    }));
   }
 }
