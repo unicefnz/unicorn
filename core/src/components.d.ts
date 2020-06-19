@@ -5,8 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonStyle, } from "./components/button/button";
-import { ComboOption, } from "./components/forms/combo-group/combo-group";
+import { ButtonStyle } from "./components/button/button";
 export namespace Components {
     interface UniBarText {
     }
@@ -42,21 +41,59 @@ export namespace Components {
     }
     interface UniCheckbox {
         /**
-          * When set to true, the state cannot be modified
+          * The checked state of the checkbox
+         */
+        "checked": boolean;
+        /**
+          * When true, the checkbox is marked as disabled and state cannot be modified
          */
         "disabled": boolean;
         /**
-          * Whether the checkbox is checked
+          * Puts the checkbox in an indeterminate state ( [-] )
          */
-        "value": boolean;
+        "indeterminate": boolean;
+        /**
+          * Prevents the state from being modified
+         */
+        "readonly": boolean;
+        /**
+          * HTML Form value. This is not the checked state, use checked instead
+         */
+        "value"?: string;
     }
     interface UniComboGroup {
         /**
-          * Available options in the combo group
+          * Value of the selected option
          */
-        "options": ComboOption[];
+        "value": string;
         /**
-          * ID of the selected option
+          * Display a different style radio group, either a "combo" row or "button" group
+         */
+        "variant": 'combo' | 'button';
+    }
+    interface UniComboItem {
+        /**
+          * Marks this option as disabled
+         */
+        "disabled": boolean;
+        "selected": boolean;
+        /**
+          * Machine value for the option
+         */
+        "value": string;
+    }
+    interface UniComboText {
+        /**
+          * Marks this option as disabled
+         */
+        "disabled": boolean;
+        /**
+          * When to fire the select event - focus: when the input is focused - change: when the input's value is changed
+         */
+        "selectOn": 'focus' | 'change' | 'input';
+        "selected": boolean;
+        /**
+          * Machine value for the option
          */
         "value": string;
     }
@@ -78,7 +115,7 @@ export namespace Components {
         /**
           * How to align the text
          */
-        "align"?: "left" | "start" | "center" | "right" | "end";
+        "align"?: 'left' | 'start' | 'center' | 'right' | 'end';
         /**
           * URL of an image to use for the background
          */
@@ -93,6 +130,12 @@ export namespace Components {
           * Controls if the loading bar is visible *
          */
         "value": boolean;
+    }
+    interface UniRadioController {
+        /**
+          * Value of the selected option
+         */
+        "value": string;
     }
     interface UniSelect {
         /**
@@ -127,14 +170,6 @@ export namespace Components {
           * Placeholder displayed inside the field
          */
         "placeholder": string;
-        /**
-          * Optionally prepend an icon to the inside of the field, eg a search icon
-         */
-        "prependIcon": string;
-        /**
-          * Optionally prepend some text inside the field, eg a $ prefix
-         */
-        "prependText": string;
         /**
           * Prevents editing the field, but allows selecting text
          */
@@ -172,6 +207,18 @@ declare global {
         prototype: HTMLUniComboGroupElement;
         new (): HTMLUniComboGroupElement;
     };
+    interface HTMLUniComboItemElement extends Components.UniComboItem, HTMLStencilElement {
+    }
+    var HTMLUniComboItemElement: {
+        prototype: HTMLUniComboItemElement;
+        new (): HTMLUniComboItemElement;
+    };
+    interface HTMLUniComboTextElement extends Components.UniComboText, HTMLStencilElement {
+    }
+    var HTMLUniComboTextElement: {
+        prototype: HTMLUniComboTextElement;
+        new (): HTMLUniComboTextElement;
+    };
     interface HTMLUniDialogElement extends Components.UniDialog, HTMLStencilElement {
     }
     var HTMLUniDialogElement: {
@@ -202,6 +249,12 @@ declare global {
         prototype: HTMLUniProgressLinearElement;
         new (): HTMLUniProgressLinearElement;
     };
+    interface HTMLUniRadioControllerElement extends Components.UniRadioController, HTMLStencilElement {
+    }
+    var HTMLUniRadioControllerElement: {
+        prototype: HTMLUniRadioControllerElement;
+        new (): HTMLUniRadioControllerElement;
+    };
     interface HTMLUniSelectElement extends Components.UniSelect, HTMLStencilElement {
     }
     var HTMLUniSelectElement: {
@@ -231,11 +284,14 @@ declare global {
         "uni-button": HTMLUniButtonElement;
         "uni-checkbox": HTMLUniCheckboxElement;
         "uni-combo-group": HTMLUniComboGroupElement;
+        "uni-combo-item": HTMLUniComboItemElement;
+        "uni-combo-text": HTMLUniComboTextElement;
         "uni-dialog": HTMLUniDialogElement;
         "uni-dialog-content": HTMLUniDialogContentElement;
         "uni-dialog-title": HTMLUniDialogTitleElement;
         "uni-hero": HTMLUniHeroElement;
         "uni-progress-linear": HTMLUniProgressLinearElement;
+        "uni-radio-controller": HTMLUniRadioControllerElement;
         "uni-select": HTMLUniSelectElement;
         "uni-tagline": HTMLUniTaglineElement;
         "uni-text-field": HTMLUniTextFieldElement;
@@ -277,25 +333,71 @@ declare namespace LocalJSX {
     }
     interface UniCheckbox {
         /**
-          * When set to true, the state cannot be modified
+          * The checked state of the checkbox
+         */
+        "checked"?: boolean;
+        /**
+          * When true, the checkbox is marked as disabled and state cannot be modified
          */
         "disabled"?: boolean;
         /**
-          * Whether the checkbox is checked
+          * Puts the checkbox in an indeterminate state ( [-] )
          */
-        "value"?: boolean;
+        "indeterminate"?: boolean;
+        /**
+          * Emitted when checkbox value is changed
+         */
+        "onUniChange"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Prevents the state from being modified
+         */
+        "readonly"?: boolean;
+        /**
+          * HTML Form value. This is not the checked state, use checked instead
+         */
+        "value"?: string;
     }
     interface UniComboGroup {
         /**
-          * Emitted when the selected option changes
+          * Value of the selected option
          */
-        "onUniChange"?: (event: CustomEvent<any>) => void;
+        "value"?: string;
         /**
-          * Available options in the combo group
+          * Display a different style radio group, either a "combo" row or "button" group
          */
-        "options"?: ComboOption[];
+        "variant"?: 'combo' | 'button';
+    }
+    interface UniComboItem {
         /**
-          * ID of the selected option
+          * Marks this option as disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Emitted when the button is clicked
+         */
+        "onUniSelect"?: (event: CustomEvent<void>) => void;
+        "selected"?: boolean;
+        /**
+          * Machine value for the option
+         */
+        "value"?: string;
+    }
+    interface UniComboText {
+        /**
+          * Marks this option as disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Emitted when the button is clicked
+         */
+        "onUniSelect"?: (event: CustomEvent<void>) => void;
+        /**
+          * When to fire the select event - focus: when the input is focused - change: when the input's value is changed
+         */
+        "selectOn"?: 'focus' | 'change' | 'input';
+        "selected"?: boolean;
+        /**
+          * Machine value for the option
          */
         "value"?: string;
     }
@@ -321,7 +423,7 @@ declare namespace LocalJSX {
         /**
           * How to align the text
          */
-        "align"?: "left" | "start" | "center" | "right" | "end";
+        "align"?: 'left' | 'start' | 'center' | 'right' | 'end';
         /**
           * URL of an image to use for the background
          */
@@ -336,6 +438,16 @@ declare namespace LocalJSX {
           * Controls if the loading bar is visible *
          */
         "value"?: boolean;
+    }
+    interface UniRadioController {
+        /**
+          * Emitted when the selected option changes
+         */
+        "onUniChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * Value of the selected option
+         */
+        "value"?: string;
     }
     interface UniSelect {
         /**
@@ -379,14 +491,6 @@ declare namespace LocalJSX {
          */
         "placeholder"?: string;
         /**
-          * Optionally prepend an icon to the inside of the field, eg a search icon
-         */
-        "prependIcon"?: string;
-        /**
-          * Optionally prepend some text inside the field, eg a $ prefix
-         */
-        "prependText"?: string;
-        /**
           * Prevents editing the field, but allows selecting text
          */
         "readonly"?: boolean;
@@ -402,11 +506,14 @@ declare namespace LocalJSX {
         "uni-button": UniButton;
         "uni-checkbox": UniCheckbox;
         "uni-combo-group": UniComboGroup;
+        "uni-combo-item": UniComboItem;
+        "uni-combo-text": UniComboText;
         "uni-dialog": UniDialog;
         "uni-dialog-content": UniDialogContent;
         "uni-dialog-title": UniDialogTitle;
         "uni-hero": UniHero;
         "uni-progress-linear": UniProgressLinear;
+        "uni-radio-controller": UniRadioController;
         "uni-select": UniSelect;
         "uni-tagline": UniTagline;
         "uni-text-field": UniTextField;
@@ -421,11 +528,14 @@ declare module "@stencil/core" {
             "uni-button": LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
             "uni-checkbox": LocalJSX.UniCheckbox & JSXBase.HTMLAttributes<HTMLUniCheckboxElement>;
             "uni-combo-group": LocalJSX.UniComboGroup & JSXBase.HTMLAttributes<HTMLUniComboGroupElement>;
+            "uni-combo-item": LocalJSX.UniComboItem & JSXBase.HTMLAttributes<HTMLUniComboItemElement>;
+            "uni-combo-text": LocalJSX.UniComboText & JSXBase.HTMLAttributes<HTMLUniComboTextElement>;
             "uni-dialog": LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
             "uni-dialog-content": LocalJSX.UniDialogContent & JSXBase.HTMLAttributes<HTMLUniDialogContentElement>;
             "uni-dialog-title": LocalJSX.UniDialogTitle & JSXBase.HTMLAttributes<HTMLUniDialogTitleElement>;
             "uni-hero": LocalJSX.UniHero & JSXBase.HTMLAttributes<HTMLUniHeroElement>;
             "uni-progress-linear": LocalJSX.UniProgressLinear & JSXBase.HTMLAttributes<HTMLUniProgressLinearElement>;
+            "uni-radio-controller": LocalJSX.UniRadioController & JSXBase.HTMLAttributes<HTMLUniRadioControllerElement>;
             "uni-select": LocalJSX.UniSelect & JSXBase.HTMLAttributes<HTMLUniSelectElement>;
             "uni-tagline": LocalJSX.UniTagline & JSXBase.HTMLAttributes<HTMLUniTaglineElement>;
             "uni-text-field": LocalJSX.UniTextField & JSXBase.HTMLAttributes<HTMLUniTextFieldElement>;

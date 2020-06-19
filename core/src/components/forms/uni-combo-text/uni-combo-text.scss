@@ -1,0 +1,10 @@
+@use "../../../css/theming/color";
+
+:host {
+  display: block;
+  margin: 1rem;
+}
+
+:host(.uni-selected) ::slotted(uni-text-field) {
+  --uni-color: var(--uni-accent);
+}

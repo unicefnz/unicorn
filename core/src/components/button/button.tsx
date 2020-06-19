@@ -53,8 +53,8 @@ export class Button {
   render() {
     const isDisabled = this.disabled || this.loading;
     const contents = [
-      this.prependIcon && <ion-icon name={this.prependIcon} class="prepend-icon" />,
-      (<div class="button-content"><slot /></div>)
+      <slot name="prepend-icon" />,
+      <slot />
     ];
 
     return (

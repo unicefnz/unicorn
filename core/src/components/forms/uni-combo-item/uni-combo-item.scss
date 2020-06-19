@@ -1,0 +1,21 @@
+@use "../../../css/theming/color";
+
+:host {
+  display: block;
+}
+
+:host(.uni-selected) {
+  background: color.useVar(accent);
+}
+
+.combo-item {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding: 0.5em 1em;
+  font: inherit;
+}

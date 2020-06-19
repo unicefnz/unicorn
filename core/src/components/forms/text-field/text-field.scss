@@ -3,14 +3,14 @@
 
 :host {
   display: block;
-  margin: 1rem 0;
   text-align: start;
+  margin: 1rem 0;
 }
 
 .caption {
   @include typography.useStyle(overline);
   display: block;
-  margin: 4px 0;
+  margin: 0 0 4px;
 }
 
 .optional-label {
@@ -22,7 +22,7 @@
   overflow: hidden;
   display: flex;
   align-items: stretch;
-  border: 1px solid color.useVar(dark);
+  border: 2px solid var(--uni-dark);
   border-radius: 4px;
 }
 :host(.input--has-errors) .input-field {
@@ -33,14 +33,18 @@
   box-shadow: 0 0 0 2px rgba(0, 128, 255, 0.5);
 }
 
-.input-prepend {
+.prepend-wrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  background: color.useVar(light);
   user-select: none;
-  padding: 0 10px;
-  background: var(--uni-light);
+}
+::slotted([slot=prepend]) {
   min-width: 20px;
+  padding: 0 10px;
+  margin: 0;
+  text-align: center;
 }
 
 .input-elem {
@@ -54,12 +58,14 @@
 .input-errors {
   margin-top: 0.3rem;
   color: var(--uni-danger);
+  stroke: var(--uni-danger); // TODO Make the icon inherit from text color
 
-  ion-icon {
+  .error-icon {
     vertical-align: top;
     margin-right: 0.5rem;
     display: inline-block;
-    font-size: 24px;
+    width: 24px;
+    height: 24px;
   }
 
   ul {

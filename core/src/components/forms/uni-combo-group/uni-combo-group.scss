@@ -1,0 +1,48 @@
+@use "../../../css/theming/color";
+$border: 2px solid var(--uni-dark);
+
+:host {
+  display: block;
+}
+
+.radio-fieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+  overflow: hidden;
+}
+
+uni-radio-controller {
+  display: flex;
+  justify-content: stretch;
+  flex-wrap: wrap;
+}
+
+::slotted(uni-combo-item) {
+  flex: 1;
+}
+
+.uni-variant-combo uni-radio-controller {
+  border: $border;
+  border-radius: 4px;
+  overflow: hidden;
+
+  ::slotted(uni-combo-item) {
+    margin: -1px;
+    border: 1px solid var(--uni-dark);
+  }
+  ::slotted(uni-combo-item:not(.uni-selected)) {
+    z-index: 1;
+  }
+}
+
+.uni-variant-button uni-radio-controller {
+  margin: -1rem;
+
+  ::slotted(uni-combo-item) {
+    margin: 1rem;
+    overflow: hidden;
+    border: $border;
+    border-radius: 4px;
+  }
+}
