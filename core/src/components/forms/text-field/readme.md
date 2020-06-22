@@ -15,6 +15,7 @@
 | `optional`    | `optional`    | Marks the field as optional                           | `boolean`            | `false`     |
 | `placeholder` | `placeholder` | Placeholder displayed inside the field                | `string`             | `undefined` |
 | `readonly`    | `readonly`    | Prevents editing the field, but allows selecting text | `boolean`            | `undefined` |
+| `type`        | `type`        | Type for the underlying <input>                       | `string`             | `undefined` |
 | `value`       | `value`       | Set the value of the field                            | `string`             | `undefined` |
 
 

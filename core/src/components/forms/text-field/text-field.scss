@@ -2,6 +2,8 @@
 @use "../../../css/theming/typography";
 
 :host {
+  --uni-border: 2px solid var(--uni-dark);
+  --uni-border-radius: 4px;
   display: block;
   text-align: start;
   margin: 1rem 0;
@@ -22,8 +24,8 @@
   overflow: hidden;
   display: flex;
   align-items: stretch;
-  border: 2px solid var(--uni-dark);
-  border-radius: 4px;
+  border: var(--uni-border);
+  border-radius: var(--uni-border-radius);
 }
 :host(.input--has-errors) .input-field {
   border-color: var(--uni-danger);

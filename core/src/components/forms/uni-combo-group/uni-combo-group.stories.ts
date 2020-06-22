@@ -5,7 +5,7 @@ export default {
   title: 'Combo Group'
 };
 
-export const Default = () => `
+export const ComboVariant = () => `
 <p>Default</p>
 <uni-combo-group>
   <uni-combo-item value="monthly">Monthly</uni-combo-item>
@@ -15,7 +15,7 @@ export const Default = () => `
 <p>Without item values</p>
 <uni-combo-group>
   <uni-combo-item>Monthly</uni-combo-item>
-  <uni-combo-item>Once</uni-combo-item>
+  <uni-combo-item disabled>Once</uni-combo-item>
 </uni-combo-group>
 
 <p>With default</p>
@@ -31,29 +31,33 @@ export const Default = () => `
 </uni-combo-group>
 `;
 
-export const ButtonGroup = () => `
+export const ButtonVariant = () => `
 <p>Default</p>
 <uni-combo-group variant="button">
-  <uni-combo-item value="monthly">Monthly</uni-combo-item>
-  <uni-combo-item value="once">Once</uni-combo-item>
+  <uni-combo-item value="one">Option one</uni-combo-item>
+  <uni-combo-item value="two">Option two</uni-combo-item>
+  <uni-combo-item value="three">Option one</uni-combo-item>
 </uni-combo-group>
 
 <p>Without item values</p>
 <uni-combo-group variant="button">
-  <uni-combo-item>Monthly</uni-combo-item>
-  <uni-combo-item>Once</uni-combo-item>
+  <uni-combo-item>Option one</uni-combo-item>
+  <uni-combo-item>Option two</uni-combo-item>
+  <uni-combo-item>Option one</uni-combo-item>
 </uni-combo-group>
 
 <p>With default</p>
-<uni-combo-group variant="button" value="monthly">
-  <uni-combo-item value="monthly">Monthly</uni-combo-item>
-  <uni-combo-item value="once">Once</uni-combo-item>
+<uni-combo-group variant="button" value="one">
+  <uni-combo-item value="one">Option one</uni-combo-item>
+  <uni-combo-item value="two">Option two</uni-combo-item>
+  <uni-combo-item value="three" disabled>Option one</uni-combo-item>
 </uni-combo-group>
 
-<p>Default without values</p>
-<uni-combo-group variant="button" value="0">
-  <uni-combo-item>Monthly</uni-combo-item>
-  <uni-combo-item>Once</uni-combo-item>
+<p>With default, without values</p>
+<uni-combo-group variant="button" value="1">
+  <uni-combo-item>Option one</uni-combo-item>
+  <uni-combo-item>Option two</uni-combo-item>
+  <uni-combo-item>Option one</uni-combo-item>
 </uni-combo-group>
 `;
 

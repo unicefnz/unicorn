@@ -1,15 +1,13 @@
-@use "../../../css/theming/color";
-
 :host {
+  --uni-color-active: var(--uni-accent);
+  --uni-border: 2px solid var(--uni-dark);
+  --uni-border-radius: 4px;
   display: block;
 }
 
-:host(.uni-selected) {
-  background: color.useVar(accent);
-}
-
-.combo-item {
-  border: none;
+.button {
+  border: var(--uni-border);
+  border-radius: var(--uni-border-radius);
   background: none;
   cursor: pointer;
   display: block;
@@ -18,4 +16,17 @@
   text-align: center;
   padding: 0.5em 1em;
   font: inherit;
+}
+
+:host(.uni-selected) .button {
+  background: var(--uni-color-active);
+}
+
+.button:focus {
+  outline: none;
+  background: var(--uni-light-tint);
+}
+
+:host(.uni-selected) .button:focus {
+  background: var(--uni-accent-tint);
 }

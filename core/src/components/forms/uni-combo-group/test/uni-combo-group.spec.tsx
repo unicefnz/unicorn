@@ -11,7 +11,7 @@ describe('uni-combo-group', () => {
       <uni-combo-group>
         <mock:shadow-root>
           <fieldset class="radio-fieldset uni-variant-combo">
-            <uni-radio-controller>
+            <uni-radio-controller part="layout">
               <slot></slot>
             </uni-radio-controller>
           </fieldset>

@@ -20,7 +20,7 @@ export class UniComboGroup {
     return (
       <Host>
         <fieldset class={'radio-fieldset uni-variant-' + this.variant}>
-          <uni-radio-controller value={this.value}>
+          <uni-radio-controller value={this.value} part="layout">
             <slot />
           </uni-radio-controller>
         </fieldset>
