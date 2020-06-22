@@ -7,6 +7,7 @@
 
 ::slotted(uni-text-field) {
   margin: 0;
+  height: 100%;
 }
 
 :host(.uni-selected) ::slotted(uni-text-field) {
