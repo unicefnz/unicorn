@@ -8,9 +8,9 @@ describe('uni-combo-item', () => {
       html: `<uni-combo-item></uni-combo-item>`,
     });
     expect(page.root).toEqualHtml(`
-      <uni-combo-item>
+      <uni-combo-item uni-radio-option="">
         <mock:shadow-root>
-          <button class="combo-item" type="button">
+          <button class="button" type="button">
             <slot></slot>
           </button>
         </mock:shadow-root>
