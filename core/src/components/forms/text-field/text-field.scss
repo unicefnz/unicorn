@@ -56,6 +56,11 @@
   font-size: 1rem;
   border: none;
 }
+.input-elem:disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
+  background: none;
+}
 
 .input-errors {
   margin-top: 0.3rem;

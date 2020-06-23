@@ -11,8 +11,10 @@ export const UsingClasses = () => `
 <div class="display-h6">Heading 6</div>
 <div class="display-overline">Overline</div>
 <div class="display-caption">Caption</div>
-<div class="display-link">Link!</div>
-<div class="display-link block-link">Link!</div>
+<div class="display-link">Div pretending to be a link!</div>
+<button class="display-link">Button pretending to be a link</button>
+<div class="display-link block-link">Block link!</div>
+<button class="display-link block-link">Button pretending to be a block link</button>
 <div class="display-paragraph">Paragraph</div>
 `;
 
