@@ -5,6 +5,7 @@
 .uni-checkbox-indeterminate {
   width: 8px;
   border: 1px solid var(--uni-accent-contrast);
+  border-radius: 1px;
 }
 .uni-checkbox-check {
   width: 1rem;
@@ -46,14 +47,17 @@ label {
   height: 16px;
   border: 2px solid var(--uni-accent-contrast);
   border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
 .uni-checkbox .uni-checkbox-icon {
   position: absolute;
-  display: none;
+  display: flex;
   align-items: center;
   overflow: hidden;
   color: var(--uni-accent-contrast);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 
@@ -76,7 +80,7 @@ label {
     background: var(--uni-accent);
   }
   .uni-checkbox-icon {
-    display: flex;
+    opacity: 1;
   }
 }
 

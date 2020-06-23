@@ -63,10 +63,10 @@ export class Checkbox {
                 points="416 128 192 384 96 288"
                 style={{
                   fill: 'none',
-                  stroke: '#000',
+                  stroke: 'var(--uni-dark)',
                   strokeLinecap: 'round',
                   strokeLinejoin: 'round',
-                  strokeWidth: '32px'
+                  strokeWidth: '56px'
                 }}
               />
             </svg>
