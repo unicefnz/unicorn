@@ -13,6 +13,13 @@
 | `variant` | `variant` | Display a different style radio group, either a "combo" row or "button" group | `"button" \| "combo"` | `'combo'`   |
 
 
+## Shadow Parts
+
+| Part       | Description |
+| ---------- | ----------- |
+| `"layout"` |             |
+
+
 ## Dependencies
 
 ### Depends on
