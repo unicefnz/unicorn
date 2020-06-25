@@ -6,39 +6,14 @@ let nextUniqueId = 0;
 
 @Component({
   tag: 'uni-text-field',
-  styleUrl: 'text-field.scss',
+  styleUrl: 'uni-text-field.scss',
   shadow: true
 })
-export class TextField {
-  /**
-   * Label text above the field
-  * */
-  @Prop() public label: string;
-
-  /**
-   * Placeholder displayed inside the field
-   * */
-  @Prop() public placeholder: string;
-
+export class UniTextField {
   /**
    * Makes the field disabled and unselectable
    * */
   @Prop() public disabled: boolean;
-
-  /**
-   * Prevents editing the field, but allows selecting text
-   * */
-  @Prop() public readonly: boolean;
-
-  /**
-   * Marks the field as optional
-   * */
-  @Prop() public optional = false;
-
-  /**
-   * Type for the underlying <input>
-   * */
-  @Prop() public type: string;
 
   /**
    * Displays errors below the input
@@ -46,19 +21,49 @@ export class TextField {
   @Prop() public errors: string | string[] = '';
 
   /**
-   * Set the value of the field
+   * Label text above the field
    * */
-  @Prop() public value: string;
+  @Prop() public label: string;
+
+  /**
+   * Displays a visual (optional) marker
+   * */
+  @Prop() public optional = false;
+
+  /**
+   * Placeholder displayed inside the field
+   * */
+  @Prop() public placeholder: string;
+
+  /**
+   * Prevents editing the field, but allows selecting text
+   * */
+  @Prop() public readonly: boolean;
+
+  /**
+   * Marks the input as required
+   * */
+  @Prop() public required: boolean;
+
+  /**
+   * Type for the underlying <input> or "textarea" to switch out the element
+   * */
+  @Prop() public type: string;
 
   /**
    * Emitted when form field value is committed
-  * */
+   * */
   @Event() public uniChange: EventEmitter<string>;
 
   /**
    * Emitted when the form field value changes
-  * */
+   * */
   @Event() public uniInput: EventEmitter<string>;
+
+  /**
+   * Set the value of the field
+   * */
+  @Prop() public value: string;
 
   private uniqueId = 'uni-input-' + nextUniqueId++;
 
@@ -70,6 +75,7 @@ export class TextField {
   render() {
     const optional = this.optional && (<span class="optional-label">(optional)</span>);
     const errors = this.renderErrors();
+    const Elem = this.type === 'textarea' ? 'textarea' : 'input';
 
     return (
       <Host class={{ 'input--has-errors': !!this.errorList.length }}>
@@ -78,14 +84,14 @@ export class TextField {
           <div class="prepend-wrapper">
             <slot name="prepend" />
           </div>
-          <input
+          <Elem
             class="input-elem"
             id={this.uniqueId}
-            type={this.type}
+            type={Elem === 'input' && this.type}
             disabled={this.disabled}
             readOnly={this.readonly}
             placeholder={this.placeholder}
-            required={!this.optional}
+            required={this.required}
             value={this.value}
             onChange={e => this.uniChange.emit((e.target as any).value)}
             onInput={e => this.uniInput.emit((e.target as any).value)}

@@ -61,6 +61,9 @@
   opacity: 0.9;
   background: none;
 }
+.input-elem:focus {
+  outline: none;
+}
 
 .input-errors {
   margin-top: 0.3rem;

@@ -30,3 +30,9 @@ export const Errors = () => `
 <uni-text-field label="Email" value="example@example.invalid+" errors="${text('Errors', 'Invalid Email')}"></uni-text-field>
 <uni-text-field errors="Uh oh"></uni-text-field>
 `;
+
+export const TextArea = () => `
+<uni-text-field type="textarea" label="Textarea"></uni-text-field>
+<uni-text-field type="textarea" label="Textarea" value="Test value"></uni-text-field>
+<uni-text-field type="textarea" label="Textarea" placeholder="Test placeholder"></uni-text-field>
+`;
