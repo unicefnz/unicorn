@@ -16,13 +16,14 @@ uni-radio-controller {
 }
 
 .uni-variant-button {
+  $gutter: 0.6rem;
   uni-radio-controller {
-    margin: -1rem;
+    margin: -$gutter;
   }
   ::slotted([uni-radio-option]) {
     --uni-border: 2px solid var(--uni-dark);
     --uni-border-radius: 4px;
-    margin: 1rem;
+    margin: $gutter;
     flex: 1;
   }
 }

@@ -163,7 +163,7 @@ export namespace Components {
          */
         "label": string;
         /**
-          * Marks the field as optional
+          * Displays a visual (optional) marker
          */
         "optional": boolean;
         /**
@@ -175,7 +175,11 @@ export namespace Components {
          */
         "readonly": boolean;
         /**
-          * Type for the underlying <input>
+          * Marks the input as required
+         */
+        "required": boolean;
+        /**
+          * Type for the underlying <input> or "textarea" to switch out the element
          */
         "type": string;
         /**
@@ -487,7 +491,7 @@ declare namespace LocalJSX {
          */
         "onUniInput"?: (event: CustomEvent<string>) => void;
         /**
-          * Marks the field as optional
+          * Displays a visual (optional) marker
          */
         "optional"?: boolean;
         /**
@@ -499,7 +503,11 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         /**
-          * Type for the underlying <input>
+          * Marks the input as required
+         */
+        "required"?: boolean;
+        /**
+          * Type for the underlying <input> or "textarea" to switch out the element
          */
         "type"?: string;
         /**

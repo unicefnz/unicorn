@@ -19,9 +19,8 @@ export class ProgressLinear {
   render() {
     return (
       <Host class={{ 'uni-loading-active': this.value, ['uni-color-' + this.color]: !!this.color }}>
-        <slot></slot>
+        <slot />
       </Host>
     );
   }
-
 }

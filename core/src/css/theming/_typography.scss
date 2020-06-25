@@ -68,6 +68,12 @@ $uniStyles: (
   @each $key, $val in map.get($uniStyles, $name) {
     #{$key}: #{$val};
   }
+  @if $name == "link" {
+    background: none;
+    border: none;
+    font: inherit;
+    padding: 0;
+  }
 }
 
 // Configures default font families

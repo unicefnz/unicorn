@@ -51,10 +51,18 @@
 
 .input-elem {
   flex: 1;
-  padding: 10px 12px;
+  padding: 0.6rem 0.7rem;
   font-family: inherit;
   font-size: 1rem;
   border: none;
+}
+.input-elem:disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
+  background: none;
+}
+.input-elem:focus {
+  outline: none;
 }
 
 .input-errors {
