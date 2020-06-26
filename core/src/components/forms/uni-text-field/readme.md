@@ -12,6 +12,10 @@
 | `disabled`    | `disabled`    | Makes the field disabled and unselectable                               | `boolean`            | `undefined` |
 | `errors`      | `errors`      | Displays errors below the input                                         | `string \| string[]` | `''`        |
 | `label`       | `label`       | Label text above the field                                              | `string`             | `undefined` |
+| `max`         | `max`         | Maximum value when the input is in number mode                          | `number`             | `undefined` |
+| `maxlength`   | `maxlength`   | Maximum string length                                                   | `number`             | `undefined` |
+| `min`         | `min`         | Minimum value when the input is in number mode                          | `number`             | `undefined` |
+| `minlength`   | `minlength`   | Minimum string length                                                   | `number`             | `undefined` |
 | `optional`    | `optional`    | Displays a visual (optional) marker                                     | `boolean`            | `false`     |
 | `placeholder` | `placeholder` | Placeholder displayed inside the field                                  | `string`             | `undefined` |
 | `readonly`    | `readonly`    | Prevents editing the field, but allows selecting text                   | `boolean`            | `undefined` |

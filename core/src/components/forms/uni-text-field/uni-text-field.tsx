@@ -26,6 +26,26 @@ export class UniTextField {
   @Prop() public label: string;
 
   /**
+   * Maximum value when the input is in number mode
+   * */
+  @Prop() public max: number;
+
+  /**
+   * Maximum string length
+   * */
+  @Prop() public maxlength: number;
+
+  /**
+   * Minimum value when the input is in number mode
+   * */
+  @Prop() public min: number;
+
+  /**
+   * Minimum string length
+   * */
+  @Prop() public minlength: number;
+
+  /**
    * Displays a visual (optional) marker
    * */
   @Prop() public optional = false;
@@ -89,8 +109,12 @@ export class UniTextField {
             id={this.uniqueId}
             type={Elem === 'input' && this.type}
             disabled={this.disabled}
-            readOnly={this.readonly}
+            max={this.max}
+            maxlength={this.maxlength}
+            min={this.min}
+            minlength={this.minlength}
             placeholder={this.placeholder}
+            readOnly={this.readonly}
             required={this.required}
             value={this.value}
             onChange={e => this.uniChange.emit((e.target as any).value)}

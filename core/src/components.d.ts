@@ -5,15 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonStyle } from "./components/button/button";
+import { ButtonVariant } from "./components/uni-button/uni-button";
 export namespace Components {
     interface UniBarText {
     }
     interface UniButton {
-        /**
-          * Sets the style of the button One of 'solid' or 'border'
-         */
-        "buttonStyle": ButtonStyle;
         /**
           * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
          */
@@ -31,6 +27,10 @@ export namespace Components {
          */
         "href"?: string;
         /**
+          * Display as an icon button
+         */
+        "icon"?: boolean;
+        /**
           * Changes the button into a loading state
          */
         "loading": boolean;
@@ -38,6 +38,10 @@ export namespace Components {
           * Name of a icon to prepend inside the button Eg. logo-google
          */
         "prependIcon"?: string;
+        /**
+          * Sets the variant of the button One of 'solid' or 'border'
+         */
+        "variant": ButtonVariant;
     }
     interface UniCheckbox {
         /**
@@ -162,6 +166,22 @@ export namespace Components {
           * Label text above the field
          */
         "label": string;
+        /**
+          * Maximum value when the input is in number mode
+         */
+        "max": number;
+        /**
+          * Maximum string length
+         */
+        "maxlength": number;
+        /**
+          * Minimum value when the input is in number mode
+         */
+        "min": number;
+        /**
+          * Minimum string length
+         */
+        "minlength": number;
         /**
           * Displays a visual (optional) marker
          */
@@ -311,10 +331,6 @@ declare namespace LocalJSX {
     }
     interface UniButton {
         /**
-          * Sets the style of the button One of 'solid' or 'border'
-         */
-        "buttonStyle"?: ButtonStyle;
-        /**
           * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
          */
         "buttonType"?: string;
@@ -331,6 +347,10 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         /**
+          * Display as an icon button
+         */
+        "icon"?: boolean;
+        /**
           * Changes the button into a loading state
          */
         "loading"?: boolean;
@@ -338,6 +358,10 @@ declare namespace LocalJSX {
           * Name of a icon to prepend inside the button Eg. logo-google
          */
         "prependIcon"?: string;
+        /**
+          * Sets the variant of the button One of 'solid' or 'border'
+         */
+        "variant"?: ButtonVariant;
     }
     interface UniCheckbox {
         /**
@@ -482,6 +506,22 @@ declare namespace LocalJSX {
           * Label text above the field
          */
         "label"?: string;
+        /**
+          * Maximum value when the input is in number mode
+         */
+        "max"?: number;
+        /**
+          * Maximum string length
+         */
+        "maxlength"?: number;
+        /**
+          * Minimum value when the input is in number mode
+         */
+        "min"?: number;
+        /**
+          * Minimum string length
+         */
+        "minlength"?: number;
         /**
           * Emitted when form field value is committed
          */
