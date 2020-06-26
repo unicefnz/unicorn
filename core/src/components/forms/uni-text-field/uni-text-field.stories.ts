@@ -31,7 +31,10 @@ export const Errors = () => `
 <uni-text-field errors="Uh oh"></uni-text-field>
 `;
 
-export const TextArea = () => `
+export const OtherTypes = () => `
+<uni-text-field type="number"></uni-text-field>
+<uni-text-field type="number" min="0" value="1"></uni-text-field>
+<uni-text-field type="number" placeholder="Pick number"></uni-text-field>
 <uni-text-field type="textarea" label="Textarea"></uni-text-field>
 <uni-text-field type="textarea" label="Textarea" value="Test value"></uni-text-field>
 <uni-text-field type="textarea" label="Textarea" placeholder="Test placeholder"></uni-text-field>

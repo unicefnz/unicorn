@@ -1,5 +1,8 @@
 @use "../../css/theming/color";
 
+$vert-padding: 0.6rem;
+$horiz-padding: $vert-padding + 0.4rem;
+
 :host {
   display: inline-block;
   --background: #{color.useVar(accent)};
@@ -10,14 +13,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
   position: relative;
+  box-sizing: border-box;
   padding: 0 1rem;
+  height: 2.2rem;
+  min-width: 6rem;
   border: none;
-  border-radius: 20px;
+  border-radius: 1.1rem;
   background: none;
-  height: 40px;
-  min-width: 120px;
   cursor: pointer;
   font: inherit;
   font-size: 1rem;
@@ -33,6 +36,11 @@
   margin-right: 10px;
 }
 
+// Button variant
+:host(.uni-button-icon) .button {
+  min-width: 2.2rem;
+  padding: 0 !important;
+}
 
 // Disabled state
 :host(.uni-disabled) .button {
@@ -53,19 +61,20 @@
 }
 
 // Border style (except loading)
-:host(.uni-style-border:not(.uni-loading)) .button {
+:host(.uni-variant-border:not(.uni-loading)) .button {
+  padding: 0 calc(1rem - 2px);
   border: 2px solid var(--background);
   transition: background-color 0.3s, color 0.3s;
   color: var(--background);
 }
 // Border style hover (except disabled)
-:host(.uni-style-border:not(.uni-disabled):hover) .button, :host(.uni-style-border:not(.uni-disabled)) .button:focus {
+:host(.uni-variant-border:not(.uni-disabled):hover) .button, :host(.uni-variant-border:not(.uni-disabled)) .button:focus {
   color: var(--contrast);
   background-color: var(--background);
 }
 
 // Solid style, or loading style
-:host(.uni-style-solid), :host(.uni-loading) {
+:host(.uni-variant-solid), :host(.uni-loading) {
   .button {
     background-color: var(--background);
     transition: filter 0.3s;
@@ -74,7 +83,7 @@
 }
 
 // Solid style hover, not disabled
-:host(.uni-style-solid:not(.uni-disabled)) {
+:host(.uni-variant-solid:not(.uni-disabled)) {
   .button:hover, .button:focus {
     filter: brightness(90%);
   }
