@@ -8,9 +8,10 @@ describe('uni-button', () => {
       html: `<uni-button></uni-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <uni-button>
+      <uni-button class="uni-color-accent uni-variant-solid">
         <mock:shadow-root>
-          <button class="button">
+          <button class="button" type="button">
+            <slot name="prepend-icon"></slot>
             <slot></slot>
           </button>
         </mock:shadow-root>
