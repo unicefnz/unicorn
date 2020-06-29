@@ -16,7 +16,6 @@ describe('uni-text-field', () => {
               </div>
               <input class="input-elem" id="uni-input-0">
           </div>
-          <uni-errors errors=""></uni-errors>
         </mock:shadow-root>
       </uni-text-field>
     `);

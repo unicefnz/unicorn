@@ -57,7 +57,7 @@ export class UniExpandableField {
             </div>
           )}
         </div>
-        {this.errors?.length && <uni-errors errors={this.errors} />}
+        {this.errors && this.errors.length && <uni-errors errors={this.errors} />}
 
         {/* We can just chuck this anywhere */}
         <uni-outside-click onUniOutsideClick={() => this.expanded && this.close()} root={this.el} />
