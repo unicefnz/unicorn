@@ -23,7 +23,7 @@
 
 ### Used by
 
- - [uni-combo-group](../uni-combo-group)
+ - [uni-combo-group](../../forms/uni-combo-group)
 
 ### Graph
 ```mermaid

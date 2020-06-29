@@ -1,0 +1,74 @@
+@use "../../../css/theming/typography";
+
+:host {
+  --uni-border-color: var(--uni-dark);
+  --uni-border: 2px solid var(--uni-border-color);
+  --uni-border-radius: 4px;
+  --uni-error-color: var(--uni-danger);
+  display: block;
+  text-align: start;
+  margin: 1rem 0;
+}
+
+.caption {
+  @include typography.useStyle(overline);
+  display: block;
+  margin: 0 0 4px;
+}
+
+.expansion-wrapper {
+  position: relative;
+}
+
+.expansion-trigger {
+  position: relative;
+  margin: 0;
+  padding: 0.6rem 0.7rem;
+  width: 100%;
+  overflow: hidden;
+
+  border: var(--uni-border);
+  border-radius: var(--uni-border-radius);
+
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+.expansion-trigger:disabled {
+  cursor: not-allowed;
+}
+.expansion-trigger::after {
+  content: " ";
+  position: absolute;
+  right: 16px;
+  top: 0;
+  bottom: 0;
+  height: 0;
+  margin: auto;
+  border-style: solid;
+  border-width: 8px 7px 0 7px;
+  border-color: var(--uni-border-color) transparent transparent transparent;
+}
+:host(.uni-expanded) .expansion-trigger {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+:host(.uni-errors) .caption{
+  color: var(--uni-error-color);
+  //.expansion-trigger, .expansion-content {
+    //border-color: var(--uni-error-color);
+  //}
+}
+
+.expansion-content {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% - 2px);
+  left: 0;
+  right: 0;
+  border: var(--uni-border);
+  border-bottom-left-radius: var(--uni-border-radius);
+  border-bottom-right-radius: var(--uni-border-radius);
+  background: #FFF;
+}

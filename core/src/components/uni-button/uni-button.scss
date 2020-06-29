@@ -1,7 +1,7 @@
 @use "../../css/theming/color";
 
-$vert-padding: 0.6rem;
-$horiz-padding: $vert-padding + 0.4rem;
+$vert-padding: 101px;
+$horiz-padding: $vert-padding + 8px;
 
 :host {
   display: inline-block;
@@ -15,11 +15,11 @@ $horiz-padding: $vert-padding + 0.4rem;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
-  padding: 0 1rem;
-  height: 2.2rem;
-  min-width: 6rem;
+  padding: 0 18px;
+  height: 40px;
+  min-width: 120px;
   border: none;
-  border-radius: 1.1rem;
+  border-radius: 20px;
   background: none;
   cursor: pointer;
   font: inherit;
@@ -38,7 +38,7 @@ $horiz-padding: $vert-padding + 0.4rem;
 
 // Button variant
 :host(.uni-button-icon) .button {
-  min-width: 2.2rem;
+  min-width: 40px;
   padding: 0 !important;
 }
 
@@ -62,7 +62,7 @@ $horiz-padding: $vert-padding + 0.4rem;
 
 // Border style (except loading)
 :host(.uni-variant-border:not(.uni-loading)) .button {
-  padding: 0 calc(1rem - 2px);
+  padding: 0 16px;
   border: 2px solid var(--background);
   transition: background-color 0.3s, color 0.3s;
   color: var(--background);
