@@ -10,7 +10,11 @@ describe('uni-expandable-field', () => {
     expect(page.root).toEqualHtml(`
       <uni-expandable-field>
         <mock:shadow-root>
-          <slot></slot>
+          <div class="expansion-wrapper">
+            <button class="expansion-trigger" type="button"></button>
+          </div>
+          <uni-errors errors=""></uni-errors>
+          <uni-outside-click></uni-outside-click>
         </mock:shadow-root>
       </uni-expandable-field>
     `);

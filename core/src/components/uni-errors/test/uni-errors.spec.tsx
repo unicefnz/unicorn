@@ -10,7 +10,6 @@ describe('uni-errors', () => {
     expect(page.root).toEqualHtml(`
       <uni-errors>
         <mock:shadow-root>
-          <slot></slot>
         </mock:shadow-root>
       </uni-errors>
     `);
