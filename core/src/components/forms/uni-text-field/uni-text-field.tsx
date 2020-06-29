@@ -115,7 +115,7 @@ export class UniTextField {
             onInput={e => this.uniInput.emit((e.target as any).value)}
           />
         </div>
-        <uni-errors errors={this.errors} />
+        {this.errors?.length && <uni-errors errors={this.errors} />}
       </Host>
     );
   }
