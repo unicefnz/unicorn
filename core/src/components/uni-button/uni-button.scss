@@ -1,8 +1,5 @@
 @use "../../css/theming/color";
 
-$vert-padding: 101px;
-$horiz-padding: $vert-padding + 8px;
-
 :host {
   display: inline-block;
   --background: #{color.useVar(accent)};
