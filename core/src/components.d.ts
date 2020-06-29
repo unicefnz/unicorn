@@ -115,6 +115,38 @@ export namespace Components {
     }
     interface UniDialogTitle {
     }
+    interface UniErrors {
+        /**
+          * Display a single error Will be overridden by errors[]
+         */
+        "error"?: string;
+        /**
+          * Displays a list of errors. Will override error
+         */
+        "errors"?: string | string[];
+    }
+    interface UniExpandableField {
+        /**
+          * Makes the field disabled and unselectable
+         */
+        "disabled": boolean;
+        /**
+          * Display text inside the trigger
+         */
+        "displayText": string;
+        /**
+          * Displays errors below the input
+         */
+        "errors": string | string[];
+        /**
+          * Label text above the field
+         */
+        "label": string;
+        /**
+          * Displays a visual (optional) marker
+         */
+        "optional": boolean;
+    }
     interface UniHero {
         /**
           * How to align the text
@@ -124,6 +156,12 @@ export namespace Components {
           * URL of an image to use for the background
          */
         "backgroundUrl"?: string;
+    }
+    interface UniOutsideClick {
+        /**
+          * Specify a root to listen on, anything "outside" this will trigger. Useful for escaping shadowDOM
+         */
+        "root"?: HTMLElement;
     }
     interface UniProgressLinear {
         /**
@@ -265,11 +303,29 @@ declare global {
         prototype: HTMLUniDialogTitleElement;
         new (): HTMLUniDialogTitleElement;
     };
+    interface HTMLUniErrorsElement extends Components.UniErrors, HTMLStencilElement {
+    }
+    var HTMLUniErrorsElement: {
+        prototype: HTMLUniErrorsElement;
+        new (): HTMLUniErrorsElement;
+    };
+    interface HTMLUniExpandableFieldElement extends Components.UniExpandableField, HTMLStencilElement {
+    }
+    var HTMLUniExpandableFieldElement: {
+        prototype: HTMLUniExpandableFieldElement;
+        new (): HTMLUniExpandableFieldElement;
+    };
     interface HTMLUniHeroElement extends Components.UniHero, HTMLStencilElement {
     }
     var HTMLUniHeroElement: {
         prototype: HTMLUniHeroElement;
         new (): HTMLUniHeroElement;
+    };
+    interface HTMLUniOutsideClickElement extends Components.UniOutsideClick, HTMLStencilElement {
+    }
+    var HTMLUniOutsideClickElement: {
+        prototype: HTMLUniOutsideClickElement;
+        new (): HTMLUniOutsideClickElement;
     };
     interface HTMLUniProgressLinearElement extends Components.UniProgressLinear, HTMLStencilElement {
     }
@@ -317,7 +373,10 @@ declare global {
         "uni-dialog": HTMLUniDialogElement;
         "uni-dialog-content": HTMLUniDialogContentElement;
         "uni-dialog-title": HTMLUniDialogTitleElement;
+        "uni-errors": HTMLUniErrorsElement;
+        "uni-expandable-field": HTMLUniExpandableFieldElement;
         "uni-hero": HTMLUniHeroElement;
+        "uni-outside-click": HTMLUniOutsideClickElement;
         "uni-progress-linear": HTMLUniProgressLinearElement;
         "uni-radio-controller": HTMLUniRadioControllerElement;
         "uni-select": HTMLUniSelectElement;
@@ -451,6 +510,38 @@ declare namespace LocalJSX {
     }
     interface UniDialogTitle {
     }
+    interface UniErrors {
+        /**
+          * Display a single error Will be overridden by errors[]
+         */
+        "error"?: string;
+        /**
+          * Displays a list of errors. Will override error
+         */
+        "errors"?: string | string[];
+    }
+    interface UniExpandableField {
+        /**
+          * Makes the field disabled and unselectable
+         */
+        "disabled"?: boolean;
+        /**
+          * Display text inside the trigger
+         */
+        "displayText"?: string;
+        /**
+          * Displays errors below the input
+         */
+        "errors"?: string | string[];
+        /**
+          * Label text above the field
+         */
+        "label"?: string;
+        /**
+          * Displays a visual (optional) marker
+         */
+        "optional"?: boolean;
+    }
     interface UniHero {
         /**
           * How to align the text
@@ -460,6 +551,16 @@ declare namespace LocalJSX {
           * URL of an image to use for the background
          */
         "backgroundUrl"?: string;
+    }
+    interface UniOutsideClick {
+        /**
+          * Emitted when the document is clicked outside this tree
+         */
+        "onUniOutsideClick"?: (event: CustomEvent<MouseEvent>) => void;
+        /**
+          * Specify a root to listen on, anything "outside" this will trigger. Useful for escaping shadowDOM
+         */
+        "root"?: HTMLElement;
     }
     interface UniProgressLinear {
         /**
@@ -567,7 +668,10 @@ declare namespace LocalJSX {
         "uni-dialog": UniDialog;
         "uni-dialog-content": UniDialogContent;
         "uni-dialog-title": UniDialogTitle;
+        "uni-errors": UniErrors;
+        "uni-expandable-field": UniExpandableField;
         "uni-hero": UniHero;
+        "uni-outside-click": UniOutsideClick;
         "uni-progress-linear": UniProgressLinear;
         "uni-radio-controller": UniRadioController;
         "uni-select": UniSelect;
@@ -589,7 +693,10 @@ declare module "@stencil/core" {
             "uni-dialog": LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
             "uni-dialog-content": LocalJSX.UniDialogContent & JSXBase.HTMLAttributes<HTMLUniDialogContentElement>;
             "uni-dialog-title": LocalJSX.UniDialogTitle & JSXBase.HTMLAttributes<HTMLUniDialogTitleElement>;
+            "uni-errors": LocalJSX.UniErrors & JSXBase.HTMLAttributes<HTMLUniErrorsElement>;
+            "uni-expandable-field": LocalJSX.UniExpandableField & JSXBase.HTMLAttributes<HTMLUniExpandableFieldElement>;
             "uni-hero": LocalJSX.UniHero & JSXBase.HTMLAttributes<HTMLUniHeroElement>;
+            "uni-outside-click": LocalJSX.UniOutsideClick & JSXBase.HTMLAttributes<HTMLUniOutsideClickElement>;
             "uni-progress-linear": LocalJSX.UniProgressLinear & JSXBase.HTMLAttributes<HTMLUniProgressLinearElement>;
             "uni-radio-controller": LocalJSX.UniRadioController & JSXBase.HTMLAttributes<HTMLUniRadioControllerElement>;
             "uni-select": LocalJSX.UniSelect & JSXBase.HTMLAttributes<HTMLUniSelectElement>;

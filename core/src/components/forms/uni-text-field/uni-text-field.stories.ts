@@ -11,7 +11,7 @@ export const Default = () => `
 <uni-text-field placeholder="Placeholder" label="Label"></uni-text-field>
 <uni-text-field value="With value" label="Label here"></uni-text-field>
 <uni-text-field value="Read only text field" readonly></uni-text-field>
-<uni-text-field value="Disabled text field" disabled></uni-text-field>
+<uni-text-field label="Disabled text field" value="Disabled text field" disabled></uni-text-field>
 `;
 
 export const PrependIcon = () => `

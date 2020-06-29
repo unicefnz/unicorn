@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
-import RadioItemInterface from '../uni-radio-controller/radio-item-interface';
+import RadioItemInterface from '../../util/uni-radio-controller/radio-item-interface';
 
 @Component({
   tag: 'uni-combo-item',

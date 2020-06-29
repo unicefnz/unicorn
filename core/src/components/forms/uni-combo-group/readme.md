@@ -24,7 +24,7 @@
 
 ### Depends on
 
-- [uni-radio-controller](../uni-radio-controller)
+- [uni-radio-controller](../../util/uni-radio-controller)
 
 ### Graph
 ```mermaid

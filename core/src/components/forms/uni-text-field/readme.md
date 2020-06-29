@@ -32,6 +32,19 @@
 | `uniInput`  | Emitted when the form field value changes  | `CustomEvent<string>` |
 
 
+## Dependencies
+
+### Depends on
+
+- [uni-errors](../../uni-errors)
+
+### Graph
+```mermaid
+graph TD;
+  uni-text-field --> uni-errors
+  style uni-text-field fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

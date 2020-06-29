@@ -8,6 +8,9 @@
   text-align: start;
   margin: 1rem 0;
 }
+:host(.uni-disabled) {
+  opacity: 0.6;
+}
 
 .caption {
   @include typography.useStyle(overline);
@@ -56,33 +59,10 @@
   font-size: 1rem;
   border: none;
 }
-.input-elem:disabled {
+:host(.uni-disabled) .input-elem {
   cursor: not-allowed;
-  opacity: 0.9;
   background: none;
 }
 .input-elem:focus {
   outline: none;
-}
-
-.input-errors {
-  margin-top: 0.3rem;
-  color: var(--uni-danger);
-  stroke: var(--uni-danger); // TODO Make the icon inherit from text color
-
-  .error-icon {
-    vertical-align: top;
-    margin-right: 0.5rem;
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-  }
-
-  ul {
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    font-size: 0.9rem;
-  }
 }

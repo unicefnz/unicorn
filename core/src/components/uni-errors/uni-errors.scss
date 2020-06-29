@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--uni-danger);
+  //stroke: var(--uni-danger); // TODO Make the icon inherit from text color
+}
+
+.error-icon {
+  vertical-align: top;
+  margin-right: 0.5rem;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+ul, p {
+  display: inline-block;
+  margin: 0;
+  font-size: 0.9rem;
+}
+ul {
+  padding: 0;
+  list-style-type: none;
+}
