@@ -245,6 +245,32 @@ export namespace Components {
          */
         "value": string;
     }
+    interface UniTooltip {
+        /**
+          * Delay before hiding the tooltip after mouseleave/blur
+         */
+        "hideDelay": number;
+        /**
+          * Which side to position the tooltip on
+         */
+        "position"?: 'top' | 'bottom' | 'left' | 'right';
+        /**
+          * Text content to display inside the tooltip. Overrides the `content` slot
+         */
+        "text"?: string;
+        /**
+          * Control whether the tooltip shows on focus
+         */
+        "useFocus": boolean;
+        /**
+          * Control whether the tooltip shows on hover
+         */
+        "useHover": boolean;
+        /**
+          * Programmatically show the tooltip
+         */
+        "value"?: boolean;
+    }
     interface UniUnderline {
     }
 }
@@ -357,6 +383,12 @@ declare global {
         prototype: HTMLUniTextFieldElement;
         new (): HTMLUniTextFieldElement;
     };
+    interface HTMLUniTooltipElement extends Components.UniTooltip, HTMLStencilElement {
+    }
+    var HTMLUniTooltipElement: {
+        prototype: HTMLUniTooltipElement;
+        new (): HTMLUniTooltipElement;
+    };
     interface HTMLUniUnderlineElement extends Components.UniUnderline, HTMLStencilElement {
     }
     var HTMLUniUnderlineElement: {
@@ -382,6 +414,7 @@ declare global {
         "uni-select": HTMLUniSelectElement;
         "uni-tagline": HTMLUniTaglineElement;
         "uni-text-field": HTMLUniTextFieldElement;
+        "uni-tooltip": HTMLUniTooltipElement;
         "uni-underline": HTMLUniUnderlineElement;
     }
 }
@@ -656,6 +689,32 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface UniTooltip {
+        /**
+          * Delay before hiding the tooltip after mouseleave/blur
+         */
+        "hideDelay"?: number;
+        /**
+          * Which side to position the tooltip on
+         */
+        "position"?: 'top' | 'bottom' | 'left' | 'right';
+        /**
+          * Text content to display inside the tooltip. Overrides the `content` slot
+         */
+        "text"?: string;
+        /**
+          * Control whether the tooltip shows on focus
+         */
+        "useFocus"?: boolean;
+        /**
+          * Control whether the tooltip shows on hover
+         */
+        "useHover"?: boolean;
+        /**
+          * Programmatically show the tooltip
+         */
+        "value"?: boolean;
+    }
     interface UniUnderline {
     }
     interface IntrinsicElements {
@@ -677,6 +736,7 @@ declare namespace LocalJSX {
         "uni-select": UniSelect;
         "uni-tagline": UniTagline;
         "uni-text-field": UniTextField;
+        "uni-tooltip": UniTooltip;
         "uni-underline": UniUnderline;
     }
 }
@@ -702,6 +762,7 @@ declare module "@stencil/core" {
             "uni-select": LocalJSX.UniSelect & JSXBase.HTMLAttributes<HTMLUniSelectElement>;
             "uni-tagline": LocalJSX.UniTagline & JSXBase.HTMLAttributes<HTMLUniTaglineElement>;
             "uni-text-field": LocalJSX.UniTextField & JSXBase.HTMLAttributes<HTMLUniTextFieldElement>;
+            "uni-tooltip": LocalJSX.UniTooltip & JSXBase.HTMLAttributes<HTMLUniTooltipElement>;
             "uni-underline": LocalJSX.UniUnderline & JSXBase.HTMLAttributes<HTMLUniUnderlineElement>;
         }
     }
