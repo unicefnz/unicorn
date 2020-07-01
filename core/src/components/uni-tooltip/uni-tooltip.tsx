@@ -11,7 +11,7 @@ export class UniTooltip implements ComponentInterface {
   /**
    * Delay before hiding the tooltip after mouseleave/blur
    * */
-  @Prop() hideDelay = 400;
+  @Prop() hideDelay = 200;
 
   /**
    * Which side to position the tooltip on
@@ -72,6 +72,11 @@ export class UniTooltip implements ComponentInterface {
   }
 
   render() {
+    // TODO on first render, onValueChange will cause state to change but does not trigger a rerender
+    console.log('Render: shown, value', this.shown, this.value);
+    if (this.shown) this.computeOffsets();
+    if (this.value && !this.shown) this.onValueChange(this.value); // Risky, but allows us to delay computing sizes until after first render
+
     return (
       <Host
         class={{
@@ -80,11 +85,15 @@ export class UniTooltip implements ComponentInterface {
         }}
       >
         <slot />
-        {this.shown && (
-          <div class="tooltip-content">
-            {this.text || <slot name="content" />}
-          </div>
-        )}
+        <div
+          class="tooltip-content"
+          style={{
+            left: this.offsets.left ? this.offsets.left + 'px' : undefined,
+            top: this.offsets.top ? this.offsets.top + 'px' : undefined
+          }}
+        >
+          {this.text || <slot name="content" />}
+        </div>
       </Host>
     );
   }
@@ -95,31 +104,30 @@ export class UniTooltip implements ComponentInterface {
 
   private focused = false;
 
+  private offsets = { left: 0, top: 0 };
+
 
   private show() {
     if (this.hideTimeout) clearTimeout(this.hideTimeout);
     if (this.shown) return;
-    console.log('Showing!');
+    console.log('Showing', this.shown);
     this.shown = true;
   }
 
   private hide() {
     if (!this.shown) return;
     this.hideTimeout = setTimeout(() => {
-      console.log('Hiding!');
       this.shown = false;
     }, this.hideDelay);
   }
 
   private onMouseEnter = () => {
-    console.log('Mouse enter');
     if (this.focused) return;
     this.show();
     this.el.addEventListener('mouseleave', this.onMouseLeave);
   };
 
   private onMouseLeave = () => {
-    console.log('Mouse leave');
     this.hide();
     this.el.removeEventListener('mouseleave', this.onMouseLeave);
   };
@@ -135,4 +143,53 @@ export class UniTooltip implements ComponentInterface {
     this.focused = false;
     this.el.removeEventListener('focusout', this.onBlur);
   };
+
+  private computeOffsets() {
+    console.log('Computing offsets');
+    const contentEl = this.el.shadowRoot.querySelector('.tooltip-content') as HTMLDivElement;
+
+    contentEl.style.visibility = 'hidden';
+    contentEl.style.display = 'block';
+
+    const contentBox = contentEl.getBoundingClientRect();
+
+    contentEl.style.visibility = null;
+    contentEl.style.display = null;
+
+    const triggerBox = this.el.getBoundingClientRect();
+
+    if (this.position === 'top' || this.position === 'bottom') {
+      const docWidth = document.body.clientWidth;
+      const triggerLeft = window.scrollX + triggerBox.left;
+      const triggerCenter = triggerLeft + triggerBox.width / 2;
+
+      const contentLeft = window.scrollX + contentBox.left;
+      const contentCenter = contentLeft + contentBox.width / 2;
+
+      let offset = triggerCenter - contentCenter; // top: offset px;
+      if (contentBox.right + offset > docWidth) offset = docWidth - contentBox.right; // If it's too far right, move to right edge
+      if (contentLeft + offset < 0) offset = -contentLeft; // If it's too far left, move to left edge
+
+      this.offsets = {
+        top: 0,
+        left: this.offsets.left + offset
+      };
+    } else {
+      // const docMax = document.body.clientHeight;
+      const triggerTop = window.scrollY + triggerBox.top;
+      const triggerCenter = triggerTop + triggerBox.height / 2;
+
+      const contentTop = window.scrollY + contentBox.top;
+      const contentCenter = contentTop + contentBox.height / 2;
+
+      let offset = triggerCenter - contentCenter; // top: offset px;
+      if (contentTop + offset < 0) offset = -contentTop; // Set it to the top
+      // if (contentBox.bottom + offset > docMax) offset = docMax - contentBox.bottom; // Lower it as much as possible
+
+      this.offsets = {
+        top: this.offsets.top + offset,
+        left: 0
+      };
+    }
+  }
 }

@@ -23,4 +23,5 @@ export const UniRadioController = /*@__PURE__*/createReactComponent<JSX.UniRadio
 export const UniSelect = /*@__PURE__*/createReactComponent<JSX.UniSelect, HTMLUniSelectElement>('uni-select');
 export const UniTagline = /*@__PURE__*/createReactComponent<JSX.UniTagline, HTMLUniTaglineElement>('uni-tagline');
 export const UniTextField = /*@__PURE__*/createReactComponent<JSX.UniTextField, HTMLUniTextFieldElement>('uni-text-field');
+export const UniTooltip = /*@__PURE__*/createReactComponent<JSX.UniTooltip, HTMLUniTooltipElement>('uni-tooltip');
 export const UniUnderline = /*@__PURE__*/createReactComponent<JSX.UniUnderline, HTMLUniUnderlineElement>('uni-underline');
