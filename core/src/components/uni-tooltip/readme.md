@@ -9,7 +9,8 @@
 
 | Property    | Attribute    | Description                                                              | Type                                     | Default     |
 | ----------- | ------------ | ------------------------------------------------------------------------ | ---------------------------------------- | ----------- |
-| `hideDelay` | `hide-delay` | Delay before hiding the tooltip after mouseleave/blur                    | `number`                                 | `200`       |
+| `arrow`     | `arrow`      | Whether to display an arrow pointing from the tooltip bubble             | `boolean`                                | `true`      |
+| `hideDelay` | `hide-delay` | Delay before hiding the tooltip after mouseleave/blur                    | `number`                                 | `300`       |
 | `position`  | `position`   | Which side to position the tooltip on                                    | `"bottom" \| "left" \| "right" \| "top"` | `'right'`   |
 | `text`      | `text`       | Text content to display inside the tooltip. Overrides the `content` slot | `string`                                 | `undefined` |
 | `useFocus`  | `use-focus`  | Control whether the tooltip shows on focus                               | `boolean`                                | `true`      |

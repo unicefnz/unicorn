@@ -1,11 +1,12 @@
 $offset: 2px;
-$tri-depth: 10px;
+$tri-depth: 12px;
 $tri-width: 16px;
 
 $enter-curve: cubic-bezier(.03,1.05,.83,1.02);
 
 :host {
   --border-color: var(--uni-dark);
+  --animation-name: tooltip-enter-horiz;
   position: relative;
   display: inline-block;
 }
@@ -22,7 +23,7 @@ $enter-curve: cubic-bezier(.03,1.05,.83,1.02);
   border-radius: 8px;
   background: #FFF;
 }
-:host::after {
+:host(.uni-tooltip--has-arrow)::after {
   content: "";
   position: absolute;
   z-index: 999;
@@ -33,7 +34,7 @@ $enter-curve: cubic-bezier(.03,1.05,.83,1.02);
   border-style: solid;
 }
 
-:host(.uni-shown) {
+:host(.uni-tooltip--open) {
   .tooltip-content {
     display: block;
   }
@@ -42,26 +43,26 @@ $enter-curve: cubic-bezier(.03,1.05,.83,1.02);
   }
 }
 
-.tooltip-content.leaving {
-
-}
 
 // Animations
-:host(.uni-tooltip-position-top), :host(.uni-tooltip-position-bottom) {
+:host::after {
+  transition: opacity 0.5s, transform 0.5s;
+}
+:host(.uni-tooltip--position-top), :host(.uni-tooltip--position-bottom) {
   &::after, .tooltip-content {
-    animation: 0.3s 1 $enter-curve tooltip-enter-vert;
+    animation: tooltip-enter-vert 0.3s 1 $enter-curve forwards;
   }
 }
-:host(.uni-tooltip-position-left), :host(.uni-tooltip-position-right) {
+:host(.uni-tooltip--position-left), :host(.uni-tooltip--position-right) {
   &::after, .tooltip-content {
-    animation: 0.3s 1 $enter-curve tooltip-enter-horiz;
+    animation: tooltip-enter-horiz 0.3s 1 $enter-curve forwards;
   }
 }
 
 // Positioning logic
-:host(.uni-tooltip-position-top) {
+:host(.uni-tooltip--position-top) {
   .tooltip-content {
-    bottom: calc(100% + #{$offset + $tri-depth});
+    bottom: calc(100% + #{$offset + $tri-depth - 2px});
     left: 0;
   }
   &::after {
@@ -72,9 +73,9 @@ $enter-curve: cubic-bezier(.03,1.05,.83,1.02);
     border-color: var(--border-color) transparent transparent transparent;
   }
 }
-:host(.uni-tooltip-position-bottom) {
+:host(.uni-tooltip--position-bottom) {
   .tooltip-content {
-    top: calc(100% + #{$offset + $tri-depth});
+    top: calc(100% + #{$offset + $tri-depth - 2px});
     left: 0;
   }
   &::after {
@@ -85,9 +86,9 @@ $enter-curve: cubic-bezier(.03,1.05,.83,1.02);
     border-color: transparent transparent var(--border-color) transparent;
   }
 }
-:host(.uni-tooltip-position-left) {
+:host(.uni-tooltip--position-left) {
   .tooltip-content {
-    right: calc(100% + #{$offset + $tri-depth});
+    right: calc(100% + #{$offset + $tri-depth - 2px});
     top: 0;
   }
   &::after {
@@ -98,9 +99,9 @@ $enter-curve: cubic-bezier(.03,1.05,.83,1.02);
     border-color: transparent transparent transparent var(--border-color);
   }
 }
-:host(.uni-tooltip-position-right){
+:host(.uni-tooltip--position-right){
   .tooltip-content {
-    left: calc(100% + #{$tri-depth + $offset});
+    left: calc(100% + #{$tri-depth + $offset - 2px});
     top: 0;
   }
   &::after {
@@ -115,7 +116,7 @@ $enter-curve: cubic-bezier(.03,1.05,.83,1.02);
 @keyframes tooltip-enter-horiz {
   from {
     opacity: 0;
-    transform: translateX(-6px);
+    transform: translateX(-4px);
   }
   to {
     opacity: 1;
@@ -126,7 +127,7 @@ $enter-curve: cubic-bezier(.03,1.05,.83,1.02);
 @keyframes tooltip-enter-vert {
   from {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(-4px);
   }
   to {
     opacity: 1;

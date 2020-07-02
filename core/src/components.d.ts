@@ -247,6 +247,10 @@ export namespace Components {
     }
     interface UniTooltip {
         /**
+          * Whether to display an arrow pointing from the tooltip bubble
+         */
+        "arrow": boolean;
+        /**
           * Delay before hiding the tooltip after mouseleave/blur
          */
         "hideDelay": number;
@@ -690,6 +694,10 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface UniTooltip {
+        /**
+          * Whether to display an arrow pointing from the tooltip bubble
+         */
+        "arrow"?: boolean;
         /**
           * Delay before hiding the tooltip after mouseleave/blur
          */

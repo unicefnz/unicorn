@@ -9,9 +9,14 @@ export class UniTooltip implements ComponentInterface {
   @Element() el: HTMLUniTooltipElement;
 
   /**
+   * Whether to display an arrow pointing from the tooltip bubble
+   * */
+  @Prop() arrow = true;
+
+  /**
    * Delay before hiding the tooltip after mouseleave/blur
    * */
-  @Prop() hideDelay = 200;
+  @Prop() hideDelay = 300;
 
   /**
    * Which side to position the tooltip on
@@ -73,15 +78,15 @@ export class UniTooltip implements ComponentInterface {
 
   render() {
     // TODO on first render, onValueChange will cause state to change but does not trigger a rerender
-    console.log('Render: shown, value', this.shown, this.value);
     if (this.shown) this.computeOffsets();
     if (this.value && !this.shown) this.onValueChange(this.value); // Risky, but allows us to delay computing sizes until after first render
 
     return (
       <Host
         class={{
-          ['uni-tooltip-position-' + this.position]: true,
-          'uni-shown': this.shown,
+          ['uni-tooltip--position-' + this.position]: true,
+          'uni-tooltip--open': this.shown,
+          'uni-tooltip--has-arrow': this.arrow
         }}
       >
         <slot />
@@ -100,23 +105,27 @@ export class UniTooltip implements ComponentInterface {
 
   @State() shown = false;
 
+
   private hideTimeout: NodeJS.Timeout;
 
   private focused = false;
 
   private offsets = { left: 0, top: 0 };
 
-
   private show() {
-    if (this.hideTimeout) clearTimeout(this.hideTimeout);
+    if (this.hideTimeout) {
+      clearTimeout(this.hideTimeout);
+      this.hideTimeout = null;
+    }
     if (this.shown) return;
-    console.log('Showing', this.shown);
     this.shown = true;
   }
 
   private hide() {
     if (!this.shown) return;
+    if (this.hideTimeout) return; // Already hiding, edge case
     this.hideTimeout = setTimeout(() => {
+      this.hideTimeout = null;
       this.shown = false;
     }, this.hideDelay);
   }
@@ -144,8 +153,11 @@ export class UniTooltip implements ComponentInterface {
     this.el.removeEventListener('focusout', this.onBlur);
   };
 
+  /**
+   * This function is responsible for centering the tooltip relative to the trigger,
+   * as well as ensuring it doesn't render offscreen
+   * */
   private computeOffsets() {
-    console.log('Computing offsets');
     const contentEl = this.el.shadowRoot.querySelector('.tooltip-content') as HTMLDivElement;
 
     contentEl.style.visibility = 'hidden';
@@ -172,7 +184,7 @@ export class UniTooltip implements ComponentInterface {
 
       this.offsets = {
         top: 0,
-        left: this.offsets.left + offset
+        left: this.offsets.left + offset // Because the measurements are based on the current position, we must add it
       };
     } else {
       // const docMax = document.body.clientHeight;
@@ -187,7 +199,7 @@ export class UniTooltip implements ComponentInterface {
       // if (contentBox.bottom + offset > docMax) offset = docMax - contentBox.bottom; // Lower it as much as possible
 
       this.offsets = {
-        top: this.offsets.top + offset,
+        top: this.offsets.top + offset, // Because the measurements are based on the current position, we must add it
         left: 0
       };
     }
