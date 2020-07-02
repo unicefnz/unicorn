@@ -1,0 +1,136 @@
+$offset: 2px;
+$tri-depth: 12px;
+$tri-width: 16px;
+
+$enter-curve: cubic-bezier(.03,1.05,.83,1.02);
+
+:host {
+  --border-color: var(--uni-dark);
+  --animation-name: tooltip-enter-horiz;
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-content {
+  display: none;
+  position: absolute;
+  z-index: 999;
+  padding: 0.4rem;
+  min-width: 140px;
+  max-width: 400px;
+  box-sizing: border-box;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background: #FFF;
+}
+:host(.uni-tooltip--has-arrow)::after {
+  content: "";
+  position: absolute;
+  z-index: 999;
+  display: none;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+:host(.uni-tooltip--open) {
+  .tooltip-content {
+    display: block;
+  }
+  &::after {
+    display: block;
+  }
+}
+
+
+// Animations
+:host::after {
+  transition: opacity 0.5s, transform 0.5s;
+}
+:host(.uni-tooltip--position-top), :host(.uni-tooltip--position-bottom) {
+  &::after, .tooltip-content {
+    animation: tooltip-enter-vert 0.3s 1 $enter-curve forwards;
+  }
+}
+:host(.uni-tooltip--position-left), :host(.uni-tooltip--position-right) {
+  &::after, .tooltip-content {
+    animation: tooltip-enter-horiz 0.3s 1 $enter-curve forwards;
+  }
+}
+
+// Positioning logic
+:host(.uni-tooltip--position-top) {
+  .tooltip-content {
+    bottom: calc(100% + #{$offset + $tri-depth - 2px});
+    left: 0;
+  }
+  &::after {
+    bottom: calc(100% + #{$offset});
+    left: 0;
+    right: 0;
+    border-width: $tri-depth $tri-width/2 0 $tri-width/2;
+    border-color: var(--border-color) transparent transparent transparent;
+  }
+}
+:host(.uni-tooltip--position-bottom) {
+  .tooltip-content {
+    top: calc(100% + #{$offset + $tri-depth - 2px});
+    left: 0;
+  }
+  &::after {
+    top: calc(100% + #{$offset});
+    left: 0;
+    right: 0;
+    border-width: 0 $tri-width/2 $tri-depth $tri-width/2;
+    border-color: transparent transparent var(--border-color) transparent;
+  }
+}
+:host(.uni-tooltip--position-left) {
+  .tooltip-content {
+    right: calc(100% + #{$offset + $tri-depth - 2px});
+    top: 0;
+  }
+  &::after {
+    right: calc(100% + #{$offset});
+    top: 0;
+    bottom: 0;
+    border-width: $tri-width/2 0 $tri-width/2 $tri-depth;
+    border-color: transparent transparent transparent var(--border-color);
+  }
+}
+:host(.uni-tooltip--position-right){
+  .tooltip-content {
+    left: calc(100% + #{$tri-depth + $offset - 2px});
+    top: 0;
+  }
+  &::after {
+    left: calc(100% + #{$offset});
+    top: 0;
+    bottom: 0;
+    border-width: $tri-width/2 $tri-depth $tri-width/2 0;
+    border-color: transparent var(--border-color) transparent transparent;
+  }
+}
+
+@keyframes tooltip-enter-horiz {
+  from {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes tooltip-enter-vert {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
