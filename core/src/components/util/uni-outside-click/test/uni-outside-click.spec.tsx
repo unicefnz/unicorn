@@ -5,7 +5,7 @@ describe('uni-outside-click', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniOutsideClick],
-      html: `<uni-outside-click></uni-outside-click>`,
+      html: '<uni-outside-click></uni-outside-click>',
     });
     expect(page.root).toEqualHtml(`
       <uni-outside-click>

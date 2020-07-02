@@ -11,7 +11,7 @@ export const Default = () => {
 
   const button = document.createElement('button');
   button.innerHTML = 'Toggle';
-  button.addEventListener('click', () => el.value = !el.value);
+  button.addEventListener('click', () => { el.value = !el.value; });
 
   const div = document.createElement('div');
   div.append(el, el2, button);

@@ -5,7 +5,7 @@ describe('uni-combo-group', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniComboGroup],
-      html: `<uni-combo-group></uni-combo-group>`,
+      html: '<uni-combo-group></uni-combo-group>',
     });
     expect(page.root).toEqualHtml(`
       <uni-combo-group>

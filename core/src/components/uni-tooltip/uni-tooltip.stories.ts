@@ -91,6 +91,6 @@ export const LayoutTest = () => {
       </div>
   </div>
   `;
-  setTimeout(() => div.querySelectorAll<HTMLUniTooltipElement>('uni-tooltip').forEach(v => v.value = true), 100);
+  div.querySelectorAll<HTMLUniTooltipElement>('uni-tooltip').forEach((v) => { v.value = true; });
   return div;
 };

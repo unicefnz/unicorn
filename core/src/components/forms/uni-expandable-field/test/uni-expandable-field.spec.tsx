@@ -5,7 +5,7 @@ describe('uni-expandable-field', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniExpandableField],
-      html: `<uni-expandable-field></uni-expandable-field>`,
+      html: '<uni-expandable-field></uni-expandable-field>',
     });
     expect(page.root).toEqualHtml(`
       <uni-expandable-field>

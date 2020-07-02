@@ -5,7 +5,7 @@ describe('uni-tooltip', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniTooltip],
-      html: `<uni-tooltip></uni-tooltip>`,
+      html: '<uni-tooltip></uni-tooltip>',
     });
     expect(page.root).toEqualHtml(`
       <uni-tooltip class="uni-tooltip--has-arrow uni-tooltip--position-right">
