@@ -12,6 +12,7 @@
 | `disabled`    | `disabled`    | Makes the field disabled and unselectable                               | `boolean`            | `undefined` |
 | `errors`      | `errors`      | Displays errors below the input                                         | `string \| string[]` | `''`        |
 | `label`       | `label`       | Label text above the field                                              | `string`             | `undefined` |
+| `labelSlot`   | `label-slot`  | Alternatively, use a <slot> inside the label to render custom contents. | `boolean`            | `false`     |
 | `max`         | `max`         | Maximum value when the input is in number mode                          | `number`             | `undefined` |
 | `maxlength`   | `maxlength`   | Maximum string length                                                   | `number`             | `undefined` |
 | `min`         | `min`         | Minimum value when the input is in number mode                          | `number`             | `undefined` |

@@ -205,6 +205,10 @@ export namespace Components {
          */
         "label": string;
         /**
+          * Alternatively, use a <slot> inside the label to render custom contents.
+         */
+        "labelSlot": boolean;
+        /**
           * Maximum value when the input is in number mode
          */
         "max": number;
@@ -644,6 +648,10 @@ declare namespace LocalJSX {
           * Label text above the field
          */
         "label"?: string;
+        /**
+          * Alternatively, use a <slot> inside the label to render custom contents.
+         */
+        "labelSlot"?: boolean;
         /**
           * Maximum value when the input is in number mode
          */

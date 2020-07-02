@@ -26,6 +26,11 @@ export class UniTextField {
   @Prop() public label: string;
 
   /**
+   * Alternatively, use a <slot> inside the label to render custom contents.
+   * */
+  @Prop() public labelSlot = false;
+
+  /**
    * Maximum value when the input is in number mode
    * */
   @Prop() public max: number;
@@ -93,7 +98,13 @@ export class UniTextField {
 
     return (
       <Host class={{ 'input--has-errors': !!this.errors, 'uni-disabled': this.disabled }}>
-        {this.label && <label htmlFor={this.uniqueId} class="caption">{this.label} {optional}</label>}
+        {this.labelSlot ? (
+          <label htmlFor={this.uniqueId} class="caption">
+            <slot name="label" />
+          </label>
+        ) : (this.label && (
+          <label htmlFor={this.uniqueId} class="caption">{this.label} {optional}</label>
+        ))}
         <div class="input-field">
           <div class="prepend-wrapper">
             <slot name="prepend" />
