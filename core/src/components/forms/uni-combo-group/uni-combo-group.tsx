@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'uni-combo-group',
@@ -16,11 +16,16 @@ export class UniComboGroup {
    * */
   @Prop() readonly variant: 'combo' | 'button' = 'combo';
 
+  /**
+   * Emitted when the selected option changes
+   * */
+  @Event({ bubbles: false }) uniChange: EventEmitter<string>;
+
   render() {
     return (
       <Host>
         <fieldset class={'radio-fieldset uni-variant-' + this.variant}>
-          <uni-radio-controller value={this.value} part="layout">
+          <uni-radio-controller value={this.value} part="layout" onUniChange={e => this.uniChange.emit(e.detail)}>
             <slot />
           </uni-radio-controller>
         </fieldset>

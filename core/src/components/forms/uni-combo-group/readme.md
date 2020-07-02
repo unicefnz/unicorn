@@ -13,6 +13,13 @@
 | `variant` | `variant` | Display a different style radio group, either a "combo" row or "button" group | `"button" \| "combo"` | `'combo'`   |
 
 
+## Events
+
+| Event       | Description                              | Type                  |
+| ----------- | ---------------------------------------- | --------------------- |
+| `uniChange` | Emitted when the selected option changes | `CustomEvent<string>` |
+
+
 ## Shadow Parts
 
 | Part       | Description |
