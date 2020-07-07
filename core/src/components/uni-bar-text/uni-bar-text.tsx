@@ -2,14 +2,14 @@ import { Component, Host, h } from '@stencil/core';
 
 @Component({
   tag: 'uni-bar-text',
-  styleUrl: 'bar-text.scss',
-  shadow: true
+  styleUrl: 'uni-bar-text.scss',
+  shadow: true,
 })
-export class BarText {
+export class UniBarText {
   render() {
     return (
       <Host>
-        <slot />
+        <slot></slot>
       </Host>
     );
   }
