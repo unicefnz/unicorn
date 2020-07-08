@@ -15,12 +15,12 @@ $uniStyles: (
     line-height: 1.4
   ),
   h2: (
-    font-size: 2rem,
+    font-size: 2.2rem,
     font-weight: $weight-semibold,
     font-family: var(--font-header),
   ),
   h3: (
-    font-size: calc(5rem / 3),
+    font-size: 2rem,
     font-weight: $weight-medium,
     font-family: var(--font-header),
   ),
@@ -30,7 +30,7 @@ $uniStyles: (
     font-family: var(--font-header),
   ),
   h5: (
-    font-size: calc(4rem / 3),
+    font-size: 1.25rem,
     font-weight: $weight-medium,
     font-family: var(--font-header),
   ),
