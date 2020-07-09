@@ -111,10 +111,6 @@ export namespace Components {
          */
         "open": boolean;
     }
-    interface UniDialogContent {
-    }
-    interface UniDialogTitle {
-    }
     interface UniErrors {
         /**
           * Display a single error Will be overridden by errors[]
@@ -147,16 +143,6 @@ export namespace Components {
          */
         "optional": boolean;
     }
-    interface UniHero {
-        /**
-          * How to align the text
-         */
-        "align"?: 'left' | 'start' | 'center' | 'right' | 'end';
-        /**
-          * URL of an image to use for the background
-         */
-        "backgroundUrl"?: string;
-    }
     interface UniOutsideClick {
         /**
           * Specify a root to listen on, anything "outside" this will trigger. Useful for escaping shadowDOM
@@ -185,7 +171,7 @@ export namespace Components {
          */
         "label": string;
     }
-    interface UniTagline {
+    interface UniTagChip {
         /**
           * Override the default color
          */
@@ -325,18 +311,6 @@ declare global {
         prototype: HTMLUniDialogElement;
         new (): HTMLUniDialogElement;
     };
-    interface HTMLUniDialogContentElement extends Components.UniDialogContent, HTMLStencilElement {
-    }
-    var HTMLUniDialogContentElement: {
-        prototype: HTMLUniDialogContentElement;
-        new (): HTMLUniDialogContentElement;
-    };
-    interface HTMLUniDialogTitleElement extends Components.UniDialogTitle, HTMLStencilElement {
-    }
-    var HTMLUniDialogTitleElement: {
-        prototype: HTMLUniDialogTitleElement;
-        new (): HTMLUniDialogTitleElement;
-    };
     interface HTMLUniErrorsElement extends Components.UniErrors, HTMLStencilElement {
     }
     var HTMLUniErrorsElement: {
@@ -348,12 +322,6 @@ declare global {
     var HTMLUniExpandableFieldElement: {
         prototype: HTMLUniExpandableFieldElement;
         new (): HTMLUniExpandableFieldElement;
-    };
-    interface HTMLUniHeroElement extends Components.UniHero, HTMLStencilElement {
-    }
-    var HTMLUniHeroElement: {
-        prototype: HTMLUniHeroElement;
-        new (): HTMLUniHeroElement;
     };
     interface HTMLUniOutsideClickElement extends Components.UniOutsideClick, HTMLStencilElement {
     }
@@ -379,11 +347,11 @@ declare global {
         prototype: HTMLUniSelectElement;
         new (): HTMLUniSelectElement;
     };
-    interface HTMLUniTaglineElement extends Components.UniTagline, HTMLStencilElement {
+    interface HTMLUniTagChipElement extends Components.UniTagChip, HTMLStencilElement {
     }
-    var HTMLUniTaglineElement: {
-        prototype: HTMLUniTaglineElement;
-        new (): HTMLUniTaglineElement;
+    var HTMLUniTagChipElement: {
+        prototype: HTMLUniTagChipElement;
+        new (): HTMLUniTagChipElement;
     };
     interface HTMLUniTextFieldElement extends Components.UniTextField, HTMLStencilElement {
     }
@@ -411,16 +379,13 @@ declare global {
         "uni-combo-item": HTMLUniComboItemElement;
         "uni-combo-text": HTMLUniComboTextElement;
         "uni-dialog": HTMLUniDialogElement;
-        "uni-dialog-content": HTMLUniDialogContentElement;
-        "uni-dialog-title": HTMLUniDialogTitleElement;
         "uni-errors": HTMLUniErrorsElement;
         "uni-expandable-field": HTMLUniExpandableFieldElement;
-        "uni-hero": HTMLUniHeroElement;
         "uni-outside-click": HTMLUniOutsideClickElement;
         "uni-progress-linear": HTMLUniProgressLinearElement;
         "uni-radio-controller": HTMLUniRadioControllerElement;
         "uni-select": HTMLUniSelectElement;
-        "uni-tagline": HTMLUniTaglineElement;
+        "uni-tag-chip": HTMLUniTagChipElement;
         "uni-text-field": HTMLUniTextFieldElement;
         "uni-tooltip": HTMLUniTooltipElement;
         "uni-underline": HTMLUniUnderlineElement;
@@ -551,10 +516,6 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
-    interface UniDialogContent {
-    }
-    interface UniDialogTitle {
-    }
     interface UniErrors {
         /**
           * Display a single error Will be overridden by errors[]
@@ -586,16 +547,6 @@ declare namespace LocalJSX {
           * Displays a visual (optional) marker
          */
         "optional"?: boolean;
-    }
-    interface UniHero {
-        /**
-          * How to align the text
-         */
-        "align"?: 'left' | 'start' | 'center' | 'right' | 'end';
-        /**
-          * URL of an image to use for the background
-         */
-        "backgroundUrl"?: string;
     }
     interface UniOutsideClick {
         /**
@@ -633,7 +584,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
     }
-    interface UniTagline {
+    interface UniTagChip {
         /**
           * Override the default color
          */
@@ -745,16 +696,13 @@ declare namespace LocalJSX {
         "uni-combo-item": UniComboItem;
         "uni-combo-text": UniComboText;
         "uni-dialog": UniDialog;
-        "uni-dialog-content": UniDialogContent;
-        "uni-dialog-title": UniDialogTitle;
         "uni-errors": UniErrors;
         "uni-expandable-field": UniExpandableField;
-        "uni-hero": UniHero;
         "uni-outside-click": UniOutsideClick;
         "uni-progress-linear": UniProgressLinear;
         "uni-radio-controller": UniRadioController;
         "uni-select": UniSelect;
-        "uni-tagline": UniTagline;
+        "uni-tag-chip": UniTagChip;
         "uni-text-field": UniTextField;
         "uni-tooltip": UniTooltip;
         "uni-underline": UniUnderline;
@@ -771,16 +719,13 @@ declare module "@stencil/core" {
             "uni-combo-item": LocalJSX.UniComboItem & JSXBase.HTMLAttributes<HTMLUniComboItemElement>;
             "uni-combo-text": LocalJSX.UniComboText & JSXBase.HTMLAttributes<HTMLUniComboTextElement>;
             "uni-dialog": LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
-            "uni-dialog-content": LocalJSX.UniDialogContent & JSXBase.HTMLAttributes<HTMLUniDialogContentElement>;
-            "uni-dialog-title": LocalJSX.UniDialogTitle & JSXBase.HTMLAttributes<HTMLUniDialogTitleElement>;
             "uni-errors": LocalJSX.UniErrors & JSXBase.HTMLAttributes<HTMLUniErrorsElement>;
             "uni-expandable-field": LocalJSX.UniExpandableField & JSXBase.HTMLAttributes<HTMLUniExpandableFieldElement>;
-            "uni-hero": LocalJSX.UniHero & JSXBase.HTMLAttributes<HTMLUniHeroElement>;
             "uni-outside-click": LocalJSX.UniOutsideClick & JSXBase.HTMLAttributes<HTMLUniOutsideClickElement>;
             "uni-progress-linear": LocalJSX.UniProgressLinear & JSXBase.HTMLAttributes<HTMLUniProgressLinearElement>;
             "uni-radio-controller": LocalJSX.UniRadioController & JSXBase.HTMLAttributes<HTMLUniRadioControllerElement>;
             "uni-select": LocalJSX.UniSelect & JSXBase.HTMLAttributes<HTMLUniSelectElement>;
-            "uni-tagline": LocalJSX.UniTagline & JSXBase.HTMLAttributes<HTMLUniTaglineElement>;
+            "uni-tag-chip": LocalJSX.UniTagChip & JSXBase.HTMLAttributes<HTMLUniTagChipElement>;
             "uni-text-field": LocalJSX.UniTextField & JSXBase.HTMLAttributes<HTMLUniTextFieldElement>;
             "uni-tooltip": LocalJSX.UniTooltip & JSXBase.HTMLAttributes<HTMLUniTooltipElement>;
             "uni-underline": LocalJSX.UniUnderline & JSXBase.HTMLAttributes<HTMLUniUnderlineElement>;
