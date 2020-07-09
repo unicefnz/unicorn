@@ -6,7 +6,18 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonVariant } from "./components/uni-button/uni-button";
+import { OverlayEventDetail } from "./lib/OverlayInterface";
 export namespace Components {
+    interface UniBackdrop {
+        /**
+          * If `true`, the backdrop will can be clicked and will emit the `ionBackdropTap` event.
+         */
+        "tappable": boolean;
+        /**
+          * If `true`, the backdrop will be visible.
+         */
+        "visible": boolean;
+    }
     interface UniBarText {
     }
     interface UniButton {
@@ -100,6 +111,28 @@ export namespace Components {
           * Machine value for the option
          */
         "value": string;
+    }
+    interface UniDialog {
+        /**
+          * Controls whether clicking on the backdrop will dismiss the dialog
+         */
+        "backdropDismiss": boolean;
+        /**
+          * Dismiss the alert overlay after it has been presented.
+          * @param data Any data to emit in the dismiss events.
+          * @param role The role of the element that is dismissing the alert. This can be useful in a button handler for determining which button was clicked to dismiss the alert. Some examples include: ``"cancel"`, `"destructive"`, "selected"`, and `"backdrop"`.
+         */
+        "dismiss": (data?: any, role?: string) => Promise<boolean>;
+        /**
+          * If `true`, the keyboard will be automatically dismissed when the overlay is presented.
+         */
+        "keyboardClose": boolean;
+        "overlayIndex": number;
+        /**
+          * Present the alert overlay after it has been created.
+         */
+        "present": () => Promise<void>;
+        "presented": boolean;
     }
     interface UniErrors {
         /**
@@ -259,6 +292,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLUniBackdropElement extends Components.UniBackdrop, HTMLStencilElement {
+    }
+    var HTMLUniBackdropElement: {
+        prototype: HTMLUniBackdropElement;
+        new (): HTMLUniBackdropElement;
+    };
     interface HTMLUniBarTextElement extends Components.UniBarText, HTMLStencilElement {
     }
     var HTMLUniBarTextElement: {
@@ -294,6 +333,12 @@ declare global {
     var HTMLUniComboTextElement: {
         prototype: HTMLUniComboTextElement;
         new (): HTMLUniComboTextElement;
+    };
+    interface HTMLUniDialogElement extends Components.UniDialog, HTMLStencilElement {
+    }
+    var HTMLUniDialogElement: {
+        prototype: HTMLUniDialogElement;
+        new (): HTMLUniDialogElement;
     };
     interface HTMLUniErrorsElement extends Components.UniErrors, HTMLStencilElement {
     }
@@ -356,12 +401,14 @@ declare global {
         new (): HTMLUniUnderlineElement;
     };
     interface HTMLElementTagNameMap {
+        "uni-backdrop": HTMLUniBackdropElement;
         "uni-bar-text": HTMLUniBarTextElement;
         "uni-button": HTMLUniButtonElement;
         "uni-checkbox": HTMLUniCheckboxElement;
         "uni-combo-group": HTMLUniComboGroupElement;
         "uni-combo-item": HTMLUniComboItemElement;
         "uni-combo-text": HTMLUniComboTextElement;
+        "uni-dialog": HTMLUniDialogElement;
         "uni-errors": HTMLUniErrorsElement;
         "uni-expandable-field": HTMLUniExpandableFieldElement;
         "uni-outside-click": HTMLUniOutsideClickElement;
@@ -375,6 +422,20 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface UniBackdrop {
+        /**
+          * Emitted when the backdrop is tapped.
+         */
+        "onUniBackdropTap"?: (event: CustomEvent<void>) => void;
+        /**
+          * If `true`, the backdrop will can be clicked and will emit the `ionBackdropTap` event.
+         */
+        "tappable"?: boolean;
+        /**
+          * If `true`, the backdrop will be visible.
+         */
+        "visible"?: boolean;
+    }
     interface UniBarText {
     }
     interface UniButton {
@@ -484,6 +545,34 @@ declare namespace LocalJSX {
           * Machine value for the option
          */
         "value"?: string;
+    }
+    interface UniDialog {
+        /**
+          * Controls whether clicking on the backdrop will dismiss the dialog
+         */
+        "backdropDismiss"?: boolean;
+        /**
+          * If `true`, the keyboard will be automatically dismissed when the overlay is presented.
+         */
+        "keyboardClose"?: boolean;
+        /**
+          * Emitted after the alert has dismissed.
+         */
+        "onUniDidDismiss"?: (event: CustomEvent<OverlayEventDetail>) => void;
+        /**
+          * Emitted after the alert has presented.
+         */
+        "onUniDidPresent"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted before the alert has dismissed.
+         */
+        "onUniWillDismiss"?: (event: CustomEvent<OverlayEventDetail>) => void;
+        /**
+          * Emitted before the alert has presented.
+         */
+        "onUniWillPresent"?: (event: CustomEvent<void>) => void;
+        "overlayIndex": number;
+        "presented"?: boolean;
     }
     interface UniErrors {
         /**
@@ -658,12 +747,14 @@ declare namespace LocalJSX {
     interface UniUnderline {
     }
     interface IntrinsicElements {
+        "uni-backdrop": UniBackdrop;
         "uni-bar-text": UniBarText;
         "uni-button": UniButton;
         "uni-checkbox": UniCheckbox;
         "uni-combo-group": UniComboGroup;
         "uni-combo-item": UniComboItem;
         "uni-combo-text": UniComboText;
+        "uni-dialog": UniDialog;
         "uni-errors": UniErrors;
         "uni-expandable-field": UniExpandableField;
         "uni-outside-click": UniOutsideClick;
@@ -680,12 +771,14 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "uni-backdrop": LocalJSX.UniBackdrop & JSXBase.HTMLAttributes<HTMLUniBackdropElement>;
             "uni-bar-text": LocalJSX.UniBarText & JSXBase.HTMLAttributes<HTMLUniBarTextElement>;
             "uni-button": LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
             "uni-checkbox": LocalJSX.UniCheckbox & JSXBase.HTMLAttributes<HTMLUniCheckboxElement>;
             "uni-combo-group": LocalJSX.UniComboGroup & JSXBase.HTMLAttributes<HTMLUniComboGroupElement>;
             "uni-combo-item": LocalJSX.UniComboItem & JSXBase.HTMLAttributes<HTMLUniComboItemElement>;
             "uni-combo-text": LocalJSX.UniComboText & JSXBase.HTMLAttributes<HTMLUniComboTextElement>;
+            "uni-dialog": LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
             "uni-errors": LocalJSX.UniErrors & JSXBase.HTMLAttributes<HTMLUniErrorsElement>;
             "uni-expandable-field": LocalJSX.UniExpandableField & JSXBase.HTMLAttributes<HTMLUniExpandableFieldElement>;
             "uni-outside-click": LocalJSX.UniOutsideClick & JSXBase.HTMLAttributes<HTMLUniOutsideClickElement>;
