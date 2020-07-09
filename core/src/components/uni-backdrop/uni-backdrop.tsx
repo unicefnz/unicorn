@@ -2,8 +2,7 @@ import { Component, Host, h, Prop, Event, EventEmitter, Listen, ComponentInterfa
 
 @Component({
   tag: 'uni-backdrop',
-  styleUrl: 'uni-backdrop.scss',
-  shadow: true,
+  styleUrl: 'uni-backdrop.scss'
 })
 export class UniBackdrop implements ComponentInterface {
   private lastClick = -10000;
@@ -50,7 +49,6 @@ export class UniBackdrop implements ComponentInterface {
   render() {
     return (
       <Host
-        tabindex="-1"
         class={{
           'backdrop-hide': !this.visible,
           'backdrop-no-tappable': !this.tappable,

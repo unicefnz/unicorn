@@ -8,9 +8,12 @@ describe('uni-dialog', () => {
       html: `<uni-dialog></uni-dialog>`,
     });
     expect(page.root).toEqualHtml(`
-      <uni-dialog>
+      <uni-dialog aria-modal="true" id="ion-overlay-1" role="dialog" style="z-index: 2001;">
         <mock:shadow-root>
-          <slot></slot>
+          <uni-backdrop></uni-backdrop>
+          <div class="dialog-pane">
+            <slot></slot>
+          </div>
         </mock:shadow-root>
       </uni-dialog>
     `);
