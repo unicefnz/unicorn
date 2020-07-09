@@ -2,18 +2,17 @@ import { Component, Host, h, Prop, Event, EventEmitter, Listen, ComponentInterfa
 
 @Component({
   tag: 'uni-backdrop',
-  styleUrl: 'uni-backdrop.scss'
+  styleUrl: 'uni-backdrop.scss',
+  shadow: true
 })
 export class UniBackdrop implements ComponentInterface {
-  private lastClick = -10000;
-
   /**
    * If `true`, the backdrop will be visible.
    */
   @Prop() visible = true;
 
   /**
-   * If `true`, the backdrop will can be clicked and will emit the `ionBackdropTap` event.
+   * If `true`, the backdrop will can be clicked and will emit the `uniBackdropTap` event.
    */
   @Prop() tappable = true;
 
@@ -23,18 +22,9 @@ export class UniBackdrop implements ComponentInterface {
   @Event() uniBackdropTap!: EventEmitter<void>;
 
 
-  @Listen('touchstart', { passive: false, capture: true })
-  protected onTouchStart(ev: TouchEvent) {
-    this.lastClick = ev.timeStamp || Date.now();
-    this.emitTap(ev);
-  }
-
   @Listen('click', { passive: false, capture: true })
-  @Listen('mousedown', { passive: false, capture: true })
   protected onMouseDown(ev: TouchEvent) {
-    if (this.lastClick < (ev.timeStamp || Date.now()) - 2500) {
-      this.emitTap(ev);
-    }
+    this.emitTap(ev);
   }
 
   private emitTap(ev: Event) {
@@ -49,9 +39,10 @@ export class UniBackdrop implements ComponentInterface {
   render() {
     return (
       <Host
+        tabindex={-1}
         class={{
-          'backdrop-hide': !this.visible,
-          'backdrop-no-tappable': !this.tappable,
+          'uni-backdrop--hidden': !this.visible,
+          'uni-backdrop--no-interact': !this.tappable,
         }}
       />
     );

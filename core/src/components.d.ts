@@ -10,7 +10,7 @@ import { OverlayEventDetail } from "./lib/OverlayInterface";
 export namespace Components {
     interface UniBackdrop {
         /**
-          * If `true`, the backdrop will can be clicked and will emit the `ionBackdropTap` event.
+          * If `true`, the backdrop will can be clicked and will emit the `uniBackdropTap` event.
          */
         "tappable": boolean;
         /**
@@ -133,6 +133,12 @@ export namespace Components {
          */
         "present": () => Promise<void>;
         "presented": boolean;
+    }
+    interface UniDialogContent {
+        /**
+          * Whether to play the shaking animation
+         */
+        "shaking": boolean;
     }
     interface UniErrors {
         /**
@@ -340,6 +346,12 @@ declare global {
         prototype: HTMLUniDialogElement;
         new (): HTMLUniDialogElement;
     };
+    interface HTMLUniDialogContentElement extends Components.UniDialogContent, HTMLStencilElement {
+    }
+    var HTMLUniDialogContentElement: {
+        prototype: HTMLUniDialogContentElement;
+        new (): HTMLUniDialogContentElement;
+    };
     interface HTMLUniErrorsElement extends Components.UniErrors, HTMLStencilElement {
     }
     var HTMLUniErrorsElement: {
@@ -409,6 +421,7 @@ declare global {
         "uni-combo-item": HTMLUniComboItemElement;
         "uni-combo-text": HTMLUniComboTextElement;
         "uni-dialog": HTMLUniDialogElement;
+        "uni-dialog-content": HTMLUniDialogContentElement;
         "uni-errors": HTMLUniErrorsElement;
         "uni-expandable-field": HTMLUniExpandableFieldElement;
         "uni-outside-click": HTMLUniOutsideClickElement;
@@ -428,7 +441,7 @@ declare namespace LocalJSX {
          */
         "onUniBackdropTap"?: (event: CustomEvent<void>) => void;
         /**
-          * If `true`, the backdrop will can be clicked and will emit the `ionBackdropTap` event.
+          * If `true`, the backdrop will can be clicked and will emit the `uniBackdropTap` event.
          */
         "tappable"?: boolean;
         /**
@@ -573,6 +586,12 @@ declare namespace LocalJSX {
         "onUniWillPresent"?: (event: CustomEvent<void>) => void;
         "overlayIndex": number;
         "presented"?: boolean;
+    }
+    interface UniDialogContent {
+        /**
+          * Whether to play the shaking animation
+         */
+        "shaking"?: boolean;
     }
     interface UniErrors {
         /**
@@ -755,6 +774,7 @@ declare namespace LocalJSX {
         "uni-combo-item": UniComboItem;
         "uni-combo-text": UniComboText;
         "uni-dialog": UniDialog;
+        "uni-dialog-content": UniDialogContent;
         "uni-errors": UniErrors;
         "uni-expandable-field": UniExpandableField;
         "uni-outside-click": UniOutsideClick;
@@ -779,6 +799,7 @@ declare module "@stencil/core" {
             "uni-combo-item": LocalJSX.UniComboItem & JSXBase.HTMLAttributes<HTMLUniComboItemElement>;
             "uni-combo-text": LocalJSX.UniComboText & JSXBase.HTMLAttributes<HTMLUniComboTextElement>;
             "uni-dialog": LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
+            "uni-dialog-content": LocalJSX.UniDialogContent & JSXBase.HTMLAttributes<HTMLUniDialogContentElement>;
             "uni-errors": LocalJSX.UniErrors & JSXBase.HTMLAttributes<HTMLUniErrorsElement>;
             "uni-expandable-field": LocalJSX.UniExpandableField & JSXBase.HTMLAttributes<HTMLUniExpandableFieldElement>;
             "uni-outside-click": LocalJSX.UniOutsideClick & JSXBase.HTMLAttributes<HTMLUniOutsideClickElement>;

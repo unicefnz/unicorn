@@ -100,21 +100,14 @@ export class UniDialog implements ComponentInterface, OverlayInterface {
         style={{
           zIndex: `${2000 + this.overlayIndex}`,
         }}
-        class={{
-        }}
         onUniBackdropTap={this.onBackdropTap}
       >
-        {/* The backdrop is a graphical only way of dismissing the dialog, there should be a cancel button somewhere? */}
-        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-        <uni-backdrop />
-        <div
-          class={{
-            'dialog-pane': true,
-            shaking: !!this.shakeTimer
-          }}
-        >
+        <uni-backdrop tappable={this.backdropDismiss} />
+        <uni-dialog-content shaking={!!this.shakeTimer}>
+          <slot name="title" slot="title" />
           <slot />
-        </div>
+          <slot name="actions" slot="actions" />
+        </uni-dialog-content>
       </Host>
     );
   }

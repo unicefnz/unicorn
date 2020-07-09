@@ -9,7 +9,7 @@
 
 | Property   | Attribute  | Description                                                                           | Type      | Default |
 | ---------- | ---------- | ------------------------------------------------------------------------------------- | --------- | ------- |
-| `tappable` | `tappable` | If `true`, the backdrop will can be clicked and will emit the `ionBackdropTap` event. | `boolean` | `true`  |
+| `tappable` | `tappable` | If `true`, the backdrop will can be clicked and will emit the `uniBackdropTap` event. | `boolean` | `true`  |
 | `visible`  | `visible`  | If `true`, the backdrop will be visible.                                              | `boolean` | `true`  |
 
 

@@ -4,8 +4,10 @@ export default {
 
 export const Default = () => `
 <uni-dialog open>
-  <h2><uni-underline>Hello!</uni-underline></h2>
+  <span slot="title"><uni-underline>Hello!</uni-underline></span>
   <p>Are you sure?</p>
-  <uni-button>Confirm</uni-button>
+  <div slot="actions">
+    <uni-button>Confirm</uni-button>
+  </div>
 </uni-dialog>
 `;

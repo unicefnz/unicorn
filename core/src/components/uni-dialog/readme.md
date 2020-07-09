@@ -51,11 +51,13 @@ Type: `Promise<void>`
 ### Depends on
 
 - [uni-backdrop](../uni-backdrop)
+- [uni-dialog-content](../uni-dialog-content)
 
 ### Graph
 ```mermaid
 graph TD;
   uni-dialog --> uni-backdrop
+  uni-dialog --> uni-dialog-content
   style uni-dialog fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

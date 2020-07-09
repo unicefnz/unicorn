@@ -10,14 +10,14 @@
   cursor: pointer;
   opacity: .2;
   touch-action: none;
-  z-index: 1000;
+  z-index: 2;
 }
 
 
-:host(.backdrop-hide) {
+:host(.uni-backdrop-hidden) {
   background: transparent;
 }
 
-:host(.backdrop-no-tappable) {
+:host(.uni-backdrop--no-interact) {
   cursor: auto;
 }
