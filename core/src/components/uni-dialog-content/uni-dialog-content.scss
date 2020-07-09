@@ -1,0 +1,38 @@
+:host {
+  position: relative;
+  z-index: 10;
+
+  margin: 2rem;
+  padding: 0.5rem 1rem 0.7rem;
+  min-width: 200px;
+
+
+  background: #FFF;
+  border-radius: 8px;
+}
+
+:host(.uni-dialog--shaking) {
+  animation: 0.1s ease-in-out alternate infinite uni-dialog-grow;
+}
+
+.dialog-title {
+  margin: 0;
+  uni-underline {
+    padding: 0;
+  }
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+@keyframes uni-dialog-grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.02);
+  }
+}
