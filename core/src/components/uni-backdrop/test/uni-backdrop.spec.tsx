@@ -8,7 +8,9 @@ describe('uni-backdrop', () => {
       html: `<uni-backdrop></uni-backdrop>`,
     });
     expect(page.root).toEqualHtml(`
-      <uni-backdrop></uni-backdrop>
+      <uni-backdrop tabindex="-1">
+        <mock:shadow-root></mock:shadow-root>
+      </uni-backdrop>
     `);
   });
 });

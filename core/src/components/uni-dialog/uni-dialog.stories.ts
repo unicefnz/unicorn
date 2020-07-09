@@ -48,3 +48,14 @@ export const Default = () => {
   );
   return wrapper;
 };
+
+
+export const LayoutValidation = () => `
+<uni-dialog>
+  <span slot="title">Title text</span>
+  <p>This is a simple dialog to check using CI</p>
+  <div slot="actions">
+    <p>Action</p>
+  </div>
+</uni-dialog>
+`
