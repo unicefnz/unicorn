@@ -8,7 +8,7 @@ describe('uni-progress-linear', () => {
       html: `<uni-progress-linear></uni-progress-linear>`,
     });
     expect(page.root).toEqualHtml(`
-      <uni-progress-linear>
+      <uni-progress-linear class="uni-loading-active">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>

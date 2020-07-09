@@ -101,16 +101,6 @@ export namespace Components {
          */
         "value": string;
     }
-    interface UniDialog {
-        /**
-          * Controls whether clicking on the backdrop will dismiss the dialog
-         */
-        "backdropDismiss": boolean;
-        /**
-          * Whether the dialog is currently open
-         */
-        "open": boolean;
-    }
     interface UniErrors {
         /**
           * Display a single error Will be overridden by errors[]
@@ -305,12 +295,6 @@ declare global {
         prototype: HTMLUniComboTextElement;
         new (): HTMLUniComboTextElement;
     };
-    interface HTMLUniDialogElement extends Components.UniDialog, HTMLStencilElement {
-    }
-    var HTMLUniDialogElement: {
-        prototype: HTMLUniDialogElement;
-        new (): HTMLUniDialogElement;
-    };
     interface HTMLUniErrorsElement extends Components.UniErrors, HTMLStencilElement {
     }
     var HTMLUniErrorsElement: {
@@ -378,7 +362,6 @@ declare global {
         "uni-combo-group": HTMLUniComboGroupElement;
         "uni-combo-item": HTMLUniComboItemElement;
         "uni-combo-text": HTMLUniComboTextElement;
-        "uni-dialog": HTMLUniDialogElement;
         "uni-errors": HTMLUniErrorsElement;
         "uni-expandable-field": HTMLUniExpandableFieldElement;
         "uni-outside-click": HTMLUniOutsideClickElement;
@@ -501,20 +484,6 @@ declare namespace LocalJSX {
           * Machine value for the option
          */
         "value"?: string;
-    }
-    interface UniDialog {
-        /**
-          * Controls whether clicking on the backdrop will dismiss the dialog
-         */
-        "backdropDismiss"?: boolean;
-        /**
-          * Emitted when the dialog is closed
-         */
-        "onClose"?: (event: CustomEvent<any>) => void;
-        /**
-          * Whether the dialog is currently open
-         */
-        "open"?: boolean;
     }
     interface UniErrors {
         /**
@@ -695,7 +664,6 @@ declare namespace LocalJSX {
         "uni-combo-group": UniComboGroup;
         "uni-combo-item": UniComboItem;
         "uni-combo-text": UniComboText;
-        "uni-dialog": UniDialog;
         "uni-errors": UniErrors;
         "uni-expandable-field": UniExpandableField;
         "uni-outside-click": UniOutsideClick;
@@ -718,7 +686,6 @@ declare module "@stencil/core" {
             "uni-combo-group": LocalJSX.UniComboGroup & JSXBase.HTMLAttributes<HTMLUniComboGroupElement>;
             "uni-combo-item": LocalJSX.UniComboItem & JSXBase.HTMLAttributes<HTMLUniComboItemElement>;
             "uni-combo-text": LocalJSX.UniComboText & JSXBase.HTMLAttributes<HTMLUniComboTextElement>;
-            "uni-dialog": LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
             "uni-errors": LocalJSX.UniErrors & JSXBase.HTMLAttributes<HTMLUniErrorsElement>;
             "uni-expandable-field": LocalJSX.UniExpandableField & JSXBase.HTMLAttributes<HTMLUniExpandableFieldElement>;
             "uni-outside-click": LocalJSX.UniOutsideClick & JSXBase.HTMLAttributes<HTMLUniOutsideClickElement>;

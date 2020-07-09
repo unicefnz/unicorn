@@ -10,7 +10,10 @@ describe('uni-select', () => {
     expect(page.root).toEqualHtml(`
       <uni-select>
         <mock:shadow-root>
-          <slot></slot>
+          <div class="select-box">
+            <slot></slot>
+            <div class="select-icon"></div>
+          </div>
         </mock:shadow-root>
       </uni-select>
     `);
