@@ -58,6 +58,7 @@ Type: `Promise<void>`
 graph TD;
   uni-dialog --> uni-backdrop
   uni-dialog --> uni-dialog-content
+  uni-dialog-content --> uni-underline
   style uni-dialog fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

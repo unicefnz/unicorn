@@ -67,7 +67,7 @@ export function prepareOverlay<T extends HTMLUniOverlayElement>(el: T) {
   const overlayIndex = lastId++;
   el.overlayIndex = overlayIndex;
   if (!el.hasAttribute('id')) {
-    el.id = `ion-overlay-${overlayIndex}`;
+    el.id = `uni-overlay-${overlayIndex}`;
   }
 }
 
@@ -105,6 +105,9 @@ export async function present(
   overlay.presented = true;
 
   overlay.willPresent.emit();
+
+  overlay.el.classList.remove('overlay-hidden');
+
   overlay.didPresent.emit();
 
   if (overlay.keyboardClose) {

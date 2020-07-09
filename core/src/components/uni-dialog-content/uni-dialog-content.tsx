@@ -19,7 +19,9 @@ export class UniDialogContent {
         }}
       >
         <h2 class="dialog-title">
-          <slot name="title" />
+          <uni-underline>
+            <slot name="title" />
+          </uni-underline>
         </h2>
         <slot />
         <div class="dialog-actions">

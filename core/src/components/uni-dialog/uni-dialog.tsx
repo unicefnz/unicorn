@@ -97,12 +97,14 @@ export class UniDialog implements ComponentInterface, OverlayInterface {
       <Host
         role="dialog"
         aria-modal="true"
+        tabindex={-1}
         style={{
           zIndex: `${2000 + this.overlayIndex}`,
         }}
         onUniBackdropTap={this.onBackdropTap}
+        uni-overlay
       >
-        <uni-backdrop tappable={this.backdropDismiss} />
+        <uni-backdrop tappable={this.backdropDismiss} onClick={() => this.backdropDismiss || this.doShake()} />
         <uni-dialog-content shaking={!!this.shakeTimer}>
           <slot name="title" slot="title" />
           <slot />
