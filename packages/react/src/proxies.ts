@@ -5,6 +5,7 @@ import { createReactComponent } from './react-component-lib';
 
 import { JSX } from '@unicef-new-zealand/uniform-core';
 
+export const UniBackdrop = /*@__PURE__*/createReactComponent<JSX.UniBackdrop, HTMLUniBackdropElement>('uni-backdrop');
 export const UniBarText = /*@__PURE__*/createReactComponent<JSX.UniBarText, HTMLUniBarTextElement>('uni-bar-text');
 export const UniButton = /*@__PURE__*/createReactComponent<JSX.UniButton, HTMLUniButtonElement>('uni-button');
 export const UniCheckbox = /*@__PURE__*/createReactComponent<JSX.UniCheckbox, HTMLUniCheckboxElement>('uni-checkbox');
