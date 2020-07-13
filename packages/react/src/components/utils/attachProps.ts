@@ -1,24 +1,10 @@
-export function attachEventProps(node: HTMLElement, newProps: any, oldProps: any = {}) {
-  const className = getClassName(node.classList, newProps, oldProps);
-  if (className) {
-    node.className = className;
-  }
 
-  Object.keys(newProps).forEach(name => {
-    if (name === 'children' || name === 'style' || name === 'ref' || name === 'className') {
-      return;
-    }
-    if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
-      const eventName = name.substring(2);
-      const eventNameLc = eventName[0].toLowerCase() + eventName.substring(1);
+import { camelToDashCase } from './utils';
 
-      if (!isCoveredByReact(eventNameLc)) {
-        syncEvent(node, eventNameLc, newProps[name]);
-      }
-    } else {
-      (node as any)[name] = newProps[name];
-    }
-  });
+function arrayToMap(arr: string[] | DOMTokenList) {
+  const map = new Map<string, string>();
+  (arr as string[]).forEach((s: string) => map.set(s, s));
+  return map;
 }
 
 export function getClassName(classList: DOMTokenList, newProps: any, oldProps: any) {
@@ -29,7 +15,7 @@ export function getClassName(classList: DOMTokenList, newProps: any, oldProps: a
   const finalClassNames: string[] = [];
   // loop through each of the current classes on the component
   // to see if it should be a part of the classNames added
-  currentClasses.forEach(currentClass => {
+  currentClasses.forEach((currentClass) => {
     if (incomingPropClasses.has(currentClass)) {
       // add it as its already included in classnames coming in from newProps
       finalClassNames.push(currentClass);
@@ -80,8 +66,37 @@ export function syncEvent(node: Element, eventName: string, newEventHandler: (e:
   }
 }
 
-function arrayToMap(arr: string[] | DOMTokenList) {
-  const map = new Map<string, string>();
-  (arr as string[]).forEach((s: string) => map.set(s, s));
-  return map;
-}
+export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}) => {
+  /* eslint-disable no-param-reassign */
+  // some test frameworks don't render DOM elements, so we test here to make sure we are dealing with DOM first
+  if (node instanceof Element) {
+    // add any classes in className to the class list
+    const className = getClassName(node.classList, newProps, oldProps);
+    if (className !== '') {
+      node.className = className;
+    }
+
+    Object.keys(newProps).forEach((name) => {
+      if (name === 'children' || name === 'style' || name === 'ref' || name === 'class' || name === 'className' || name === 'forwardedRef') {
+        return;
+      }
+      if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
+        const eventName = name.substring(2);
+        const eventNameLc = eventName[0].toLowerCase() + eventName.substring(1);
+
+        if (!isCoveredByReact(eventNameLc)) {
+          syncEvent(node, eventNameLc, newProps[name]);
+        }
+      } else {
+        (node as any)[name] = newProps[name];
+        const propType = typeof newProps[name];
+        if (propType === 'string') {
+          node.setAttribute(camelToDashCase(name), newProps[name]);
+        } else {
+          (node as any)[name] = newProps[name];
+        }
+      }
+    });
+  }
+  /* eslint-enable no-param-reassign */
+};

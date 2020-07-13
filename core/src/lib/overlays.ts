@@ -136,7 +136,7 @@ export function isCancel(role: string | undefined): boolean {
   return role === 'cancel' || role === BACKDROP;
 }
 
-function createController<Opts extends object, HTMLElm extends HTMLUniOverlayElement>(tagName: string): OverlayController {
+function createController<Opts extends object, HTMLElm extends HTMLUniOverlayElement>(tagName: string): OverlayController<HTMLElm> {
   return {
     create(options: Opts): Promise<HTMLElm> {
       return createOverlay(tagName, options) as any;

@@ -21,15 +21,16 @@ export interface OverlayInterface {
   dismiss(data?: any, role?: string): Promise<boolean>;
 }
 
-export interface OverlayController {
-  create(opts?: any): Promise<HTMLElement>;
+export interface OverlayController<T extends HTMLUniOverlayElement> {
+  create(opts?: any): Promise<T>;
   dismiss(data?: any, role?: string, id?: string): Promise<boolean>;
-  getTop(): Promise<HTMLUniOverlayElement | undefined>;
+  getTop(): Promise<T | undefined>;
 }
 
 export interface HTMLUniOverlayElement extends HTMLStencilElement {
   overlayIndex: number;
   backdropDismiss?: boolean;
 
+  present(): Promise<void>;
   dismiss(data?: any, role?: string): Promise<boolean>;
 }
