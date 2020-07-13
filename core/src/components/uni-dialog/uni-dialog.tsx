@@ -4,10 +4,6 @@ import {
 import { OverlayEventDetail, OverlayInterface } from '../../lib/OverlayInterface';
 import { prepareOverlay, dismiss, present, BACKDROP } from '../../lib/overlays';
 
-/*
-* TODO Add esc key handler to support dismissing via keyboard
-* */
-
 @Component({
   tag: 'uni-dialog',
   styleUrl: 'uni-dialog.scss',
