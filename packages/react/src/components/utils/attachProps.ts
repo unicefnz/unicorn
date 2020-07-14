@@ -33,7 +33,11 @@ export function getClassName(classList: DOMTokenList, newProps: any, oldProps: a
  * Checks if an event is supported in the current execution environment.
  * @license Modernizr 3.0.0pre (Custom Build) | MIT
  */
-export function isCoveredByReact(eventNameSuffix: string, doc: Document = document) {
+export function isCoveredByReact(eventNameSuffix: string, doc?: Document) {
+  if (!doc && typeof document !== 'object') return; // TODO If we're in a SSR enviornment, doc isn't available. How do we handle this?
+  // eslint-disable-next-line no-param-reassign
+  doc = doc || document;
+
   const eventName = 'on' + eventNameSuffix;
   let isSupported = eventName in doc;
 
@@ -69,7 +73,8 @@ export function syncEvent(node: Element, eventName: string, newEventHandler: (e:
 export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}) => {
   /* eslint-disable no-param-reassign */
   // some test frameworks don't render DOM elements, so we test here to make sure we are dealing with DOM first
-  if (node instanceof Element) {
+  // TODO is this the right place to check we are in DOM
+  if (node instanceof Element && typeof document === 'object') {
     // add any classes in className to the class list
     const className = getClassName(node.classList, newProps, oldProps);
     if (className !== '') {

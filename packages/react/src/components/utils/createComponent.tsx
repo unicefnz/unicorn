@@ -31,7 +31,7 @@ export const createReactComponent = <PropType, ElementType extends HTMLElement>(
       const { children, forwardedRef, style, className, ref, ...cProps } = this.props;
 
       const propsToPass = Object.keys(cProps).reduce((acc, name) => {
-        if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
+        if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) { // If it looks like an event
           const eventName = name.substring(2).toLowerCase();
           if (isCoveredByReact(eventName)) {
             (acc as any)[name] = (cProps as any)[name];
