@@ -28,9 +28,3 @@ export const WithoutClasses = () => `
 <a href="#">It's a link!</a>
 <p>Paragraph!</p>
 `;
-
-export const Underline = () => `
-<uni-underline>Underline content here</uni-underline>
-<br>
-<uni-underline class="uni-color-danger">Colorful underline</uni-underline>
-`;

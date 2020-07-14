@@ -18,11 +18,11 @@ export class UniDialogContent {
           'uni-dialog--shaking': this.shaking
         }}
       >
-        <h2 class="dialog-title">
+        <h1 class="dialog-title">
           <uni-underline>
             <slot name="title" />
           </uni-underline>
-        </h2>
+        </h1>
         <slot />
         <div class="dialog-actions">
           <slot name="actions" />
