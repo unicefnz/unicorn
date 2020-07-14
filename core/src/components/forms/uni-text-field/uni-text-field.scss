@@ -53,6 +53,9 @@
 }
 
 .input-elem {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
   flex: 1;
   padding: 0.6rem 0.7rem;
   font-family: inherit;

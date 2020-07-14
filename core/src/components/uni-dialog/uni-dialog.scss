@@ -8,8 +8,19 @@
   align-items: center;
   justify-content: center;
   z-index: 2000;
+  // TODO Is an animation necessary?
+  //animation: fadeInAnimation 0.2s 1 forwards;
 }
 
 :host(.overlay-hidden) {
   display: none;
 }
+
+//@keyframes fadeInAnimation {
+//  from {
+//    opacity: 0;
+//  }
+//  to {
+//    opacity: 1;
+//  }
+//}

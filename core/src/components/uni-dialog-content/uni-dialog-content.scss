@@ -9,10 +9,12 @@
 
   background: #FFF;
   border-radius: 8px;
+
+  animation: 0.2s ease-out 1 forwards uni-dialog-enter, 0.1s ease-in-out alternate infinite uni-dialog-grow paused;
 }
 
 :host(.uni-dialog--shaking) {
-  animation: 0.1s ease-in-out alternate infinite uni-dialog-grow;
+  animation-play-state: paused, running;
 }
 
 .dialog-title {
@@ -27,6 +29,14 @@
   justify-content: flex-end;
 }
 
+@media (prefers-reduced-motion) {
+  :host {
+    animation: none;
+  }
+  :host(.uni-dialog--shaking) {
+    outline: 4px solid red;
+  }
+}
 
 @keyframes uni-dialog-grow {
   from {
@@ -34,5 +44,16 @@
   }
   to {
     transform: scale(1.02);
+  }
+}
+
+@keyframes uni-dialog-enter {
+  from {
+    opacity: 0.2;
+    top: -0.5rem;
+  }
+  to {
+    opacity: 1;
+    top: 0;
   }
 }
