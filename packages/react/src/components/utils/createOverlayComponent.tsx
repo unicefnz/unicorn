@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { HTMLUniOverlayElement, OverlayController } from '@unicef-new-zealand/uniform-core';
 import { attachProps } from './attachProps';
@@ -10,48 +10,45 @@ export function createOverlayComponent<
 >(displayName: string, controller: OverlayController<OverlayEl>) {
   type Props = OverlayProps & ReactOverlayProps;
 
-  return class ReactOverlayComponent extends React.Component<Props> {
-    overlayEl: OverlayEl | null = null;
+  function ReactOverlayComponent({ isOpen, children, ...restProps }: Props) {
+    const [overlayEl, setOverlayEl] = useState<OverlayEl | null>(null);
+    const prevPropsRef = useRef<Omit<Props, 'isOpen'|'children'>>(); // Keep track of the last props, used for dom binding.
 
-    static get displayName() {
-      return displayName;
-    }
-
-    componentDidMount() {
-      const { isOpen } = this.props;
+    useEffect(() => {
       if (isOpen) {
-        this.present();
+        if (!overlayEl) { // Create the el
+          controller.create({ ...restProps }).then((el) => {
+            setOverlayEl(el);
+
+            attachProps(el, restProps);
+
+            el.present();
+          });
+        }
+      } else if (overlayEl) { // Remove the el
+        overlayEl.dismiss();
+        setOverlayEl(null);
       }
+      // This hook is only going to do something if isOpen changes, so we dont need a dep on overlayEl or restProps
+    }, [isOpen]);
+
+    useEffect(() => {
+      // Update the el
+      if (overlayEl) {
+        // Save ourselves an attachProps call on open
+        if (prevPropsRef) {
+          attachProps(overlayEl, restProps, prevPropsRef.current);
+        }
+        prevPropsRef.current = restProps;
+      } else prevPropsRef.current = undefined;
+    }, [restProps]);
+
+    if (overlayEl) {
+      return ReactDOM.createPortal(children, overlayEl);
     }
+    return null;
+  }
+  ReactOverlayComponent.displayName = displayName;
 
-    async componentDidUpdate(prevProps: Props) {
-      const { isOpen } = this.props;
-
-      // If it was closed and is now open
-      if (prevProps.isOpen !== isOpen && isOpen) {
-        await this.present(prevProps);
-      }
-      // If it was open, and is now closed
-      if (this.overlayEl && prevProps.isOpen !== isOpen && !isOpen) {
-        await this.overlayEl.dismiss();
-      }
-    }
-
-    async present(prevProps?: Props) {
-      // tslint:disable-next-line:no-empty
-      const { children, isOpen, ...cProps } = this.props;
-
-      this.overlayEl = await controller.create({ ...cProps });
-
-      attachProps(this.overlayEl!, cProps, prevProps);
-
-      await this.overlayEl!.present();
-    }
-
-    render() {
-      const { isOpen, children } = this.props;
-      if (this.overlayEl) return ReactDOM.createPortal(isOpen ? children : null, this.overlayEl);
-      return null;
-    }
-  };
+  return ReactOverlayComponent;
 }
