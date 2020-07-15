@@ -11,11 +11,15 @@ interface InternalProps<ElementType> extends React.HTMLAttributes<ElementType> {
 export const createReactComponent = <PropType, ElementType extends HTMLElement>(tagName: string) => {
   const displayName = dashToPascalCase(tagName);
   const ReactComponent = class extends React.Component<InternalProps<ElementType>> {
-    private ref: React.RefObject<HTMLElement>;
+    static get displayName() {
+      return displayName;
+    }
+
+    private ref: React.RefObject<ElementType>;
 
     constructor(props: InternalProps<ElementType>) {
       super(props);
-      this.ref = React.createRef<HTMLElement>();
+      this.ref = props.forwardedRef as React.RefObject<ElementType> || React.createRef<ElementType>();
     }
 
     componentDidMount() {
@@ -40,19 +44,16 @@ export const createReactComponent = <PropType, ElementType extends HTMLElement>(
         return acc;
       }, {});
 
-      const newProps: any = {
+      const newProps: InternalProps<ElementType> = {
         ...propsToPass,
         ref: this.ref,
         style,
-        className,
+        className
       };
 
       return React.createElement(tagName, newProps, children);
     }
-
-    static get displayName() {
-      return displayName;
-    }
   };
+
   return createForwardRef<PropType, ElementType>(ReactComponent, displayName);
 };
