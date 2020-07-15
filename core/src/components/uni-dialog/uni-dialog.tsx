@@ -101,7 +101,7 @@ export class UniDialog implements ComponentInterface, OverlayInterface {
         uni-overlay
       >
         <uni-backdrop tappable={this.backdropDismiss} onClick={() => this.backdropDismiss || this.doShake()} />
-        <div class="scroll-wrapper">
+        <div class="flex-wrapper">
           <uni-dialog-content shaking={!!this.shakeTimer}>
             <slot name="title" slot="title" />
             <slot />
