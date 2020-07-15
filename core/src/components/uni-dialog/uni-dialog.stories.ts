@@ -59,3 +59,9 @@ export const LayoutValidation = () => `
   </div>
 </uni-dialog>
 `;
+
+LayoutValidation.story = {
+  parameters: {
+    chromatic: { delay: 300 },
+  },
+};
