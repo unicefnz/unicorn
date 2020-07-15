@@ -216,6 +216,10 @@ export namespace Components {
          */
         "errors": string | string[];
         /**
+          * Get the underlying <input> DOM node
+         */
+        "getInputElement": () => Promise<HTMLInputElement | HTMLTextAreaElement>;
+        /**
           * Label text above the field
          */
         "label": string;
