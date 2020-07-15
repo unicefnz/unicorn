@@ -1,5 +1,8 @@
 export default {
-  title: 'Dialog'
+  title: 'Dialog',
+  parameters: {
+    chromatic: { delay: 400 },
+  }
 };
 
 function makeTrigger(dialog: HTMLUniDialogElement, text: string) {
@@ -59,9 +62,3 @@ export const LayoutValidation = () => `
   </div>
 </uni-dialog>
 `;
-
-LayoutValidation.story = {
-  parameters: {
-    chromatic: { delay: 300 },
-  },
-};
