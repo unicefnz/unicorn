@@ -33,6 +33,19 @@
 | `uniInput`  | Emitted when the form field value changes  | `CustomEvent<string>` |
 
 
+## Methods
+
+### `getInputElement() => Promise<HTMLInputElement | HTMLTextAreaElement>`
+
+Get the underlying <input> DOM node
+
+#### Returns
+
+Type: `Promise<HTMLInputElement | HTMLTextAreaElement>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

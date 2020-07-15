@@ -1,5 +1,5 @@
 import {
-  Component, Host, h, Prop, EventEmitter, Event
+  Component, Host, h, Prop, EventEmitter, Event, Method
 } from '@stencil/core';
 
 let nextUniqueId = 0;
@@ -92,6 +92,16 @@ export class UniTextField {
 
   private uniqueId = 'uni-input-' + nextUniqueId++;
 
+  private inputElem: HTMLInputElement | HTMLTextAreaElement;
+
+  /**
+   * Get the underlying <input> DOM node
+   * */
+  @Method()
+  public async getInputElement(): Promise<HTMLInputElement | HTMLTextAreaElement> {
+    return this.inputElem;
+  }
+
   render() {
     const optional = this.optional && (<span class="optional-label">(optional)</span>);
     const Elem = this.type === 'textarea' ? 'textarea' : 'input';
@@ -111,6 +121,7 @@ export class UniTextField {
           </div>
           <Elem
             class="input-elem"
+            ref={(el) => { this.inputElem = el; }}
             id={this.uniqueId}
             type={Elem === 'input' && this.type}
             disabled={this.disabled}

@@ -1,6 +1,7 @@
 @use "../../css/theming/typography";
 
 :host {
+  display: block;
   position: relative;
   z-index: 10;
 

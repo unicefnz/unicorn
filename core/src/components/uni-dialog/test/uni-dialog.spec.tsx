@@ -11,11 +11,13 @@ describe('uni-dialog', () => {
       <uni-dialog aria-modal="true" id="uni-overlay-1" tabindex="-1" uni-overlay="" role="dialog" style="z-index: 2001;">
         <mock:shadow-root>
           <uni-backdrop tappable=""></uni-backdrop>
-          <uni-dialog-content>
-            <slot name="title" slot="title"></slot>
-            <slot></slot>
-            <slot name="actions" slot="actions"></slot>
-          </uni-dialog-content>
+          <div class="flex-wrapper">
+            <uni-dialog-content>
+              <slot name="title" slot="title"></slot>
+              <slot></slot>
+              <slot name="actions" slot="actions"></slot>
+            </uni-dialog-content>
+          </div>
         </mock:shadow-root>
       </uni-dialog>
     `);

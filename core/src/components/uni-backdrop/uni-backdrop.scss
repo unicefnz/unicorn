@@ -1,6 +1,6 @@
 :host {
   display: block;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -11,6 +11,8 @@
   opacity: .2;
   touch-action: none;
   z-index: 2;
+
+  animation: fadeInAnimation 0.2s 1 forwards;
 }
 
 
@@ -20,4 +22,13 @@
 
 :host(.uni-backdrop--no-interact) {
   cursor: auto;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: .2;
+  }
 }
