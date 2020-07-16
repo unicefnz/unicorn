@@ -40,13 +40,13 @@ $uniStyles: (
     font-family: var(--font-header),
   ),
   overline: (
-    font-size: calc(14rem / 18),
+    font-size: calc(2rem / 3),
     font-family: var(--font-body),
     font-weight: bold,
     text-transform: uppercase
   ),
   caption: (
-    font-size: calc(9rem / 10),
+    font-size: 0.8rem,
     font-family: var(--font-body),
     color: var(--uni-medium)
   ),
