@@ -68,11 +68,27 @@ $uniStyles: (
   @each $key, $val in map.get($uniStyles, $name) {
     #{$key}: #{$val};
   }
-  @if $name == "link" {
-    background: none;
-    border: none;
-    font: inherit;
-    padding: 0;
+}
+@mixin outputTypeClass($name, $val) {
+  $selector: ".display-" + $name;
+  @if list.index($_textElems, $name) {
+    $selector: $selector + ", " + $name;
+  }
+
+  @if $name == link {
+    button {
+      &#{$selector} {
+        font: inherit;
+        padding: 0;
+        background: none;
+        border: none;
+      }
+    }
+    $selector: $selector + ", a";
+  }
+
+  #{$selector} {
+    @include useStyle($name);
   }
 }
 
@@ -116,17 +132,6 @@ $uniStyles: (
   }
 
   @each $name, $val in $uniStyles {
-    $selector: ".display-" + $name;
-    @if list.index($_textElems, $name) {
-      $selector: $selector + ", " + $name;
-    }
-
-    @if $name == link {
-      $selector: $selector + ", a";
-    }
-
-    #{$selector} {
-      @include useStyle($name);
-    }
+    @include outputTypeClass($name, $val);
   }
 }
