@@ -12,7 +12,9 @@ describe('uni-select', () => {
         <mock:shadow-root>
           <div class="select-box">
             <slot></slot>
-            <div class="select-icon"></div>
+            <div class="select-icons">
+              <div class="drop-icon"></div>
+            </div>
           </div>
         </mock:shadow-root>
       </uni-select>
