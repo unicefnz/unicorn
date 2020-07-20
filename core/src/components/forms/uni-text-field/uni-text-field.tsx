@@ -11,14 +11,19 @@ let nextUniqueId = 0;
 })
 export class UniTextField {
   /**
+   * Hint to the user agent how this field should be autocompleted
+   * */
+  @Prop() public autocomplete: string;
+
+  /**
    * Makes the field disabled and unselectable
    * */
   @Prop() public disabled: boolean;
 
   /**
-   * Displays errors below the input
+   * Displays errors below the input, or puts field into error state
    * */
-  @Prop() public errors: string | string[] = '';
+  @Prop() public error: string | string[] | boolean = '';
 
   /**
    * Label text above the field
@@ -51,6 +56,11 @@ export class UniTextField {
   @Prop() public minlength: number;
 
   /**
+   * Name of the native input element
+   * */
+  @Prop() public name: string;
+
+  /**
    * Displays a visual (optional) marker
    * */
   @Prop() public optional = false;
@@ -76,9 +86,19 @@ export class UniTextField {
   @Prop() public type: string;
 
   /**
+   * Emitted when the native input is blurred / focus is lost
+   * */
+  @Event() public uniBlur: EventEmitter<FocusEvent>;
+
+  /**
    * Emitted when form field value is committed
    * */
   @Event() public uniChange: EventEmitter<string>;
+
+  /**
+   * Emitted when the native input is focused
+   * */
+  @Event() public uniFocus: EventEmitter<FocusEvent>;
 
   /**
    * Emitted when the form field value changes
@@ -107,7 +127,7 @@ export class UniTextField {
     const Elem = this.type === 'textarea' ? 'textarea' : 'input';
 
     return (
-      <Host class={{ 'input--has-errors': !!this.errors, 'uni-disabled': this.disabled }}>
+      <Host class={{ 'input--has-errors': !!this.error, 'uni-disabled': this.disabled }}>
         {this.labelSlot ? (
           <label htmlFor={this.uniqueId} class="caption">
             <slot name="label" />
@@ -120,24 +140,54 @@ export class UniTextField {
             <slot name="prepend" />
           </div>
           <Elem
+            autocomplete={this.autocomplete}
             class="input-elem"
-            ref={(el) => { this.inputElem = el; }}
-            id={this.uniqueId}
-            type={Elem === 'input' && this.type}
             disabled={this.disabled}
+            id={this.uniqueId}
             max={this.max}
             maxlength={this.maxlength}
             min={this.min}
             minlength={this.minlength}
+            name={this.name}
+            onBlur={e => this.uniBlur.emit(e)}
+            onChange={e => this.uniChange.emit((e.target as any).value)}
+            onFocus={e => this.uniFocus.emit(e)}
+            onInput={e => this.uniInput.emit((e.target as any).value)}
             placeholder={this.placeholder}
             readOnly={this.readonly}
+            ref={(el) => { this.inputElem = el; }}
             required={this.required}
+            type={Elem === 'input' && this.type}
             value={this.value}
-            onChange={e => this.uniChange.emit((e.target as any).value)}
-            onInput={e => this.uniInput.emit((e.target as any).value)}
           />
+          {this.error ? (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="error-icon">
+              <path
+                d="M256,80c-8.66,0-16.58,7.36-16,16l8,216a8,8,0,0,0,8,8h0a8,8,0,0,0,8-8l8-216C272.58,87.36,264.66,80,256,80Z"
+                style={{
+                  fill: 'none',
+                  stroke: 'currentColor',
+                  strokeLinecap: 'round',
+                  strokeLinejoin: 'round',
+                  strokeWidth: '32px'
+                }}
+              />
+              <circle
+                cx="256"
+                cy="416"
+                r="16"
+                style={{
+                  fill: 'none',
+                  stroke: 'currentColor',
+                  strokeLinecap: 'round',
+                  strokeLinejoin: 'round',
+                  strokeWidth: '32px'
+                }}
+              />
+            </svg>
+          ) : null}
         </div>
-        {this.errors && this.errors.length && <uni-errors errors={this.errors} />}
+        {this.error && this.error !== true && <uni-errors error={this.error} />}
       </Host>
     );
   }

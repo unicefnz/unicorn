@@ -5,6 +5,9 @@
   display: block;
   text-align: start;
 }
+:host(.uni-select--errored) {
+  --uni-color: var(--uni-danger);
+}
 
 .select-label {
   @include typography.useStyle(overline);
@@ -14,17 +17,27 @@
 .select-box {
   position: relative;
 }
-.select-icon {
+.select-icons {
   position: absolute;
   right: 16px;
   top: 0;
   bottom: 0;
-  height: 0;
   margin: auto;
+  display: flex;
+  align-items: center;
+}
+.drop-icon {
+  height: 0;
   border-style: solid;
   border-width: 8px 7px 0 7px;
   border-color: color.useVar(dark) transparent transparent transparent;
 }
+.error-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--uni-danger);
+}
+
 ::slotted(select) {
   width: 100%;
   border: 2px solid color.useVar(dark);

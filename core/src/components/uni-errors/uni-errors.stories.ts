@@ -8,7 +8,7 @@ export const Default = () => {
   const e3 = document.createElement('uni-errors');
 
   e2.error = 'Error text';
-  e3.errors = ['Error One', 'Error Two'];
+  e3.error = ['Error One', 'Error Two'];
 
   const wrapper = document.createElement('div');
   wrapper.append(e1, e2, e3);

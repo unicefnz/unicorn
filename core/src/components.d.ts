@@ -142,13 +142,9 @@ export namespace Components {
     }
     interface UniErrors {
         /**
-          * Display a single error Will be overridden by errors[]
+          * Display one or more errors
          */
-        "error"?: string;
-        /**
-          * Displays a list of errors. Will override error
-         */
-        "errors"?: string | string[];
+        "error"?: string | string[];
     }
     interface UniExpandableField {
         /**
@@ -160,9 +156,9 @@ export namespace Components {
          */
         "displayText": string;
         /**
-          * Displays errors below the input
+          * Displays error(s) below the input
          */
-        "errors": string | string[];
+        "error": string | string[];
         /**
           * Label text above the field
          */
@@ -196,6 +192,10 @@ export namespace Components {
     }
     interface UniSelect {
         /**
+          * Displays error(s) below the input
+         */
+        "error": string | string[];
+        /**
           * Label to display above the select box
          */
         "label": string;
@@ -208,13 +208,17 @@ export namespace Components {
     }
     interface UniTextField {
         /**
+          * Hint to the user agent how this field should be autocompleted
+         */
+        "autocomplete": string;
+        /**
           * Makes the field disabled and unselectable
          */
         "disabled": boolean;
         /**
-          * Displays errors below the input
+          * Displays errors below the input, or puts field into error state
          */
-        "errors": string | string[];
+        "error": string | string[] | boolean;
         /**
           * Get the underlying <input> DOM node
          */
@@ -243,6 +247,10 @@ export namespace Components {
           * Minimum string length
          */
         "minlength": number;
+        /**
+          * Name of the native input element
+         */
+        "name": string;
         /**
           * Displays a visual (optional) marker
          */
@@ -599,13 +607,9 @@ declare namespace LocalJSX {
     }
     interface UniErrors {
         /**
-          * Display a single error Will be overridden by errors[]
+          * Display one or more errors
          */
-        "error"?: string;
-        /**
-          * Displays a list of errors. Will override error
-         */
-        "errors"?: string | string[];
+        "error"?: string | string[];
     }
     interface UniExpandableField {
         /**
@@ -617,9 +621,9 @@ declare namespace LocalJSX {
          */
         "displayText"?: string;
         /**
-          * Displays errors below the input
+          * Displays error(s) below the input
          */
-        "errors"?: string | string[];
+        "error"?: string | string[];
         /**
           * Label text above the field
          */
@@ -661,6 +665,10 @@ declare namespace LocalJSX {
     }
     interface UniSelect {
         /**
+          * Displays error(s) below the input
+         */
+        "error"?: string | string[];
+        /**
           * Label to display above the select box
          */
         "label"?: string;
@@ -673,13 +681,17 @@ declare namespace LocalJSX {
     }
     interface UniTextField {
         /**
+          * Hint to the user agent how this field should be autocompleted
+         */
+        "autocomplete"?: string;
+        /**
           * Makes the field disabled and unselectable
          */
         "disabled"?: boolean;
         /**
-          * Displays errors below the input
+          * Displays errors below the input, or puts field into error state
          */
-        "errors"?: string | string[];
+        "error"?: string | string[] | boolean;
         /**
           * Label text above the field
          */
@@ -705,9 +717,21 @@ declare namespace LocalJSX {
          */
         "minlength"?: number;
         /**
+          * Name of the native input element
+         */
+        "name"?: string;
+        /**
+          * Emitted when the native input is blurred / focus is lost
+         */
+        "onUniBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
           * Emitted when form field value is committed
          */
         "onUniChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * Emitted when the native input is focused
+         */
+        "onUniFocus"?: (event: CustomEvent<FocusEvent>) => void;
         /**
           * Emitted when the form field value changes
          */

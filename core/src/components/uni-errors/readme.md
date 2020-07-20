@@ -7,10 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description                                           | Type                 | Default     |
-| -------- | --------- | ----------------------------------------------------- | -------------------- | ----------- |
-| `error`  | `error`   | Display a single error Will be overridden by errors[] | `string`             | `undefined` |
-| `errors` | `errors`  | Displays a list of errors. Will override error        | `string \| string[]` | `undefined` |
+| Property | Attribute | Description                | Type                 | Default     |
+| -------- | --------- | -------------------------- | -------------------- | ----------- |
+| `error`  | `error`   | Display one or more errors | `string \| string[]` | `undefined` |
 
 
 ## Dependencies

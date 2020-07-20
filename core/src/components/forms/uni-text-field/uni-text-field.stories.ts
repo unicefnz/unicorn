@@ -26,10 +26,22 @@ export const PrependIcon = () => `
 </uni-text-field>
 `;
 
-export const Errors = () => `
-<uni-text-field label="Email" value="example@example.invalid+" errors="${text('Errors', 'Invalid Email')}"></uni-text-field>
-<uni-text-field errors="Uh oh"></uni-text-field>
-`;
+export const Errors = () => {
+  const inputOne = document.createElement('uni-text-field');
+  inputOne.value = 'example@example.invalid';
+  inputOne.error = text('Errors', 'Invalid Email');
+
+  const inputTwo = document.createElement('uni-text-field');
+  inputTwo.error = 'Another error';
+
+  const inputThree = document.createElement('uni-text-field');
+  inputThree.error = ['Error one', 'Error two'];
+
+  const wrapper = document.createElement('div');
+  wrapper.append(inputOne, inputTwo, inputThree);
+
+  return wrapper;
+};
 
 export const OtherTypes = () => `
 <uni-text-field type="number"></uni-text-field>
