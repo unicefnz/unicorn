@@ -1,7 +1,10 @@
 export default {
   title: 'Dialog',
   parameters: {
-    chromatic: { delay: 600 },
+    chromatic: {
+      pauseAnimationAtEnd: true,
+      delay: 500
+    }
   }
 };
 

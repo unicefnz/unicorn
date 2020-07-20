@@ -1,7 +1,10 @@
 export default {
   title: 'Tooltip',
   parameters: {
-    chromatic: { delay: 500 },
+    chromatic: {
+      pauseAnimationAtEnd: true,
+      delay: 500
+    }
   }
 };
 
