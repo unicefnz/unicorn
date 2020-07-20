@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                           | Type     | Default     |
-| -------- | --------- | ------------------------------------- | -------- | ----------- |
-| `label`  | `label`   | Label to display above the select box | `string` | `undefined` |
+| Property | Attribute | Description                           | Type                 | Default     |
+| -------- | --------- | ------------------------------------- | -------------------- | ----------- |
+| `error`  | `error`   | Displays error(s) below the input     | `string \| string[]` | `''`        |
+| `label`  | `label`   | Label to display above the select box | `string`             | `undefined` |
 
 
 ----------------------------------------------

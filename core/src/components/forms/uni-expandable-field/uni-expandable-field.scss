@@ -10,7 +10,7 @@
   margin: 1rem 0;
 }
 
-.caption {
+.label {
   @include typography.useStyle(overline);
   display: block;
   margin: 0 0 4px;
@@ -54,11 +54,23 @@
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-:host(.uni-errors) .caption{
-  color: var(--uni-error-color);
-  //.expansion-trigger, .expansion-content {
-    //border-color: var(--uni-error-color);
-  //}
+.error-icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 2.4rem;
+  margin: auto;
+  width: 24px;
+  height: 24px;
+  color: var(--uni-danger);
+}
+:host(.uni-errors) {
+  .label {
+    color: var(--uni-error-color);
+  }
+  .expansion-trigger, .expansion-content {
+    border-color: var(--uni-error-color);
+  }
 }
 
 .expansion-content {
