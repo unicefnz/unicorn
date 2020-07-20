@@ -22,10 +22,6 @@ export namespace Components {
     }
     interface UniButton {
         /**
-          * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
-         */
-        "buttonType": string;
-        /**
           * Defines the main color of the button Eg. accent, primary
          */
         "color": string | null;
@@ -49,6 +45,10 @@ export namespace Components {
           * Name of a icon to prepend inside the button Eg. logo-google
          */
         "prependIcon"?: string;
+        /**
+          * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
+         */
+        "type": string;
         /**
           * Sets the variant of the button One of 'solid' or 'border'
          */
@@ -457,10 +457,6 @@ declare namespace LocalJSX {
     }
     interface UniButton {
         /**
-          * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
-         */
-        "buttonType"?: string;
-        /**
           * Defines the main color of the button Eg. accent, primary
          */
         "color"?: string | null;
@@ -484,6 +480,10 @@ declare namespace LocalJSX {
           * Name of a icon to prepend inside the button Eg. logo-google
          */
         "prependIcon"?: string;
+        /**
+          * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
+         */
+        "type"?: string;
         /**
           * Sets the variant of the button One of 'solid' or 'border'
          */
