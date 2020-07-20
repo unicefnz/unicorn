@@ -90,7 +90,7 @@ export class UniButton {
           'uni-disabled': isDisabled,
           'uni-button-icon': this.icon
         }}
-        onClick={this.handleClick}
+        onClick={e => this.handleClick(e)}
       >
         {this.href ? (
           <a class="button" href={this.href} onClick={e => isDisabled && e.preventDefault()}>
