@@ -1,5 +1,8 @@
 export default {
-  title: 'Tooltip'
+  title: 'Tooltip',
+  parameters: {
+    chromatic: { delay: 500 },
+  }
 };
 
 export const Default = () => `

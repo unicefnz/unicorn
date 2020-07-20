@@ -1,7 +1,7 @@
 export default {
   title: 'Dialog',
   parameters: {
-    chromatic: { delay: 400 },
+    chromatic: { delay: 600 },
   }
 };
 

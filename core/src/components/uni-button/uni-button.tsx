@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, Element, Host, h, Prop } from '@stencil/core';
 
 export type ButtonVariant = 'solid' | 'border';
 
@@ -8,12 +8,14 @@ export type ButtonVariant = 'solid' | 'border';
   shadow: true,
 })
 export class UniButton {
+  @Element() el: HTMLUniButtonElement;
+
   /**
    * Type of the underlying button
    * See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md
    * One of 'button', 'submit', or 'reset'
    * */
-  @Prop() readonly buttonType: string = 'button';
+  @Prop() readonly type: string = 'button';
 
   /**
    * Defines the main color of the button
@@ -53,6 +55,25 @@ export class UniButton {
    * */
   @Prop() readonly variant: ButtonVariant = 'solid';
 
+  private handleClick(e: MouseEvent) {
+    if (this.type !== 'button') {
+      // this button wants to specifically submit a form
+      // climb up the dom to see if we're in a <form>
+      // and if so, then use JS to submit it
+      const form = this.el.closest('form');
+      if (form) {
+        e.preventDefault();
+
+        const fakeButton = document.createElement('button');
+        fakeButton.type = this.type;
+        fakeButton.style.display = 'none';
+        form.appendChild(fakeButton);
+        fakeButton.click();
+        fakeButton.remove();
+      }
+    }
+  }
+
   render() {
     const isDisabled = this.disabled || this.loading;
     const contents = [
@@ -61,13 +82,15 @@ export class UniButton {
     ];
 
     return (
-      <Host class={{
-        ['uni-variant-' + this.variant]: true,
-        [`uni-color-${this.color}`]: true,
-        'uni-loading': this.loading,
-        'uni-disabled': isDisabled,
-        'uni-button-icon': this.icon
-      }}
+      <Host
+        class={{
+          ['uni-variant-' + this.variant]: true,
+          [`uni-color-${this.color}`]: true,
+          'uni-loading': this.loading,
+          'uni-disabled': isDisabled,
+          'uni-button-icon': this.icon
+        }}
+        onClick={this.handleClick}
       >
         {this.href ? (
           <a class="button" href={this.href} onClick={e => isDisabled && e.preventDefault()}>
@@ -75,7 +98,7 @@ export class UniButton {
           </a>
         ) : (
           // eslint-disable-next-line react/button-has-type
-          <button class="button" type={this.buttonType} disabled={isDisabled}>
+          <button class="button" type={this.type} disabled={isDisabled}>
             {contents}
           </button>
         )}
