@@ -26,7 +26,7 @@ export const Default = () => `
   <p>Trigger</p>
   <div slot="content">
     <p>Longer tooltip content</p>
-    <a class="block-link" href="#">Learn more</a>
+    <a class="uni-block-link" href="#">Learn more</a>
   </div>
 </uni-tooltip>
 

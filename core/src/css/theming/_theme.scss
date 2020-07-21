@@ -1,19 +1,24 @@
 @use "typography";
 @use "color";
+@use "base";
 
 @mixin createTheme($colors, $typeConfig, $scope: ":root") {
+
   #{$scope} {
     @include color.colorRoot($colors);
     @include typography.typeRoot($typeConfig);
   }
 
   @if ($scope != ":root") {
+    @include base.unscopedStyles();
     #{$scope} {
+      @include base.baseStyles();
       @include color.colorClasses($colors);
       @include typography.typeClasses($typeConfig, $scope);
     }
   } @else {
     // There's no point scoping classes to :root
+    @include base.baseStyles();
     @include color.colorClasses($colors);
     @include typography.typeClasses($typeConfig, $scope);
   }

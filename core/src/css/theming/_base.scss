@@ -1,0 +1,23 @@
+@mixin unscopedStyles() {
+  body.uni-lock-scroll {
+    overflow-y: hidden;
+  }
+}
+@mixin baseStyles() {
+  body {
+    margin: 0;
+  }
+  .uni-lock-scroll {
+    overflow-y: hidden;
+  }
+
+  .uni-block-link {
+    display: block;
+  }
+  .uni-block-link::after {
+    content: '→';
+    margin-left: 6px;
+    display: inline-block;
+    font-weight: bold;
+  }
+}

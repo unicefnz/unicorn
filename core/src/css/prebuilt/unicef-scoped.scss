@@ -54,16 +54,3 @@ $colors: (
 );
 
 @include theme.createTheme($colors, $typeConfig, unquote(".uniform-root"));
-
-.uniform-root {
-  .block-link {
-    display: block;
-  }
-  .block-link::after {
-    content: '→';
-    margin-left: 6px;
-    display: inline-block;
-    font-weight: bold;
-  }
-}
-

@@ -54,17 +54,3 @@ $colors: (
 );
 
 @include theme.createTheme($colors, $typeConfig);
-
-body {
-  margin: 0;
-}
-
-.block-link {
-  display: block;
-}
-.block-link::after {
-  content: '→';
-  margin-left: 6px;
-  display: inline-block;
-  font-weight: bold;
-}
