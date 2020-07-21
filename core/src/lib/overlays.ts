@@ -106,6 +106,7 @@ export async function present(
 
   overlay.willPresent.emit();
 
+  document.body.classList.add('uni-lock-scroll');
   overlay.el.classList.remove('overlay-hidden');
 
   overlay.didPresent.emit();
@@ -127,6 +128,8 @@ export async function dismiss(
   overlay.presented = false;
 
   overlay.willDismiss.emit({ data, role });
+  document.body.classList.remove('uni-lock-scroll');
+
   overlay.didDismiss.emit({ data, role });
   overlay.el.remove();
   return true;
