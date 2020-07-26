@@ -1,5 +1,8 @@
 import '!style-loader!css-loader!sass-loader!../src/css/prebuilt/unicef.scss';
-import { applyPolyfills, defineCustomElements } from '../dist/esm/loader';
+import { defineCustomElements } from '../dist/esm/loader';
 
-if (!window.customElements) applyPolyfills().then(() => defineCustomElements());
-else defineCustomElements();
+if (typeof window.customElements === 'undefined') {
+  import('../dist/esm/polyfills')
+    .then(({ applyPolyfills }) => applyPolyfills())
+    .then(() => defineCustomElements());
+} else defineCustomElements();
