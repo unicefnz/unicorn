@@ -15,6 +15,12 @@ export function createOverlayComponent<
     const prevPropsRef = useRef<Omit<Props, 'isOpen'|'children'>>(); // Keep track of the last props, used for dom binding.
 
     useEffect(() => {
+      function maybeDismiss() {
+        if (overlayEl) { // Remove the el
+          overlayEl.dismiss();
+          setOverlayEl(null);
+        }
+      }
       if (isOpen) {
         if (!overlayEl) { // Create the el
           controller.create({ ...restProps }).then((el) => {
@@ -25,10 +31,8 @@ export function createOverlayComponent<
             el.present();
           });
         }
-      } else if (overlayEl) { // Remove the el
-        overlayEl.dismiss();
-        setOverlayEl(null);
-      }
+      } else maybeDismiss();
+      return maybeDismiss();
       // This hook is only going to do something if isOpen changes, so we dont need a dep on overlayEl or restProps
     }, [isOpen]);
 
