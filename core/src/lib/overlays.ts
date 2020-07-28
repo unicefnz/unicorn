@@ -6,7 +6,9 @@ let lastId = 0;
 export const BACKDROP = 'backdrop';
 
 function getAppRoot(doc: Document) {
-  return doc.querySelector('.uniform-root') || doc.body;
+  const roots = doc.querySelectorAll('.uniform-app');
+  if (roots.length > 1) console.warn('Uniform: Only one .uniform-app element should be present at a time');
+  return roots[0] || doc.body;
 }
 
 function isDescendant(parent: HTMLElement, child: HTMLElement | null) {
