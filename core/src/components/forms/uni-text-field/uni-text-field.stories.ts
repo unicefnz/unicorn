@@ -1,7 +1,7 @@
 import { text } from '@storybook/addon-knobs';
 
 export default {
-  title: 'Text Field'
+  title: 'Forms/Text Field'
 };
 
 export const Default = () => `
