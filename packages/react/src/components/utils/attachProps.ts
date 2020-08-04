@@ -1,4 +1,3 @@
-
 import { camelToDashCase } from './utils';
 
 function arrayToMap(arr: string[] | DOMTokenList) {

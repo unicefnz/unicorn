@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'uni-bar-text',
@@ -7,10 +7,6 @@ import { Component, Host, h } from '@stencil/core';
 })
 export class UniBarText {
   render() {
-    return (
-      <Host>
-        <slot></slot>
-      </Host>
-    );
+    return <slot />;
   }
 }

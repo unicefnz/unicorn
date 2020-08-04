@@ -5,7 +5,7 @@ describe('uni-tag-chip', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniTagChip],
-      html: `<uni-tag-chip></uni-tag-chip>`,
+      html: '<uni-tag-chip></uni-tag-chip>',
     });
     expect(page.root).toEqualHtml(`
       <uni-tag-chip>

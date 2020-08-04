@@ -21,7 +21,6 @@ export class UniBackdrop implements ComponentInterface {
    */
   @Event() uniBackdropTap!: EventEmitter<void>;
 
-
   @Listen('click', { passive: false, capture: true })
   protected onMouseDown(ev: TouchEvent) {
     this.emitTap(ev);

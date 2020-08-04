@@ -80,7 +80,7 @@ export const createControllerComponent = <ComponentOpts extends object, OverlayE
     }
   }
 
-  return React.forwardRef<OverlayEl, Props>((props, ref) => {
-    return <Overlay {...props} forwardedRef={ref} />;
-  });
+  return React.forwardRef<OverlayEl, Props>(
+    (props, ref) => <Overlay {...props} forwardedRef={ref} />
+  );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { HTMLUniOverlayElement, OverlayController } from '@unicef-new-zealand/uniform-core';
 import { attachProps } from './attachProps';
