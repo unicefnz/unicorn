@@ -1,12 +1,12 @@
 import { camelToDashCase } from './utils';
 
-function arrayToMap(arr: string[] | DOMTokenList) {
+function arrayToMap(arr: string[] | DOMTokenList): Map<string, string> {
   const map = new Map<string, string>();
-  (arr as string[]).forEach((s: string) => map.set(s, s));
+  (arr as string[]).forEach?.((s: string) => map.set(s, s));
   return map;
 }
 
-export function getClassName(classList: DOMTokenList, newProps: any, oldProps: any) {
+export function getClassName(classList: DOMTokenList, newProps: any, oldProps: any): string {
   // map the classes to Maps for performance
   const currentClasses = arrayToMap(classList);
   const incomingPropClasses = arrayToMap(newProps.className ? newProps.className.split(' ') : []);
@@ -32,8 +32,8 @@ export function getClassName(classList: DOMTokenList, newProps: any, oldProps: a
  * Checks if an event is supported in the current execution environment.
  * @license Modernizr 3.0.0pre (Custom Build) | MIT
  */
-export function isCoveredByReact(eventNameSuffix: string, doc?: Document) {
-  if (!doc && typeof document !== 'object') return; // TODO If we're in a SSR enviornment, doc isn't available. How do we handle this?
+export function isCoveredByReact(eventNameSuffix: string, doc?: Document): boolean {
+  if (!doc && typeof document !== 'object') return false; // TODO If we're in a SSR enviornment, doc isn't available. How do we handle this?
   // eslint-disable-next-line no-param-reassign
   doc = doc || document;
 
