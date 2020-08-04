@@ -7,7 +7,8 @@ let nextUniqueId = 0;
 @Component({
   tag: 'uni-text-field',
   styleUrl: 'uni-text-field.scss',
-  shadow: true
+  // Don't use shadowDOM, as extensions etc may have difficulty autofilling shadowDOM fields
+  scoped: true
 })
 export class UniTextField {
   /**
