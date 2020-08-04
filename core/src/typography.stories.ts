@@ -1,5 +1,5 @@
 export default {
-  title: 'Typography'
+  title: 'Typography/Headings'
 };
 
 export const UsingClasses = () => `

@@ -40,7 +40,6 @@ export class UniCheckbox {
    * */
   @Event() public uniChange: EventEmitter<boolean>;
 
-
   private uniqueId = 'uni-checkbox-' + nextUniqueId++;
 
   render() {

@@ -1,5 +1,5 @@
 export default {
-  title: 'Combo Group'
+  title: 'Forms/Combo Group'
 };
 
 export const ButtonsWithText = () => `

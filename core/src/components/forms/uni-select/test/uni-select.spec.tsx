@@ -5,7 +5,7 @@ describe('uni-select', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniSelect],
-      html: `<uni-select></uni-select>`,
+      html: '<uni-select></uni-select>',
     });
     expect(page.root).toEqualHtml(`
       <uni-select>

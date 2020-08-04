@@ -55,7 +55,6 @@ export const Default = () => {
   return wrapper;
 };
 
-
 export const LayoutValidation = () => `
 <uni-dialog>
   <span slot="title">Title text</span>

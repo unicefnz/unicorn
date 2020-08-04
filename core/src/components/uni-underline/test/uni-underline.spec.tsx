@@ -5,7 +5,7 @@ describe('uni-underline', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniUnderline],
-      html: `<uni-underline></uni-underline>`,
+      html: '<uni-underline></uni-underline>',
     });
     expect(page.root).toEqualHtml(`
       <uni-underline>

@@ -105,7 +105,6 @@ export class UniTooltip implements ComponentInterface {
 
   @State() shown = false;
 
-
   private hideTimeout: NodeJS.Timeout;
 
   private focused = false;

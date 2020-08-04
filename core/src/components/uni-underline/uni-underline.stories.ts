@@ -1,7 +1,6 @@
 export default {
-  title: 'Typography'
+  title: 'Typography/Underline'
 };
-
 
 export const Underline = () => `
 <uni-underline>Plain underline</uni-underline>

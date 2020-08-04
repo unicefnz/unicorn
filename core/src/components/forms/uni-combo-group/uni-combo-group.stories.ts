@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 import { HTMLUniRadioItemElement } from '../../util/uni-radio-controller/radio-item-interface';
 
 export default {
-  title: 'Combo Group'
+  title: 'Forms/Combo Group'
 };
 
 export const ComboVariant = () => `

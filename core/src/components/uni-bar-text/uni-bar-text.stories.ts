@@ -1,7 +1,7 @@
 import { text } from '@storybook/addon-knobs';
 
 export default {
-  title: 'Bar Text'
+  title: 'Typography/Bar Text'
 };
 
 export const Default = () => `

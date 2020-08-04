@@ -1,5 +1,5 @@
 export default {
-  title: 'Select'
+  title: 'Forms/Select'
 };
 
 export const Default = () => `

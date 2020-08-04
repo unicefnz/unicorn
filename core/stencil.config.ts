@@ -10,7 +10,12 @@ export const config: Config = {
     },
     {
       type: 'docs-readme'
-    }
+    },
+    {
+      type: 'docs-vscode',
+      file: 'dist/custom-elements.json',
+      sourceCodeBaseUrl: 'https://github.com/unicef-new-zealand/uniform/tree/master/core/',
+    },
   ],
   plugins: [
     sass()

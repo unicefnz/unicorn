@@ -1,5 +1,5 @@
 export default {
-  title: 'Expandable Field'
+  title: 'Forms/Expandable Field'
 };
 
 export const Default = () => `

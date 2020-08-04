@@ -1,5 +1,5 @@
 export default {
-  title: 'Checkbox'
+  title: 'Forms/Checkbox'
 };
 
 export const Default = () => `
