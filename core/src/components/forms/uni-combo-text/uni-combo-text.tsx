@@ -3,8 +3,7 @@ import { Component, Host, h, Prop, Event, EventEmitter, Watch, Element } from '@
 @Component({
   tag: 'uni-combo-text',
   styleUrl: 'uni-combo-text.scss',
-  // Don't use shadowDOM, as extensions etc may have difficulty autofilling shadowDOM fields
-  scoped: true
+  shadow: true
 })
 export class UniComboText {
   @Element() el: HTMLUniComboTextElement;
