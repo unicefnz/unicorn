@@ -33,8 +33,8 @@ export function createOverlayComponent<
         }
       } else maybeDismiss();
       return maybeDismiss;
-      // This hook is only going to do something if isOpen changes, so we dont need a dep on overlayEl or restProps
-    }, [isOpen]);
+      // This hook is only going to do something if isOpen changes, so we dont need a dep on restProps
+    }, [overlayEl, isOpen]);
 
     useEffect(() => {
       // Update the el
