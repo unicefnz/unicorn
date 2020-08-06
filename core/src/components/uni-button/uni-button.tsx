@@ -56,7 +56,8 @@ export class UniButton {
   @Prop() readonly variant: ButtonVariant = 'solid';
 
   private handleClick(e: MouseEvent) {
-    if (this.type !== 'button') {
+    // Only use special shadowDOM escaping logic if we are using native shadowDOM
+    if (this.type !== 'button' && this.el.shadowRoot && this.el.attachShadow) {
       // this button wants to specifically submit a form
       // climb up the dom to see if we're in a <form>
       // and if so, then use JS to submit it

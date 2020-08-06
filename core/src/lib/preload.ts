@@ -7,7 +7,7 @@ export async function preloadComponent(name: keyof HTMLElementTagNameMap): Promi
 
   const el = document.createElement(name) as HTMLStencilElement;
   el.style.display = 'none';
-  document.body.append(el);
+  document.body.appendChild(el);
   el.remove();
 
   await el.componentOnReady?.();
