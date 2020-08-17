@@ -22,16 +22,18 @@ function isDescendant(parent: HTMLElement, child: HTMLElement | null) {
   return false;
 }
 
-export function getOverlays(doc: Document, selector?: string): HTMLUniOverlayElement[] {
+export function getOverlays<E extends HTMLUniOverlayElement = HTMLUniOverlayElement>(doc: Document, selector?: string): E[] {
   if (selector === undefined) {
     selector = '[uni-overlay]';
   }
-  return (Array.from(doc.querySelectorAll(selector)) as HTMLUniOverlayElement[])
+  return (Array.from(doc.querySelectorAll(selector)) as E[])
     .filter(c => c.overlayIndex > 0);
 }
 
-export function getOverlay(doc: Document, overlayTag?: string, id?: string): HTMLUniOverlayElement | undefined {
-  const overlays = getOverlays(doc, overlayTag);
+export function getOverlay<
+  E extends HTMLUniOverlayElement = HTMLUniOverlayElement
+>(doc: Document, overlayTag?: keyof HTMLElementTagNameMap, id?: string): E | undefined {
+  const overlays = getOverlays<E>(doc, overlayTag);
   return (id === undefined)
     ? overlays[overlays.length - 1]
     : overlays.find(o => o.id === id);
@@ -90,7 +92,13 @@ export function createOverlay<T extends HTMLUniOverlayElement>(tagName: string, 
   });
 }
 
-export function dismissOverlay(doc: Document, data: any, role: string | undefined, overlayTag: string, id?: string): Promise<boolean> {
+export function dismissOverlay(
+  doc: Document,
+  data: any,
+  role: string | undefined,
+  overlayTag: keyof HTMLElementTagNameMap,
+  id?: string
+): Promise<boolean> {
   const overlay = getOverlay(doc, overlayTag, id);
   if (!overlay) {
     return Promise.reject(new Error('overlay does not exist'));
@@ -141,16 +149,18 @@ export function isCancel(role: string | undefined): boolean {
   return role === 'cancel' || role === BACKDROP;
 }
 
-function createController<Opts extends object, HTMLElm extends HTMLUniOverlayElement>(tagName: string): OverlayController<HTMLElm> {
+function createController<
+  Opts extends object, HTMLElm extends HTMLUniOverlayElement
+>(tagName: keyof HTMLElementTagNameMap): OverlayController<HTMLElm> {
   return {
     create(options: Opts): Promise<HTMLElm> {
-      return createOverlay(tagName, options) as any;
+      return createOverlay(tagName, options);
     },
     dismiss(data?: any, role?: string, id?: string) {
       return dismissOverlay(document, data, role, tagName, id);
     },
     async getTop(): Promise<HTMLElm | undefined> {
-      return getOverlay(document, tagName) as any;
+      return getOverlay<HTMLElm>(document, tagName);
     }
   };
 }
