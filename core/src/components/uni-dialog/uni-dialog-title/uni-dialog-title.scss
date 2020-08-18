@@ -1,0 +1,9 @@
+@use "../../../css/theming/typography";
+
+.dialog-title {
+  @include typography.useStyle(h4);
+  margin: 0;
+  uni-underline {
+    padding: 0;
+  }
+}

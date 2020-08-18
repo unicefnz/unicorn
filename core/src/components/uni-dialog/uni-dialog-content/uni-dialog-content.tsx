@@ -3,7 +3,7 @@ import { Component, Host, h, Prop } from '@stencil/core';
 @Component({
   tag: 'uni-dialog-content',
   styleUrl: 'uni-dialog-content.scss',
-  shadow: true,
+  scoped: true
 })
 export class UniDialogContent {
   /**
@@ -18,15 +18,7 @@ export class UniDialogContent {
           'uni-dialog--shaking': this.shaking
         }}
       >
-        <h1 class="dialog-title">
-          <uni-underline>
-            <slot name="title" />
-          </uni-underline>
-        </h1>
         <slot />
-        <div class="dialog-actions">
-          <slot name="actions" />
-        </div>
       </Host>
     );
   }

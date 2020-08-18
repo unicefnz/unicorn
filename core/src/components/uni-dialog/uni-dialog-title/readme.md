@@ -1,4 +1,4 @@
-# uni-underline
+# uni-dialog-title
 
 
 
@@ -7,15 +7,15 @@
 
 ## Dependencies
 
-### Used by
+### Depends on
 
- - [uni-dialog-title](../uni-dialog/uni-dialog-title)
+- [uni-underline](../../uni-underline)
 
 ### Graph
 ```mermaid
 graph TD;
   uni-dialog-title --> uni-underline
-  style uni-underline fill:#f9f,stroke:#333,stroke-width:4px
+  style uni-dialog-title fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

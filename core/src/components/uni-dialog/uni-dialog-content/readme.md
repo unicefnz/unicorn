@@ -16,16 +16,11 @@
 
 ### Used by
 
- - [uni-dialog](../uni-dialog)
-
-### Depends on
-
-- [uni-underline](../uni-underline)
+ - [uni-dialog](..)
 
 ### Graph
 ```mermaid
 graph TD;
-  uni-dialog-content --> uni-underline
   uni-dialog --> uni-dialog-content
   style uni-dialog-content fill:#f9f,stroke:#333,stroke-width:4px
 ```
