@@ -41,7 +41,7 @@ export const Default = () => {
   const noDismissDialog = document.createElement('uni-dialog');
   noDismissDialog.backdropDismiss = false;
   noDismissDialog.innerHTML = `
-    <span slot="title">No background dismiss</span>
+    <uni-dialog-title>No background dismiss</uni-dialog-title>
     <p>You shouldn't be able to click the background or hit escape to close</p>
     <uni-dialog-actions></uni-dialog-actions>
   `;
@@ -57,7 +57,7 @@ export const Default = () => {
 
 export const LayoutValidation = () => `
 <uni-dialog>
-  <span slot="title">Title text</span>
+  <uni-dialog-title>Title text</uni-dialog-title>
   <p>This is a simple dialog to check using CI</p>
   <uni-dialog-actions>
     <p>Action</p>
