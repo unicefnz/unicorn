@@ -8,7 +8,7 @@ interface InternalProps<ElementType> extends React.HTMLAttributes<ElementType> {
   ref?: React.Ref<any>;
 }
 
-export const createReactComponent = <PropType, ElementType extends HTMLElement>(tagName: string) => {
+export const createReactComponent = <PropType, ElementType extends HTMLElement>(tagName: keyof HTMLElementTagNameMap) => {
   const displayName = dashToPascalCase(tagName);
   const ReactComponent = class extends React.Component<InternalProps<ElementType>> {
     static get displayName() {

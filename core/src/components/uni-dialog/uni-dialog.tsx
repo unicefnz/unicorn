@@ -7,7 +7,7 @@ import { prepareOverlay, dismiss, present, BACKDROP } from '../../lib/overlays';
 @Component({
   tag: 'uni-dialog',
   styleUrl: 'uni-dialog.scss',
-  shadow: true
+  scoped: true
 })
 export class UniDialog implements ComponentInterface, OverlayInterface {
   @Element() el: HTMLUniDialogElement;
@@ -95,7 +95,7 @@ export class UniDialog implements ComponentInterface, OverlayInterface {
         aria-modal="true"
         tabindex={-1}
         style={{
-          zIndex: `${2000 + this.overlayIndex}`,
+          zIndex: `${2000 + this.overlayIndex}`
         }}
         onUniBackdropTap={this.onBackdropTap}
         uni-overlay
@@ -103,9 +103,7 @@ export class UniDialog implements ComponentInterface, OverlayInterface {
         <uni-backdrop tappable={this.backdropDismiss} onClick={() => this.backdropDismiss || this.doShake()} />
         <div class="flex-wrapper">
           <uni-dialog-content shaking={!!this.shakeTimer}>
-            <slot name="title" slot="title" />
             <slot />
-            <slot name="actions" slot="actions" />
           </uni-dialog-content>
         </div>
       </Host>

@@ -18,7 +18,7 @@ function makeTrigger(dialog: HTMLUniDialogElement, text: string) {
   return button;
 }
 function addDismissAction(dialog: HTMLUniDialogElement) {
-  const actionRoot = dialog.querySelector('div[slot=actions]');
+  const actionRoot = dialog.querySelector('uni-dialog-actions');
   if (!actionRoot) throw new Error('No actions slot');
 
   const button = document.createElement('uni-button');
@@ -33,17 +33,17 @@ function addDismissAction(dialog: HTMLUniDialogElement) {
 export const Default = () => {
   const normalDialog = document.createElement('uni-dialog');
   normalDialog.innerHTML = `
-    <span slot="title">Hello!</span>
+    <uni-dialog-title>Hello!</uni-dialog-title>
     <p>Are you sure?</p>
-    <div slot="actions"></div>`;
+    <uni-dialog-actions></uni-dialog-actions>`;
   addDismissAction(normalDialog);
 
   const noDismissDialog = document.createElement('uni-dialog');
   noDismissDialog.backdropDismiss = false;
   noDismissDialog.innerHTML = `
-    <span slot="title">No background dismiss</span>
+    <uni-dialog-title>No background dismiss</uni-dialog-title>
     <p>You shouldn't be able to click the background or hit escape to close</p>
-    <div slot="actions"></div>
+    <uni-dialog-actions></uni-dialog-actions>
   `;
   addDismissAction(noDismissDialog);
 
@@ -57,10 +57,10 @@ export const Default = () => {
 
 export const LayoutValidation = () => `
 <uni-dialog>
-  <span slot="title">Title text</span>
+  <uni-dialog-title>Title text</uni-dialog-title>
   <p>This is a simple dialog to check using CI</p>
-  <div slot="actions">
+  <uni-dialog-actions>
     <p>Action</p>
-  </div>
+  </uni-dialog-actions>
 </uni-dialog>
 `;

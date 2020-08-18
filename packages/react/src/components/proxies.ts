@@ -1,6 +1,3 @@
-/* eslint-disable */
-/* tslint:disable */
-/* auto-generated react proxies */
 import { JSX } from '@unicef-new-zealand/uniform-core';
 import { createReactComponent } from './utils';
 
@@ -11,7 +8,9 @@ export const UniCheckbox = /*@__PURE__*/createReactComponent<JSX.UniCheckbox, HT
 export const UniComboGroup = /*@__PURE__*/createReactComponent<JSX.UniComboGroup, HTMLUniComboGroupElement>('uni-combo-group');
 export const UniComboItem = /*@__PURE__*/createReactComponent<JSX.UniComboItem, HTMLUniComboItemElement>('uni-combo-item');
 export const UniComboText = /*@__PURE__*/createReactComponent<JSX.UniComboText, HTMLUniComboTextElement>('uni-combo-text');
+export const UniDialogActions = /*@__PURE__*/createReactComponent<JSX.UniDialogActions, HTMLUniDialogActionsElement>('uni-dialog-actions');
 export const UniDialogContent = /*@__PURE__*/createReactComponent<JSX.UniDialogContent, HTMLUniDialogContentElement>('uni-dialog-content');
+export const UniDialogTitle = /*@__PURE__*/createReactComponent<JSX.UniDialogTitle, HTMLUniDialogTitleElement>('uni-dialog-title');
 export const UniErrors = /*@__PURE__*/createReactComponent<JSX.UniErrors, HTMLUniErrorsElement>('uni-errors');
 export const UniExpandableField = /*@__PURE__*/createReactComponent<JSX.UniExpandableField, HTMLUniExpandableFieldElement>('uni-expandable-field');
 export const UniOutsideClick = /*@__PURE__*/createReactComponent<JSX.UniOutsideClick, HTMLUniOutsideClickElement>('uni-outside-click');

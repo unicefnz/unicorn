@@ -134,11 +134,15 @@ export namespace Components {
         "present": () => Promise<void>;
         "presented": boolean;
     }
+    interface UniDialogActions {
+    }
     interface UniDialogContent {
         /**
           * Whether to play the shaking animation
          */
         "shaking": boolean;
+    }
+    interface UniDialogTitle {
     }
     interface UniErrors {
         /**
@@ -358,11 +362,23 @@ declare global {
         prototype: HTMLUniDialogElement;
         new (): HTMLUniDialogElement;
     };
+    interface HTMLUniDialogActionsElement extends Components.UniDialogActions, HTMLStencilElement {
+    }
+    var HTMLUniDialogActionsElement: {
+        prototype: HTMLUniDialogActionsElement;
+        new (): HTMLUniDialogActionsElement;
+    };
     interface HTMLUniDialogContentElement extends Components.UniDialogContent, HTMLStencilElement {
     }
     var HTMLUniDialogContentElement: {
         prototype: HTMLUniDialogContentElement;
         new (): HTMLUniDialogContentElement;
+    };
+    interface HTMLUniDialogTitleElement extends Components.UniDialogTitle, HTMLStencilElement {
+    }
+    var HTMLUniDialogTitleElement: {
+        prototype: HTMLUniDialogTitleElement;
+        new (): HTMLUniDialogTitleElement;
     };
     interface HTMLUniErrorsElement extends Components.UniErrors, HTMLStencilElement {
     }
@@ -433,7 +449,9 @@ declare global {
         "uni-combo-item": HTMLUniComboItemElement;
         "uni-combo-text": HTMLUniComboTextElement;
         "uni-dialog": HTMLUniDialogElement;
+        "uni-dialog-actions": HTMLUniDialogActionsElement;
         "uni-dialog-content": HTMLUniDialogContentElement;
+        "uni-dialog-title": HTMLUniDialogTitleElement;
         "uni-errors": HTMLUniErrorsElement;
         "uni-expandable-field": HTMLUniExpandableFieldElement;
         "uni-outside-click": HTMLUniOutsideClickElement;
@@ -599,11 +617,15 @@ declare namespace LocalJSX {
         "overlayIndex": number;
         "presented"?: boolean;
     }
+    interface UniDialogActions {
+    }
     interface UniDialogContent {
         /**
           * Whether to play the shaking animation
          */
         "shaking"?: boolean;
+    }
+    interface UniDialogTitle {
     }
     interface UniErrors {
         /**
@@ -802,7 +824,9 @@ declare namespace LocalJSX {
         "uni-combo-item": UniComboItem;
         "uni-combo-text": UniComboText;
         "uni-dialog": UniDialog;
+        "uni-dialog-actions": UniDialogActions;
         "uni-dialog-content": UniDialogContent;
+        "uni-dialog-title": UniDialogTitle;
         "uni-errors": UniErrors;
         "uni-expandable-field": UniExpandableField;
         "uni-outside-click": UniOutsideClick;
@@ -827,7 +851,9 @@ declare module "@stencil/core" {
             "uni-combo-item": LocalJSX.UniComboItem & JSXBase.HTMLAttributes<HTMLUniComboItemElement>;
             "uni-combo-text": LocalJSX.UniComboText & JSXBase.HTMLAttributes<HTMLUniComboTextElement>;
             "uni-dialog": LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
+            "uni-dialog-actions": LocalJSX.UniDialogActions & JSXBase.HTMLAttributes<HTMLUniDialogActionsElement>;
             "uni-dialog-content": LocalJSX.UniDialogContent & JSXBase.HTMLAttributes<HTMLUniDialogContentElement>;
+            "uni-dialog-title": LocalJSX.UniDialogTitle & JSXBase.HTMLAttributes<HTMLUniDialogTitleElement>;
             "uni-errors": LocalJSX.UniErrors & JSXBase.HTMLAttributes<HTMLUniErrorsElement>;
             "uni-expandable-field": LocalJSX.UniExpandableField & JSXBase.HTMLAttributes<HTMLUniExpandableFieldElement>;
             "uni-outside-click": LocalJSX.UniOutsideClick & JSXBase.HTMLAttributes<HTMLUniOutsideClickElement>;
