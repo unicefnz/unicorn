@@ -64,7 +64,7 @@ export function syncEvent(node: Element, eventName: string, newEventHandler: (e:
       eventName,
       (eventStore[eventName] = function handler(e: Event) {
         newEventHandler.call(this, e);
-      }),
+      })
     );
   }
 }

@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 
 export const config: Config = {
-  namespace: 'Uniform',
+  namespace: 'Unicorn',
   outputTargets: [
     {
       type: 'dist',
@@ -14,7 +14,7 @@ export const config: Config = {
     {
       type: 'docs-vscode',
       file: 'dist/custom-elements.json',
-      sourceCodeBaseUrl: 'https://github.com/unicef-new-zealand/uniform/tree/master/core/',
+      sourceCodeBaseUrl: 'https://github.com/unicef-new-zealand/unicorn/tree/master/core/',
     },
   ],
   plugins: [

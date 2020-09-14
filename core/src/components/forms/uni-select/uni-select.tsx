@@ -57,7 +57,7 @@ export class UniSelect {
       <Host class={{ 'uni-select--errored': isErrored }}>
         {this.label ? (
           <label>
-            <span class="select-label">{this.label}</span>
+            <div class="select-label">{this.label}</div>
             {select}
           </label>
         ) : select}

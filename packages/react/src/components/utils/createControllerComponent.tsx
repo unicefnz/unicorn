@@ -1,5 +1,5 @@
 import React from 'react';
-import { OverlayEventDetail, OverlayController, HTMLUniOverlayElement } from '@unicef-new-zealand/uniform-core';
+import { OverlayEventDetail, OverlayController, HTMLUniOverlayElement } from '@unicorndesign/core';
 import { attachProps } from './attachProps';
 import { ReactOverlayProps } from './utils';
 

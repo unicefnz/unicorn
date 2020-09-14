@@ -1,7 +1,7 @@
 {
-  "name": "@unicef-new-zealand/uniform-react",
+  "name": "@unicorndesign/react",
   "version": "1.0.0-34",
-  "description": "React Components for the Uniform Design System",
+  "description": "React Layer for the Unicorn Design System",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
@@ -14,20 +14,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unicef-new-zealand/uniform.git",
-    "directory": "core/react"
+    "url": "git+https://github.com/unicef-new-zealand/unicorn.git",
+    "directory": "packages/react"
   },
   "files": [
     "dist/"
   ],
   "author": "Asher Foster <asher@unicef.org.nz>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/unicef-new-zealand/uniform/issues"
+    "url": "https://github.com/unicef-new-zealand/unicorn/issues"
   },
-  "homepage": "https://github.com/unicef-new-zealand/uniform/blob/master/packages/react/#readme",
+  "homepage": "https://github.com/unicef-new-zealand/unicorn/blob/master/packages/react/#readme",
   "dependencies": {
-    "@unicef-new-zealand/uniform-core": "^1.0.0-34",
+    "@unicorndesign/core": "npm:@unicef-new-zealand/uniform-core@^1.0.0-34",
     "tslib": "^1.13.0"
   },
   "peerDependencies": {

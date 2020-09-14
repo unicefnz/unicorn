@@ -6,8 +6,8 @@ let lastId = 0;
 export const BACKDROP = 'backdrop';
 
 function getAppRoot(doc: Document) {
-  const roots = doc.querySelectorAll('.uniform-app');
-  if (roots.length > 1) console.warn('Uniform: Only one .uniform-app element should be present at a time');
+  const roots = doc.querySelectorAll('.unicorn-app');
+  if (roots.length > 1) console.warn('Unicorn: Only one .unicorn-app element should be present at a time');
   return roots[0] || doc.body;
 }
 

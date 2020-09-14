@@ -1,7 +1,7 @@
 {
-  "name": "@unicef-new-zealand/uniform-core",
+  "name": "@unicorndesign/core",
   "version": "1.0.0-34",
-  "description": "Uniform Core Web Component Library",
+  "description": "Unicorn Design System Component Library",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
@@ -9,10 +9,10 @@
   "types": "dist/types/interface.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/uniform-alpha/uniform-alpha.js",
+  "unpkg": "dist/unicorn/unicorn-alpha.js",
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com/unicef-new-zealand/uniform.git",
+    "url": "ssh://git@github.com/unicef-new-zealand/unicorn.git",
     "directory": "core"
   },
   "files": [
@@ -68,6 +68,6 @@
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.7"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {}
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { OverlayEventDetail } from '@unicef-new-zealand/uniform-core';
+import { OverlayEventDetail } from '@unicorndesign/core';
 
 export const dashToPascalCase = (str: string) => str.toLowerCase().split('-').map(segment => segment.charAt(0).toUpperCase() + segment.slice(1)).join('');
 export const camelToDashCase = (str: string) => str.replace(/([A-Z])/g, (m: string) => `-${m[0].toLowerCase()}`);
@@ -21,11 +21,11 @@ export interface ReactOverlayProps {
 
 export const createForwardRef = <PropType, ElementType>(
   ReactComponent: any,
-  displayName: string,
+  displayName: string
 ) => {
   const forwardRef = (
     props: UniReactExternalProps<PropType, ElementType>,
-    ref: React.Ref<ElementType>,
+    ref: React.Ref<ElementType>
   ) => (<ReactComponent {...props} forwardedRef={ref} />);
   forwardRef.displayName = displayName;
 

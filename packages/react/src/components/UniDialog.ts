@@ -1,4 +1,4 @@
-import { dialogController } from '@unicef-new-zealand/uniform-core';
+import { dialogController } from '@unicorndesign/core';
 
 import { createOverlayComponent } from './utils';
 

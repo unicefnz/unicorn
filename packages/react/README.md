@@ -1,19 +1,19 @@
-# @uniform/react
+# @unicorndesign/react
 
 ## Usage
 ```
-npm i @unicef-new-zealand/uniform-react @unicef-new-zealand/uniform-core
+npm i @unicorndesign/react @unicorndesign/core
 ```
 
-You must include the core styles to properly use uniform.
-### Load Unform styles
-Somewhere in your app, load `@unicef-newzealand/uniform-core/css/themes/unicef.css`
-or another Uniform theme.
+You must include the core styles to properly use Unicorn.
+### Load Unicorn styles
+Somewhere in your app, load `@unicorndesign/core/css/themes/unicef.css`
+or another Unicorn theme.
 
-### Load Uniform components
+### Load Unicorn components
 In your app's entry file, add:
 ```js
-import { defineCustomElements } from '@unicef-new-zealand/uniform-core/loader';
+import { defineCustomElements } from '@unicorndesign/core/loader';
 
 defineCustomElements(window);
 ``` 
@@ -23,7 +23,7 @@ Then, once both the theme and web components are loaded, use
 the React components as usual
 ```jsx
 import React from 'react';
-import { UniButton } from '@unicef-new-zealand/uniform-react';
+import { UniButton } from '@unicorndesign/react';
 
 export default () => (
   <UniButton onClick={() => doSomething()}>Button!</UniButton>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { HTMLUniOverlayElement, OverlayController } from '@unicef-new-zealand/uniform-core';
+import { HTMLUniOverlayElement, OverlayController } from '@unicorndesign/core';
 import { attachProps } from './attachProps';
 import { ReactOverlayProps } from './utils';
 

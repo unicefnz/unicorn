@@ -1,4 +1,4 @@
-import { JSX } from '@unicef-new-zealand/uniform-core';
+import { JSX } from '@unicorndesign/core';
 import { createReactComponent } from './utils';
 
 export const UniBackdrop = /*@__PURE__*/createReactComponent<JSX.UniBackdrop, HTMLUniBackdropElement>('uni-backdrop');

@@ -53,4 +53,4 @@ $colors: (
   )
 );
 
-@include theme.createTheme($colors, $typeConfig, unquote(".uniform-root"));
+@include theme.createTheme($colors, $typeConfig, unquote(".unicorn-root"));
