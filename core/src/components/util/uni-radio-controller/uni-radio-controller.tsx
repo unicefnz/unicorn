@@ -1,9 +1,11 @@
-import { Component, h, Element, Prop, Event, EventEmitter, Watch, ComponentInterface, Listen } from '@stencil/core';
+import {
+  Component, h, Element, Prop, Event, EventEmitter, Watch, ComponentInterface, Listen
+} from '@stencil/core';
 import { HTMLUniRadioItemElement } from './radio-item-interface';
 
 @Component({
   tag: 'uni-radio-controller',
-  shadow: true,
+  shadow: true
 })
 export class UniRadioController implements ComponentInterface {
   @Element() readonly el: HTMLUniRadioControllerElement;

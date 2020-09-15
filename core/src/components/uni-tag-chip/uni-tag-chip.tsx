@@ -1,9 +1,11 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import {
+  Component, Host, h, Prop
+} from '@stencil/core';
 
 @Component({
   tag: 'uni-tag-chip',
   styleUrl: 'uni-tag-chip.scss',
-  shadow: true,
+  shadow: true
 })
 export class UniTagChip {
   /**

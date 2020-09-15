@@ -5,7 +5,7 @@ describe('uni-checkbox', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniCheckbox],
-      html: '<uni-checkbox></uni-checkbox>',
+      html: '<uni-checkbox></uni-checkbox>'
     });
     expect(page.root).toEqualHtml(`
       <uni-checkbox>

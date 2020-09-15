@@ -5,7 +5,7 @@ describe('uni-progress-linear', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniProgressLinear],
-      html: '<uni-progress-linear></uni-progress-linear>',
+      html: '<uni-progress-linear></uni-progress-linear>'
     });
     expect(page.root).toEqualHtml(`
       <uni-progress-linear class="uni-loading-active">

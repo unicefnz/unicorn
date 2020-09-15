@@ -129,6 +129,8 @@ export class UniTextField {
     return (
       <Host class={{ 'input--has-errors': !!this.error, 'uni-disabled': this.disabled }}>
         {this.labelSlot ? (
+          // I think the rule isn't picking up the htmlFor attr? Idk
+          // eslint-disable-next-line jsx-a11y/label-has-associated-control
           <label htmlFor={this.uniqueId} class="caption">
             <slot name="label" />
           </label>

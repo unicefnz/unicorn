@@ -1,4 +1,6 @@
-import { Component, Host, h, Prop, Event, EventEmitter, Listen, ComponentInterface } from '@stencil/core';
+import {
+  Component, Host, h, Prop, Event, EventEmitter, Listen, ComponentInterface
+} from '@stencil/core';
 
 @Component({
   tag: 'uni-backdrop',
@@ -41,7 +43,7 @@ export class UniBackdrop implements ComponentInterface {
         tabindex={-1}
         class={{
           'uni-backdrop--hidden': !this.visible,
-          'uni-backdrop--no-interact': !this.tappable,
+          'uni-backdrop--no-interact': !this.tappable
         }}
       />
     );

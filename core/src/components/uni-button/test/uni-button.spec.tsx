@@ -5,7 +5,7 @@ describe('uni-button', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniButton],
-      html: '<uni-button></uni-button>',
+      html: '<uni-button></uni-button>'
     });
     expect(page.root).toEqualHtml(`
       <uni-button class="uni-color-accent uni-variant-solid">

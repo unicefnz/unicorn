@@ -5,7 +5,7 @@ describe('uni-dialog', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniDialog],
-      html: '<uni-dialog></uni-dialog>',
+      html: '<uni-dialog></uni-dialog>'
     });
     expect(page.root).toEqualHtml(`
       <uni-dialog aria-modal="true" id="uni-overlay-1" tabindex="-1" uni-overlay="" role="dialog" style="z-index: 2001;">

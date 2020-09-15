@@ -1,9 +1,11 @@
-import { Component, Host, h, Prop, Event, EventEmitter, Watch, Element } from '@stencil/core';
+import {
+  Component, Host, h, Prop, Event, EventEmitter, Watch, Element
+} from '@stencil/core';
 
 @Component({
   tag: 'uni-combo-text',
   styleUrl: 'uni-combo-text.scss',
-  shadow: true,
+  shadow: true
 })
 export class UniComboText {
   @Element() el: HTMLUniComboTextElement;

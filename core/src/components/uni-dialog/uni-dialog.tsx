@@ -2,7 +2,9 @@ import {
   Component, Host, h, Prop, Event, EventEmitter, Element, State, ComponentInterface, Method
 } from '@stencil/core';
 import { OverlayEventDetail, OverlayInterface } from '../../lib/OverlayInterface';
-import { prepareOverlay, dismiss, present, BACKDROP } from '../../lib/overlays';
+import {
+  prepareOverlay, dismiss, present, BACKDROP
+} from '../../lib/overlays';
 
 @Component({
   tag: 'uni-dialog',

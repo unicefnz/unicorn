@@ -5,7 +5,7 @@ describe('uni-errors', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniErrors],
-      html: '<uni-errors></uni-errors>',
+      html: '<uni-errors></uni-errors>'
     });
     expect(page.root).toEqualHtml(`
       <uni-errors>

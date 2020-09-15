@@ -1,4 +1,6 @@
-import { Component, Host, h, Prop, Element, Event, EventEmitter } from '@stencil/core';
+import {
+  Component, Host, h, Prop, Element, Event, EventEmitter
+} from '@stencil/core';
 
 let nextUniqueId = 0;
 

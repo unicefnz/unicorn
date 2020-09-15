@@ -5,7 +5,7 @@ describe('uni-dialog-title', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniDialogTitle],
-      html: '<uni-dialog-title>Hello!</uni-dialog-title>',
+      html: '<uni-dialog-title>Hello!</uni-dialog-title>'
     });
     expect(page.root).toEqualHtml(`
       <uni-dialog-title>

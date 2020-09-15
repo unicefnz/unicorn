@@ -1,9 +1,11 @@
-import { Component, Host, h, Prop, Element, ComponentInterface, Watch, State } from '@stencil/core';
+import {
+  Component, Host, h, Prop, Element, ComponentInterface, Watch, State
+} from '@stencil/core';
 
 @Component({
   tag: 'uni-tooltip',
   styleUrl: 'uni-tooltip.scss',
-  shadow: true,
+  shadow: true
 })
 export class UniTooltip implements ComponentInterface {
   @Element() el: HTMLUniTooltipElement;

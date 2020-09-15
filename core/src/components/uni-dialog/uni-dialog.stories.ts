@@ -50,7 +50,7 @@ export const Default = () => {
   const wrapper = document.createElement('div');
   wrapper.append(
     makeTrigger(normalDialog, 'Open Normal'),
-    makeTrigger(noDismissDialog, 'Open backdropDismiss = false'),
+    makeTrigger(noDismissDialog, 'Open backdropDismiss = false')
   );
   return wrapper;
 };

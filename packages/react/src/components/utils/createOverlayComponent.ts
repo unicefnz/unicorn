@@ -41,6 +41,7 @@ export function createOverlayComponent<
       } else maybeDismiss();
       return maybeDismiss;
       // This hook is only going to do something if isOpen changes, so we dont need a dep on restProps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [overlayEl, isOpen]);
 
     useEffect(() => {
@@ -52,6 +53,8 @@ export function createOverlayComponent<
         }
         prevPropsRef.current = restProps;
       } else prevPropsRef.current = undefined;
+      // We don't need to depend on overlayEl, as changes to it are handled in the above hook
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [restProps]);
 
     if (overlayEl) {

@@ -1,9 +1,11 @@
-import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
+import {
+  Component, Host, h, Prop, Event, EventEmitter
+} from '@stencil/core';
 
 @Component({
   tag: 'uni-combo-group',
   styleUrl: 'uni-combo-group.scss',
-  shadow: true,
+  shadow: true
 })
 export class UniComboGroup {
   /**

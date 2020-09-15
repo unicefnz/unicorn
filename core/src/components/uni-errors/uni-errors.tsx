@@ -1,9 +1,11 @@
-import { Component, h, Prop, Host } from '@stencil/core';
+import {
+  Component, h, Prop, Host
+} from '@stencil/core';
 
 @Component({
   tag: 'uni-errors',
   styleUrl: 'uni-errors.scss',
-  shadow: true,
+  shadow: true
 })
 export class UniErrors {
   /**

@@ -1,10 +1,12 @@
+// This is a workaround for https://github.com/eslint/eslint/issues/3458
+require('@unicefnz/eslint-config/patch');
+
 module.exports = {
   extends: [
     'plugin:@stencil/recommended',
-    '@unicefnz/eslint-config/ts-react'
+    '@unicefnz/eslint-config/react'
   ],
   rules: {
-    'import/prefer-default-export': 0,
     'react/no-unknown-property': [2, { ignore: ['class'] }],
     '@stencil/strict-boolean-conditions': 0
   },
@@ -14,6 +16,6 @@ module.exports = {
     }
   },
   parserOptions: {
-    project: './tsconfig.json'
+    tsconfigRootDir: __dirname
   }
 };

@@ -1,9 +1,11 @@
-import { Component, Host, h, Prop, State, Element } from '@stencil/core';
+import {
+  Component, Host, h, Prop, State, Element
+} from '@stencil/core';
 
 @Component({
   tag: 'uni-expandable-field',
   styleUrl: 'uni-expandable-field.scss',
-  shadow: true,
+  shadow: true
 })
 export class UniExpandableField {
   @Element() el: HTMLUniExpandableFieldElement;

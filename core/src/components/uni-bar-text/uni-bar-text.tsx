@@ -3,7 +3,7 @@ import { Component, h } from '@stencil/core';
 @Component({
   tag: 'uni-bar-text',
   styleUrl: 'uni-bar-text.scss',
-  shadow: true,
+  shadow: true
 })
 export class UniBarText {
   render() {

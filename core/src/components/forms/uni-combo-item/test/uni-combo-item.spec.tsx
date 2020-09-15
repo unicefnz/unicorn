@@ -5,7 +5,7 @@ describe('uni-combo-item', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniComboItem],
-      html: '<uni-combo-item></uni-combo-item>',
+      html: '<uni-combo-item></uni-combo-item>'
     });
     expect(page.root).toEqualHtml(`
       <uni-combo-item uni-radio-option="">

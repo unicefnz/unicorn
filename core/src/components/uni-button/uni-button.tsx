@@ -1,11 +1,13 @@
-import { Component, Element, Host, h, Prop } from '@stencil/core';
+import {
+  Component, Element, Host, h, Prop
+} from '@stencil/core';
 
 export type ButtonVariant = 'solid' | 'border';
 
 @Component({
   tag: 'uni-button',
   styleUrl: 'uni-button.scss',
-  shadow: true,
+  shadow: true
 })
 export class UniButton {
   @Element() el: HTMLUniButtonElement;

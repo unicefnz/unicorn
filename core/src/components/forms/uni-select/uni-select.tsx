@@ -1,4 +1,6 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import {
+  Component, Host, h, Prop
+} from '@stencil/core';
 
 @Component({
   tag: 'uni-select',
@@ -56,6 +58,8 @@ export class UniSelect {
     return (
       <Host class={{ 'uni-select--errored': isErrored }}>
         {this.label ? (
+          // Associated input is rendered in a slot
+          // eslint-disable-next-line jsx-a11y/label-has-associated-control
           <label>
             <div class="select-label">{this.label}</div>
             {select}

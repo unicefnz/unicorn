@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { createForwardRef, dashToPascalCase } from './utils';
 import { attachProps, isCoveredByReact } from './attachProps';
 
@@ -32,7 +31,9 @@ export const createReactComponent = <PropType, ElementType extends HTMLElement>(
     }
 
     render() {
-      const { children, forwardedRef, style, className, ref, ...cProps } = this.props;
+      const {
+        children, forwardedRef, style, className, ref, ...cProps
+      } = this.props;
 
       const propsToPass = Object.keys(cProps).reduce((acc, name) => {
         if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) { // If it looks like an event

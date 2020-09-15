@@ -7,7 +7,11 @@ export const BACKDROP = 'backdrop';
 
 function getAppRoot(doc: Document) {
   const roots = doc.querySelectorAll('.unicorn-app');
-  if (roots.length > 1) console.warn('Unicorn: Only one .unicorn-app element should be present at a time');
+  if (process.env.NODE_ENV !== 'production') {
+    // This is development code
+    // eslint-disable-next-line no-console
+    if (roots.length > 1) console.error('Unicorn: Only one .unicorn-app element should be present at a time');
+  }
   return roots[0] || doc.body;
 }
 

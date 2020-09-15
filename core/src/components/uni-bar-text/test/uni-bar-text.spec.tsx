@@ -5,7 +5,7 @@ describe('uni-bar-text', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniBarText],
-      html: '<uni-bar-text></uni-bar-text>',
+      html: '<uni-bar-text></uni-bar-text>'
     });
     expect(page.root).toEqualHtml(`
       <uni-bar-text>

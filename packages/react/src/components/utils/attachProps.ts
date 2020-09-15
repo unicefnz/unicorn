@@ -50,6 +50,8 @@ export function isCoveredByReact(eventNameSuffix: string, doc?: Document): boole
 }
 
 export function syncEvent(node: Element, eventName: string, newEventHandler: (e: Event) => any) {
+  // We could use a Symbol but, yaknow, browser support
+  // eslint-disable-next-line no-underscore-dangle
   const eventStore = (node as any).__events || ((node as any).__events = {});
   const oldEventHandler = eventStore[eventName];
 

@@ -1,8 +1,10 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } from '@stencil/core';
+import {
+  Component, ComponentInterface, Element, Event, EventEmitter, h, Prop
+} from '@stencil/core';
 
 @Component({
   tag: 'uni-outside-click',
-  shadow: true,
+  shadow: true
 })
 export class UniOutsideClick implements ComponentInterface {
   @Element() el: HTMLUniOutsideClickElement;
