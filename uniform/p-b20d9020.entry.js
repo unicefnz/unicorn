@@ -1,1 +1,0 @@
-import{r as t,h as o,H as i}from"./p-bddfebbe.js";const s=class{constructor(o){t(this,o)}render(){return o(i,null,o("slot",null),o("div",{class:"dialog-actions"},o("slot",{name:"actions"})))}};s.style=":host{display:block;background:white;border-radius:12px;padding:16px;min-width:300px}.dialog-actions{margin-top:16px;text-align:right}";export{s as uni_dialog_content}

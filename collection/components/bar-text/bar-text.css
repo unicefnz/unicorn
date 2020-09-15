@@ -1,6 +1,0 @@
-:host {
-  display: inline;
-  background: var(--uni-color, var(--uni-primary));
-  color: var(--uni-color-contrast, var(--uni-primary-contrast));
-  padding: 0.6rem 0;
-}
