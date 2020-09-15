@@ -1,13 +1,13 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Deploy Core Storybook
+name: Deploy Site
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   push:
     branches: [ master ]
-    paths: [ 'core/**' ]
+    paths: [ 'core/**', 'packages/site/**' ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -46,9 +46,12 @@ jobs:
       run: npm run build:storybook
       working-directory: ./core
 
-    - name: Deploy Storybook 🚀
+    - name: Arrange artifacts
+      run: sh scripts/move-artifacts.sh
+
+    - name: Deploy Site 🚀
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: core/storybook-static
+        FOLDER: dist
