@@ -9,7 +9,7 @@
   "types": "dist/types/interface.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/unicorn/unicorn-alpha.js",
+  "unpkg": "dist/unicorn/unicorn.js",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/unicef-new-zealand/unicorn.git",

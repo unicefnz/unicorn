@@ -1,0 +1,56 @@
+@use "../theming/theme";
+
+$typeConfig: (
+  body: unquote("Jost, Arial, sans-serif"),
+  header: unquote("Inter, \"Univers LT Std\", Helvetica, sans-serif"),
+
+  light: #FFFFFF, // Light colored text
+  dark: #303030
+);
+
+$colors: (
+  primary: (
+    base: #EB3092,
+    shade: #D62783,
+    tint: #FF42A4,
+    contrast: light
+  ),
+  accent: (
+    base: #41EAD4,
+    shade: #30C7B3,
+    tint: #54FFE9,
+    contrast: dark
+  ),
+  success: (
+    base: #80BD41,
+    shade: #6EA82C,
+    tint: #81C74C,
+    contrast: dark
+  ),
+  danger: (
+    base: #E2231A,
+    shade: #CF1B0A,
+    tint: #F02E2B,
+    contrast: light
+  ),
+  dark: (
+    base: #303030,
+    shade: #262424,
+    tint: #3D3D3D,
+    contrast: light
+  ),
+  medium: (
+    base: #6A6A6A,
+    shade: #535353,
+    tint: #767676,
+    contrast: light
+  ),
+  light: (
+    base: #D6D6D6,
+    shade: #B3B3B3,
+    tint: #E6E6E6,
+    contrast: dark
+  )
+);
+
+@include theme.createTheme($colors, $typeConfig);
