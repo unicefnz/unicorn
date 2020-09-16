@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/unicef-new-zealand/unicorn/blob/master/packages/react/#readme",
   "dependencies": {
-    "@unicorndesign/core": "npm:@unicef-new-zealand/uniform-core@^1.0.0-34",
+    "@unicorndesign/core": "^1.0.1",
     "tslib": "^1.13.0"
   },
   "peerDependencies": {
