@@ -1,9 +1,10 @@
 import React, { MutableRefObject, useEffect, useRef } from 'react';
+import type { JSX } from '@unicorndesign/core';
 import { attachProps } from './attachProps';
 
-export const createReactComponent = <Tag extends keyof HTMLElementTagNameMap>(tagName: Tag) => {
+export const createReactComponent = <Tag extends keyof (JSX.IntrinsicElements | HTMLElementTagNameMap)>(tagName: Tag) => {
   type Element = HTMLElementTagNameMap[Tag];
-  type ReactProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<Element>, Element>;
+  type ReactProps = React.HTMLAttributes<Element> & JSX.IntrinsicElements[Tag];
 
   const WrapperComponent = (
     { children, style, ...props }: ReactProps,
