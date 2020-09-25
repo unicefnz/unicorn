@@ -1,60 +1,38 @@
-import React from 'react';
-import { createForwardRef, dashToPascalCase } from './utils';
-import { attachProps, isCoveredByReact } from './attachProps';
+import React, { MutableRefObject, useEffect, useRef } from 'react';
+import { attachProps } from './attachProps';
 
-interface InternalProps<ElementType> extends React.HTMLAttributes<ElementType> {
-  forwardedRef?: React.Ref<ElementType>;
-  ref?: React.Ref<any>;
-}
+export const createReactComponent = <Tag extends keyof HTMLElementTagNameMap>(tagName: Tag) => {
+  type Element = HTMLElementTagNameMap[Tag];
+  type ReactProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<Element>, Element>;
 
-export const createReactComponent = <PropType, ElementType extends HTMLElement>(tagName: keyof HTMLElementTagNameMap) => {
-  const displayName = dashToPascalCase(tagName);
-  const ReactComponent = class extends React.Component<InternalProps<ElementType>> {
-    static get displayName() {
-      return displayName;
-    }
+  const WrapperComponent = (
+    { children, style, ...props }: ReactProps,
+    forwardedRef?: ((instance: Element | null) => void) | MutableRefObject<Element | null> | null
+  ) => {
+    const localRef = useRef<Element>();
+    const cbRef = (el: Element) => {
+      localRef.current = el;
+      if (typeof forwardedRef === 'function') forwardedRef(el);
+      else if (forwardedRef) forwardedRef.current = el;
+    };
 
-    private ref: React.RefObject<ElementType>;
+    const prevPropsRef = useRef<Omit<ReactProps, 'style' | 'children'>>(); // Keep track of the last props, used for dom binding.
 
-    constructor(props: InternalProps<ElementType>) {
-      super(props);
-      this.ref = props.forwardedRef as React.RefObject<ElementType> || React.createRef<ElementType>();
-    }
+    useEffect(() => {
+      // current should always be set?
+      if (localRef.current) {
+        attachProps(localRef.current, props, prevPropsRef.current || {});
+        prevPropsRef.current = props;
+      }
+    }, [props]);
 
-    componentDidMount() {
-      this.componentDidUpdate(this.props);
-    }
-
-    componentDidUpdate(prevProps: InternalProps<ElementType>) {
-      const node = this.ref.current as ElementType;
-      attachProps(node, this.props, prevProps);
-    }
-
-    render() {
-      const {
-        children, forwardedRef, style, className, ref, ...cProps
-      } = this.props;
-
-      const propsToPass = Object.keys(cProps).reduce((acc, name) => {
-        if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) { // If it looks like an event
-          const eventName = name.substring(2).toLowerCase();
-          if (isCoveredByReact(eventName)) {
-            (acc as any)[name] = (cProps as any)[name];
-          }
-        }
-        return acc;
-      }, {});
-
-      const newProps: InternalProps<ElementType> = {
-        ...propsToPass,
-        ref: this.ref,
-        style,
-        className
-      };
-
-      return React.createElement(tagName, newProps, children);
-    }
+    return React.createElement(tagName, {
+      ref: cbRef,
+      style
+    }, children);
   };
 
-  return createForwardRef<PropType, ElementType>(ReactComponent, displayName);
+  WrapperComponent.displayName = tagName;
+
+  return React.forwardRef(WrapperComponent);
 };
