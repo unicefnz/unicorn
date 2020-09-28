@@ -28,9 +28,11 @@ jobs:
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
 
+      # Install root deps (Just lerna CLI at the moment)
+      - run: npm ci
+
       # Install dependencies in all packages with lerna
-      - run: ./node_modules/.bin/lerna bootstrap
-        working-directory: ./core
+      - run: lerna bootstrap
 
       # Cache the result of the install
       - uses: actions/cache@v2
@@ -52,7 +54,7 @@ jobs:
           key: ${{ github.sha }}
 
       # Let each package lint itself
-      - run: ./node_modules/.bin/lerna run lint
+      - run: lerna run lint
 
   # Builds the @unicorndesign/core package, and saves it as $SHA-core
   build-core:
@@ -121,7 +123,7 @@ jobs:
           key: ${{ github.sha }}-core
 
       # Link packages, so that react will use the latest core version
-      - run: ./node_modules/.bin/lerna link
+      - run: lerna link
 
       # Test react
       - run: npm run build
@@ -228,7 +230,7 @@ jobs:
           key: ${{ github.sha }}-core
 
       # Compile packages
-      - run: ./node_modules/.bin/lerna run build
+      - run: lerna run build
 
       # Run a script which will determine what to publish and how
       - run: ./publish-release.sh
