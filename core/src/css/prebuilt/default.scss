@@ -10,16 +10,16 @@ $typeConfig: (
 
 $colors: (
   primary: (
+    base: #303030,
+    shade: #262424,
+    tint: #3D3D3D,
+    contrast: dark
+  ),
+  accent: (
     base: #EB3092,
     shade: #D62783,
     tint: #FF42A4,
     contrast: light
-  ),
-  accent: (
-    base: #41EAD4,
-    shade: #30C7B3,
-    tint: #54FFE9,
-    contrast: dark
   ),
   success: (
     base: #80BD41,
