@@ -35,7 +35,7 @@ await defineCustomElements(window);
 Alternatively, you can use a script tag:
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@unicorndesign/core@1.0.0/theming/prebuilt/default.css">
+<link rel="stylesheet" href="https://unpkg.com/@unicorndesign/core@latest/theming/prebuilt/default.css">
 
 <!-- Differential imports for modern browsers -->
 <script type="module" src="https://unpkg.com/@unicorndesign/core@latest/dist/unicorn/unicorn.esm.js"></script>
