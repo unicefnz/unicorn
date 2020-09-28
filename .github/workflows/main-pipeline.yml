@@ -21,8 +21,8 @@ jobs:
           # Required for publish-site to pass
           persist-credentials: false
 
-     # Fetch all tags for our current commit
-     - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+      # Fetch all tags for our current commit
+      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
 
       # Cache deps for a faster install
       - uses: actions/cache@v2
