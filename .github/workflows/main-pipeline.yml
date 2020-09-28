@@ -17,8 +17,11 @@ jobs:
       # Clone the repository to $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 20
-          persist-credentials: false
+          fetch-depth: 10
+          persist-credentials: false # Required for publish-site to pass
+
+     # Fetch all tags for our current commit
+     - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
 
       # Cache deps for a faster install
       - uses: actions/cache@v2
