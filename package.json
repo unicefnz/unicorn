@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
-    "version": "lerna version --preid next"
+    "create-release": "./scripts/release.sh"
   },
   "devDependencies": {
     "lerna": "^3.21.0"
