@@ -3,5 +3,14 @@
     "packages/*",
     "core"
   ],
-  "version": "1.0.3"
+  "version": "1.0.3",
+  "command": {
+    "publish": {
+      "allowBranch": [
+        "master",
+        "canary"
+      ],
+      "registry": "https://registry.npmjs.org/"
+    }
+  }
 }
