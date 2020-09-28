@@ -18,8 +18,6 @@ fi
 
 echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
 
-exit 0; # TODO Remove, exiting early while testing the new pipeline
-
 if [[ $(git describe --exact-match 2> /dev/null || :) =~ -beta ]];then
   echo "Publishing beta"
   lerna publish from-git --npm-tag beta --yes
