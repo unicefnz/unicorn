@@ -4,7 +4,38 @@
     <meta charset="UTF-8">
     <title>🦄 Unicorn</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Jost:wght@500&display=swap" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/@unicorndesign/core@latest/theming/prebuilt/default.css">
+
+    <!-- Differential imports for modern browsers -->
+    <script async type="module" src="https://unpkg.com/@unicorndesign/core@latest/dist/unicorn/unicorn.esm.js"></script>
+    <script async nomodule src="https://unpkg.com/@unicorndesign/core@latest/dist/unicorn/unicorn.js"></script>
+
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+    }
+    .content {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .logo img {
+      width: 64px;
+      height: auto;
+      vertical-align: middle;
+    }
+    .logo p {
+      display: inline;
+      vertical-align: middle;
+    }
+    .logo-superscript {
+      vertical-align: super;
+      font-size: 1rem;
+    }
+  </style>
 </head>
 <body>
     <div class="content">
@@ -16,7 +47,7 @@
         </header>
         <h1>One system, <br>every product</h1>
         <p>An open source design system built at UNICEF New Zealand and powered by web standards. Coming soon.</p>
-        <a class="uni-block-link" href="//unicorn.is/storybook">See storybook</a>
+        <uni-button href="/storybook">See storybook</uni-button>
     </div>
 </body>
 </html>
