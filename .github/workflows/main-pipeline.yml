@@ -196,7 +196,7 @@ jobs:
 
       # Shuffles around files to match website structure
       - name: Arrange artifacts
-        run: sh scripts/move-artifacts.sh
+        run: ./scripts/move-artifacts.sh
 
       # Deploy to github pages!
       - name: Deploy Site 🚀
@@ -234,4 +234,4 @@ jobs:
       - run: ./node_modules/.bin/lerna run build
 
       # Run a script which will determine what to publish and how
-      - run: sh ./scripts/publish.sh
+      - run: ./scripts/publish.sh
