@@ -2,7 +2,8 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "bootstrap": "lerna bootstrap --hoist"
+    "bootstrap": "lerna bootstrap --hoist",
+    "version": "lerna version --preid next --no-push"
   },
   "devDependencies": {
     "lerna": "^3.21.0"
