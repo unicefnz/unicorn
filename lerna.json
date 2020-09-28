@@ -3,7 +3,7 @@
     "packages/*",
     "core"
   ],
-  "version": "1.0.3",
+  "version": "1.0.4-next.0",
   "command": {
     "publish": {
       "allowBranch": [
