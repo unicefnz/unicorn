@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.0.4-next.2 (2020-09-28)</small>
+
+* Fix yaml ([b44830e](https://github.com/unicef-new-zealand/unicorn/commit/b44830e))
+
+
+
+
+
 ## <small>1.0.4-next.1 (2020-09-28)</small>
 
 * Add release script ([0b3124c](https://github.com/unicef-new-zealand/unicorn/commit/0b3124c))
