@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.0.4-beta.0 (2020-09-29)</small>
+
+* Use beta preid, fix lerna exec path ([59c16ee](https://github.com/unicef-new-zealand/unicorn/commit/59c16ee))
+
+
+
+
+
 ## <small>1.0.4-next.3 (2020-09-29)</small>
 
 * Refactor: Rename core readme ([2c79b4e](https://github.com/unicef-new-zealand/unicorn/commit/2c79b4e))
