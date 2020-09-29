@@ -5,6 +5,11 @@ if [[ -z "$GH_TOKEN" ]];then
   exit 1;
 fi
 
+EXTRA_ARGS=
+if [[ $1 == "--graduate" ]];then
+  EXTRA_ARGS=--conventional-graduate
+  shift
+fi
 
 # Get the type of bump, either from env or input
 SEMVER_BUMP=$1
@@ -20,4 +25,4 @@ echo Creating a new ${SEMVER_BUMP} version
 # - Create a github release with said changelog
 # - Commit & tag changes
 # - Push commit & tag
-lerna version "${SEMVER_BUMP}" --preid beta --create-release github --conventional-commits --changelog-preset eslint --message "Chore: Release %s 🎉"
+lerna version "${SEMVER_BUMP}" --preid beta --create-release github --conventional-commits --changelog-preset eslint --message "Chore: Release %s 🎉" ${EXTRA_ARGS}
