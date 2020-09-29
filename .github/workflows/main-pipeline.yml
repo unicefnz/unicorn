@@ -201,8 +201,8 @@ jobs:
         run: ./scripts/move-artifacts.sh
 
 
-      - name: Remove SSH creds before deploy
-        run: rm ~/.ssh/*
+      - name: Remove bad github creds before deploy
+        run: git config --local --unset-all 'http.https://github.com/.extraheader'
 
       # Deploy to github pages!
       - name: Deploy Site 🚀
