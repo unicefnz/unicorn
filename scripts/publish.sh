@@ -3,9 +3,17 @@
 # Based on Next.js's CI pipeline. Thanks Vercel!
 # https://github.com/vercel/next.js/blob/canary/publish-release.sh
 
-git describe --exact-match
+# Get the tag for this exact commit
+VERSION_TAG=$(git describe --exact-match 2> /dev/null || :)
 
-if [[ ! $? -eq 0 ]];then
+# If the current commit contains "Chore: Recover" use the last available tag instead
+if [[ $(git log -1 --pretty=tformat:%s) =~ "Chore: Recover" ]];then
+  echo "Republishing from last tag"
+  VERSION_TAG=$(git describe --abbrev=0 2> /dev/null || :)
+fi
+
+# If there's no tag to publish to, exit early
+if [[ $VERSION_TAG == "" ]];then
   echo "Nothing to publish, exiting.."
   exit 0;
 fi
@@ -16,16 +24,12 @@ if [[ -z "$NPM_TOKEN" ]];then
 fi
 
 
+# We're ready to publish!
+
 echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
 
-
-COMMIT_TAG=$(git describe --exact-match 2> /dev/null || :)
-if [[ $(git log -1 --pretty=tformat:%s) =~ "Chore: Recover" ]];then
-  echo "Republishing from last tag"
-  COMMIT_TAG=$(git describe --abbrev=0 2> /dev/null || :)
-fi
-
-if [[ $COMMIT_TAG =~ -beta ]];then
+# If the tag contains "-beta" publish to the beta dist-tag
+if [[ $VERSION_TAG =~ -beta ]];then
   echo "Publishing beta"
   ./node_modules/.bin/lerna publish from-git --dist-tag beta --yes
 
@@ -37,7 +41,8 @@ else
   echo "Did not publish beta"
 fi
 
-if [[ ! $COMMIT_TAG =~ -beta ]];then
+# Otherwise, publish to the latest tag!
+if [[ ! $VERSION_TAG =~ -beta ]];then
   echo "Publishing stable"
   ./node_modules/.bin/lerna publish from-git --yes
 
