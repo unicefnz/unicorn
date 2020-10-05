@@ -18,9 +18,16 @@ fi
 
 echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
 
-if [[ $(git describe --exact-match 2> /dev/null || :) =~ -beta ]];then
+
+COMMIT_TAG=$(git describe --exact-match 2> /dev/null || :)
+if [[ $(git log -1 --pretty=tformat:%s) =~ "Chore: Recover" ]];then
+  echo "Republishing from last tag"
+  COMMIT_TAG=$(git describe --abbrev=0 2> /dev/null || :)
+fi
+
+if [[ $COMMIT_TAG =~ -beta ]];then
   echo "Publishing beta"
-  ./node_modules/.bin/lerna publish from-git --npm-tag beta --yes
+  ./node_modules/.bin/lerna publish from-git --dist-tag beta --yes
 
   # Make sure to exit script with code 1 if publish failed
   if [[ ! $? -eq 0 ]];then
@@ -30,7 +37,7 @@ else
   echo "Did not publish beta"
 fi
 
-if [[ ! $(git describe --exact-match 2> /dev/null || :) =~ -beta ]];then
+if [[ ! $COMMIT_TAG =~ -beta ]];then
   echo "Publishing stable"
   ./node_modules/.bin/lerna publish from-git --yes
 
