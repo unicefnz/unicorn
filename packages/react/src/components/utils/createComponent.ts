@@ -1,6 +1,6 @@
 import React, { MutableRefObject, useEffect, useRef } from 'react';
 import type { JSX } from '@unicorndesign/core';
-import { attachProps } from './attachProps';
+import { attachProps, getReactSupportedProps } from './attachProps';
 
 export const createReactComponent = <Tag extends keyof (JSX.IntrinsicElements | HTMLElementTagNameMap)>(tagName: Tag) => {
   type Element = HTMLElementTagNameMap[Tag];
@@ -22,14 +22,15 @@ export const createReactComponent = <Tag extends keyof (JSX.IntrinsicElements | 
     useEffect(() => {
       // current should always be set?
       if (localRef.current) {
-        attachProps(localRef.current, props, prevPropsRef.current || {});
+        attachProps(localRef.current, props, prevPropsRef.current || {}, false);
         prevPropsRef.current = props;
       }
     }, [props]);
 
     return React.createElement(tagName, {
       ref: cbRef,
-      style
+      style,
+      ...getReactSupportedProps(props) // attachProps ignores events that react handles, so we have to give them to react ourselves
     }, children);
   };
 

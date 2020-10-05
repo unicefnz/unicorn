@@ -71,8 +71,25 @@ export function syncEvent(node: Element, eventName: string, newEventHandler: (e:
   }
 }
 
-export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}) => {
-  /* eslint-disable no-param-reassign */
+export function getReactSupportedProps<T = any>(props: Record<string, T>): Record<string, T> {
+  const reactEvents: Record<string, T> = {};
+  Object.keys(props).forEach((name) => {
+    if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
+      // If the name looks like an event, and is covered by react (meaning native events)
+      const eventName = name.substring(2).toLowerCase();
+      if (isCoveredByReact(eventName)) {
+        reactEvents[name] = props[name];
+      }
+    } else if (typeof props[name] === 'string') {
+      // Otherwise, if it's a boring string
+      reactEvents[camelToDashCase(name)] = (props as any)[name];
+    }
+  });
+
+  return reactEvents;
+}
+
+export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}, attachStrings = true) => {
   // some test frameworks don't render DOM elements, so we test here to make sure we are dealing with DOM first
   // TODO is this the right place to check we are in DOM
   if (node instanceof Element && typeof document === 'object') {
@@ -86,6 +103,7 @@ export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}
       if (name === 'children' || name === 'style' || name === 'ref' || name === 'class' || name === 'className' || name === 'forwardedRef') {
         return;
       }
+      // Check that the name starts with on, and the next character is uppercase
       if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
         const eventName = name.substring(2);
         const eventNameLc = eventName[0].toLowerCase() + eventName.substring(1);
@@ -96,13 +114,12 @@ export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}
       } else {
         (node as any)[name] = newProps[name];
         const propType = typeof newProps[name];
-        if (propType === 'string') {
-          node.setAttribute(camelToDashCase(name), newProps[name]);
-        } else {
+        if (propType !== 'string') {
           (node as any)[name] = newProps[name];
+        } else if (attachStrings) {
+          node.setAttribute(camelToDashCase(name), newProps[name]);
         }
       }
     });
   }
-  /* eslint-enable no-param-reassign */
 };
