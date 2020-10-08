@@ -7,4 +7,4 @@ export interface DialogOptions {
   keyboardClose?: boolean;
 }
 
-export const UniDialog = /*@__PURE__*/createOverlayComponent<DialogOptions, HTMLUniDialogElement>('UniDialog', dialogController);
+export const UniDialog = /*@__PURE__*/createOverlayComponent<DialogOptions, HTMLUniDialogElement>('uni-dialog', dialogController);

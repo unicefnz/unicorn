@@ -1,7 +1,7 @@
 import React from 'react';
-import { OverlayEventDetail, OverlayController, HTMLUniOverlayElement } from '@unicorndesign/core';
+import type { OverlayEventDetail, OverlayController, HTMLUniOverlayElement } from '@unicorndesign/core';
+import type { ReactOverlayProps } from './utils';
 import { attachProps } from './attachProps';
-import { ReactOverlayProps } from './utils';
 
 export const createControllerComponent = <ComponentOpts extends object, OverlayEl extends HTMLUniOverlayElement>(
   displayName: string,
