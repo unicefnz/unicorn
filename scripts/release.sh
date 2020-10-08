@@ -25,4 +25,4 @@ echo Creating a new ${SEMVER_BUMP} version
 # - Create a github release with said changelog
 # - Commit & tag changes
 # - Push commit & tag
-lerna version "${SEMVER_BUMP}" --preid beta --create-release github --conventional-commits --changelog-preset eslint --message "Chore: Release %s 🎉" ${EXTRA_ARGS}
+lerna version "${SEMVER_BUMP}" --preid beta --create-release github --conventional-commits --changelog-preset angular --message "Chore: Release %s 🎉" ${EXTRA_ARGS}
