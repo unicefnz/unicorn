@@ -42,10 +42,6 @@ export namespace Components {
          */
         "loading": boolean;
         /**
-          * Name of a icon to prepend inside the button Eg. logo-google
-         */
-        "prependIcon"?: string;
-        /**
           * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
          */
         "type": string;
@@ -502,10 +498,6 @@ declare namespace LocalJSX {
           * Changes the button into a loading state
          */
         "loading"?: boolean;
-        /**
-          * Name of a icon to prepend inside the button Eg. logo-google
-         */
-        "prependIcon"?: string;
         /**
           * Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset'
          */

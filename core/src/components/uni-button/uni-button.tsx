@@ -46,12 +46,6 @@ export class UniButton {
   @Prop() readonly loading: boolean;
 
   /**
-   * Name of a icon to prepend inside the button
-   * Eg. logo-google
-   * */
-  @Prop() readonly prependIcon?: string;
-
-  /**
    * Sets the variant of the button
    * One of 'solid' or 'border'
    * */
