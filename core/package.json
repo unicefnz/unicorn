@@ -1,6 +1,6 @@
 {
   "name": "@unicorndesign/core",
-  "version": "1.0.4",
+  "version": "1.0.6-beta.0",
   "description": "Unicorn Design System Component Library",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
