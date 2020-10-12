@@ -15,8 +15,8 @@ export default async () => ({
   output: [
     {
       dir: outDir,
-      entryFileNames: 'esm/[name].esm.js',
-      chunkFileNames: 'esm/[name]-[hash].esm.js',
+      entryFileNames: 'esm/[name].js',
+      chunkFileNames: 'esm/[name]-[hash].js',
       format: 'es',
       sourcemap: true
     },
