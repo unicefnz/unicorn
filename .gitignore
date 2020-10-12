@@ -1,5 +1,5 @@
 dist/
-dist-transpiled/
+packages/react/Uni*
 core/www/
 core/theming/
 core/loader/

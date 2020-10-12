@@ -12,7 +12,8 @@ passing React data & events down to the underlying element.
 
 > If you're not using React, check out [the core library](https://github.com/unicef-new-zealand/unicorn/tree/master/core).
 
-Unicorn requires a global stylesheet to be loaded (for global typography and color vars,) documentation for this
+Unicorn requires a global stylesheet to be loaded (for global typography and color vars,)
+documentation for this
 is a work in progress. For now, please make sure it's loaded.
 
 To install the library:
@@ -21,34 +22,31 @@ To install the library:
 npm install @unicorndesign/core @unicorndesign/react
 ```
 
-Then, because underneath we're using web components underneath, you'll still need to load the
-core library. This can be done in your entry file, or wherever is appropriate for your app.
-
-```javascript
+As of version 1.1, you no longer need to load Unicorn yourself, components are defined when
+you import them from this package.
+ 
+However, you will still need to define a theme and global styles:
+```jsx
 import '@unicorndesign/core/theming/prebuilt/default.css';
-import { applyPolyfills, defineCustomElements } from '@unicorndesign/core/loader';
+
+// OR
+<link rel="stylesheet" href="https://unpkg.com/@unicorndesign/core@1.0.0/theming/prebuilt/default.css">
+```
+
+Polyfills are not included by default, but the legacy loader exposes an applyPolyfills method:
+
+```typescript
+import { applyPolyfills } from '@unicorndesign/core/loader';
 
 // Optional, depending on your browser targets 
 await applyPolyfills();
-
-await defineCustomElements(window);
-```
-
-Alternatively, you can use a script tag:
-
-```html
-<link rel="stylesheet" href="https://unpkg.com/@unicorndesign/core@1.0.0/theming/prebuilt/default.css">
-
-<!-- Differential imports for modern browsers -->
-<script type="module" src="https://unpkg.com/@unicorndesign/core@latest/dist/unicorn/unicorn.esm.js"></script>
-<script nomodule src="https://unpkg.com/@unicorndesign/core@latest/dist/unicorn/unicorn.js"></script>
 ``` 
 
 Done! You're ready to use Unicorn.
 
 ```jsx
 import React from 'react';
-import { UniButton } from '@unicorndesign/react';
+import { UniButton } from '@unicorndesign/react/UniButton';
 
 export default () => (
   <UniButton icon>🦄</UniButton>
@@ -64,4 +62,5 @@ The fix:
 # Link the react here to the target's react. This is
 # roughly how it would behave as a peer-dependency
 npm link ~/consumer-app/node_modules/react
+npm link ~/consumer-app/node_modules/react-dom
 ```

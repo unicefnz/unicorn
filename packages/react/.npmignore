@@ -1,2 +1,3 @@
-dist-transpiled
 src
+.eslintrc.js
+rollup.config.js

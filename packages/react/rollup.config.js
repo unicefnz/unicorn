@@ -1,24 +1,38 @@
 import resolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
 import sourcemaps from 'rollup-plugin-sourcemaps';
+import * as path from 'path';
+import { promises as fs } from 'fs';
 
-export default {
-  input: 'dist-transpiled/index.js',
+const outDir = 'dist';
+
+export default async () => ({
+  // Get a list of all the typescript files in the root dir
+  input: (await fs.readdir(path.resolve(__dirname, './src'), { withFileTypes: true }))
+    .filter(e => e.isFile())
+    .map(({ name }) => path.resolve(__dirname, './src', name))
+    .filter(name => name.endsWith('.ts')),
   output: [
     {
-      file: 'dist/index.esm.js',
+      dir: outDir,
+      entryFileNames: 'esm/[name].esm.js',
+      chunkFileNames: 'esm/[name]-[hash].esm.js',
       format: 'es',
       sourcemap: true
     },
     {
-      file: 'dist/index.js',
+      dir: outDir,
+      entryFileNames: 'cjs/[name].js',
+      chunkFileNames: 'cjs/[name]-[hash].js',
       format: 'commonjs',
       preferConst: true,
       sourcemap: true
     }
   ],
-  external: (id) => !/^(\.|\/)/.test(id),
+  external: id => !/^(\.|\/)/.test(id),
   plugins: [
+    typescript({ outDir, declarationDir: path.resolve(outDir, './types') }),
     resolve(),
     sourcemaps()
   ]
-};
+});
