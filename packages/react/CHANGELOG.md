@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6-beta.3](https://github.com/unicef-new-zealand/unicorn/compare/v1.0.6-beta.2...v1.0.6-beta.3) (2020-10-12)
+
+
+### Features
+
+* **react:** Eager load components in a treeshakable way ([9aa47ae](https://github.com/unicef-new-zealand/unicorn/commit/9aa47ae6f93e3fcee0566e26297a68a0d90ac38f))
+* **react:** Eagerly load components ([0f68944](https://github.com/unicef-new-zealand/unicorn/commit/0f68944648bfbb6b84cd1cc2e101494fa8e288b1))
+
+
+
+
+
 ## [1.0.6-beta.2](https://github.com/unicef-new-zealand/unicorn/compare/v1.0.6-beta.1...v1.0.6-beta.2) (2020-10-08)
 
 **Note:** Version bump only for package @unicorndesign/react

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6-beta.3](https://github.com/unicef-new-zealand/unicorn/compare/v1.0.6-beta.2...v1.0.6-beta.3) (2020-10-12)
+
+
+### Features
+
+* **core:** Move @stencil/core to optionalDependencies ([769a6bb](https://github.com/unicef-new-zealand/unicorn/commit/769a6bbca339c5926fae3cc28b3a5d3956b43695))
+
+
+
+
+
 ## [1.0.6-beta.2](https://github.com/unicef-new-zealand/unicorn/compare/v1.0.6-beta.1...v1.0.6-beta.2) (2020-10-08)
 
 **Note:** Version bump only for package @unicorndesign/core

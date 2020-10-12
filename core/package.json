@@ -1,6 +1,6 @@
 {
   "name": "@unicorndesign/core",
-  "version": "1.0.6-beta.2",
+  "version": "1.0.6-beta.3",
   "description": "Unicorn Design System Component Library",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
@@ -60,7 +60,6 @@
     "typescript": "^4.0.3"
   },
   "license": "MIT",
-  "dependencies": {},
   "optionalDependencies": {
     "@stencil/core": "^2.0.3"
   }
