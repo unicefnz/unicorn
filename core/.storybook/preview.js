@@ -2,7 +2,7 @@ import '!style-loader!css-loader!sass-loader!../src/css/prebuilt/unicef.scss';
 import { setCustomElements } from '@storybook/web-components';
 import { defineCustomElements } from '../dist/esm/loader';
 
-// import('../dist/custom-elements.json')
+// import('../dist/elements-metadata.json')
 //   .then(({ default: docs }) => {
 //     setCustomElements(docs)
 //   })

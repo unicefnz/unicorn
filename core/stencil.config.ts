@@ -16,7 +16,7 @@ export const config: Config = {
     },
     {
       type: 'docs-vscode',
-      file: 'dist/custom-elements.json',
+      file: 'dist/element-metadata.json',
       sourceCodeBaseUrl: 'https://github.com/unicef-new-zealand/unicorn/tree/master/core/',
     },
   ],
