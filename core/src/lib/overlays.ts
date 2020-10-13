@@ -82,7 +82,7 @@ export function prepareOverlay<T extends HTMLUniOverlayElement>(el: T) {
 export function createOverlay<T extends HTMLUniOverlayElement>(tagName: string, opts: object | undefined): Promise<T> {
   return customElements.whenDefined(tagName).then(() => {
     const doc = document;
-    const element = doc.createElement(tagName) as HTMLUniOverlayElement;
+    const element = doc.createElement(tagName) as T;
     element.classList.add('overlay-hidden');
 
     // convert the passed in overlay options into props
@@ -92,7 +92,7 @@ export function createOverlay<T extends HTMLUniOverlayElement>(tagName: string, 
     // append the overlay element to the document body
     getAppRoot(doc).appendChild(element);
 
-    return element.componentOnReady() as any;
+    return typeof element.componentOnReady === 'function' ? element.componentOnReady() : element;
   });
 }
 
@@ -169,4 +169,4 @@ function createController<
   };
 }
 
-export const dialogController = /*@__PURE__*/createController<{ }, HTMLUniDialogElement>('uni-dialog');
+export const dialogController = /*#__PURE__*/createController<{ }, HTMLUniDialogElement>('uni-dialog');
