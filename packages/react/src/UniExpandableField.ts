@@ -6,8 +6,10 @@ import { defineElements } from './utils/defineElements';
 import './UniErrors';
 import './UniOutsideClick';
 
-defineElements([
-  UniExpandableFieldCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniExpandableFieldCls
+  ]);
+}
 
-export const UniExpandableField = /*@__PURE__*/createReactComponent('uni-expandable-field');
+export const UniExpandableField = /*#__PURE__*/createReactComponent('uni-expandable-field');

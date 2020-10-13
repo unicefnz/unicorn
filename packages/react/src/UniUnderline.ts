@@ -4,8 +4,10 @@ import {
 import { createReactComponent } from './utils';
 import { defineElements } from './utils/defineElements';
 
-defineElements([
-  UniUnderlineCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniUnderlineCls
+  ]);
+}
 
-export const UniUnderline = /*@__PURE__*/createReactComponent('uni-underline');
+export const UniUnderline = /*#__PURE__*/createReactComponent('uni-underline');

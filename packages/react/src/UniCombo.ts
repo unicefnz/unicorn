@@ -7,12 +7,14 @@ import { createReactComponent } from './utils';
 import { defineElements } from './utils/defineElements';
 import './UniRadioController';
 
-defineElements([
-  UniComboGroupCls,
-  UniComboItemCls,
-  UniComboTextCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniComboGroupCls,
+    UniComboItemCls,
+    UniComboTextCls
+  ]);
+}
 
-export const UniComboGroup = /*@__PURE__*/createReactComponent('uni-combo-group');
-export const UniComboItem = /*@__PURE__*/createReactComponent('uni-combo-item');
-export const UniComboText = /*@__PURE__*/createReactComponent('uni-combo-text');
+export const UniComboGroup = /*#__PURE__*/createReactComponent('uni-combo-group');
+export const UniComboItem = /*#__PURE__*/createReactComponent('uni-combo-item');
+export const UniComboText = /*#__PURE__*/createReactComponent('uni-combo-text');

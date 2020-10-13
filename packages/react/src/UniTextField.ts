@@ -5,8 +5,10 @@ import { createReactComponent } from './utils';
 import { defineElements } from './utils/defineElements';
 import './UniErrors';
 
-defineElements([
-  UniTextFieldCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniTextFieldCls
+  ]);
+}
 
-export const UniTextField = /*@__PURE__*/createReactComponent('uni-text-field');
+export const UniTextField = /*#__PURE__*/createReactComponent('uni-text-field');

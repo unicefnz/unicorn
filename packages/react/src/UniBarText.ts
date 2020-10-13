@@ -4,8 +4,10 @@ import {
 import { createReactComponent } from './utils';
 import { defineElements } from './utils/defineElements';
 
-defineElements([
-  UniBarTextCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniBarTextCls
+  ]);
+}
 
-export const UniBarText = /*@__PURE__*/createReactComponent('uni-bar-text');
+export const UniBarText = /*#__PURE__*/createReactComponent('uni-bar-text');

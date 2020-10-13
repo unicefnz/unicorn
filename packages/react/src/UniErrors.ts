@@ -4,8 +4,10 @@ import {
 import { createReactComponent } from './utils';
 import { defineElements } from './utils/defineElements';
 
-defineElements([
-  UniErrorsCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniErrorsCls
+  ]);
+}
 
-export const UniErrors = /*@__PURE__*/createReactComponent('uni-errors');
+export const UniErrors = /*#__PURE__*/createReactComponent('uni-errors');

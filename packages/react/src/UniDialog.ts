@@ -15,14 +15,16 @@ export interface DialogOptions {
   keyboardClose?: boolean;
 }
 
-defineElements([
-  UniDialogCls,
-  UniDialogActionsCls,
-  UniDialogContentCls,
-  UniDialogTitleCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniDialogCls,
+    UniDialogActionsCls,
+    UniDialogContentCls,
+    UniDialogTitleCls
+  ]);
+}
 
-export const UniDialog = /*@__PURE__*/createOverlayComponent<DialogOptions, HTMLUniDialogElement>('uni-dialog', dialogController);
-export const UniDialogActions = /*@__PURE__*/createReactComponent('uni-dialog-actions');
-export const UniDialogContent = /*@__PURE__*/createReactComponent('uni-dialog-content');
-export const UniDialogTitle = /*@__PURE__*/createReactComponent('uni-dialog-title');
+export const UniDialog = /*#__PURE__*/createOverlayComponent<DialogOptions, HTMLUniDialogElement>('uni-dialog', dialogController);
+export const UniDialogActions = /*#__PURE__*/createReactComponent('uni-dialog-actions');
+export const UniDialogContent = /*#__PURE__*/createReactComponent('uni-dialog-content');
+export const UniDialogTitle = /*#__PURE__*/createReactComponent('uni-dialog-title');

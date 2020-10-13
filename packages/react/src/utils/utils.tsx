@@ -1,5 +1,5 @@
 import React from 'react';
-import { OverlayEventDetail } from '@unicorndesign/core';
+import type { OverlayEventDetail } from '@unicorndesign/core';
 
 export const camelToDashCase = (str: string) => str.replace(/([A-Z])/g, (m: string) => `-${m[0].toLowerCase()}`);
 

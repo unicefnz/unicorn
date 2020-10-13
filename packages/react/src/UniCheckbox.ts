@@ -4,8 +4,10 @@ import {
 import { createReactComponent } from './utils';
 import { defineElements } from './utils/defineElements';
 
-defineElements([
-  UniCheckboxCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniCheckboxCls
+  ]);
+}
 
-export const UniCheckbox = /*@__PURE__*/createReactComponent('uni-checkbox');
+export const UniCheckbox = /*#__PURE__*/createReactComponent('uni-checkbox');

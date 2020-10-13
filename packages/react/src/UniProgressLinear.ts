@@ -4,8 +4,10 @@ import {
 import { createReactComponent } from './utils';
 import { defineElements } from './utils/defineElements';
 
-defineElements([
-  UniProgressLinearCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniProgressLinearCls
+  ]);
+}
 
-export const UniProgressLinear = /*@__PURE__*/createReactComponent('uni-progress-linear');
+export const UniProgressLinear = /*#__PURE__*/createReactComponent('uni-progress-linear');

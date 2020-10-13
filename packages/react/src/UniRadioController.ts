@@ -4,8 +4,10 @@ import {
 import { createReactComponent } from './utils';
 import { defineElements } from './utils/defineElements';
 
-defineElements([
-  UniRadioControllerCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniRadioControllerCls
+  ]);
+}
 
-export const UniRadioController = /*@__PURE__*/createReactComponent('uni-radio-controller');
+export const UniRadioController = /*#__PURE__*/createReactComponent('uni-radio-controller');

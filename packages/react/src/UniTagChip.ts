@@ -4,8 +4,10 @@ import {
 import { createReactComponent } from './utils';
 import { defineElements } from './utils/defineElements';
 
-defineElements([
-  UniTagChipCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniTagChipCls
+  ]);
+}
 
-export const UniTagChip = /*@__PURE__*/createReactComponent('uni-tag-chip');
+export const UniTagChip = /*#__PURE__*/createReactComponent('uni-tag-chip');

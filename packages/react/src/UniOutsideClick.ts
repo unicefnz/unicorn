@@ -4,8 +4,10 @@ import {
 import { createReactComponent } from './utils';
 import { defineElements } from './utils/defineElements';
 
-defineElements([
-  UniOutsideClickCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniOutsideClickCls
+  ]);
+}
 
-export const UniOutsideClick = /*@__PURE__*/createReactComponent('uni-outside-click');
+export const UniOutsideClick = /*#__PURE__*/createReactComponent('uni-outside-click');

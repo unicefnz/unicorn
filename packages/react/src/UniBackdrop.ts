@@ -4,8 +4,10 @@ import {
 import { createReactComponent } from './utils';
 import { defineElements } from './utils/defineElements';
 
-defineElements([
-  UniBackdropCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniBackdropCls
+  ]);
+}
 
-export const UniBackdrop = /*@__PURE__*/createReactComponent('uni-backdrop');
+export const UniBackdrop = /*#__PURE__*/createReactComponent('uni-backdrop');

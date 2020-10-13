@@ -4,8 +4,10 @@ import {
 import { createReactComponent } from './utils';
 import { defineElements } from './utils/defineElements';
 
-defineElements([
-  UniSelectCls
-]);
+if (typeof window === 'object' && typeof window.customElements === 'object') {
+  defineElements([
+    UniSelectCls
+  ]);
+}
 
-export const UniSelect = /*@__PURE__*/createReactComponent('uni-select');
+export const UniSelect = /*#__PURE__*/createReactComponent('uni-select');

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { HTMLUniOverlayElement, OverlayController } from '@unicorndesign/core';
+import type { HTMLUniOverlayElement, OverlayController } from '@unicorndesign/core';
 import { attachProps } from './attachProps';
-import { ReactOverlayProps } from './utils';
+import type { ReactOverlayProps } from './utils';
 
 export function createOverlayComponent<
   OverlayProps extends object,
