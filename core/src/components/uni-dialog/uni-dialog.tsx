@@ -52,7 +52,7 @@ export class UniDialog implements ComponentInterface, OverlayInterface {
 
   @State() private shakeTimer: number | null = null;
 
-  constructor() {
+  connectedCallback() {
     prepareOverlay<HTMLUniDialogElement>(this.el);
   }
 
