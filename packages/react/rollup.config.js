@@ -18,7 +18,8 @@ export default async () => ({
       entryFileNames: 'esm/[name].js',
       chunkFileNames: 'esm/[name]-[hash].js',
       format: 'es',
-      sourcemap: true
+      sourcemap: true,
+      hoistTransitiveImports: false
     },
     {
       dir: outDir,
@@ -26,10 +27,14 @@ export default async () => ({
       chunkFileNames: 'cjs/[name]-[hash].js',
       format: 'commonjs',
       preferConst: true,
-      sourcemap: true
+      sourcemap: true,
+      hoistTransitiveImports: false
     }
   ],
   external: id => !/^(\.|\/)/.test(id),
+  treeshake: {
+    moduleSideEffects: false
+  },
   plugins: [
     typescript({ outDir, declarationDir: path.resolve(outDir, './types') }),
     resolve(),

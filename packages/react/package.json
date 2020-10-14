@@ -6,11 +6,12 @@
   "module": "dist/esm/index.esm.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "rollup -c && npm run proxies:create",
+    "build": "npm run clean && npm run rollup && npm run proxies:create",
     "clean": "npm run proxies:clean && rm -rf dist",
     "lint": "eslint src --ext .ts,.tsx,.js",
     "proxies:create": "cherry-pick dist/cjs --cjs-dir=dist/cjs --esm-dir=dist/esm --types-dir=dist/types",
     "proxies:clean": "cherry-pick clean dist/cjs || echo Proxies not cleaned",
+    "rollup": "rollup -c",
     "test": "npm run lint",
     "watch": "rollup -c -w"
   },
