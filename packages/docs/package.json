@@ -1,0 +1,24 @@
+{
+  "name": "@unicorndesign/docs",
+  "version": "1.1.1",
+  "description": "Documentation for Unicorn Design System",
+  "keywords": [
+    "Documentation",
+    "Unicorn"
+  ],
+  "private": true,
+  "author": "Asher Foster <asher@unicef.org.nz>",
+  "homepage": "https://unicorn.is/docs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unicefnz/unicorn.git",
+    "directory": "packages/docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/unicefnz/unicorn/issues"
+  }
+}
