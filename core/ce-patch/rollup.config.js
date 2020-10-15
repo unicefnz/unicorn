@@ -11,7 +11,7 @@ export default async () => ({
       preferConst: true
     }
   ],
-  external: id => !/^(\.|\/)/.test(id),
+  // external: id => !/^(\.|\/)/.test(id),
   plugins: [
     resolve()
   ]
