@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/unicef-new-zealand/unicorn/compare/v1.1.0...v1.1.1) (2020-10-15)
+
+
+### Bug Fixes
+
+* **core:** lit-html is actually required ([5a1e996](https://github.com/unicef-new-zealand/unicorn/commit/5a1e996b399e4ee52be20a9c601d24949d3f8232))
+
+
+### Features
+
+* **custom-elements:** Patch bundle to support CJS ([14b17c7](https://github.com/unicef-new-zealand/unicorn/commit/14b17c7300e445455342bdc5518ff58c096f4037))
+
+
+
+
+
 # [1.1.0](https://github.com/unicef-new-zealand/unicorn/compare/v1.0.6-beta.5...v1.1.0) (2020-10-15)
 
 **Note:** Version bump only for package @unicorndesign/core
