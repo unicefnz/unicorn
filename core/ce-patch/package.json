@@ -1,0 +1,6 @@
+{
+  "name": "unicorn-custom-elements",
+  "typings": "./index.d.ts",
+  "module": "./index.js",
+  "main": "./index.cjs.js"
+}
