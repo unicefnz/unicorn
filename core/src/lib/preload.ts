@@ -1,16 +1,18 @@
-import type { HTMLStencilElement } from '@stencil/core/internal';
+import type { HTMLStencilElement as StencilEl } from '@stencil/core/internal';
 
 const preloaded = new Set();
+
+interface HTMLStencilElement extends StencilEl {
+  connectedCallback?(): void;
+}
 
 export async function preloadComponent(name: keyof HTMLElementTagNameMap): Promise<void> {
   if (preloaded.has(name) || typeof document === 'undefined') return;
 
   const el = document.createElement(name) as HTMLStencilElement;
-  el.style.display = 'none';
-  document.body.appendChild(el);
-  el.remove();
 
-  await el.componentOnReady?.();
+  if (typeof el.connectedCallback === 'function') el.connectedCallback();
+  if (typeof el.componentOnReady === 'function') await el.componentOnReady();
 
   preloaded.add(name);
 }
