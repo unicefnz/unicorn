@@ -1,6 +1,6 @@
 {
   "name": "@unicorndesign/react",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "React Layer for the Unicorn Design System",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.esm.js",
@@ -28,7 +28,7 @@
   "homepage": "https://github.com/unicef-new-zealand/unicorn/blob/master/packages/react/#readme",
   "dependencies": {
     "@stencil/core": "^2.0.3",
-    "@unicorndesign/core": "^1.1.1",
+    "@unicorndesign/core": "^1.1.2",
     "tslib": "^2.0.3"
   },
   "peerDependencies": {
