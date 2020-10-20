@@ -2,14 +2,12 @@ import {
   UniExpandableField as UniExpandableFieldCls
 } from '@unicorndesign/core/dist/custom-elements';
 import { createReactComponent } from './utils';
-import { defineElements } from './utils/defineElements';
+import { defineElement } from './utils/defineElement';
 import './UniErrors';
 import './UniOutsideClick';
 
 if (typeof window === 'object' && typeof window.customElements === 'object') {
-  defineElements([
-    UniExpandableFieldCls
-  ]);
+  defineElement(UniExpandableFieldCls);
 }
 
 export const UniExpandableField = /*#__PURE__*/createReactComponent('uni-expandable-field');

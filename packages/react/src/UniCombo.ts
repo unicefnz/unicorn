@@ -4,15 +4,15 @@ import {
   UniComboText as UniComboTextCls
 } from '@unicorndesign/core/dist/custom-elements';
 import { createReactComponent } from './utils';
-import { defineElements } from './utils/defineElements';
+import { defineElement } from './utils/defineElement';
 import './UniRadioController';
 
 if (typeof window === 'object' && typeof window.customElements === 'object') {
-  defineElements([
+  [
     UniComboGroupCls,
     UniComboItemCls,
     UniComboTextCls
-  ]);
+  ].map(defineElement);
 }
 
 export const UniComboGroup = /*#__PURE__*/createReactComponent('uni-combo-group');

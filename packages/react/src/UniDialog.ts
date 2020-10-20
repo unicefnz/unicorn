@@ -6,7 +6,7 @@ import {
   UniDialogTitle as UniDialogTitleCls
 } from '@unicorndesign/core/dist/custom-elements';
 import { createOverlayComponent, createReactComponent } from './utils';
-import { defineElements } from './utils/defineElements';
+import { defineElement } from './utils/defineElement';
 import './UniBackdrop';
 import './UniUnderline';
 
@@ -16,12 +16,12 @@ export interface DialogOptions {
 }
 
 if (typeof window === 'object' && typeof window.customElements === 'object') {
-  defineElements([
+  [
     UniDialogCls,
     UniDialogActionsCls,
     UniDialogContentCls,
     UniDialogTitleCls
-  ]);
+  ].map(defineElement);
 }
 
 export const UniDialog = /*#__PURE__*/createOverlayComponent<DialogOptions, HTMLUniDialogElement>('uni-dialog', dialogController);
