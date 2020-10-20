@@ -163,8 +163,8 @@ function createController<
     dismiss(data?: any, role?: string, id?: string) {
       return dismissOverlay(document, data, role, tagName, id);
     },
-    async getTop(): Promise<HTMLElm | undefined> {
-      return getOverlay<HTMLElm>(document, tagName);
+    getTop(): Promise<HTMLElm | undefined> {
+      return Promise.resolve(getOverlay<HTMLElm>(document, tagName));
     }
   };
 }
