@@ -33,7 +33,7 @@ export default async () => ({
   ],
   external: id => !/^(\.|\/)/.test(id),
   treeshake: {
-    moduleSideEffects: false
+    moduleSideEffects: 'no-external'
   },
   plugins: [
     typescript({ outDir, declarationDir: path.resolve(outDir, './types') }),
