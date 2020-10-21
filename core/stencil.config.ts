@@ -9,7 +9,8 @@ export const config: Config = {
       esmLoaderPath: '../loader'
     },
     {
-      type: 'dist-custom-elements-bundle'
+      type: 'dist-custom-elements-bundle',
+      externalRuntime: false
     },
     {
       type: 'docs-readme'
@@ -17,10 +18,17 @@ export const config: Config = {
     {
       type: 'docs-vscode',
       file: 'dist/element-metadata.json',
-      sourceCodeBaseUrl: 'https://github.com/unicef-new-zealand/unicorn/tree/master/core/',
+      sourceCodeBaseUrl: 'https://github.com/unicefnz/unicorn/tree/master/core/',
     },
   ],
   plugins: [
     sass()
-  ]
+  ],
+  extras: {
+    shadowDomShim: true,
+    safari10: true,
+    appendChildSlotFix: false,
+    cloneNodeFix: false,
+    slotChildNodesFix: true,
+  }
 };
