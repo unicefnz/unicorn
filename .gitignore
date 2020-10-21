@@ -1,5 +1,6 @@
 dist/
-packages/react/Uni*
+packages/react/Uni*/package.json
+packages/react/defineElement-*/package.json
 core/www/
 core/theming/
 core/loader/
