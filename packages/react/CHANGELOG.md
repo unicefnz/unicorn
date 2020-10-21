@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/unicef-new-zealand/unicorn/compare/v1.1.5...v1.1.6) (2020-10-21)
+
+
+### Bug Fixes
+
+* **react:** Our modules have side effects ([c90a348](https://github.com/unicef-new-zealand/unicorn/commit/c90a348e3d68b79b76684ed12908fe49034b70a6))
+
+
+
+
+
 ## [1.1.5](https://github.com/unicef-new-zealand/unicorn/compare/v1.1.4...v1.1.5) (2020-10-21)
 
 **Note:** Version bump only for package @unicorndesign/react
