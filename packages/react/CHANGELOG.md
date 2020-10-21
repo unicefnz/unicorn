@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/unicef-new-zealand/unicorn/compare/v1.1.3...v1.1.4) (2020-10-21)
+
+
+### Bug Fixes
+
+* **react:** Ensure custom elements aren't defined twice ([1d13163](https://github.com/unicef-new-zealand/unicorn/commit/1d1316341a05f31a2c9a0c9031ec072f5b4349e9))
+
+
+
+
+
 ## [1.1.3](https://github.com/unicef-new-zealand/unicorn/compare/v1.1.2...v1.1.3) (2020-10-19)
 
 **Note:** Version bump only for package @unicorndesign/react
