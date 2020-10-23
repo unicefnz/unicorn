@@ -1,5 +1,5 @@
 import {
-  Component, Host, h, Prop, EventEmitter, Event, Method
+  Component, Host, h, Prop, EventEmitter, Event, Method, ComponentInterface
 } from '@stencil/core';
 
 let nextUniqueId = 0;
@@ -9,7 +9,7 @@ let nextUniqueId = 0;
   styleUrl: 'uni-text-field.scss',
   shadow: true
 })
-export class UniTextField {
+export class UniTextField implements ComponentInterface {
   /**
    * Hint to the user agent how this field should be autocompleted
    * */
@@ -114,11 +114,21 @@ export class UniTextField {
 
   private inputElem: HTMLInputElement | HTMLTextAreaElement;
 
+  // The next 3 properties are a hack to make sure that getInputElement waits until the first render has occurred
+  private markReady: () => void;
+
+  private ready = new Promise((r) => { this.markReady = r; });
+
+  componentDidLoad() {
+    this.markReady();
+  }
+
   /**
    * Get the underlying <input> DOM node
    * */
   @Method()
   public async getInputElement(): Promise<HTMLInputElement | HTMLTextAreaElement> {
+    await this.ready;
     return this.inputElem;
   }
 
