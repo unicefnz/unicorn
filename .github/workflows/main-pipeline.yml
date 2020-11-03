@@ -19,8 +19,8 @@ jobs:
         with:
           fetch-depth: 10
 
-      # Fetch all tags for our current commit
-      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+      # Fetch tags for recent commits
+      - run: git fetch --depth=10 origin +refs/tags/*:refs/tags/*
 
       # Cache deps for a faster install
       - uses: actions/cache@v2
