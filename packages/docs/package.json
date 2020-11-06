@@ -1,0 +1,31 @@
+{
+  "name": "@unicorndesign/docs",
+  "version": "1.1.1",
+  "description": "Documentation for Unicorn Design System",
+  "keywords": [
+    "Documentation",
+    "Unicorn"
+  ],
+  "private": true,
+  "author": "Asher Foster <asher@unicef.org.nz>",
+  "homepage": "https://unicorn.is/docs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unicefnz/unicorn.git",
+    "directory": "packages/docs"
+  },
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "bugs": {
+    "url": "https://github.com/unicefnz/unicorn/issues"
+  },
+  "devDependencies": {
+    "@unicefnz/eslint-config": "^2.0.1",
+    "eslint": "^7.12.1",
+    "typescript": "^4.0.5",
+    "vuepress": "^1.7.1"
+  }
+}
