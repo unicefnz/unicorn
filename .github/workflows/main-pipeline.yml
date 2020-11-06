@@ -73,7 +73,7 @@ jobs:
           key: ${{ github.sha }}-installed
 
       # Build all packages
-      - run: lerna run build
+      - run: ./node_modules/.bin/lerna run build
 
       # Saves build artifacts
       - uses: actions/cache@v2
@@ -104,14 +104,14 @@ jobs:
   chromatic:
     name: Core - Chromatic
     runs-on: ubuntu-latest
-    needs: install
+    needs: build
     steps:
       # Load up the built project
       - uses: actions/cache@v2
         id: restore-project
         with:
           path: ./*
-          key: ${{ github.sha }}-installed
+          key: ${{ github.sha }}-built
 
       # Upload to Chromatic
       - name: Run Chromatic
