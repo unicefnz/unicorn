@@ -1,4 +1,4 @@
-![Logo](packages/site/logo-med.png)
+![Logo](packages/site/public/logo-med.png)
 # Unicorn Design System (beta)
 
 ## Docs, info, and stuff

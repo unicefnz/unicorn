@@ -1,26 +1,37 @@
 module.exports = {
+  base: '/docs/',
   title: '🦄 Unicorn',
-  description: 'Documentation for the Unicorn design system',
+  description: 'Cutting edge design system and web component library ✨ 🦄 ✨',
+  dest: './dist',
   themeConfig: {
+    lastUpdated: true,
+    repo: 'unicefnz/unicorn',
+    docsDir: 'packages/docs/docs',
+    editLinks: true,
     nav: [
-      { text: 'Home', link: '/' },
       { text: 'Storybook', link: '/storybook' },
       { text: 'Get Started', link: '/setup/' }
     ],
     sidebar: [
-      '/',
       {
-        title: 'Getting Started',
-        path: '/setup/',
+        title: 'Docs',
+        path: '/',
+        collapsable: false,
         children: [
-          '/setup/html',
-          '/setup/react',
-          '/setup/next'
+          {
+            title: 'Getting Started',
+            path: '/setup/',
+            children: [
+              '/setup/html',
+              '/setup/react',
+              '/setup/next'
+            ]
+          },
+          '/theming',
+          '/typography',
+          '/contributing'
         ]
-      },
-      '/theming',
-      '/typography',
-      '/contributing'
+      }
     ]
   }
 };
