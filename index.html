@@ -1,53 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>🦄 Unicorn</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Jost:wght@500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>🦄 Unicorn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Jost:wght@500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://unpkg.com/@unicorndesign/core@beta/theming/prebuilt/default.css">
+  <link rel="stylesheet" href="https://unpkg.com/@unicorndesign/core@beta/theming/prebuilt/default.css">
+  <link rel="stylesheet" href="styles.css">
 
-    <!-- Differential imports for modern browsers -->
-    <script async type="module" src="https://unpkg.com/@unicorndesign/core@beta/dist/unicorn/unicorn.esm.js"></script>
-    <script async nomodule src="https://unpkg.com/@unicorndesign/core@beta/dist/unicorn/unicorn.js"></script>
-
-  <style>
-    body {
-      display: flex;
-      min-height: 100vh;
-      align-items: center;
-    }
-    .content {
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .logo img {
-      width: 64px;
-      height: auto;
-      vertical-align: middle;
-    }
-    .logo p {
-      display: inline;
-      vertical-align: middle;
-    }
-    .logo-superscript {
-      vertical-align: super;
-      font-size: 1rem;
-    }
-  </style>
+  <!-- Differential imports for modern browsers -->
+  <script async type="module" src="https://unpkg.com/@unicorndesign/core@beta/dist/unicorn/unicorn.esm.js"></script>
+  <script async nomodule src="https://unpkg.com/@unicorndesign/core@beta/dist/cjs/unicorn.cjs.js"></script>
 </head>
 <body>
-    <div class="content">
-        <header class="logo">
-            <img src="logo-med.png">
-            <p class="display-h2">
-                Unicorn<span class="logo-superscript">(beta)</span>
-            </p>
-        </header>
-        <h1>One system, <br>every product</h1>
-        <p>An open source design system built at UNICEF New Zealand and powered by web standards. Coming soon.</p>
-        <uni-button href="/storybook">See storybook</uni-button>
+  <nav class="main-navbar">
+    <div class="content main-navbar-content">
+      <img src="img/lockup.png" class="logo">
+
+      <span class="flex"></span>
+      <div class="nav-items">
+        <a href="/docs/">
+          Docs
+        </a>
+        <a href="/storybook/">
+          Storybook
+        </a>
+        <a href="https://github.com/unicefnz/unicorn">
+          Github
+        </a>
+        <uni-button variant="border" color="dark" href="/docs/setup/">
+          Get Started
+        </uni-button>
+      </div>
     </div>
+  </nav>
+  <div class="content">
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Unicorn <br> Design System</h1>
+        <p>
+          UNICEF New Zealand’s open source design system for web apps. Embraces web standards
+          and built with flexibility in mind, giving you the freedom to make it your own.
+        </p>
+        <uni-button href="/docs/setup/">Get Started</uni-button>
+      </div>
+      <div class="hero-code">
+        <div class="code-tabs">
+          <div class="code-tab">
+            unicorn.tsx
+          </div>
+          <div class="code-tab">
+            unicorn.html
+          </div>
+        </div>
+        <code>
+          import React from ‘react’;<br>
+          import { UniButton } from ‘@unicorndesign/react’;<br>
+          <br>
+          export default () => (<br>
+          &nbsp;&nbsp;&lt;UniButton>Unicorns!&lt;/UniButton><br>
+          );
+        </code>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
