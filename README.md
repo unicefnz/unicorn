@@ -1,5 +1,6 @@
-![Logo](packages/site/public/logo-med.png)
-# Unicorn Design System (beta)
+[![Logo](packages/site/public/img/icon-med.png)](https://unicorn.is)
 
-## Docs, info, and stuff
-Docs can be found in the [core package](/core)
+# Unicorn Design System
+
+- [Unicorn.is](https://unicorn.is)
+- [Documentation](https://unicorn.is/docs/)
