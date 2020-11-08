@@ -1,10 +1,9 @@
 module.exports = {
-  base: '/docs/',
   title: '🦄 Unicorn',
   description: 'Cutting edge design system and web component library ✨ 🦄 ✨',
   dest: './dist',
   themeConfig: {
-    logo: '../img/lockup.png',
+    logo: './img/lockup.png',
     lastUpdated: true,
     repo: 'unicefnz/unicorn',
     docsDir: 'packages/docs/docs',

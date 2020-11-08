@@ -1,3 +1,6 @@
+---
+sidebarDepth: 0
+---
 # Typography
 
 For convenience, the global theme stylesheet includes a few text styles.

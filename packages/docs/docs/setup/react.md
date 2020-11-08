@@ -38,7 +38,7 @@ import { applyPolyfills } from '@unicorndesign/core/loader';
 await applyPolyfills();
 ``` 
 
-### Step 4: Profit
+## Step 4: Profit
 Done! You're ready to use Unicorn.
 
 ```jsx
