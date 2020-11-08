@@ -2,6 +2,9 @@ module.exports = {
   title: '🦄 Unicorn',
   description: 'Cutting edge design system and web component library ✨ 🦄 ✨',
   dest: './dist',
+  head: [
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }]
+  ],
   themeConfig: {
     logo: './img/lockup.png',
     lastUpdated: true,
