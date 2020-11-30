@@ -1,14 +1,16 @@
 :host {
-  --uni-color-active: var(--uni-accent);
-  --uni-border: 2px solid var(--uni-dark);
-  --uni-border-radius: 4px;
+  /**
+   * @prop --uni-color-active: Background color for this button when active
+   * @prop --uni-border-width: Width of the  button border
+   * @prop --uni-border-radius: Border radius
+   */
   display: block;
 }
 
 .button {
-  border: var(--uni-border);
-  border-radius: var(--uni-border-radius);
-  background: none;
+  border: var(--uni-border-width, 2px) solid var(--uni-dark);
+  border-radius: var(--uni-border-radius, 4px);
+  background: var(--uni-background, transparent);
   cursor: pointer;
   display: block;
   height: 100%;
@@ -19,7 +21,7 @@
 }
 
 :host(.uni-selected) .button {
-  background: var(--uni-color-active);
+  background: var(--uni-color-active, var(--uni-accent));
 }
 
 .button:focus {

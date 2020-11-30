@@ -1,16 +1,14 @@
 @use "../../../css/theming/color";
 
 :host {
-  --uni-border: none;
-  --uni-border-radius: 0;
-  --uni-x-border: var(--uni-border);
-  --uni-x-border-radius: var(--uni-border-radius);
+  /**
+   * @prop --uni-border-width: Border width for underlying field
+   * @prop --uni-border-radius: Border radius for underlying field
+   */
   display: block;
 }
 
 ::slotted(uni-text-field) {
-  --uni-border: var(--uni-x-border);
-  --uni-border-radius: var(--uni-x-border-radius);
   margin: 0;
   height: 100%;
 }
