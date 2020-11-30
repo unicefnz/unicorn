@@ -2,8 +2,11 @@
 @use "../../../css/theming/typography";
 
 :host {
-  --uni-border: 2px solid var(--uni-dark);
-  --uni-border-radius: 4px;
+  /**
+   * @prop --uni-border-color: Border color
+   * @prop --uni-border-width: Border width
+   * @prop --uni-border-radius: Border radius
+   */
   display: block;
   text-align: start;
   margin: 1rem 0;
@@ -27,8 +30,8 @@
   overflow: hidden;
   display: flex;
   align-items: stretch;
-  border: var(--uni-border);
-  border-radius: var(--uni-border-radius);
+  border: var(--uni-border-width, 2px) solid var(--uni-border-color, var(--uni-dark));
+  border-radius: var(--uni-border-radius, 4px);
 }
 :host(.input--has-errors) .input-field {
   border-color: var(--uni-danger);
