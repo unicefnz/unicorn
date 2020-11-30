@@ -18,6 +18,14 @@
 | `variant`  | `variant`  | Sets the variant of the button One of 'solid' or 'border'                                                                                                          | `"border" \| "solid"` | `'solid'`   |
 
 
+## CSS Custom Properties
+
+| Name                   | Description                                               |
+| ---------------------- | --------------------------------------------------------- |
+| `--uni-color`          | Background color. Recommended to use a .uni-color-* class |
+| `--uni-color-contrast` | Text color                                                |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
