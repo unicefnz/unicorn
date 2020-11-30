@@ -1,10 +1,11 @@
 @use "../../../css/theming/typography";
 
 :host {
-  --uni-border-color: var(--uni-dark);
-  --uni-border: 2px solid var(--uni-border-color);
-  --uni-border-radius: 4px;
-  --uni-error-color: var(--uni-danger);
+  /**
+   * @prop --uni-border-color: Border color
+   * @prop --uni-border-radius: Border radius
+   * @prop --uni-error-color: Border color when in an error state
+   */
   display: block;
   text-align: start;
   margin: 1rem 0;
@@ -27,8 +28,8 @@
   width: 100%;
   overflow: hidden;
 
-  border: var(--uni-border);
-  border-radius: var(--uni-border-radius);
+  border: var(--uni-border-width, 2px) solid var(--uni-border-color, var(--uni-dark));
+  border-radius: var(--uni-border-radius, 4px);
 
   background: none;
   cursor: pointer;
@@ -48,7 +49,7 @@
   margin: auto;
   border-style: solid;
   border-width: 8px 7px 0 7px;
-  border-color: var(--uni-border-color) transparent transparent transparent;
+  border-color: var(--uni-border-color, var(--uni-dark)) transparent transparent transparent;
 }
 :host(.uni-expanded) .expansion-trigger {
   border-bottom-left-radius: 0;
@@ -66,10 +67,10 @@
 }
 :host(.uni-errors) {
   .label {
-    color: var(--uni-error-color);
+    color: var(--uni-error-color, var(--uni-danger));
   }
   .expansion-trigger, .expansion-content {
-    border-color: var(--uni-error-color);
+    border-color: var(--uni-error-color, var(--uni-danger));
   }
 }
 

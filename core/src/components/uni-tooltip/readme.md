@@ -18,6 +18,13 @@
 | `value`     | `value`      | Programmatically show the tooltip                                        | `boolean`                                | `undefined` |
 
 
+## CSS Custom Properties
+
+| Name                 | Description                  |
+| -------------------- | ---------------------------- |
+| `--uni-border-color` | Color for the tooltip border |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

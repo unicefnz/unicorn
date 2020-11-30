@@ -16,6 +16,15 @@
 | `optional`    | `optional`     | Displays a visual (optional) marker       | `boolean`            | `false`     |
 
 
+## CSS Custom Properties
+
+| Name                  | Description                         |
+| --------------------- | ----------------------------------- |
+| `--uni-border-color`  | Border color                        |
+| `--uni-border-radius` | Border radius                       |
+| `--uni-error-color`   | Border color when in an error state |
+
+
 ## Dependencies
 
 ### Depends on
