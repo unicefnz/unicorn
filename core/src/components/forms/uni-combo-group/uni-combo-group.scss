@@ -21,7 +21,7 @@ uni-radio-controller {
     margin: -$gutter;
   }
   ::slotted([uni-radio-option]) {
-    --uni-border: 2px solid var(--uni-dark);
+    --uni-border-width: 2px;
     --uni-border-radius: 4px;
     margin: $gutter;
     flex: 1;
@@ -38,7 +38,7 @@ uni-radio-controller {
     margin: -1px;
   }
   ::slotted([uni-radio-option]) {
-    --uni-border: 1px solid var(--uni-dark);
+    --uni-border-width: 1px;
     --uni-border-radius: 0;
     flex: 1;
   }

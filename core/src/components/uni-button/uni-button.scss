@@ -1,9 +1,14 @@
 @use "../../css/theming/color";
 
+$background: var(--uni-color, var(--uni-accent));
+$text: var(--uni-color-contrast, var(--uni-accent-contrast));
+
 :host {
+  /**
+   * @prop --uni-color: Background color. Recommended to use a .uni-color-* class
+   * @prop --uni-color-contrast: Text color
+   */
   display: inline-block;
-  --background: #{color.useVar(accent)};
-  --contrast: #{color.useVar(accent, contrast)};
 }
 
 .button {
@@ -61,22 +66,22 @@
 // Border style (except loading)
 :host(.uni-variant-border:not(.uni-loading)) .button {
   padding: 0 16px;
-  border: 2px solid var(--background);
+  border: 2px solid $background;
   transition: background-color 0.3s, color 0.3s;
-  color: var(--background);
+  color: $background;
 }
 // Border style hover (except disabled)
 :host(.uni-variant-border:not(.uni-disabled):hover) .button, :host(.uni-variant-border:not(.uni-disabled)) .button:focus {
-  color: var(--contrast);
-  background-color: var(--background);
+  color: $text;
+  background-color: $background;
 }
 
 // Solid style, or loading style
 :host(.uni-variant-solid), :host(.uni-loading) {
   .button {
-    background-color: var(--background);
+    background-color: $background;
     transition: filter 0.3s;
-    color: var(--contrast);
+    color: $text;
   }
 }
 
