@@ -9,12 +9,14 @@ describe('uni-text-field', () => {
     });
     expect(page.root).toEqualHtml(`
       <uni-text-field>
-        <div class="input-field">
-          <div class="prepend-wrapper">
-            <slot name="prepend"></slot>
+        <mock:shadow-root>
+          <div class="input-field">
+              <div class="prepend-wrapper">
+                  <slot name="prepend"></slot>
+              </div>
+              <input class="input-elem" id="uni-input-0">
           </div>
-          <input class="input-elem" id="uni-input-0">
-        </div>
+        </mock:shadow-root>
       </uni-text-field>
     `);
   });

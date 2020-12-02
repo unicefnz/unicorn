@@ -7,7 +7,7 @@ let nextUniqueId = 0;
 @Component({
   tag: 'uni-text-field',
   styleUrl: 'uni-text-field.scss',
-  scoped: true
+  shadow: true
 })
 export class UniTextField implements ComponentInterface {
   /**
