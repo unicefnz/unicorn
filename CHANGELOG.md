@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1-beta.0](https://github.com/unicefnz/unicorn/compare/v1.2.0...v1.2.1-beta.0) (2020-12-02)
+
+
+### Bug Fixes
+
+* **dialog-actions:** Improve child layout ([bbae83f](https://github.com/unicefnz/unicorn/commit/bbae83f484bf4fd956abec37cb71149ce9b4cfbc))
+* **dialog-actions:** Tweak margin ([4f3b03c](https://github.com/unicefnz/unicorn/commit/4f3b03c339de704dae7c17cdefedcda065a5246a))
+
+
+
+
+
 # [1.2.0](https://github.com/unicefnz/unicorn/compare/v1.1.8...v1.2.0) (2020-11-30)
 
 
