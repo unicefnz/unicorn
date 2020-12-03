@@ -21,6 +21,14 @@
 | `uniSelect` | Emitted when the button is clicked | `CustomEvent<void>` |
 
 
+## CSS Custom Properties
+
+| Name                  | Description                        |
+| --------------------- | ---------------------------------- |
+| `--uni-border-radius` | Border radius for underlying field |
+| `--uni-border-width`  | Border width for underlying field  |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

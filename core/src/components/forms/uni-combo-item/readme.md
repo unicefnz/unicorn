@@ -20,6 +20,15 @@
 | `uniSelect` | Emitted when this option is selected (usually when clicked and not disabled) | `CustomEvent<void>` |
 
 
+## CSS Custom Properties
+
+| Name                  | Description                                  |
+| --------------------- | -------------------------------------------- |
+| `--uni-border-radius` | Border radius                                |
+| `--uni-border-width`  | Width of the button border                   |
+| `--uni-color`         | Background color for this button when active |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
