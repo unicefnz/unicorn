@@ -18,7 +18,7 @@ export class UniRadioController implements ComponentInterface {
   /**
    * Emitted when the selected option changes
    * */
-  @Event({ bubbles: false }) readonly uniChange: EventEmitter<string>;
+  @Event({ bubbles: false }) readonly uniChange: EventEmitter<string | number>;
 
   private selected: HTMLUniRadioItemElement;
 

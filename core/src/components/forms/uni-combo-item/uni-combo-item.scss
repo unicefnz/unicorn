@@ -1,34 +1,33 @@
 :host {
   /**
-   * @prop --uni-color-active: Background color for this button when active
+   * @prop --uni-color: Background color for this button when active
    * @prop --uni-border-width: Width of the  button border
    * @prop --uni-border-radius: Border radius
    */
   display: block;
 }
 
-.button {
+input {
+  position: absolute;
+  visibility: hidden;
+}
+
+label {
   border: var(--uni-border-width, 2px) solid var(--uni-dark);
   border-radius: var(--uni-border-radius, 4px);
   background: var(--uni-background, transparent);
   cursor: pointer;
   display: block;
-  height: 100%;
-  width: 100%;
   text-align: center;
   padding: 0.6em 1em;
   font: inherit;
 }
 
-:host(.uni-selected) .button {
-  background: var(--uni-color-active, var(--uni-accent));
+:host(.uni-disabled) label {
+  opacity: 0.6;
+  color: rgba(48, 48, 48, 0.6)
 }
 
-.button:focus {
-  outline: none;
-  background: var(--uni-light-tint);
-}
-
-:host(.uni-selected) .button:focus {
-  background: var(--uni-accent-tint);
+:host(.uni-selected) label {
+  background: var(--uni-color, var(--uni-accent));
 }

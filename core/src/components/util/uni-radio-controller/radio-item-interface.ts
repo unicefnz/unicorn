@@ -3,12 +3,16 @@ import { HTMLStencilElement } from '@stencil/core/internal';
 
 interface RadioItemInterface extends ComponentInterface {
   selected: boolean;
-  value: string;
+  disabled?: boolean;
+  value: string | number;
+  setFocus(ev: Event): Promise<void>;
 }
 
 export interface HTMLUniRadioItemElement extends HTMLStencilElement {
   selected: boolean;
-  value: string;
+  disabled?: boolean;
+  value: string | number;
+  setFocus(ev: Event): Promise<void>;
 }
 
 export default RadioItemInterface;

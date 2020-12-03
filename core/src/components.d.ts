@@ -76,7 +76,7 @@ export namespace Components {
         /**
           * Value of the selected option
          */
-        "value": string;
+        "value": string | number;
         /**
           * Display a different style radio group, either a "combo" row or "button" group
          */
@@ -88,6 +88,7 @@ export namespace Components {
          */
         "disabled": boolean;
         "selected": boolean;
+        "setFocus": (ev: any) => Promise<void>;
         /**
           * Machine value for the option
          */
@@ -103,6 +104,7 @@ export namespace Components {
          */
         "selectOn": string;
         "selected": boolean;
+        "setFocus": (ev: any) => Promise<void>;
         /**
           * Machine value for the option
          */
@@ -537,11 +539,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when the selected option changes
          */
-        "onUniChange"?: (event: CustomEvent<string>) => void;
+        "onUniChange"?: (event: CustomEvent<string | number>) => void;
         /**
           * Value of the selected option
          */
-        "value"?: string;
+        "value"?: string | number;
         /**
           * Display a different style radio group, either a "combo" row or "button" group
          */
@@ -553,7 +555,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Emitted when the button is clicked
+          * Emitted when this option is selected (usually when clicked and not disabled)
          */
         "onUniSelect"?: (event: CustomEvent<void>) => void;
         "selected"?: boolean;
@@ -671,7 +673,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the selected option changes
          */
-        "onUniChange"?: (event: CustomEvent<string>) => void;
+        "onUniChange"?: (event: CustomEvent<string | number>) => void;
         /**
           * Value of the selected option
          */

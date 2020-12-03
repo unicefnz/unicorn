@@ -9,36 +9,16 @@
 
 | Property  | Attribute | Description                                                                   | Type                  | Default     |
 | --------- | --------- | ----------------------------------------------------------------------------- | --------------------- | ----------- |
-| `value`   | `value`   | Value of the selected option                                                  | `string`              | `undefined` |
+| `value`   | `value`   | Value of the selected option                                                  | `number \| string`    | `undefined` |
 | `variant` | `variant` | Display a different style radio group, either a "combo" row or "button" group | `"button" \| "combo"` | `'combo'`   |
 
 
 ## Events
 
-| Event       | Description                              | Type                  |
-| ----------- | ---------------------------------------- | --------------------- |
-| `uniChange` | Emitted when the selected option changes | `CustomEvent<string>` |
+| Event       | Description                              | Type                            |
+| ----------- | ---------------------------------------- | ------------------------------- |
+| `uniChange` | Emitted when the selected option changes | `CustomEvent<number \| string>` |
 
-
-## Shadow Parts
-
-| Part       | Description |
-| ---------- | ----------- |
-| `"layout"` |             |
-
-
-## Dependencies
-
-### Depends on
-
-- [uni-radio-controller](../../util/uni-radio-controller)
-
-### Graph
-```mermaid
-graph TD;
-  uni-combo-group --> uni-radio-controller
-  style uni-combo-group fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

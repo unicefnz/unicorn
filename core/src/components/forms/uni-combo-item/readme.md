@@ -15,18 +15,9 @@
 
 ## Events
 
-| Event       | Description                        | Type                |
-| ----------- | ---------------------------------- | ------------------- |
-| `uniSelect` | Emitted when the button is clicked | `CustomEvent<void>` |
-
-
-## CSS Custom Properties
-
-| Name                  | Description                                  |
-| --------------------- | -------------------------------------------- |
-| `--uni-border-radius` | Border radius                                |
-| `--uni-border-width`  | Width of the button border                   |
-| `--uni-color-active`  | Background color for this button when active |
+| Event       | Description                                                                  | Type                |
+| ----------- | ---------------------------------------------------------------------------- | ------------------- |
+| `uniSelect` | Emitted when this option is selected (usually when clicked and not disabled) | `CustomEvent<void>` |
 
 
 ----------------------------------------------
