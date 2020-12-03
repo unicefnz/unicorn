@@ -186,12 +186,6 @@ export namespace Components {
          */
         "value": boolean;
     }
-    interface UniRadioController {
-        /**
-          * Value of the selected option
-         */
-        "value": string;
-    }
     interface UniSelect {
         /**
           * Displays error(s) below the input
@@ -402,12 +396,6 @@ declare global {
         prototype: HTMLUniProgressLinearElement;
         new (): HTMLUniProgressLinearElement;
     };
-    interface HTMLUniRadioControllerElement extends Components.UniRadioController, HTMLStencilElement {
-    }
-    var HTMLUniRadioControllerElement: {
-        prototype: HTMLUniRadioControllerElement;
-        new (): HTMLUniRadioControllerElement;
-    };
     interface HTMLUniSelectElement extends Components.UniSelect, HTMLStencilElement {
     }
     var HTMLUniSelectElement: {
@@ -454,7 +442,6 @@ declare global {
         "uni-expandable-field": HTMLUniExpandableFieldElement;
         "uni-outside-click": HTMLUniOutsideClickElement;
         "uni-progress-linear": HTMLUniProgressLinearElement;
-        "uni-radio-controller": HTMLUniRadioControllerElement;
         "uni-select": HTMLUniSelectElement;
         "uni-tag-chip": HTMLUniTagChipElement;
         "uni-text-field": HTMLUniTextFieldElement;
@@ -669,16 +656,6 @@ declare namespace LocalJSX {
          */
         "value"?: boolean;
     }
-    interface UniRadioController {
-        /**
-          * Emitted when the selected option changes
-         */
-        "onUniChange"?: (event: CustomEvent<string | number>) => void;
-        /**
-          * Value of the selected option
-         */
-        "value"?: string;
-    }
     interface UniSelect {
         /**
           * Displays error(s) below the input
@@ -825,7 +802,6 @@ declare namespace LocalJSX {
         "uni-expandable-field": UniExpandableField;
         "uni-outside-click": UniOutsideClick;
         "uni-progress-linear": UniProgressLinear;
-        "uni-radio-controller": UniRadioController;
         "uni-select": UniSelect;
         "uni-tag-chip": UniTagChip;
         "uni-text-field": UniTextField;
@@ -852,7 +828,6 @@ declare module "@stencil/core" {
             "uni-expandable-field": LocalJSX.UniExpandableField & JSXBase.HTMLAttributes<HTMLUniExpandableFieldElement>;
             "uni-outside-click": LocalJSX.UniOutsideClick & JSXBase.HTMLAttributes<HTMLUniOutsideClickElement>;
             "uni-progress-linear": LocalJSX.UniProgressLinear & JSXBase.HTMLAttributes<HTMLUniProgressLinearElement>;
-            "uni-radio-controller": LocalJSX.UniRadioController & JSXBase.HTMLAttributes<HTMLUniRadioControllerElement>;
             "uni-select": LocalJSX.UniSelect & JSXBase.HTMLAttributes<HTMLUniSelectElement>;
             "uni-tag-chip": LocalJSX.UniTagChip & JSXBase.HTMLAttributes<HTMLUniTagChipElement>;
             "uni-text-field": LocalJSX.UniTextField & JSXBase.HTMLAttributes<HTMLUniTextFieldElement>;

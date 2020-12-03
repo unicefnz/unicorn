@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { HTMLUniRadioItemElement } from '../../util/uni-radio-controller/radio-item-interface';
+import { ComboItemElement } from './combo-item';
 
 export default {
   title: 'Forms/Combo Group'
@@ -65,7 +65,7 @@ export const Event = () => {
   const group = document.createElement('uni-combo-group');
 
   function addOption() {
-    const vals = Array.from(group.children).map((opt: HTMLUniRadioItemElement) => +opt.value);
+    const vals = Array.from(group.children).map((opt: ComboItemElement) => +opt.value);
     const id = (Math.max(0, ...vals) || 0) + 1;
     const newOpt = document.createElement('uni-combo-item');
     newOpt.value = '' + id;

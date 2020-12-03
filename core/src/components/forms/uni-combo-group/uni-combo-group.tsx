@@ -1,7 +1,7 @@
 import {
   Component, Host, h, Prop, Event, EventEmitter, Watch, Element, Listen
 } from '@stencil/core';
-import type { HTMLUniRadioItemElement } from '../../util/uni-radio-controller/radio-item-interface';
+import type { ComboItemElement } from './combo-item';
 
 @Component({
   tag: 'uni-combo-group',
@@ -56,7 +56,7 @@ export class UniComboGroup {
     });
   };
 
-  private getOpts(): HTMLUniRadioItemElement[] {
+  private getOpts(): ComboItemElement[] {
     const children = Array.from(this.el.shadowRoot.querySelector('slot').assignedElements({ flatten: true }));
     return [].concat(...children.map((child) => {
       if (child.matches('[uni-radio-option]')) return [child];
@@ -65,7 +65,7 @@ export class UniComboGroup {
   }
 
   private onSelect(e: CustomEvent) {
-    const target = e.target && (e.target as HTMLElement).closest('[uni-radio-option]') as HTMLUniRadioItemElement;
+    const target = e.target && (e.target as HTMLElement).closest('[uni-radio-option]') as ComboItemElement;
 
     if (!target) return; // We don't care about this click event
 
@@ -82,7 +82,7 @@ export class UniComboGroup {
 
     // Get all radios inside of the radio group and then
     // filter out disabled radios since we need to skip those
-    const radios = (Array.from(this.el.querySelectorAll('[uni-radio-option]')) as HTMLUniRadioItemElement[]).filter(radio => !radio.disabled);
+    const radios = (Array.from(this.el.querySelectorAll('[uni-radio-option]')) as ComboItemElement[]).filter(radio => !radio.disabled);
 
     // Only move the radio if the current focus is in the radio group
     if (ev.target && radios.includes(ev.target)) {

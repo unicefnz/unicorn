@@ -1,7 +1,7 @@
 import {
   Component, Host, h, Prop, Event, EventEmitter, Watch, Element, Method
 } from '@stencil/core';
-import RadioItemInterface from '../../util/uni-radio-controller/radio-item-interface';
+import ComboItemComponentInterface from '../uni-combo-group/combo-item';
 
 let itemId = 0;
 
@@ -10,7 +10,7 @@ let itemId = 0;
   styleUrl: 'uni-combo-text.scss',
   shadow: true
 })
-export class UniComboText implements RadioItemInterface {
+export class UniComboText implements ComboItemComponentInterface {
   private uniqueId = `uni-combo-text-${itemId++}`;
 
   private parentGroup: HTMLUniComboGroupElement | null = null;
