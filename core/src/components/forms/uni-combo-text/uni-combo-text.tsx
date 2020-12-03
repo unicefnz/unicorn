@@ -1,5 +1,5 @@
 import {
-  Component, Host, h, Prop, Event, EventEmitter, Watch, Element
+  Component, Host, h, Prop, Event, EventEmitter, Watch, Element, Listen
 } from '@stencil/core';
 
 @Component({
@@ -39,6 +39,11 @@ export class UniComboText {
   public onSelectOnChange(newVal: string, oldVal?: string) {
     if (oldVal) this.el.removeEventListener(oldVal, this.selectEmitter);
     this.el.addEventListener(newVal, this.selectEmitter);
+  }
+
+  @Listen('uniChange')
+  public onChildChange(e: CustomEvent) {
+    e.stopPropagation();
   }
 
   private selectEmitter = () => this.uniSelect.emit();
