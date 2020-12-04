@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2-beta.1](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.2-beta.0...v1.2.2-beta.1) (2020-12-04)
+
+
+### Bug Fixes
+
+* **react:** Remove UniRadioController ([8ec0010](https://github.com/unicef-new-zealand/unicorn/commit/8ec001094d3b395d1cc144e45ec431fa84822f0d))
+
+
+
+
+
 ## [1.2.2-beta.0](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.1-beta.0...v1.2.2-beta.0) (2020-12-04)
 
 **Note:** Version bump only for package @unicorndesign/react

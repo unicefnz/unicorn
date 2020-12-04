@@ -1,6 +1,6 @@
 {
   "name": "@unicorndesign/react",
-  "version": "1.2.2-beta.0",
+  "version": "1.2.2-beta.1",
   "description": "React Layer for the Unicorn Design System",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.esm.js",
