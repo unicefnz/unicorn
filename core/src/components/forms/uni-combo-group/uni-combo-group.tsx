@@ -1,5 +1,5 @@
 import {
-  Component, Host, h, Prop, Event, EventEmitter, Watch, Element, Listen
+  Component, Host, h, Prop, Event, EventEmitter, Watch, Element, Listen, ComponentInterface
 } from '@stencil/core';
 import type { ComboItemElement } from './combo-item';
 
@@ -8,7 +8,7 @@ import type { ComboItemElement } from './combo-item';
   styleUrl: 'uni-combo-group.scss',
   shadow: true
 })
-export class UniComboGroup {
+export class UniComboGroup implements ComponentInterface {
   @Element() el!: HTMLUniComboGroupElement;
 
   /**
