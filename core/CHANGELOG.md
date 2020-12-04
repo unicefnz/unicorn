@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2-beta.0](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.1-beta.0...v1.2.2-beta.0) (2020-12-04)
+
+**Note:** Version bump only for package @unicorndesign/core
+
+
+
+
+
 ## [1.2.1-beta.0](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.0...v1.2.1-beta.0) (2020-12-02)
 
 
