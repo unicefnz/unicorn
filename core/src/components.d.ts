@@ -76,7 +76,7 @@ export namespace Components {
         /**
           * Value of the selected option
          */
-        "value": string;
+        "value": string | number;
         /**
           * Display a different style radio group, either a "combo" row or "button" group
          */
@@ -88,6 +88,7 @@ export namespace Components {
          */
         "disabled": boolean;
         "selected": boolean;
+        "setFocus": (ev: any) => Promise<void>;
         /**
           * Machine value for the option
          */
@@ -103,6 +104,7 @@ export namespace Components {
          */
         "selectOn": string;
         "selected": boolean;
+        "setFocus": (ev: any) => Promise<void>;
         /**
           * Machine value for the option
          */
@@ -183,12 +185,6 @@ export namespace Components {
           * Controls if the loading bar is visible *
          */
         "value": boolean;
-    }
-    interface UniRadioController {
-        /**
-          * Value of the selected option
-         */
-        "value": string;
     }
     interface UniSelect {
         /**
@@ -400,12 +396,6 @@ declare global {
         prototype: HTMLUniProgressLinearElement;
         new (): HTMLUniProgressLinearElement;
     };
-    interface HTMLUniRadioControllerElement extends Components.UniRadioController, HTMLStencilElement {
-    }
-    var HTMLUniRadioControllerElement: {
-        prototype: HTMLUniRadioControllerElement;
-        new (): HTMLUniRadioControllerElement;
-    };
     interface HTMLUniSelectElement extends Components.UniSelect, HTMLStencilElement {
     }
     var HTMLUniSelectElement: {
@@ -452,7 +442,6 @@ declare global {
         "uni-expandable-field": HTMLUniExpandableFieldElement;
         "uni-outside-click": HTMLUniOutsideClickElement;
         "uni-progress-linear": HTMLUniProgressLinearElement;
-        "uni-radio-controller": HTMLUniRadioControllerElement;
         "uni-select": HTMLUniSelectElement;
         "uni-tag-chip": HTMLUniTagChipElement;
         "uni-text-field": HTMLUniTextFieldElement;
@@ -537,11 +526,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when the selected option changes
          */
-        "onUniChange"?: (event: CustomEvent<string>) => void;
+        "onUniChange"?: (event: CustomEvent<string | number>) => void;
         /**
           * Value of the selected option
          */
-        "value"?: string;
+        "value"?: string | number;
         /**
           * Display a different style radio group, either a "combo" row or "button" group
          */
@@ -553,7 +542,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Emitted when the button is clicked
+          * Emitted when this option is selected (usually when clicked and not disabled)
          */
         "onUniSelect"?: (event: CustomEvent<void>) => void;
         "selected"?: boolean;
@@ -666,16 +655,6 @@ declare namespace LocalJSX {
           * Controls if the loading bar is visible *
          */
         "value"?: boolean;
-    }
-    interface UniRadioController {
-        /**
-          * Emitted when the selected option changes
-         */
-        "onUniChange"?: (event: CustomEvent<string>) => void;
-        /**
-          * Value of the selected option
-         */
-        "value"?: string;
     }
     interface UniSelect {
         /**
@@ -823,7 +802,6 @@ declare namespace LocalJSX {
         "uni-expandable-field": UniExpandableField;
         "uni-outside-click": UniOutsideClick;
         "uni-progress-linear": UniProgressLinear;
-        "uni-radio-controller": UniRadioController;
         "uni-select": UniSelect;
         "uni-tag-chip": UniTagChip;
         "uni-text-field": UniTextField;
@@ -850,7 +828,6 @@ declare module "@stencil/core" {
             "uni-expandable-field": LocalJSX.UniExpandableField & JSXBase.HTMLAttributes<HTMLUniExpandableFieldElement>;
             "uni-outside-click": LocalJSX.UniOutsideClick & JSXBase.HTMLAttributes<HTMLUniOutsideClickElement>;
             "uni-progress-linear": LocalJSX.UniProgressLinear & JSXBase.HTMLAttributes<HTMLUniProgressLinearElement>;
-            "uni-radio-controller": LocalJSX.UniRadioController & JSXBase.HTMLAttributes<HTMLUniRadioControllerElement>;
             "uni-select": LocalJSX.UniSelect & JSXBase.HTMLAttributes<HTMLUniSelectElement>;
             "uni-tag-chip": LocalJSX.UniTagChip & JSXBase.HTMLAttributes<HTMLUniTagChipElement>;
             "uni-text-field": LocalJSX.UniTextField & JSXBase.HTMLAttributes<HTMLUniTextFieldElement>;

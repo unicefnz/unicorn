@@ -10,9 +10,10 @@ describe('uni-combo-item', () => {
     expect(page.root).toEqualHtml(`
       <uni-combo-item uni-radio-option="">
         <mock:shadow-root>
-          <button class="button" type="button">
+          <label htmlfor="uni-combo-item-0">
             <slot></slot>
-          </button>
+          </label>
+          <input class="radio-elem" id="uni-combo-item-0" type="radio" value="uni-combo-item-0" />
         </mock:shadow-root>
       </uni-combo-item>
     `);

@@ -2,22 +2,17 @@
   display: block;
 }
 
-.radio-fieldset {
-  padding: 0;
-  margin: 0;
-  border: none;
-}
 
-uni-radio-controller {
+.wrapper {
   display: flex;
   justify-content: stretch;
   align-items: stretch;
   flex-wrap: wrap;
 }
 
-.uni-variant-button {
+:host(.uni-variant-button) {
   $gutter: 0.6rem;
-  uni-radio-controller {
+  .wrapper {
     margin: -$gutter;
   }
   ::slotted([uni-radio-option]) {
@@ -27,14 +22,12 @@ uni-radio-controller {
     flex: 1;
   }
 }
-.uni-variant-combo {
-  &.radio-fieldset {
-    border: 2px solid var(--uni-dark);
-    border-radius: 4px;
+:host(.uni-variant-combo) {
+  border: 2px solid var(--uni-dark);
+  border-radius: 4px;
+
+  .wrapper {
     overflow: hidden;
-  }
-  uni-radio-controller {
-    border-radius: 4px;
     margin: -1px;
   }
   ::slotted([uni-radio-option]) {

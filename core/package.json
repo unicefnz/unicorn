@@ -30,7 +30,7 @@
     "lint": "eslint src --ext .ts,.tsx,.js",
     "start": "stencil build --watch",
     "start:storybook": "start-storybook -p 6006",
-    "test": "npm run lint && stencil test --spec --e2e",
+    "test": "stencil test --spec --e2e",
     "test:watch": "stencil test --spec --watch ",
     "chromatic": "chromatic --build-script-name build:storybook"
   },
