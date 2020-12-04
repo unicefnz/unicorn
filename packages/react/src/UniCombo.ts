@@ -5,7 +5,6 @@ import {
 } from '@unicorndesign/core/dist/custom-elements';
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
-import './UniRadioController';
 
 if (typeof window === 'object' && typeof window.customElements === 'object') {
   [
