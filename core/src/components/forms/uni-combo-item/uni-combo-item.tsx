@@ -73,6 +73,7 @@ export class UniComboItem implements ComboItemComponentInterface {
         uni-radio-option
         onClick={() => this.disabled || this.uniSelect.emit()}
       >
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label htmlFor={this.uniqueId}>
           <slot />
         </label>
