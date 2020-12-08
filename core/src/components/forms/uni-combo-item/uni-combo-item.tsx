@@ -23,7 +23,7 @@ export class UniComboItem implements ComboItemComponentInterface {
   /**
    * Machine value for the option
    * */
-  @Prop() value: string;
+  @Prop() value: string | number;
 
   /**
    * Marks this option as disabled

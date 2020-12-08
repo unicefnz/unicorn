@@ -92,7 +92,7 @@ export namespace Components {
         /**
           * Machine value for the option
          */
-        "value": string;
+        "value": string | number;
     }
     interface UniComboText {
         /**
@@ -108,7 +108,7 @@ export namespace Components {
         /**
           * Machine value for the option
          */
-        "value": string;
+        "value": string | number;
     }
     interface UniDialog {
         /**
@@ -549,7 +549,7 @@ declare namespace LocalJSX {
         /**
           * Machine value for the option
          */
-        "value"?: string;
+        "value"?: string | number;
     }
     interface UniComboText {
         /**
@@ -568,7 +568,7 @@ declare namespace LocalJSX {
         /**
           * Machine value for the option
          */
-        "value"?: string;
+        "value"?: string | number;
     }
     interface UniDialog {
         /**

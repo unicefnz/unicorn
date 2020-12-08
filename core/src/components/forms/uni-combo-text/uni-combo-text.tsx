@@ -35,7 +35,7 @@ export class UniComboText implements ComboItemComponentInterface {
   /**
    * Machine value for the option
    * */
-  @Prop() value: string;
+  @Prop() value: string | number;
 
   /**
    * Emitted when the button is clicked
