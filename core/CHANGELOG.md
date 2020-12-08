@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2-beta.2](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.2-beta.1...v1.2.2-beta.2) (2020-12-08)
+
+
+### Bug Fixes
+
+* **types:** Support number values for combo ([ce892e8](https://github.com/unicef-new-zealand/unicorn/commit/ce892e80ae6b8d603f02f4085208a43c97057fa3))
+
+
+
+
+
 ## [1.2.2-beta.0](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.1-beta.0...v1.2.2-beta.0) (2020-12-04)
 
 **Note:** Version bump only for package @unicorndesign/core
