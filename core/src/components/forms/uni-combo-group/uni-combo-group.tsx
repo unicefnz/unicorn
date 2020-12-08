@@ -29,7 +29,6 @@ export class UniComboGroup implements ComponentInterface {
   @Watch('value')
   valueChanged(value: string | number) {
     this.setRadioTabindex(value);
-    this.uniChange.emit(value);
   }
 
   componentDidLoad() {
@@ -71,6 +70,7 @@ export class UniComboGroup implements ComponentInterface {
 
     if (this.value !== target.value) {
       this.value = target.value;
+      this.uniChange.emit(this.value); // Only emit when it changes due to user input
     }
   }
 
