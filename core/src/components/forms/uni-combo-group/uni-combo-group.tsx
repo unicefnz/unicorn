@@ -69,7 +69,7 @@ export class UniComboGroup implements ComponentInterface {
 
     if (!target) return; // We don't care about this click event
 
-    if (target.value !== this.value) {
+    if (this.value !== target.value) {
       this.value = target.value;
     }
   }
