@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2-beta.3](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.2-beta.2...v1.2.2-beta.3) (2020-12-08)
+
+
+### Bug Fixes
+
+* **combo:** Don't emit change on attribute modification ([cfa60f9](https://github.com/unicef-new-zealand/unicorn/commit/cfa60f9651b2d4e71e0ed3b00d75f47ca21c499d))
+* **combo:** Stop combo item's click from firing twice ([833d8fc](https://github.com/unicef-new-zealand/unicorn/commit/833d8fc8c77e5ec15c8f4ee37638a05d9691efd9))
+
+
+
+
+
 ## [1.2.2-beta.2](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.2-beta.1...v1.2.2-beta.2) (2020-12-08)
 
 
