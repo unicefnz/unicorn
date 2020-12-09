@@ -524,9 +524,10 @@ declare namespace LocalJSX {
     }
     interface UniComboGroup {
         /**
-          * Emitted when the selected option changes
+          * Emitted when the selected option changes (except when changed by the value prop)
          */
         "onUniChange"?: (event: CustomEvent<string | number>) => void;
+        "onUniInternalChange"?: (event: CustomEvent<string | number>) => void;
         /**
           * Value of the selected option
          */

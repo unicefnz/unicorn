@@ -22,13 +22,20 @@ export class UniComboGroup implements ComponentInterface {
   @Prop() readonly variant: 'combo' | 'button' = 'combo';
 
   /**
-   * Emitted when the selected option changes
+   * Emitted when the selected option changes (except when changed by the value prop)
    * */
-  @Event({ bubbles: false }) uniChange: EventEmitter<string | number>;
+  @Event({ bubbles: false }) uniChange!: EventEmitter<string | number>;
+
+  /**
+   * @internal
+   * Emitted when the selected option changes, signals to the children to update
+   * */
+  @Event({ bubbles: false }) uniInternalChange!: EventEmitter<string | number>;
 
   @Watch('value')
   valueChanged(value: string | number) {
     this.setRadioTabindex(value);
+    this.uniInternalChange.emit(value);
   }
 
   componentDidLoad() {
@@ -114,7 +121,7 @@ export class UniComboGroup implements ComponentInterface {
   render() {
     return (
       <Host
-        onUniSelect={this.onSelect}
+        onUniSelect={e => this.onSelect(e)}
         class={'uni-variant-' + this.variant}
         role="radiogroup"
       >

@@ -51,13 +51,13 @@ export class UniComboItem implements ComboItemComponentInterface {
     this.parentGroup = this.el.closest('uni-combo-group');
     if (this.parentGroup) {
       this.updateState();
-      this.parentGroup.addEventListener('uniChange', this.updateState);
+      this.parentGroup.addEventListener('uniInternalChange', this.updateState);
     }
   }
 
   disconnectedCallback() {
     if (this.parentGroup) {
-      this.parentGroup.removeEventListener('uniChange', this.updateState);
+      this.parentGroup.removeEventListener('uniInternalChange', this.updateState);
       this.parentGroup = null;
     }
   }

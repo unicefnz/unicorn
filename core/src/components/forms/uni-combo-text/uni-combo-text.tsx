@@ -44,8 +44,8 @@ export class UniComboText implements ComboItemComponentInterface {
 
   @Watch('selectOn')
   public onSelectTriggerChange(newVal: string, oldVal?: string) {
-    if (oldVal) this.el.removeEventListener(oldVal, this.selectEmitter);
-    this.el.addEventListener(newVal, this.selectEmitter);
+    if (oldVal) this.el.querySelector('uni-text-field').removeEventListener(oldVal, this.selectEmitter);
+    this.el.querySelector('uni-text-field').addEventListener(newVal, this.selectEmitter);
   }
 
   private selectEmitter = () => this.uniSelect.emit();
@@ -68,13 +68,13 @@ export class UniComboText implements ComboItemComponentInterface {
     this.parentGroup = this.el.closest('uni-combo-group');
     if (this.parentGroup) {
       this.updateState();
-      this.parentGroup.addEventListener('uniChange', this.updateState);
+      this.parentGroup.addEventListener('uniInternalChange', this.updateState);
     }
   }
 
   disconnectedCallback() {
     if (this.parentGroup) {
-      this.parentGroup.removeEventListener('uniChange', this.updateState);
+      this.parentGroup.removeEventListener('uniInternalChange', this.updateState);
       this.parentGroup = null;
     }
   }
@@ -88,7 +88,6 @@ export class UniComboText implements ComboItemComponentInterface {
       <Host
         class={{ 'uni-selected': this.selected, 'uni-disabled': this.disabled }}
         uni-radio-option
-        onUniChange={e => e.stopPropagation()}
       >
         <slot />
       </Host>
