@@ -88,22 +88,22 @@ export class UniTextField implements ComponentInterface {
   /**
    * Emitted when the native input is blurred / focus is lost
    * */
-  @Event() public uniBlur: EventEmitter<FocusEvent>;
+  @Event({ bubbles: false }) public uniBlur: EventEmitter<FocusEvent>;
 
   /**
    * Emitted when form field value is committed
    * */
-  @Event() public uniChange: EventEmitter<string>;
+  @Event({ bubbles: false }) public uniChange: EventEmitter<string>;
 
   /**
    * Emitted when the native input is focused
    * */
-  @Event() public uniFocus: EventEmitter<FocusEvent>;
+  @Event({ bubbles: false }) public uniFocus: EventEmitter<FocusEvent>;
 
   /**
    * Emitted when the form field value changes
    * */
-  @Event() public uniInput: EventEmitter<string>;
+  @Event({ bubbles: false }) public uniInput: EventEmitter<string>;
 
   /**
    * Set the value of the field
