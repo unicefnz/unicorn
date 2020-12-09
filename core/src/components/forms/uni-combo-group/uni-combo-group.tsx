@@ -56,11 +56,7 @@ export class UniComboGroup implements ComponentInterface {
   };
 
   private getOpts(): ComboItemElement[] {
-    const children = Array.from(this.el.shadowRoot.querySelector('slot').assignedElements({ flatten: true }));
-    return [].concat(...children.map((child) => {
-      if (child.matches('[uni-radio-option]')) return [child];
-      return Array.from(child.querySelectorAll('[uni-radio-option]'));
-    }));
+    return Array.from(this.el.querySelectorAll('[uni-radio-option]'));
   }
 
   private onSelect(e: CustomEvent) {
@@ -82,12 +78,11 @@ export class UniComboGroup implements ComponentInterface {
 
     // Get all radios inside of the radio group and then
     // filter out disabled radios since we need to skip those
-    const radios = (Array.from(this.el.querySelectorAll('[uni-radio-option]')) as ComboItemElement[]).filter(radio => !radio.disabled);
+    const radios = this.getOpts().filter(radio => !radio.disabled);
 
     // Only move the radio if the current focus is in the radio group
     if (ev.target && radios.includes(ev.target)) {
       const index = radios.findIndex(radio => radio === ev.target);
-      const current = radios[index];
 
       let next;
 
@@ -111,13 +106,7 @@ export class UniComboGroup implements ComponentInterface {
         next.setFocus(ev);
 
         this.value = next.value;
-      }
-
-      // Update the radio group value when a user presses the
-      // space bar on top of a selected radio (only applies
-      // to radios in a select popover)
-      if (['Space'].includes(ev.code)) {
-        this.value = current.value;
+        this.uniChange.emit(this.value); // Only emit when it changes due to user input
       }
     }
   }
