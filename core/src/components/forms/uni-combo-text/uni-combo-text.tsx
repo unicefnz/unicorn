@@ -44,11 +44,14 @@ export class UniComboText implements ComboItemComponentInterface {
 
   @Watch('selectOn')
   public onSelectTriggerChange(newVal: string, oldVal?: string) {
-    if (oldVal) this.el.querySelector('uni-text-field').removeEventListener(oldVal, this.selectEmitter);
-    this.el.querySelector('uni-text-field').addEventListener(newVal, this.selectEmitter);
+    if (oldVal && this.childField) this.childField.removeEventListener(oldVal, this.selectEmitter);
+    this.childField = this.el.querySelector('uni-text-field');
+    if (this.childField) this.childField.addEventListener(newVal, this.selectEmitter);
   }
 
   private selectEmitter = () => this.uniSelect.emit();
+
+  private childField: HTMLUniTextFieldElement | null = null;
 
   /** @internal */
   @Method()
