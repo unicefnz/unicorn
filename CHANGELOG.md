@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2-beta.4](https://github.com/unicefnz/unicorn/compare/v1.2.2-beta.3...v1.2.2-beta.4) (2020-12-09)
+
+
+### Bug Fixes
+
+* **combo:** Change getOpts algorithm ([126bc9c](https://github.com/unicefnz/unicorn/commit/126bc9c166769006d26dc56d3a488a3df230f769))
+* **text-field:** Don't bubble events ([d47f35f](https://github.com/unicefnz/unicorn/commit/d47f35fc1fe1c1e29d2377483ec6c4fc45a6bc23))
+
+
+
+
+
 ## [1.2.2-beta.3](https://github.com/unicefnz/unicorn/compare/v1.2.2-beta.2...v1.2.2-beta.3) (2020-12-08)
 
 

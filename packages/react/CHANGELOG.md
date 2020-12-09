@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2-beta.4](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.2-beta.3...v1.2.2-beta.4) (2020-12-09)
+
+**Note:** Version bump only for package @unicorndesign/react
+
+
+
+
+
 ## [1.2.2-beta.3](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.2-beta.2...v1.2.2-beta.3) (2020-12-08)
 
 **Note:** Version bump only for package @unicorndesign/react
