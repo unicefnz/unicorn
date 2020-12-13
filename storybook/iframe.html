@@ -108,12 +108,21 @@
   window.onerror = function onerror(message, source, line, column, err) {
     if (window.CONFIG_TYPE !== 'DEVELOPMENT') return;
     // eslint-disable-next-line no-var, vars-on-top
-    var error = { message: err.message, name: err.name, stack: err.stack };
-    window.fetch('/runtime-error', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message, source, line, column, error, origin: 'preview' }),
-    });
+    var xhr = new window.XMLHttpRequest();
+    xhr.open('POST', '/runtime-error');
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.send(
+      JSON.stringify({
+        /* eslint-disable object-shorthand */
+        message: message,
+        source: source,
+        line: line,
+        column: column,
+        error: err && { message: err.message, name: err.name, stack: err.stack },
+        origin: 'preview',
+        /* eslint-enable object-shorthand */
+      })
+    );
   };</script><script defer="defer" type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script><script defer="defer" nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Jost:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet"><style>#root[hidden],
       #docs-root[hidden] {
         display: none !important;
@@ -121,4 +130,4 @@
             
         
             
-              window['FRAMEWORK_OPTIONS'] = {};</script><script src="runtime~main.e6b4f12437c75cf49d16.bundle.js"></script><script src="vendors~main.e6b4f12437c75cf49d16.bundle.js"></script><script src="main.e6b4f12437c75cf49d16.bundle.js"></script></body></html>
+              window['FRAMEWORK_OPTIONS'] = {};</script><script src="runtime~main.cc8c2b81e2d04e408422.bundle.js"></script><script src="vendors~main.cc8c2b81e2d04e408422.bundle.js"></script><script src="main.cc8c2b81e2d04e408422.bundle.js"></script></body></html>
