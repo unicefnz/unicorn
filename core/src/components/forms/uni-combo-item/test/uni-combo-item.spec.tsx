@@ -11,7 +11,9 @@ describe('uni-combo-item', () => {
       <uni-combo-item uni-radio-option="">
         <mock:shadow-root>
           <label htmlfor="uni-combo-item-0">
-            <slot></slot>
+            <span>
+              <slot></slot>
+            </span>
           </label>
           <input class="radio-elem" id="uni-combo-item-0" type="radio" value="uni-combo-item-0" />
         </mock:shadow-root>

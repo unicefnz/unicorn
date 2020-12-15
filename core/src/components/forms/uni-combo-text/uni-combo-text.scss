@@ -15,4 +15,5 @@
 
 :host(.uni-selected) ::slotted(uni-text-field) {
   --uni-color: var(--uni-accent);
+  height: 100%;
 }

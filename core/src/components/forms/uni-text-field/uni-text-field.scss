@@ -7,7 +7,7 @@
    * @prop --uni-border-width: Border width
    * @prop --uni-border-radius: Border radius
    */
-  display: block;
+  display: flex;
   text-align: start;
   margin: 1rem 0;
 }
@@ -30,6 +30,7 @@
   overflow: hidden;
   display: flex;
   align-items: stretch;
+  flex: 1;
   border: var(--uni-border-width, 2px) solid var(--uni-border-color, var(--uni-dark));
   border-radius: var(--uni-border-radius, 4px);
 }

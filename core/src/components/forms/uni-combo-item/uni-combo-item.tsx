@@ -74,7 +74,9 @@ export class UniComboItem implements ComboItemComponentInterface {
       >
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label htmlFor={this.uniqueId}>
-          <slot />
+          <span>
+            <slot />
+          </span>
         </label>
         <input
           onClick={() => this.uniSelect.emit()}
