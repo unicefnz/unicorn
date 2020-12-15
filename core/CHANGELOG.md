@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.2...v1.2.3) (2020-12-15)
+
+
+### Bug Fixes
+
+* **text-field:** Correct label layout ([69c1f57](https://github.com/unicef-new-zealand/unicorn/commit/69c1f57ae44cecbb05a262304529ecf6419ca137))
+
+
+
+
+
 ## [1.2.2](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.2-beta.4...v1.2.2) (2020-12-15)
 
 
