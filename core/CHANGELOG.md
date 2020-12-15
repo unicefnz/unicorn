@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.2-beta.4...v1.2.2) (2020-12-15)
+
+
+### Bug Fixes
+
+* **combo:** Fix combo item height ([221b78f](https://github.com/unicef-new-zealand/unicorn/commit/221b78fc2f4fc3133321dcd4f4b08d0afdd36766))
+
+
+
+
+
 ## [1.2.2-beta.4](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.2-beta.3...v1.2.2-beta.4) (2020-12-09)
 
 
