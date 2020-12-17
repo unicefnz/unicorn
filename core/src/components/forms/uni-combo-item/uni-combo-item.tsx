@@ -1,5 +1,5 @@
 import {
-  Component, Host, h, Prop, Event, Element, Method, EventEmitter
+  Component, Host, h, Prop, Event, Element, Method, EventEmitter, Watch
 } from '@stencil/core';
 import ComboItemComponentInterface from '../uni-combo-group/combo-item';
 
@@ -42,6 +42,11 @@ export class UniComboItem implements ComboItemComponentInterface {
     ev.preventDefault();
 
     this.el.focus();
+  }
+
+  @Watch('value')
+  onValueChange() {
+    this.updateState();
   }
 
   connectedCallback() {
