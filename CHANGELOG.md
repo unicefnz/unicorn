@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4-beta.0](https://github.com/unicefnz/unicorn/compare/v1.2.3...v1.2.4-beta.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **combo:** Update state when value changes ([e8ac770](https://github.com/unicefnz/unicorn/commit/e8ac770149598b1574ff9477b7fc06dc12108112))
+
+
+
+
+
 ## [1.2.3](https://github.com/unicefnz/unicorn/compare/v1.2.2...v1.2.3) (2020-12-15)
 
 
