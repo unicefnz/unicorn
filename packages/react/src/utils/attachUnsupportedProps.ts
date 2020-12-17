@@ -1,12 +1,6 @@
-import { camelToDashCase } from './utils';
+import { arrayToMap, camelToDashCase } from './utils';
 
-function arrayToMap(arr: string[] | DOMTokenList): Map<string, string> {
-  const map = new Map<string, string>();
-  (arr as string[]).forEach?.((s: string) => map.set(s, s));
-  return map;
-}
-
-export function getClassName(classList: DOMTokenList, newProps: any, oldProps: any): string {
+export function getUpdatedClassStringFromProps(classList: DOMTokenList, newProps: any, oldProps: any): string {
   // map the classes to Maps for performance
   const currentClasses = arrayToMap(classList);
   const incomingPropClasses = arrayToMap(newProps.className ? newProps.className.split(' ') : []);
@@ -32,7 +26,7 @@ export function getClassName(classList: DOMTokenList, newProps: any, oldProps: a
  * Checks if an event is supported in the current execution environment.
  * @license Modernizr 3.0.0pre (Custom Build) | MIT
  */
-export function isCoveredByReact(eventNameSuffix: string, doc?: Document): boolean {
+export function isEventHandledByReact(eventNameSuffix: string, doc?: Document): boolean {
   if (!doc && typeof document !== 'object') return false; // TODO If we're in a SSR enviornment, doc isn't available. How do we handle this?
   // eslint-disable-next-line no-param-reassign
   doc = doc || document;
@@ -71,54 +65,66 @@ export function syncEvent(node: Element, eventName: string, newEventHandler: (e:
   }
 }
 
+/**
+ * Returns a record of react-supported props (strings, native events)
+ * */
 export function getReactSupportedProps<T = any>(props: Record<string, T>): Record<string, T> {
-  const reactEvents: Record<string, T> = {};
-  Object.keys(props).forEach((name) => {
+  const reactProps: Record<string, T> = {};
+  Object.keys(props).forEach((name: keyof typeof reactProps) => {
     if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
       // If the name looks like an event, and is covered by react (meaning native events)
       const eventName = name.substring(2).toLowerCase();
-      if (isCoveredByReact(eventName)) {
-        reactEvents[name] = props[name];
+      if (isEventHandledByReact(eventName)) {
+        reactProps[name] = props[name];
       }
     } else if (typeof props[name] === 'string') {
       // Otherwise, if it's a boring string
-      reactEvents[camelToDashCase(name)] = (props as any)[name];
+      reactProps[camelToDashCase(name)] = props[name];
     }
   });
 
-  return reactEvents;
+  return reactProps;
 }
 
-export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}, attachStrings = true) => {
+/**
+ * Attaches props unsupported by react directly to the DOM
+ * */
+export const attachUnsupportedProps = (node: HTMLElement, newProps: any, oldProps: any = {}, attachStrings = true) => {
   // some test frameworks don't render DOM elements, so we test here to make sure we are dealing with DOM first
   // TODO is this the right place to check we are in DOM
   if (node instanceof Element && typeof document === 'object') {
     // add any classes in className to the class list
-    const className = getClassName(node.classList, newProps, oldProps);
+    const className = getUpdatedClassStringFromProps(node.classList, newProps, oldProps);
     if (className !== '') {
       node.className = className;
     }
 
     Object.keys(newProps).forEach((name) => {
-      if (name === 'children' || name === 'style' || name === 'ref' || name === 'class' || name === 'className' || name === 'forwardedRef') {
+      // Make sure we don't mess with classes
+      if (name === 'class' || name === 'className') {
         return;
       }
-      // Check that the name starts with on, and the next character is uppercase
+
+      // If the event is non-native then handle it ourselves
       if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
         const eventName = name.substring(2);
         const eventNameLc = eventName[0].toLowerCase() + eventName.substring(1);
 
-        if (!isCoveredByReact(eventNameLc)) {
+        if (!isEventHandledByReact(eventNameLc)) {
           syncEvent(node, eventNameLc, newProps[name]);
         }
-      } else {
+        return;
+      }
+
+      // If it's not a string, attach it straight to the node
+      if (typeof newProps[name] !== 'string') {
         (node as any)[name] = newProps[name];
-        const propType = typeof newProps[name];
-        if (propType !== 'string') {
-          (node as any)[name] = newProps[name];
-        } else if (attachStrings) {
-          node.setAttribute(camelToDashCase(name), newProps[name]);
-        }
+        return;
+      }
+
+      // If we're attaching strings, then attach it as an attribute
+      if (attachStrings) {
+        node.setAttribute(camelToDashCase(name), newProps[name]);
       }
     });
   }

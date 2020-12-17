@@ -1,7 +1,7 @@
 import React from 'react';
 import type { OverlayEventDetail, OverlayController, HTMLUniOverlayElement } from '@unicorndesign/core';
 import type { ReactOverlayProps } from './utils';
-import { attachProps } from './attachProps';
+import { attachUnsupportedProps } from './attachUnsupportedProps';
 
 export const createControllerComponent = <ComponentOpts extends object, OverlayEl extends HTMLUniOverlayElement>(
   displayName: string,
@@ -60,7 +60,7 @@ export const createControllerComponent = <ComponentOpts extends object, OverlayE
 
       this.overlayEl = await controller.create({ ...cProps });
 
-      attachProps(this.overlayEl, {
+      attachUnsupportedProps(this.overlayEl, {
         onUniDidDismiss: this.handleDismiss,
         onUniDidPresent: (e: CustomEvent) => onUniDidPresent && onUniDidPresent(e),
         onUniWillDismiss: (e: CustomEvent) => onUniWillDismiss && onUniWillDismiss(e),

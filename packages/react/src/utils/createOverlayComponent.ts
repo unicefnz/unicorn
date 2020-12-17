@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import type { HTMLUniOverlayElement, OverlayController } from '@unicorndesign/core';
-import { attachProps } from './attachProps';
+import { attachUnsupportedProps } from './attachUnsupportedProps';
 import type { ReactOverlayProps } from './utils';
 
 export function createOverlayComponent<
@@ -32,7 +32,7 @@ export function createOverlayComponent<
           controller.create({ ...restProps }).then((el) => {
             setOverlayEl(el);
 
-            attachProps(el, restProps);
+            attachUnsupportedProps(el, restProps);
             el.append(renderRoot.current);
 
             el.present();
@@ -49,7 +49,7 @@ export function createOverlayComponent<
       if (overlayEl) {
         // Save ourselves an attachProps call on open
         if (prevPropsRef) {
-          attachProps(overlayEl, restProps, prevPropsRef.current);
+          attachUnsupportedProps(overlayEl, restProps, prevPropsRef.current);
         }
         prevPropsRef.current = restProps;
       } else prevPropsRef.current = undefined;

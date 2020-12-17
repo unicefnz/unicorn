@@ -1,4 +1,4 @@
-export * from './attachProps';
+export * from './attachUnsupportedProps';
 export * from './createComponent';
 export * from './createControllerComponent';
 export * from './createOverlayComponent';

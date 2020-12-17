@@ -11,3 +11,9 @@ export interface ReactOverlayProps {
   onUniWillDismiss?: (event: CustomEvent<OverlayEventDetail>) => void;
   onUniWillPresent?: (event: CustomEvent<OverlayEventDetail>) => void;
 }
+
+export function arrayToMap(arr: string[] | DOMTokenList): Map<string, string> {
+  const map = new Map<string, string>();
+  (arr as string[]).forEach?.((s: string) => map.set(s, s));
+  return map;
+}
