@@ -12,7 +12,7 @@ module.exports = {
     docsDir: 'packages/docs/docs',
     editLinks: true,
     nav: [
-      { text: 'Storybook', link: '/storybook' },
+      { text: 'Storybook', link: '/storybook/' },
       { text: 'Get Started', link: '/setup/' }
     ],
     sidebar: [
