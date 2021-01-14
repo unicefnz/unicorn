@@ -11,7 +11,7 @@ for DOC in $DOC_LIST; do
   mkdir -p "$DST_PATH$(dirname "${DOC}")"
 
   # Rename index.md files to index.md
-  if [ "$(basename $DOC)" == 'readme.md' ]; then
+  if [ "$(basename $DOC)" = 'readme.md' ]; then
     DST_NAME="$(dirname $DOC)/index.md"
   else
     DST_NAME=$DOC
