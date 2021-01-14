@@ -196,6 +196,34 @@ export namespace Components {
          */
         "label": string;
     }
+    interface UniTab {
+        /**
+          * Marks this option as disabled
+         */
+        "disabled": boolean;
+        /**
+          * Render this option as selected (used internally)
+         */
+        "selected": boolean;
+        "setFocus": (ev: any) => Promise<void>;
+        /**
+          * Machine value for the option
+         */
+        "value": string | number;
+    }
+    interface UniTabPanel {
+        "selected": boolean;
+        /**
+          * Machine value for the option
+         */
+        "value": string | number;
+    }
+    interface UniTabs {
+        /**
+          * Value of the selected option
+         */
+        "value": string | number;
+    }
     interface UniTagChip {
         /**
           * Override the default color
@@ -402,6 +430,24 @@ declare global {
         prototype: HTMLUniSelectElement;
         new (): HTMLUniSelectElement;
     };
+    interface HTMLUniTabElement extends Components.UniTab, HTMLStencilElement {
+    }
+    var HTMLUniTabElement: {
+        prototype: HTMLUniTabElement;
+        new (): HTMLUniTabElement;
+    };
+    interface HTMLUniTabPanelElement extends Components.UniTabPanel, HTMLStencilElement {
+    }
+    var HTMLUniTabPanelElement: {
+        prototype: HTMLUniTabPanelElement;
+        new (): HTMLUniTabPanelElement;
+    };
+    interface HTMLUniTabsElement extends Components.UniTabs, HTMLStencilElement {
+    }
+    var HTMLUniTabsElement: {
+        prototype: HTMLUniTabsElement;
+        new (): HTMLUniTabsElement;
+    };
     interface HTMLUniTagChipElement extends Components.UniTagChip, HTMLStencilElement {
     }
     var HTMLUniTagChipElement: {
@@ -443,6 +489,9 @@ declare global {
         "uni-outside-click": HTMLUniOutsideClickElement;
         "uni-progress-linear": HTMLUniProgressLinearElement;
         "uni-select": HTMLUniSelectElement;
+        "uni-tab": HTMLUniTabElement;
+        "uni-tab-panel": HTMLUniTabPanelElement;
+        "uni-tabs": HTMLUniTabsElement;
         "uni-tag-chip": HTMLUniTagChipElement;
         "uni-text-field": HTMLUniTextFieldElement;
         "uni-tooltip": HTMLUniTooltipElement;
@@ -558,7 +607,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Emitted when the button is clicked
+          * Emitted when this option is selected (usually when clicked and not disabled)
          */
         "onUniSelect"?: (event: CustomEvent<void>) => void;
         /**
@@ -666,6 +715,42 @@ declare namespace LocalJSX {
           * Label to display above the select box
          */
         "label"?: string;
+    }
+    interface UniTab {
+        /**
+          * Marks this option as disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Emitted when this option is selected (usually when clicked and not disabled)
+         */
+        "onUniSelect"?: (event: CustomEvent<void>) => void;
+        /**
+          * Render this option as selected (used internally)
+         */
+        "selected"?: boolean;
+        /**
+          * Machine value for the option
+         */
+        "value"?: string | number;
+    }
+    interface UniTabPanel {
+        "selected"?: boolean;
+        /**
+          * Machine value for the option
+         */
+        "value"?: string | number;
+    }
+    interface UniTabs {
+        /**
+          * Emitted when the selected option changes (except when changed by the value prop)
+         */
+        "onUniChange"?: (event: CustomEvent<string | number>) => void;
+        "onUniInternalChange"?: (event: CustomEvent<string | number>) => void;
+        /**
+          * Value of the selected option
+         */
+        "value"?: string | number;
     }
     interface UniTagChip {
         /**
@@ -804,6 +889,9 @@ declare namespace LocalJSX {
         "uni-outside-click": UniOutsideClick;
         "uni-progress-linear": UniProgressLinear;
         "uni-select": UniSelect;
+        "uni-tab": UniTab;
+        "uni-tab-panel": UniTabPanel;
+        "uni-tabs": UniTabs;
         "uni-tag-chip": UniTagChip;
         "uni-text-field": UniTextField;
         "uni-tooltip": UniTooltip;
@@ -830,6 +918,9 @@ declare module "@stencil/core" {
             "uni-outside-click": LocalJSX.UniOutsideClick & JSXBase.HTMLAttributes<HTMLUniOutsideClickElement>;
             "uni-progress-linear": LocalJSX.UniProgressLinear & JSXBase.HTMLAttributes<HTMLUniProgressLinearElement>;
             "uni-select": LocalJSX.UniSelect & JSXBase.HTMLAttributes<HTMLUniSelectElement>;
+            "uni-tab": LocalJSX.UniTab & JSXBase.HTMLAttributes<HTMLUniTabElement>;
+            "uni-tab-panel": LocalJSX.UniTabPanel & JSXBase.HTMLAttributes<HTMLUniTabPanelElement>;
+            "uni-tabs": LocalJSX.UniTabs & JSXBase.HTMLAttributes<HTMLUniTabsElement>;
             "uni-tag-chip": LocalJSX.UniTagChip & JSXBase.HTMLAttributes<HTMLUniTagChipElement>;
             "uni-text-field": LocalJSX.UniTextField & JSXBase.HTMLAttributes<HTMLUniTextFieldElement>;
             "uni-tooltip": LocalJSX.UniTooltip & JSXBase.HTMLAttributes<HTMLUniTooltipElement>;

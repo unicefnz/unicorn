@@ -1,0 +1,32 @@
+:host {
+  display: inline-block;
+  margin-right: 0.3rem;
+}
+
+button {
+  // Remove button styles
+  border: 0;
+  background: none;
+  font: inherit;
+  text-transform: inherit;
+
+  display: block;
+  min-width: 6rem;
+  padding: 0.6rem 0.6rem;
+  text-align: center;
+  border-top: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.2s, border-top-color 0.2s;
+}
+button:hover {
+  border-top-color: var(--uni-dark);
+}
+button:hover, :host(.uni-selected) button {
+  background: rgba(0, 0, 0, 0.08);
+}
+:host(.uni-selected) button {
+  border-top-color: var(--uni-accent);
+}
+button:disabled {
+  cursor: not-allowed;
+}

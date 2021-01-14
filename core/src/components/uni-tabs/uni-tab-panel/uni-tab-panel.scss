@@ -1,0 +1,8 @@
+:host {
+  display: none;
+  border-top: 2px solid var(--uni-dark);
+  padding-top: 0.5rem;
+}
+:host([uni-selected]) {
+  display: block;
+}
