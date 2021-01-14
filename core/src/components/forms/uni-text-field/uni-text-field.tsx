@@ -31,7 +31,7 @@ export class UniTextField implements ComponentInterface {
   @Prop() public label: string;
 
   /**
-   * Alternatively, use a <slot> inside the label to render custom contents.
+   * Alternatively, use a slot inside the label to render custom contents.
    * */
   @Prop() public labelSlot = false;
 
@@ -81,7 +81,7 @@ export class UniTextField implements ComponentInterface {
   @Prop() public required: boolean;
 
   /**
-   * Type for the underlying <input> or "textarea" to switch out the element
+   * Type for the underlying input element or "textarea" to switch out the element
    * */
   @Prop() public type: string;
 
@@ -124,7 +124,7 @@ export class UniTextField implements ComponentInterface {
   }
 
   /**
-   * Get the underlying <input> DOM node
+   * Get the underlying input DOM node
    * */
   @Method()
   public async getInputElement(): Promise<HTMLInputElement | HTMLTextAreaElement> {

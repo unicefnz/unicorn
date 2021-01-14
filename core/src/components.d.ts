@@ -216,7 +216,7 @@ export namespace Components {
          */
         "error": string | string[] | boolean;
         /**
-          * Get the underlying <input> DOM node
+          * Get the underlying input DOM node
          */
         "getInputElement": () => Promise<HTMLInputElement | HTMLTextAreaElement>;
         /**
@@ -224,7 +224,7 @@ export namespace Components {
          */
         "label": string;
         /**
-          * Alternatively, use a <slot> inside the label to render custom contents.
+          * Alternatively, use a slot inside the label to render custom contents.
          */
         "labelSlot": boolean;
         /**
@@ -264,7 +264,7 @@ export namespace Components {
          */
         "required": boolean;
         /**
-          * Type for the underlying <input> or "textarea" to switch out the element
+          * Type for the underlying input element or "textarea" to switch out the element
          */
         "type": string;
         /**
@@ -691,7 +691,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * Alternatively, use a <slot> inside the label to render custom contents.
+          * Alternatively, use a slot inside the label to render custom contents.
          */
         "labelSlot"?: boolean;
         /**
@@ -747,7 +747,7 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * Type for the underlying <input> or "textarea" to switch out the element
+          * Type for the underlying input element or "textarea" to switch out the element
          */
         "type"?: string;
         /**
