@@ -2,7 +2,7 @@ dist/
 packages/react/Uni*/package.json
 packages/react/defineElement-*/package.json
 packages/docs/docs/api/**/**.md
-!packages/docs/docs/api/readme.md
+!packages/docs/docs/api/index.md
 core/www/
 core/theming/
 core/loader/

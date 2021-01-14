@@ -73,5 +73,6 @@ module.exports = {
         children: generateSidebarTree('/api')
       }
     ]
-  }
+  },
+  plugins: ['vuepress-plugin-mermaidjs']
 };
