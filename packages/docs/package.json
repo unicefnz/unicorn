@@ -17,7 +17,7 @@
   },
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "sh clone-api.sh && vuepress build docs"
   },
   "bugs": {
     "url": "https://github.com/unicefnz/unicorn/issues"

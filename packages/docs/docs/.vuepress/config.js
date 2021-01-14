@@ -1,3 +1,40 @@
+const fs = require('fs');
+const path = require('path');
+
+function extractMdFiles(dir) {
+  const fullDir = path.resolve(__dirname, '../../docs/', dir.substr(1));
+  let dirList = fs.readdirSync(fullDir);
+
+  return  [
+    dirList.includes('index.md') ? dir + '/' : null,
+    ...dirList.map(f => {
+      if (f === 'index.md') return null;
+
+      const relativePath = dir + '/' + f;
+      const stat = fs.statSync(path.resolve(fullDir, f));
+
+      if (stat.isFile()) return relativePath;
+      if (stat.isDirectory()) {
+        const children = extractMdFiles(relativePath);
+        if (children.length === 0) return null;
+        if (children.length === 1) return children[0];
+
+        return {
+          title: f,
+          path: relativePath + '/',
+          children
+        };
+      }
+
+      return null; // Something funky
+    })
+  ].filter(v => v !== null);
+}
+
+const apiTree = extractMdFiles('/api');
+
+console.log(apiTree);
+
 module.exports = {
   title: '🦄 Unicorn',
   description: 'Cutting edge design system and web component library ✨ 🦄 ✨',
@@ -17,9 +54,8 @@ module.exports = {
     ],
     sidebar: [
       {
-        title: 'Docs',
+        title: 'Guides',
         path: '/',
-        collapsable: false,
         children: [
           {
             title: 'Getting Started',
@@ -34,6 +70,11 @@ module.exports = {
           '/typography',
           '/contributing'
         ]
+      },
+      {
+        title: 'API Documentation',
+        path: '/api/',
+        children: apiTree
       }
     ]
   }
