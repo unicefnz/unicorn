@@ -50,6 +50,15 @@ Type: `Promise<HTMLInputElement | HTMLTextAreaElement>`
 
 
 
+## CSS Custom Properties
+
+| Name                  | Description   |
+| --------------------- | ------------- |
+| `--uni-border-color`  | Border color  |
+| `--uni-border-radius` | Border radius |
+| `--uni-border-width`  | Border width  |
+
+
 ## Dependencies
 
 ### Depends on

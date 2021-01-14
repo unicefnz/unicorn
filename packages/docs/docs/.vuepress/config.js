@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-function extractMdFiles(dir) {
+function generateSidebarTree(dir) {
   const fullDir = path.resolve(__dirname, '../../docs/', dir.substr(1));
   let dirList = fs.readdirSync(fullDir);
 
@@ -15,7 +15,7 @@ function extractMdFiles(dir) {
 
       if (stat.isFile()) return relativePath;
       if (stat.isDirectory()) {
-        const children = extractMdFiles(relativePath);
+        const children = generateSidebarTree(relativePath);
         if (children.length === 0) return null;
         if (children.length === 1) return children[0];
 
@@ -30,10 +30,6 @@ function extractMdFiles(dir) {
     })
   ].filter(v => v !== null);
 }
-
-const apiTree = extractMdFiles('/api');
-
-console.log(apiTree);
 
 module.exports = {
   title: '🦄 Unicorn',
@@ -74,7 +70,7 @@ module.exports = {
       {
         title: 'API Documentation',
         path: '/api/',
-        children: apiTree
+        children: generateSidebarTree('/api')
       }
     ]
   }
