@@ -1,7 +1,8 @@
 import {
   Component, Host, h, Prop, Event, EventEmitter, Watch, Element, Method
 } from '@stencil/core';
-import ComboItemComponentInterface from '../uni-combo-group/combo-item';
+import { RadioItemComponentInterface } from '../../util/radio/radio-item';
+import { HTMLUniRadioControllerElement } from '../../util/radio/radio-controller';
 
 let itemId = 0;
 
@@ -10,27 +11,17 @@ let itemId = 0;
   styleUrl: 'uni-combo-text.scss',
   shadow: true
 })
-export class UniComboText implements ComboItemComponentInterface {
-  private uniqueId = `uni-combo-text-${itemId++}`;
+export class UniComboText implements RadioItemComponentInterface {
 
-  private parentGroup: HTMLUniComboGroupElement | null = null;
+  /* Begin abstract class RadioItem */
+  private uniqueId = `uni-combo-text-item-${itemId++}`;
 
-  @Element() el: HTMLUniComboTextElement;
+  private parentGroup: HTMLUniRadioControllerElement | null = null;
 
-  /**
-   * Marks this option as disabled
-   * */
-  @Prop() disabled: boolean = false;
+  @Element() el!: HTMLUniComboTextElement;
 
   /** @internal */
   @Prop() selected: boolean;
-
-  /**
-   * Event to fire the select event on
-   * - focus: when the input is focused
-   * - uniInput: when the input's value is changed
-   * */
-  @Prop() selectOn: string = 'focusin';
 
   /**
    * Machine value for the option
@@ -38,20 +29,14 @@ export class UniComboText implements ComboItemComponentInterface {
   @Prop() value: string | number;
 
   /**
-   * Emitted when the button is clicked
+   * Marks this option as disabled
    * */
-  @Event() public uniSelect: EventEmitter<void>;
+  @Prop() disabled: boolean = false;
 
-  @Watch('selectOn')
-  public onSelectTriggerChange(newVal: string, oldVal?: string) {
-    if (oldVal && this.childField) this.childField.removeEventListener(oldVal, this.selectEmitter);
-    this.childField = this.el.querySelector('uni-text-field');
-    if (this.childField) this.childField.addEventListener(newVal, this.selectEmitter);
-  }
-
-  private selectEmitter = () => this.uniSelect.emit();
-
-  private childField: HTMLUniTextFieldElement | null = null;
+  /**
+   * Emitted when this option is selected (usually when clicked and not disabled)
+   * */
+  @Event() uniSelect: EventEmitter<void>;
 
   /** @internal */
   @Method()
@@ -62,13 +47,18 @@ export class UniComboText implements ComboItemComponentInterface {
     this.el.focus();
   }
 
+  @Watch('value')
+  onValueChange() {
+    this.updateState();
+  }
+
   connectedCallback() {
     // If no value is set, use the uniqueId
     if (this.value === undefined) this.value = this.uniqueId;
 
     this.onSelectTriggerChange(this.selectOn);
 
-    this.parentGroup = this.el.closest('uni-combo-group');
+    this.parentGroup = this.el.closest('[uni-radio-controller]');
     if (this.parentGroup) {
       this.updateState();
       this.parentGroup.addEventListener('uniInternalChange', this.updateState);
@@ -85,6 +75,25 @@ export class UniComboText implements ComboItemComponentInterface {
   private updateState = () => {
     this.selected = this.parentGroup?.value === this.value;
   };
+  /* End abstract class RadioItem */
+
+  /**
+   * Event to fire the select event on
+   * - focus: when the input is focused
+   * - uniInput: when the input's value is changed
+   * */
+  @Prop() selectOn: string = 'focusin';
+
+  @Watch('selectOn')
+  public onSelectTriggerChange(newVal: string, oldVal?: string) {
+    if (oldVal && this.childField) this.childField.removeEventListener(oldVal, this.selectEmitter);
+    this.childField = this.el.querySelector('uni-text-field');
+    if (this.childField) this.childField.addEventListener(newVal, this.selectEmitter);
+  }
+
+  private selectEmitter = () => this.uniSelect.emit();
+
+  private childField: HTMLUniTextFieldElement | null = null;
 
   render() {
     return (

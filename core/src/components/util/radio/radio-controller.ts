@@ -1,17 +1,25 @@
-import {
-  Component, Element, Host, h, Prop, Event, EventEmitter, Watch, Listen
-} from '@stencil/core';
-import { RadioControllerComponentInterface } from '../../util/radio/radio-controller';
-import { HTMLRadioItemElement } from '../../util/radio/radio-item';
+import { ComponentInterface, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
+import type { HTMLStencilElement } from '@stencil/core/internal';
+import { HTMLRadioItemElement } from './radio-item';
 
-@Component({
-  tag: 'uni-combo-group',
-  styleUrl: 'uni-combo-group.scss',
-  shadow: true
-})
-export class UniComboGroup implements RadioControllerComponentInterface{
+export interface RadioControllerComponentInterface extends ComponentInterface {
+  value: string | number;
+}
+
+export interface HTMLUniRadioControllerElement extends HTMLStencilElement {
+  value: string | number;
+}
+
+/*
+  Stencil doesn't support @Components extending classes.
+  Instead, copy and paste this code into classes that require it.
+  Elegant, I know
+*/
+export abstract class RadioController implements ComponentInterface {
+  abstract el: HTMLElement;
+
   /* Begin abstract class RadioController */
-  @Element() el!: HTMLUniComboGroupElement;
+  // @Element() el!: HTMLUniRadioControllerElement;
 
   /**
    * Value of the selected option
@@ -63,6 +71,7 @@ export class UniComboGroup implements RadioControllerComponentInterface{
     return Array.from(this.el.querySelectorAll('[uni-radio-option]'));
   }
 
+  // @ts-ignore
   private onSelect(e: CustomEvent) {
     const target = e.target && (e.target as HTMLElement).closest('[uni-radio-option]') as HTMLRadioItemElement;
 
@@ -117,23 +126,5 @@ export class UniComboGroup implements RadioControllerComponentInterface{
 
   /* End abstract class RadioController */
 
-  /**
-   * Display a different style radio group, either a "combo" row or "button" group
-   * */
-  @Prop() readonly variant: 'combo' | 'button' = 'combo';
-
-  render() {
-    return (
-      <Host
-        onUniSelect={e => this.onSelect(e)}
-        class={'uni-variant-' + this.variant}
-        role="radiogroup"
-        uni-radio-controller
-      >
-        <div class="wrapper">
-          <slot />
-        </div>
-      </Host>
-    );
-  }
+  abstract render(): any;
 }
