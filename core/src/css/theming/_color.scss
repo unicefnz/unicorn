@@ -1,7 +1,7 @@
 @use "sass:map";
 
-@function outputColor($hex) {
-  @return rgba(red($hex), green($hex), blue($hex), var(--uni-opacity));
+@mixin outputColor($name, $hex) {
+  --uni-#{"" + $name}: #{$hex};
 }
 
 @function useVar($name, $shade: base) {
@@ -15,21 +15,21 @@
 @mixin _outputColorVars($name, $color-def) {
   // Output base
   @if map_has_key($color-def, base) {
-    --uni-#{"" + $name}: #{outputColor(map_get($color-def, base))};
+    @include outputColor($name, map_get($color-def, base));
   } @else {
     @error No base shade for color $name;
   }
 
   // Output contrast color
   @if map.get($color-def, contrast) == light {
-    --uni-#{"" + $name}-contrast: var(--uni-white);
+    @include outputColor($name + '-contrast', var(--uni-white));
   } @else {
-    --uni-#{"" + $name}-contrast: var(--uni-dark);
+    @include outputColor($name + '-contrast', var(--uni-dark));
   }
 
   // Output tints
-  --uni-#{"" + $name}-shade: #{outputColor(map.get($color-def, shade))};
-  --uni-#{"" + $name}-tint: #{outputColor(map.get($color-def, tint))};
+  @include outputColor($name + '-shade', map.get($color-def, shade));
+  @include outputColor($name + '-tint', map.get($color-def, tint));
 }
 
 @mixin _outputClass($name) {
@@ -43,7 +43,6 @@
 
 
 @mixin colorRoot($colors) {
-  --uni-opacity: 1;
   @if map.has-key($colors, white) != true {
     @include _outputColorVars(white, (
       base: #FFFFFF,
