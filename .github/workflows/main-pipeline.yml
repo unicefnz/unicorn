@@ -4,9 +4,9 @@ on:
   push:
     branches-ignore:
       - 'gh-pages'
-  pull_request:
-    branches:
-      - 'master'
+#  pull_request:
+#    branches:
+#      - 'master'
 
 jobs:
   # This jobs essentially clones the repo, installs all the deps, and saves the result in the cache as $SHA-project
