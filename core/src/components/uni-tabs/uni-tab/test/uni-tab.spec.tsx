@@ -10,7 +10,7 @@ describe('uni-tab', () => {
     expect(page.root).toEqualHtml(`
       <uni-tab class="display-overline" uni-radio-option="">
         <mock:shadow-root>
-          <button class="radio-elem" tabindex="-1" value="uni-tab-item-0">
+          <button class="radio-elem" tabindex="-1" type="button" value="uni-tab-item-0">
             <slot></slot>
           </button>
         </mock:shadow-root>
