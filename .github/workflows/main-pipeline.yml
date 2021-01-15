@@ -2,7 +2,7 @@ name: CI/CD
 
 on:
   push:
-    branches: [ '!gh-pages', '!ci-ignore/*' ]
+    branches: [ '!gh-pages', '!ci-ignore/**' ]
 
 jobs:
   # This jobs essentially clones the repo, installs all the deps, and saves the result in the cache as $SHA-project
