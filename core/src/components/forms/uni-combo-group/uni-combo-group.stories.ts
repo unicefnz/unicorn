@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { HTMLRadioItemElement } from '../../util/radio/radio-item';
+import { HTMLRadioItemElement } from '../../../lib/radio/radio-item';
 
 export default {
   title: 'Forms/Combo Group'

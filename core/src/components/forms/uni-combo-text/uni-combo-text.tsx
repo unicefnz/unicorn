@@ -1,8 +1,8 @@
 import {
   Component, Host, h, Prop, Event, EventEmitter, Watch, Element, Method
 } from '@stencil/core';
-import { RadioItemComponentInterface } from '../../util/radio/radio-item';
-import { HTMLUniRadioControllerElement } from '../../util/radio/radio-controller';
+import { RadioItemComponentInterface } from '../../../lib/radio/radio-item';
+import { HTMLUniRadioControllerElement } from '../../../lib/radio/radio-controller';
 
 let itemId = 0;
 

@@ -7,8 +7,8 @@ import {
   Watch,
   ComponentInterface
 } from '@stencil/core';
-import type { HTMLUniRadioControllerElement } from '../../util/radio/radio-controller';
-import type { RadioItemComponentInterface } from '../../util/radio/radio-item';
+import type { HTMLUniRadioControllerElement } from '../../../lib/radio/radio-controller';
+import type { RadioItemComponentInterface } from '../../../lib/radio/radio-item';
 
 let itemId = 0;
 const parentTag = 'uni-tabs';
@@ -69,6 +69,5 @@ export class UniTabContent implements ComponentInterface, Partial<RadioItemCompo
         <slot />
       </Host>
     );
-  };
-
+  }
 }

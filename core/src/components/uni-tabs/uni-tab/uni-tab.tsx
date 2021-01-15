@@ -1,6 +1,9 @@
-import { Component, Host, h, Element, Prop, Event, EventEmitter, Method, Watch } from '@stencil/core';
-import { RadioItemComponentInterface } from '../../util/radio/radio-item';
-import { HTMLUniRadioControllerElement } from '../../util/radio/radio-controller';
+import {
+  Component, Host, h, Element, Prop,
+  Event, EventEmitter, Method, Watch
+} from '@stencil/core';
+import { RadioItemComponentInterface } from '../../../lib/radio/radio-item';
+import { HTMLUniRadioControllerElement } from '../../../lib/radio/radio-controller';
 
 let itemId = 0;
 const parentTag = 'uni-tabs';
@@ -89,6 +92,7 @@ export class UniTab implements RadioItemComponentInterface {
           value={this.value}
           class="radio-elem"
           tabIndex={-1}
+          type="button"
         >
           <slot />
         </button>

@@ -1,8 +1,8 @@
 import {
   Component, Element, Host, h, Prop, Event, EventEmitter, Watch, Listen
 } from '@stencil/core';
-import { RadioControllerComponentInterface } from '../../util/radio/radio-controller';
-import { HTMLRadioItemElement } from '../../util/radio/radio-item';
+import { RadioControllerComponentInterface } from '../../../lib/radio/radio-controller';
+import { HTMLRadioItemElement } from '../../../lib/radio/radio-item';
 
 @Component({
   tag: 'uni-combo-group',

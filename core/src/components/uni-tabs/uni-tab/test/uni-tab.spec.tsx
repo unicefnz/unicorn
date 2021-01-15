@@ -5,7 +5,7 @@ describe('uni-tab', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniTab],
-      html: `<uni-tab></uni-tab>`,
+      html: '<uni-tab></uni-tab>'
     });
     expect(page.root).toEqualHtml(`
       <uni-tab class="display-overline" uni-radio-option="">

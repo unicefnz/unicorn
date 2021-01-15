@@ -1,4 +1,7 @@
-import { ComponentInterface, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
+import {
+  ComponentInterface, Event, EventEmitter,
+  Listen, Prop, Watch
+} from '@stencil/core';
 import type { HTMLStencilElement } from '@stencil/core/internal';
 import { HTMLRadioItemElement } from './radio-item';
 
