@@ -54,7 +54,7 @@ $uniStyles: (
     color: var(--uni-color, var(--uni-primary))
   ),
   body: ( // This is the root style
-    font-size: 18px,
+    font-size: 1rem,
     font-family: var(--font-body),
     font-weight: $weight-medium
   )
@@ -112,10 +112,9 @@ $uniStyles: (
 @mixin typeRoot($typeConfig) {
   @include _useFontFamilyVars($typeConfig);
 
-  --uni-text-light: #{map.get($typeConfig, light)};
-  --uni-text-dark: #{map.get($typeConfig, dark)};
+  font-family: var(--font-body);
+  font-weight: $weight-medium;
 
-  @include useStyle(body);
   @if map.has_key($typeConfig, font-size) {
     font-size: map.get($typeConfig, font-size);
   } @else {
