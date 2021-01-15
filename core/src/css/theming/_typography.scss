@@ -11,26 +11,25 @@ $uniStyles: (
   h1: (
     font-size: 3rem,
     font-family: var(--font-header),
-    font-weight: $weight-semibold,
-    line-height: 1.4
+    font-weight: $weight-semibold
   ),
   h2: (
-    font-size: 2.2rem,
-    font-weight: $weight-semibold,
-    font-family: var(--font-header),
-  ),
-  h3: (
     font-size: 2rem,
     font-weight: $weight-semibold,
     font-family: var(--font-header),
   ),
-  h4: (
+  h3: (
     font-size: 1.5rem,
     font-weight: $weight-semibold,
     font-family: var(--font-header),
   ),
-  h5: (
+  h4: (
     font-size: 1.25rem,
+    font-weight: $weight-semibold,
+    font-family: var(--font-header),
+  ),
+  h5: (
+    font-size: 1rem,
     font-weight: $weight-semibold,
     font-family: var(--font-header),
   ),
@@ -40,13 +39,13 @@ $uniStyles: (
     font-family: var(--font-header),
   ),
   overline: (
-    font-size: calc(2rem / 3),
+    font-size: 0.7rem,
     font-family: var(--font-body),
     font-weight: $weight-bold,
     text-transform: uppercase
   ),
   caption: (
-    font-size: 0.8rem,
+    font-size: 0.7rem,
     font-family: var(--font-body),
     color: var(--uni-medium)
   ),
@@ -54,7 +53,7 @@ $uniStyles: (
     color: var(--uni-color, var(--uni-primary))
   ),
   body: ( // This is the root style
-    font-size: 18px,
+    font-size: 1rem,
     font-family: var(--font-body),
     font-weight: $weight-medium
   )
@@ -112,10 +111,9 @@ $uniStyles: (
 @mixin typeRoot($typeConfig) {
   @include _useFontFamilyVars($typeConfig);
 
-  --uni-text-light: #{map.get($typeConfig, light)};
-  --uni-text-dark: #{map.get($typeConfig, dark)};
+  font-family: var(--font-body);
+  font-weight: $weight-medium;
 
-  @include useStyle(body);
   @if map.has_key($typeConfig, font-size) {
     font-size: map.get($typeConfig, font-size);
   } @else {

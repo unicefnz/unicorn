@@ -4,22 +4,20 @@ $typeConfig: (
   body: unquote("Futura, sans-serif"), // Default font to use (applied to :root)
   header: unquote("Graphik, sans-serif"), // Alternate font (usually used by headers)
 
-  light: #FFFFFF, // Defines the light colored text (on a dark background)
-  dark: #000000, // The default, dark color on a light background,
   styles: () // [wip] Optionally, override the default typography styles
 );
 
 $colors: (
   primary: ( // Defines a named color
     base: #1CABE2, // The default shade of the color
-    dark: #374EA2, // A slightly darker shade
-    light: #49BDEB, // You guessed it, slightly lighter
+    shade: #374EA2, // A slightly darker shade
+    tint: #49BDEB, // You guessed it, slightly lighter
     contrast: light // The contrast color for each shade (base, dark, light) is the same
   ),
   accent: (
     base: #FFC20E,
-    dark: #F0A800,
-    light: #FFD119,
+    shade: #F0A800,
+    tint: #FFD119,
     contrast: dark
   ),
   //success: (), // Unicorn uses all these named colors internally, so they are all required
