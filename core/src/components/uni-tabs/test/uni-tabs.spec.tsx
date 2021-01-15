@@ -5,7 +5,7 @@ describe('uni-tabs', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [UniTabs],
-      html: `<uni-tabs></uni-tabs>`,
+      html: '<uni-tabs></uni-tabs>'
     });
     expect(page.root).toEqualHtml(`
       <uni-tabs uni-radio-controller="">

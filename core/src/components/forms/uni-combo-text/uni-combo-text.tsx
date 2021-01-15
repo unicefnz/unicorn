@@ -12,7 +12,6 @@ let itemId = 0;
   shadow: true
 })
 export class UniComboText implements RadioItemComponentInterface {
-
   /* Begin abstract class RadioItem */
   private uniqueId = `uni-combo-text-item-${itemId++}`;
 

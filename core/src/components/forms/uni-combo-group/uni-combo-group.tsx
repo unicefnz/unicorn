@@ -9,7 +9,7 @@ import { HTMLRadioItemElement } from '../../util/radio/radio-item';
   styleUrl: 'uni-combo-group.scss',
   shadow: true
 })
-export class UniComboGroup implements RadioControllerComponentInterface{
+export class UniComboGroup implements RadioControllerComponentInterface {
   /* Begin abstract class RadioController */
   @Element() el!: HTMLUniComboGroupElement;
 

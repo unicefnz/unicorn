@@ -14,17 +14,17 @@ let itemId = 0;
 const parentTag = 'uni-tabs';
 
 @Component({
-  tag: 'uni-tab-panel',
-  styleUrl: 'uni-tab-panel.scss',
+  tag: 'uni-tab-content',
+  styleUrl: 'uni-tab-content.scss',
   shadow: true
 })
-export class UniTabPanel implements ComponentInterface, Partial<RadioItemComponentInterface> {
+export class UniTabContent implements ComponentInterface, Partial<RadioItemComponentInterface> {
   /* Begin abstract class RadioItem */
   private uniqueId = `uni-tab-item-${itemId++}`;
 
   private parentGroup: HTMLUniRadioControllerElement | null = null;
 
-  @Element() el!: HTMLUniTabPanelElement;
+  @Element() el!: HTMLUniTabContentElement;
 
   /** @internal */
   @Prop() selected: boolean;

@@ -211,7 +211,7 @@ export namespace Components {
          */
         "value": string | number;
     }
-    interface UniTabPanel {
+    interface UniTabContent {
         "selected": boolean;
         /**
           * Machine value for the option
@@ -436,11 +436,11 @@ declare global {
         prototype: HTMLUniTabElement;
         new (): HTMLUniTabElement;
     };
-    interface HTMLUniTabPanelElement extends Components.UniTabPanel, HTMLStencilElement {
+    interface HTMLUniTabContentElement extends Components.UniTabContent, HTMLStencilElement {
     }
-    var HTMLUniTabPanelElement: {
-        prototype: HTMLUniTabPanelElement;
-        new (): HTMLUniTabPanelElement;
+    var HTMLUniTabContentElement: {
+        prototype: HTMLUniTabContentElement;
+        new (): HTMLUniTabContentElement;
     };
     interface HTMLUniTabsElement extends Components.UniTabs, HTMLStencilElement {
     }
@@ -490,7 +490,7 @@ declare global {
         "uni-progress-linear": HTMLUniProgressLinearElement;
         "uni-select": HTMLUniSelectElement;
         "uni-tab": HTMLUniTabElement;
-        "uni-tab-panel": HTMLUniTabPanelElement;
+        "uni-tab-content": HTMLUniTabContentElement;
         "uni-tabs": HTMLUniTabsElement;
         "uni-tag-chip": HTMLUniTagChipElement;
         "uni-text-field": HTMLUniTextFieldElement;
@@ -734,7 +734,7 @@ declare namespace LocalJSX {
          */
         "value"?: string | number;
     }
-    interface UniTabPanel {
+    interface UniTabContent {
         "selected"?: boolean;
         /**
           * Machine value for the option
@@ -890,7 +890,7 @@ declare namespace LocalJSX {
         "uni-progress-linear": UniProgressLinear;
         "uni-select": UniSelect;
         "uni-tab": UniTab;
-        "uni-tab-panel": UniTabPanel;
+        "uni-tab-content": UniTabContent;
         "uni-tabs": UniTabs;
         "uni-tag-chip": UniTagChip;
         "uni-text-field": UniTextField;
@@ -919,7 +919,7 @@ declare module "@stencil/core" {
             "uni-progress-linear": LocalJSX.UniProgressLinear & JSXBase.HTMLAttributes<HTMLUniProgressLinearElement>;
             "uni-select": LocalJSX.UniSelect & JSXBase.HTMLAttributes<HTMLUniSelectElement>;
             "uni-tab": LocalJSX.UniTab & JSXBase.HTMLAttributes<HTMLUniTabElement>;
-            "uni-tab-panel": LocalJSX.UniTabPanel & JSXBase.HTMLAttributes<HTMLUniTabPanelElement>;
+            "uni-tab-content": LocalJSX.UniTabContent & JSXBase.HTMLAttributes<HTMLUniTabContentElement>;
             "uni-tabs": LocalJSX.UniTabs & JSXBase.HTMLAttributes<HTMLUniTabsElement>;
             "uni-tag-chip": LocalJSX.UniTagChip & JSXBase.HTMLAttributes<HTMLUniTagChipElement>;
             "uni-text-field": LocalJSX.UniTextField & JSXBase.HTMLAttributes<HTMLUniTextFieldElement>;
