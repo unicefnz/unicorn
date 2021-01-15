@@ -34,10 +34,10 @@
 
 @mixin _outputClass($name) {
   .uni-color-#{"" + $name} {
-    --uni-color: #{useVar($name)};
-    --uni-color-shade: #{useVar($name, shade)};
-    --uni-color-tint: #{useVar($name, tint)};
-    --uni-color-contrast: #{useVar($name, contrast)};
+    --uni-color: var(--uni-#{$name});
+    --uni-color-shade: var(--uni-#{$name}-shade);
+    --uni-color-tint: var(--uni-#{$name}-tint);
+    --uni-color-contrast: var(--uni-#{$name}-contrast);
   }
 }
 
