@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4-beta.1](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.4-beta.0...v1.2.4-beta.1) (2021-01-17)
+
+
+### Features
+
+* **tabs:** Add Tabs Component ([#26](https://github.com/unicef-new-zealand/unicorn/issues/26)) ([95919d4](https://github.com/unicef-new-zealand/unicorn/commit/95919d4da24208ded1fdad68f40beb46eb3b9f70))
+
+
+
+
+
 ## [1.2.4-beta.0](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.3...v1.2.4-beta.0) (2020-12-17)
 
 **Note:** Version bump only for package @unicorndesign/react

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4-beta.1](https://github.com/unicefnz/unicorn/compare/v1.2.4-beta.0...v1.2.4-beta.1) (2021-01-17)
+
+
+### Bug Fixes
+
+* **docs:** Fix storybook link ([59a3128](https://github.com/unicefnz/unicorn/commit/59a3128f2479abdc06bad2559e647ee1a5cf03f1))
+* **theme:** Revert broken opacity feature ([54a5aff](https://github.com/unicefnz/unicorn/commit/54a5aff452ac6a8fe43515db1dc263157c0e2917))
+
+
+### Features
+
+* **docs:** Add API docs ([#24](https://github.com/unicefnz/unicorn/issues/24)) ([91b11c7](https://github.com/unicefnz/unicorn/commit/91b11c773ba4d9a603e9e842ad5627e30093f825))
+* **tabs:** Add Tabs Component ([#26](https://github.com/unicefnz/unicorn/issues/26)) ([95919d4](https://github.com/unicefnz/unicorn/commit/95919d4da24208ded1fdad68f40beb46eb3b9f70))
+* **theme:** Update type scale & configurable opacity ([#25](https://github.com/unicefnz/unicorn/issues/25)) ([d9fd5f5](https://github.com/unicefnz/unicorn/commit/d9fd5f551d44e5ca9274042e6641c4acb0dfe6ec))
+
+
+
+
+
 ## [1.2.4-beta.0](https://github.com/unicefnz/unicorn/compare/v1.2.3...v1.2.4-beta.0) (2020-12-17)
 
 

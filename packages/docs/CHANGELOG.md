@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4-beta.1](https://github.com/unicefnz/unicorn/compare/v1.2.4-beta.0...v1.2.4-beta.1) (2021-01-17)
+
+
+### Bug Fixes
+
+* **docs:** Fix storybook link ([59a3128](https://github.com/unicefnz/unicorn/commit/59a3128f2479abdc06bad2559e647ee1a5cf03f1))
+
+
+### Features
+
+* **docs:** Add API docs ([#24](https://github.com/unicefnz/unicorn/issues/24)) ([91b11c7](https://github.com/unicefnz/unicorn/commit/91b11c773ba4d9a603e9e842ad5627e30093f825))
+
+
+
+
+
 ## [1.2.2](https://github.com/unicefnz/unicorn/compare/v1.2.2-beta.4...v1.2.2) (2020-12-15)
 
 **Note:** Version bump only for package @unicorndesign/docs
