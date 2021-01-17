@@ -1,17 +1,25 @@
 import {
-  Component, Element, Host, h, Prop, Event, EventEmitter, Watch, Listen
+  Component,
+  Host,
+  h,
+  Element,
+  Prop,
+  Event,
+  EventEmitter,
+  Watch,
+  Listen
 } from '@stencil/core';
-import { RadioControllerComponentInterface } from '../../../lib/radio/radio-controller';
-import { HTMLRadioItemElement } from '../../../lib/radio/radio-item';
+import { RadioControllerComponentInterface } from '../../lib/radio/radio-controller';
+import { HTMLRadioItemElement } from '../../lib/radio/radio-item';
 
 @Component({
-  tag: 'uni-combo-group',
-  styleUrl: 'uni-combo-group.scss',
+  tag: 'uni-tabs',
+  styleUrl: 'uni-tabs.scss',
   shadow: true
 })
-export class UniComboGroup implements RadioControllerComponentInterface {
+export class UniTabs implements RadioControllerComponentInterface {
   /* Begin abstract class RadioController */
-  @Element() el!: HTMLUniComboGroupElement;
+  @Element() el!: HTMLUniTabsElement;
 
   /**
    * Value of the selected option
@@ -37,6 +45,7 @@ export class UniComboGroup implements RadioControllerComponentInterface {
 
   componentDidLoad() {
     this.setRadioTabindex(this.value);
+    if (!this.value) this.value = this.getOpts()[0]?.value;
   }
 
   private setRadioTabindex = (value: any | undefined) => {
@@ -91,7 +100,7 @@ export class UniComboGroup implements RadioControllerComponentInterface {
       let next;
 
       // If hitting arrow down or arrow right, move to the next radio
-      if (['ArrowDown', 'ArrowRight'].includes(ev.code)) {
+      if (ev.code === 'ArrowRight') {
         // If we're on the last radio, move to the first radio
         next = (index === radios.length - 1)
           ? radios[0]
@@ -99,7 +108,7 @@ export class UniComboGroup implements RadioControllerComponentInterface {
       }
 
       // If hitting arrow up or arrow left, move to the previous radio
-      if (['ArrowUp', 'ArrowLeft'].includes(ev.code)) {
+      if (ev.code === 'ArrowLeft') {
         // If we're on the first radio, move to the last radio
         next = (index === 0)
           ? radios[radios.length - 1]
@@ -117,22 +126,13 @@ export class UniComboGroup implements RadioControllerComponentInterface {
 
   /* End abstract class RadioController */
 
-  /**
-   * Display a different style radio group, either a "combo" row or "button" group
-   * */
-  @Prop() readonly variant: 'combo' | 'button' = 'combo';
-
   render() {
     return (
       <Host
         onUniSelect={e => this.onSelect(e)}
-        class={'uni-variant-' + this.variant}
-        role="radiogroup"
         uni-radio-controller
       >
-        <div class="wrapper">
-          <slot />
-        </div>
+        <slot />
       </Host>
     );
   }

@@ -16,9 +16,9 @@
 
 ## Events
 
-| Event       | Description                        | Type                |
-| ----------- | ---------------------------------- | ------------------- |
-| `uniSelect` | Emitted when the button is clicked | `CustomEvent<void>` |
+| Event       | Description                                                                  | Type                |
+| ----------- | ---------------------------------------------------------------------------- | ------------------- |
+| `uniSelect` | Emitted when this option is selected (usually when clicked and not disabled) | `CustomEvent<void>` |
 
 
 ## CSS Custom Properties

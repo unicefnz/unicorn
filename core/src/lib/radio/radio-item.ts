@@ -1,24 +1,38 @@
 import {
-  Component, Host, h, Element, Prop,
-  Event, EventEmitter, Method, Watch
+  ComponentInterface, Element, Event,
+  EventEmitter, Method, Prop, Watch
 } from '@stencil/core';
-import { RadioItemComponentInterface } from '../../../lib/radio/radio-item';
-import { HTMLUniRadioControllerElement } from '../../../lib/radio/radio-controller';
+import type { HTMLStencilElement } from '@stencil/core/internal';
+import type { HTMLUniRadioControllerElement } from './radio-controller';
 
-let itemId = 0;
+export interface RadioItemComponentInterface extends ComponentInterface {
+  selected: boolean;
+  disabled?: boolean;
+  value: string | number;
+  setFocus(ev: Event): Promise<void>;
+}
 
-@Component({
-  tag: 'uni-combo-item',
-  styleUrl: 'uni-combo-item.scss',
-  shadow: true
-})
-export class UniComboItem implements RadioItemComponentInterface {
+export interface HTMLRadioItemElement extends HTMLStencilElement {
+  selected: boolean;
+  disabled?: boolean;
+  value: string | number;
+  setFocus(ev: Event): Promise<void>;
+}
+
+/*
+  Stencil doesn't support @Components extending classes.
+  Instead, copy and paste this code into classes that require it.
+  Elegant, I know
+*/
+export abstract class RadioItem implements RadioItemComponentInterface {
+  abstract uniqueId: string;
+
   /* Begin abstract class RadioItem */
-  private uniqueId = `uni-combo-item-${itemId++}`;
+  // private uniqueId = `uni-radio-item-${itemId++}`;
 
   private parentGroup: HTMLUniRadioControllerElement | null = null;
 
-  @Element() el!: HTMLUniComboItemElement;
+  @Element() el!: HTMLRadioItemElement;
 
   /** @internal */
   @Prop() selected: boolean;
@@ -75,28 +89,5 @@ export class UniComboItem implements RadioItemComponentInterface {
   };
   /* End abstract class RadioItem */
 
-  render() {
-    return (
-      <Host
-        class={{ 'uni-selected': this.selected, 'uni-disabled': this.disabled }}
-        uni-radio-option
-      >
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor={this.uniqueId}>
-          <span>
-            <slot />
-          </span>
-        </label>
-        <input
-          onClick={() => this.uniSelect.emit()}
-          class="radio-elem"
-          type="radio"
-          checked={this.selected}
-          disabled={this.disabled}
-          value={this.value}
-          id={this.uniqueId}
-        />
-      </Host>
-    );
-  }
+  abstract render(): any;
 }

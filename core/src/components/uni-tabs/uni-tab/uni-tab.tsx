@@ -6,21 +6,25 @@ import { RadioItemComponentInterface } from '../../../lib/radio/radio-item';
 import { HTMLUniRadioControllerElement } from '../../../lib/radio/radio-controller';
 
 let itemId = 0;
+const parentTag = 'uni-tabs';
 
 @Component({
-  tag: 'uni-combo-item',
-  styleUrl: 'uni-combo-item.scss',
+  tag: 'uni-tab',
+  styleUrl: 'uni-tab.scss',
   shadow: true
 })
-export class UniComboItem implements RadioItemComponentInterface {
+export class UniTab implements RadioItemComponentInterface {
   /* Begin abstract class RadioItem */
-  private uniqueId = `uni-combo-item-${itemId++}`;
+  private uniqueId = `uni-tab-item-${itemId++}`;
 
   private parentGroup: HTMLUniRadioControllerElement | null = null;
 
-  @Element() el!: HTMLUniComboItemElement;
+  @Element() el!: HTMLUniTabElement;
 
-  /** @internal */
+  /**
+   * Render this option as selected
+   * (used internally)
+   *  */
   @Prop() selected: boolean;
 
   /**
@@ -56,7 +60,8 @@ export class UniComboItem implements RadioItemComponentInterface {
     // If no value is set, use the uniqueId
     if (this.value === undefined) this.value = this.uniqueId;
 
-    this.parentGroup = this.el.closest('[uni-radio-controller]');
+    this.parentGroup = this.el.closest(parentTag);
+
     if (this.parentGroup) {
       this.updateState();
       this.parentGroup.addEventListener('uniInternalChange', this.updateState);
@@ -78,24 +83,19 @@ export class UniComboItem implements RadioItemComponentInterface {
   render() {
     return (
       <Host
-        class={{ 'uni-selected': this.selected, 'uni-disabled': this.disabled }}
+        class={{ 'uni-selected': this.selected, 'uni-disabled': this.disabled, 'display-overline': true }}
         uni-radio-option
       >
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor={this.uniqueId}>
-          <span>
-            <slot />
-          </span>
-        </label>
-        <input
+        <button
           onClick={() => this.uniSelect.emit()}
-          class="radio-elem"
-          type="radio"
-          checked={this.selected}
           disabled={this.disabled}
           value={this.value}
-          id={this.uniqueId}
-        />
+          class="radio-elem"
+          tabIndex={-1}
+          type="button"
+        >
+          <slot />
+        </button>
       </Host>
     );
   }
