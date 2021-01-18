@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4-beta.2](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.4-beta.1...v1.2.4-beta.2) (2021-01-18)
+
+
+### Bug Fixes
+
+* **combo:** Fix mysterious combo break ([08f2594](https://github.com/unicef-new-zealand/unicorn/commit/08f259490cc85b65409d8f931b78023fb1e1dda8))
+
+
+### Features
+
+* **tabs:** Add accessibility markup ([bd80d01](https://github.com/unicef-new-zealand/unicorn/commit/bd80d01b2b101d5efbd293639246fd82c5a582ce))
+
+
+
+
+
 ## [1.2.4-beta.1](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.4-beta.0...v1.2.4-beta.1) (2021-01-17)
 
 
