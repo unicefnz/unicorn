@@ -7,15 +7,15 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                                                                                                        | Type                  | Default     |
-| ---------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- | ----------- |
-| `color`    | `color`    | Defines the main color of the button Eg. accent, primary                                                                                                           | `string`              | `'accent'`  |
-| `disabled` | `disabled` | Disables the button, preventing input                                                                                                                              | `boolean`             | `undefined` |
-| `href`     | `href`     | Make this button a link to `href` instead                                                                                                                          | `string`              | `undefined` |
-| `icon`     | `icon`     | Display as an icon button                                                                                                                                          | `boolean`             | `undefined` |
-| `loading`  | `loading`  | Changes the button into a loading state                                                                                                                            | `boolean`             | `undefined` |
-| `type`     | `type`     | Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset' | `string`              | `'button'`  |
-| `variant`  | `variant`  | Sets the variant of the button One of 'solid' or 'border'                                                                                                          | `"border" \| "solid"` | `'solid'`   |
+| Property   | Attribute  | Description                                                                                                                                                        | Type                   | Default     |
+| ---------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- | ----------- |
+| `color`    | `color`    | Defines the main color of the button Eg. accent, primary                                                                                                           | `null \| string`       | `'accent'`  |
+| `disabled` | `disabled` | Disables the button, preventing input                                                                                                                              | `boolean`              | `false`     |
+| `href`     | `href`     | Make this button a link to `href` instead                                                                                                                          | `string \| undefined`  | `undefined` |
+| `icon`     | `icon`     | Display as an icon button                                                                                                                                          | `boolean \| undefined` | `undefined` |
+| `loading`  | `loading`  | Changes the button into a loading state                                                                                                                            | `boolean`              | `false`     |
+| `type`     | `type`     | Type of the underlying button See https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md One of 'button', 'submit', or 'reset' | `string`               | `'button'`  |
+| `variant`  | `variant`  | Sets the variant of the button One of 'solid' or 'border'                                                                                                          | `"border" \| "solid"`  | `'solid'`   |
 
 
 ## CSS Custom Properties

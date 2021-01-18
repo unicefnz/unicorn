@@ -27,12 +27,12 @@ export class UniTabContent implements ComponentInterface, Partial<RadioItemCompo
   @Element() el!: HTMLUniTabContentElement;
 
   /** @internal */
-  @Prop() selected: boolean;
+  @Prop() selected: boolean = false;
 
   /**
    * Machine value for the option
    * */
-  @Prop() value: string | number;
+  @Prop() value: string | number = this.uniqueId;
 
   @State() ariaLabelledBy: string | null = null;
 
@@ -42,9 +42,6 @@ export class UniTabContent implements ComponentInterface, Partial<RadioItemCompo
   }
 
   connectedCallback() {
-    // If no value is set, use the uniqueId
-    if (this.value === undefined) this.value = this.uniqueId;
-
     this.parentGroup = this.el.closest(parentTag);
 
     if (this.parentGroup) {
@@ -62,6 +59,7 @@ export class UniTabContent implements ComponentInterface, Partial<RadioItemCompo
 
   private updateState = () => {
     this.selected = this.parentGroup?.value === this.value;
+    this.ariaLabelledBy = Array.from(this.parentGroup?.querySelectorAll('uni-tab') || []).find(el => el.value === this.value)?.id || null;
   };
   /* End abstract class RadioItem */
 

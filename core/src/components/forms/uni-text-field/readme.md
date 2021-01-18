@@ -7,24 +7,24 @@
 
 ## Properties
 
-| Property       | Attribute      | Description                                                                   | Type                            | Default     |
-| -------------- | -------------- | ----------------------------------------------------------------------------- | ------------------------------- | ----------- |
-| `autocomplete` | `autocomplete` | Hint to the user agent how this field should be autocompleted                 | `string`                        | `undefined` |
-| `disabled`     | `disabled`     | Makes the field disabled and unselectable                                     | `boolean`                       | `undefined` |
-| `error`        | `error`        | Displays errors below the input, or puts field into error state               | `boolean \| string \| string[]` | `''`        |
-| `label`        | `label`        | Label text above the field                                                    | `string`                        | `undefined` |
-| `labelSlot`    | `label-slot`   | Alternatively, use a slot inside the label to render custom contents.         | `boolean`                       | `false`     |
-| `max`          | `max`          | Maximum value when the input is in number mode                                | `number`                        | `undefined` |
-| `maxlength`    | `maxlength`    | Maximum string length                                                         | `number`                        | `undefined` |
-| `min`          | `min`          | Minimum value when the input is in number mode                                | `number`                        | `undefined` |
-| `minlength`    | `minlength`    | Minimum string length                                                         | `number`                        | `undefined` |
-| `name`         | `name`         | Name of the native input element                                              | `string`                        | `undefined` |
-| `optional`     | `optional`     | Displays a visual (optional) marker                                           | `boolean`                       | `false`     |
-| `placeholder`  | `placeholder`  | Placeholder displayed inside the field                                        | `string`                        | `undefined` |
-| `readonly`     | `readonly`     | Prevents editing the field, but allows selecting text                         | `boolean`                       | `undefined` |
-| `required`     | `required`     | Marks the input as required                                                   | `boolean`                       | `undefined` |
-| `type`         | `type`         | Type for the underlying input element or "textarea" to switch out the element | `string`                        | `undefined` |
-| `value`        | `value`        | Set the value of the field                                                    | `string`                        | `undefined` |
+| Property       | Attribute      | Description                                                                                                              | Type                            | Default     |
+| -------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------- | ----------- |
+| `autocomplete` | `autocomplete` | Hint to the user agent how this field should be autocompleted                                                            | `string \| undefined`           | `undefined` |
+| `disabled`     | `disabled`     | Makes the field disabled and unselectable                                                                                | `boolean`                       | `false`     |
+| `error`        | `error`        | Displays errors below the input, or puts field into error state                                                          | `boolean \| string \| string[]` | `''`        |
+| `label`        | `label`        | Label text above the field                                                                                               | `string \| undefined`           | `undefined` |
+| `labelSlot`    | `label-slot`   | Alternatively, use a slot inside the label to render custom contents.                                                    | `boolean`                       | `false`     |
+| `max`          | `max`          | Maximum value when the input is in number mode                                                                           | `number \| undefined`           | `undefined` |
+| `maxlength`    | `maxlength`    | Maximum string length                                                                                                    | `number \| undefined`           | `undefined` |
+| `min`          | `min`          | Minimum value when the input is in number mode                                                                           | `number \| undefined`           | `undefined` |
+| `minlength`    | `minlength`    | Minimum string length                                                                                                    | `number \| undefined`           | `undefined` |
+| `name`         | `name`         | Name of the native input element                                                                                         | `string \| undefined`           | `undefined` |
+| `optional`     | `optional`     | Displays a visual (optional) marker                                                                                      | `boolean`                       | `false`     |
+| `placeholder`  | `placeholder`  | Placeholder displayed inside the field                                                                                   | `string \| undefined`           | `undefined` |
+| `readonly`     | `readonly`     | Prevents editing the field, but allows selecting text                                                                    | `boolean`                       | `false`     |
+| `required`     | `required`     | Marks the input as required                                                                                              | `boolean`                       | `false`     |
+| `type`         | `type`         | Set the [type] property on the internal input element Alternatively, set to "textarea" to use a textarea element instead | `string \| undefined`           | `undefined` |
+| `value`        | `value`        | Set the value of the field                                                                                               | `string \| undefined`           | `undefined` |
 
 
 ## Events

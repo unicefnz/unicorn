@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                               | Type                 | Default     |
-| ------------- | -------------- | ----------------------------------------- | -------------------- | ----------- |
-| `disabled`    | `disabled`     | Makes the field disabled and unselectable | `boolean`            | `undefined` |
-| `displayText` | `display-text` | Display text inside the trigger           | `string`             | `undefined` |
-| `error`       | `error`        | Displays error(s) below the input         | `string \| string[]` | `''`        |
-| `label`       | `label`        | Label text above the field                | `string`             | `undefined` |
-| `optional`    | `optional`     | Displays a visual (optional) marker       | `boolean`            | `false`     |
+| Property      | Attribute      | Description                               | Type                  | Default     |
+| ------------- | -------------- | ----------------------------------------- | --------------------- | ----------- |
+| `disabled`    | `disabled`     | Makes the field disabled and unselectable | `boolean`             | `false`     |
+| `displayText` | `display-text` | Display text inside the trigger           | `string \| undefined` | `undefined` |
+| `error`       | `error`        | Displays error(s) below the input         | `string \| string[]`  | `''`        |
+| `label`       | `label`        | Label text above the field                | `string \| undefined` | `undefined` |
+| `optional`    | `optional`     | Displays a visual (optional) marker       | `boolean`             | `false`     |
 
 
 ## CSS Custom Properties

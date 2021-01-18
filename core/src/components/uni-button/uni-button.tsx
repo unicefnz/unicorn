@@ -10,7 +10,7 @@ export type ButtonVariant = 'solid' | 'border';
   shadow: true
 })
 export class UniButton {
-  @Element() el: HTMLUniButtonElement;
+  @Element() el!: HTMLUniButtonElement;
 
   /**
    * Type of the underlying button
@@ -28,7 +28,7 @@ export class UniButton {
   /**
    * Disables the button, preventing input
    * */
-  @Prop() readonly disabled: boolean;
+  @Prop() readonly disabled: boolean = false;
 
   /**
    * Make this button a link to `href` instead
@@ -43,7 +43,7 @@ export class UniButton {
   /**
    * Changes the button into a loading state
    * */
-  @Prop() readonly loading: boolean;
+  @Prop() readonly loading: boolean = false;
 
   /**
    * Sets the variant of the button
@@ -85,9 +85,9 @@ export class UniButton {
           [`uni-color-${this.color}`]: true,
           'uni-loading': this.loading,
           'uni-disabled': isDisabled,
-          'uni-button-icon': this.icon
+          'uni-button-icon': !!this.icon
         }}
-        onClick={e => this.handleClick(e)}
+        onClick={(e: MouseEvent) => this.handleClick(e)}
       >
         {this.href ? (
           <a class="button" href={this.href} onClick={e => isDisabled && e.preventDefault()}>

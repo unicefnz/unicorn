@@ -8,7 +8,7 @@ describe('uni-tag-chip', () => {
       html: '<uni-tag-chip></uni-tag-chip>'
     });
     expect(page.root).toEqualHtml(`
-      <uni-tag-chip>
+      <uni-tag-chip class="uni-color-accent">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>

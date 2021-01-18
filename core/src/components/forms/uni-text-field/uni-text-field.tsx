@@ -13,12 +13,12 @@ export class UniTextField implements ComponentInterface {
   /**
    * Hint to the user agent how this field should be autocompleted
    * */
-  @Prop() public autocomplete: string;
+  @Prop() public autocomplete?: string;
 
   /**
    * Makes the field disabled and unselectable
    * */
-  @Prop() public disabled: boolean;
+  @Prop() public disabled: boolean = false;
 
   /**
    * Displays errors below the input, or puts field into error state
@@ -28,7 +28,7 @@ export class UniTextField implements ComponentInterface {
   /**
    * Label text above the field
    * */
-  @Prop() public label: string;
+  @Prop() public label?: string;
 
   /**
    * Alternatively, use a slot inside the label to render custom contents.
@@ -38,27 +38,27 @@ export class UniTextField implements ComponentInterface {
   /**
    * Maximum value when the input is in number mode
    * */
-  @Prop() public max: number;
+  @Prop() public max?: number;
 
   /**
    * Maximum string length
    * */
-  @Prop() public maxlength: number;
+  @Prop() public maxlength?: number;
 
   /**
    * Minimum value when the input is in number mode
    * */
-  @Prop() public min: number;
+  @Prop() public min?: number;
 
   /**
    * Minimum string length
    * */
-  @Prop() public minlength: number;
+  @Prop() public minlength?: number;
 
   /**
    * Name of the native input element
    * */
-  @Prop() public name: string;
+  @Prop() public name?: string;
 
   /**
    * Displays a visual (optional) marker
@@ -68,56 +68,57 @@ export class UniTextField implements ComponentInterface {
   /**
    * Placeholder displayed inside the field
    * */
-  @Prop() public placeholder: string;
+  @Prop() public placeholder?: string;
 
   /**
    * Prevents editing the field, but allows selecting text
    * */
-  @Prop() public readonly: boolean;
+  @Prop() public readonly: boolean = false;
 
   /**
    * Marks the input as required
    * */
-  @Prop() public required: boolean;
+  @Prop() public required: boolean = false;
 
   /**
-   * Type for the underlying input element or "textarea" to switch out the element
+   * Set the [type] property on the internal input element
+   * Alternatively, set to "textarea" to use a textarea element instead
    * */
-  @Prop() public type: string;
+  @Prop() public type?: string;
 
   /**
    * Emitted when the native input is blurred / focus is lost
    * */
-  @Event({ bubbles: false }) public uniBlur: EventEmitter<FocusEvent>;
+  @Event({ bubbles: false }) public uniBlur!: EventEmitter<FocusEvent>;
 
   /**
    * Emitted when form field value is committed
    * */
-  @Event({ bubbles: false }) public uniChange: EventEmitter<string>;
+  @Event({ bubbles: false }) public uniChange!: EventEmitter<string>;
 
   /**
    * Emitted when the native input is focused
    * */
-  @Event({ bubbles: false }) public uniFocus: EventEmitter<FocusEvent>;
+  @Event({ bubbles: false }) public uniFocus!: EventEmitter<FocusEvent>;
 
   /**
    * Emitted when the form field value changes
    * */
-  @Event({ bubbles: false }) public uniInput: EventEmitter<string>;
+  @Event({ bubbles: false }) public uniInput!: EventEmitter<string>;
 
   /**
    * Set the value of the field
    * */
-  @Prop() public value: string;
+  @Prop() public value?: string;
 
   private uniqueId = 'uni-input-' + nextUniqueId++;
 
-  private inputElem: HTMLInputElement | HTMLTextAreaElement;
+  private inputElem!: HTMLInputElement | HTMLTextAreaElement;
 
   // The next 3 properties are a hack to make sure that getInputElement waits until the first render has occurred
-  private markReady: () => void;
+  private markReady!: () => void;
 
-  private ready = new Promise((r) => { this.markReady = r; });
+  private ready = new Promise<void>((r) => { this.markReady = r; });
 
   componentDidLoad() {
     this.markReady();
@@ -167,9 +168,9 @@ export class UniTextField implements ComponentInterface {
             onInput={e => this.uniInput.emit((e.target as any).value)}
             placeholder={this.placeholder}
             readOnly={this.readonly}
-            ref={(el) => { this.inputElem = el; }}
+            ref={(el?: HTMLInputElement | HTMLTextAreaElement) => { this.inputElem = el!; }}
             required={this.required}
-            type={Elem === 'input' && this.type}
+            type={Elem === 'input' ? this.type : undefined}
             value={this.value}
           />
           {this.error ? (

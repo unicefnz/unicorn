@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description                | Type                 | Default     |
-| -------- | --------- | -------------------------- | -------------------- | ----------- |
-| `error`  | `error`   | Display one or more errors | `string \| string[]` | `undefined` |
+| Property | Attribute | Description                | Type                              | Default     |
+| -------- | --------- | -------------------------- | --------------------------------- | ----------- |
+| `error`  | `error`   | Display one or more errors | `string \| string[] \| undefined` | `undefined` |
 
 
 ## Dependencies

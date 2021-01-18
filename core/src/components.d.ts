@@ -120,7 +120,7 @@ export namespace Components {
           * @param data Any data to emit in the dismiss events.
           * @param role The role of the element that is dismissing the alert. This can be useful in a button handler for determining which button was clicked to dismiss the alert. Some examples include: ``"cancel"`, `"destructive"`, "selected"`, and `"backdrop"`.
          */
-        "dismiss": (data?: any, role?: string) => Promise<boolean>;
+        "dismiss": (data?: any, role?: string | undefined) => Promise<boolean>;
         /**
           * If `true`, the keyboard will be automatically dismissed when the overlay is presented.
          */
@@ -156,7 +156,7 @@ export namespace Components {
         /**
           * Display text inside the trigger
          */
-        "displayText": string;
+        "displayText"?: string;
         /**
           * Displays error(s) below the input
          */
@@ -164,7 +164,7 @@ export namespace Components {
         /**
           * Label text above the field
          */
-        "label": string;
+        "label"?: string;
         /**
           * Displays a visual (optional) marker
          */
@@ -194,7 +194,7 @@ export namespace Components {
         /**
           * Label to display above the select box
          */
-        "label": string;
+        "label"?: string;
     }
     interface UniTab {
         /**
@@ -222,7 +222,7 @@ export namespace Components {
         /**
           * Value of the selected option
          */
-        "value": string | number;
+        "value"?: string | number;
     }
     interface UniTagChip {
         /**
@@ -234,7 +234,7 @@ export namespace Components {
         /**
           * Hint to the user agent how this field should be autocompleted
          */
-        "autocomplete": string;
+        "autocomplete"?: string;
         /**
           * Makes the field disabled and unselectable
          */
@@ -250,7 +250,7 @@ export namespace Components {
         /**
           * Label text above the field
          */
-        "label": string;
+        "label"?: string;
         /**
           * Alternatively, use a slot inside the label to render custom contents.
          */
@@ -258,23 +258,23 @@ export namespace Components {
         /**
           * Maximum value when the input is in number mode
          */
-        "max": number;
+        "max"?: number;
         /**
           * Maximum string length
          */
-        "maxlength": number;
+        "maxlength"?: number;
         /**
           * Minimum value when the input is in number mode
          */
-        "min": number;
+        "min"?: number;
         /**
           * Minimum string length
          */
-        "minlength": number;
+        "minlength"?: number;
         /**
           * Name of the native input element
          */
-        "name": string;
+        "name"?: string;
         /**
           * Displays a visual (optional) marker
          */
@@ -282,7 +282,7 @@ export namespace Components {
         /**
           * Placeholder displayed inside the field
          */
-        "placeholder": string;
+        "placeholder"?: string;
         /**
           * Prevents editing the field, but allows selecting text
          */
@@ -292,13 +292,13 @@ export namespace Components {
          */
         "required": boolean;
         /**
-          * Type for the underlying input element or "textarea" to switch out the element
+          * Set the [type] property on the internal input element Alternatively, set to "textarea" to use a textarea element instead
          */
-        "type": string;
+        "type"?: string;
         /**
           * Set the value of the field
          */
-        "value": string;
+        "value"?: string;
     }
     interface UniTooltip {
         /**
@@ -312,7 +312,7 @@ export namespace Components {
         /**
           * Which side to position the tooltip on
          */
-        "position"?: 'top' | 'bottom' | 'left' | 'right';
+        "position": 'top' | 'bottom' | 'left' | 'right';
         /**
           * Text content to display inside the tooltip. Overrides the `content` slot
          */
@@ -580,7 +580,7 @@ declare namespace LocalJSX {
         /**
           * Value of the selected option
          */
-        "value"?: string | number;
+        "value": string | number;
         /**
           * Display a different style radio group, either a "combo" row or "button" group
          */
@@ -832,7 +832,7 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * Type for the underlying input element or "textarea" to switch out the element
+          * Set the [type] property on the internal input element Alternatively, set to "textarea" to use a textarea element instead
          */
         "type"?: string;
         /**

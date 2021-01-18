@@ -11,7 +11,7 @@ export class UniTagChip {
   /**
    * Override the default color
    * */
-  @Prop() color: string;
+  @Prop() color: string = 'accent';
 
   render() {
     return (

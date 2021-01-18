@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description                                                                   | Type                  | Default     |
-| --------- | --------- | ----------------------------------------------------------------------------- | --------------------- | ----------- |
-| `value`   | `value`   | Value of the selected option                                                  | `number \| string`    | `undefined` |
-| `variant` | `variant` | Display a different style radio group, either a "combo" row or "button" group | `"button" \| "combo"` | `'combo'`   |
+| Property             | Attribute | Description                                                                   | Type                  | Default     |
+| -------------------- | --------- | ----------------------------------------------------------------------------- | --------------------- | ----------- |
+| `value` _(required)_ | `value`   | Value of the selected option                                                  | `number \| string`    | `undefined` |
+| `variant`            | `variant` | Display a different style radio group, either a "combo" row or "button" group | `"button" \| "combo"` | `'combo'`   |
 
 
 ## Events

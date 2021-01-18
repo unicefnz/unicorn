@@ -6,11 +6,11 @@ import type { HTMLStencilElement } from '@stencil/core/internal';
 import { HTMLRadioItemElement } from './radio-item';
 
 export interface RadioControllerComponentInterface extends ComponentInterface {
-  value: string | number;
+  value?: string | number;
 }
 
 export interface HTMLUniRadioControllerElement extends HTMLStencilElement {
-  value: string | number;
+  value?: string | number;
 }
 
 /*
@@ -27,7 +27,7 @@ export abstract class RadioController implements ComponentInterface {
   /**
    * Value of the selected option
    * */
-  @Prop() value: string | number;
+  @Prop() value?: string | number;
 
   /**
    * Emitted when the selected option changes (except when changed by the value prop)

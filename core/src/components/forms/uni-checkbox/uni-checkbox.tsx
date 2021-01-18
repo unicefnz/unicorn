@@ -10,7 +10,7 @@ let nextUniqueId = 0;
   shadow: true
 })
 export class UniCheckbox {
-  @Element() el: HTMLUniCheckboxElement;
+  @Element() el!: HTMLUniCheckboxElement;
 
   /**
    * HTML Form value. This is not the checked state, use checked instead
@@ -40,7 +40,7 @@ export class UniCheckbox {
   /**
    * Emitted when checkbox value is changed
    * */
-  @Event() public uniChange: EventEmitter<boolean>;
+  @Event() public uniChange!: EventEmitter<boolean>;
 
   private uniqueId = 'uni-checkbox-' + nextUniqueId++;
 

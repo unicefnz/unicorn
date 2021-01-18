@@ -8,17 +8,17 @@ import {
   shadow: true
 })
 export class UniExpandableField {
-  @Element() el: HTMLUniExpandableFieldElement;
+  @Element() el!: HTMLUniExpandableFieldElement;
 
   /**
    * Makes the field disabled and unselectable
    * */
-  @Prop() public disabled: boolean;
+  @Prop() public disabled: boolean = false;
 
   /**
    * Display text inside the trigger
    * */
-  @Prop() public displayText: string;
+  @Prop() public displayText?: string;
 
   /**
    * Displays error(s) below the input
@@ -28,7 +28,7 @@ export class UniExpandableField {
   /**
    * Label text above the field
    * */
-  @Prop() public label: string;
+  @Prop() public label?: string;
 
   /**
    * Displays a visual (optional) marker

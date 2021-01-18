@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                      | Type               | Default     |
-| ---------- | ---------- | ------------------------------------------------ | ------------------ | ----------- |
-| `disabled` | `disabled` | Marks this option as disabled                    | `boolean`          | `false`     |
-| `selected` | `selected` | Render this option as selected (used internally) | `boolean`          | `undefined` |
-| `value`    | `value`    | Machine value for the option                     | `number \| string` | `undefined` |
+| Property   | Attribute  | Description                                      | Type               | Default         |
+| ---------- | ---------- | ------------------------------------------------ | ------------------ | --------------- |
+| `disabled` | `disabled` | Marks this option as disabled                    | `boolean`          | `false`         |
+| `selected` | `selected` | Render this option as selected (used internally) | `boolean`          | `false`         |
+| `value`    | `value`    | Machine value for the option                     | `number \| string` | `this.uniqueId` |
 
 
 ## Events

@@ -19,28 +19,28 @@ export interface HTMLRadioItemElement extends HTMLStencilElement {
   setFocus(ev: Event): Promise<void>;
 }
 
+let itemId = 0;
+
 /*
   Stencil doesn't support @Components extending classes.
   Instead, copy and paste this code into classes that require it.
   Elegant, I know
 */
 export abstract class RadioItem implements RadioItemComponentInterface {
-  abstract uniqueId: string;
-
   /* Begin abstract class RadioItem */
-  // private uniqueId = `uni-radio-item-${itemId++}`;
+  private uniqueId = `uni-PLEASE_CHANGE-${itemId++}`;
 
   private parentGroup: HTMLUniRadioControllerElement | null = null;
 
   @Element() el!: HTMLRadioItemElement;
 
   /** @internal */
-  @Prop() selected: boolean;
+  @Prop() selected: boolean = false;
 
   /**
    * Machine value for the option
    * */
-  @Prop() value: string | number;
+  @Prop() value: string | number = this.uniqueId;
 
   /**
    * Marks this option as disabled
@@ -50,7 +50,7 @@ export abstract class RadioItem implements RadioItemComponentInterface {
   /**
    * Emitted when this option is selected (usually when clicked and not disabled)
    * */
-  @Event() uniSelect: EventEmitter<void>;
+  @Event() uniSelect!: EventEmitter<void>;
 
   /** @internal */
   @Method()

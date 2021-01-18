@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description                  | Type               | Default     |
-| -------- | --------- | ---------------------------- | ------------------ | ----------- |
-| `value`  | `value`   | Machine value for the option | `number \| string` | `undefined` |
+| Property | Attribute | Description                  | Type               | Default         |
+| -------- | --------- | ---------------------------- | ------------------ | --------------- |
+| `value`  | `value`   | Machine value for the option | `number \| string` | `this.uniqueId` |
 
 
 ----------------------------------------------

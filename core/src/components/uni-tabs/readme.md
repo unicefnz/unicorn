@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description                  | Type               | Default     |
-| -------- | --------- | ---------------------------- | ------------------ | ----------- |
-| `value`  | `value`   | Value of the selected option | `number \| string` | `undefined` |
+| Property | Attribute | Description                  | Type                            | Default     |
+| -------- | --------- | ---------------------------- | ------------------------------- | ----------- |
+| `value`  | `value`   | Value of the selected option | `number \| string \| undefined` | `undefined` |
 
 
 ## Events
