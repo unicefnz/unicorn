@@ -5,7 +5,7 @@ import {
   Element,
   Prop,
   Watch,
-  ComponentInterface
+  ComponentInterface, State
 } from '@stencil/core';
 import type { HTMLUniRadioControllerElement } from '../../../lib/radio/radio-controller';
 import type { RadioItemComponentInterface } from '../../../lib/radio/radio-item';
@@ -20,7 +20,7 @@ const parentTag = 'uni-tabs';
 })
 export class UniTabContent implements ComponentInterface, Partial<RadioItemComponentInterface> {
   /* Begin abstract class RadioItem */
-  private uniqueId = `uni-tab-item-${itemId++}`;
+  private uniqueId = `uni-tab-content-${itemId++}`;
 
   private parentGroup: HTMLUniRadioControllerElement | null = null;
 
@@ -33,6 +33,8 @@ export class UniTabContent implements ComponentInterface, Partial<RadioItemCompo
    * Machine value for the option
    * */
   @Prop() value: string | number;
+
+  @State() ariaLabelledBy: string | null = null;
 
   @Watch('value')
   onValueChange() {
@@ -65,7 +67,11 @@ export class UniTabContent implements ComponentInterface, Partial<RadioItemCompo
 
   render() {
     return (
-      <Host uni-selected={this.selected}>
+      <Host
+        uni-selected={this.selected}
+        role="tabpanel"
+        aria-labelledby={this.ariaLabelledBy}
+      >
         <slot />
       </Host>
     );

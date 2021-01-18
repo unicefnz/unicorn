@@ -8,7 +8,7 @@ describe('uni-tab-content', () => {
       html: '<uni-tab-content></uni-tab-content>'
     });
     expect(page.root).toEqualHtml(`
-      <uni-tab-content>
+      <uni-tab-content role="tabpanel">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>

@@ -24,7 +24,7 @@ export class UniTabs implements RadioControllerComponentInterface {
   /**
    * Value of the selected option
    * */
-  @Prop() value: string | number;
+  @Prop() value?: string | number;
 
   /**
    * Emitted when the selected option changes (except when changed by the value prop)
@@ -129,9 +129,12 @@ export class UniTabs implements RadioControllerComponentInterface {
   render() {
     return (
       <Host
-        onUniSelect={e => this.onSelect(e)}
+        onUniSelect={(e: CustomEvent) => this.onSelect(e)}
         uni-radio-controller
       >
+        <ul role="tablist" class="tab-list">
+          <slot name="tabs" />
+        </ul>
         <slot />
       </Host>
     );

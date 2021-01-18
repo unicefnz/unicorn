@@ -15,7 +15,7 @@ const parentTag = 'uni-tabs';
 })
 export class UniTab implements RadioItemComponentInterface {
   /* Begin abstract class RadioItem */
-  private uniqueId = `uni-tab-item-${itemId++}`;
+  private uniqueId = `uni-tab-${itemId++}`;
 
   private parentGroup: HTMLUniRadioControllerElement | null = null;
 
@@ -85,17 +85,23 @@ export class UniTab implements RadioItemComponentInterface {
       <Host
         class={{ 'uni-selected': this.selected, 'uni-disabled': this.disabled, 'display-overline': true }}
         uni-radio-option
+        aria-selected={this.selected.toString()}
+        aria-disabled={this.disabled.toString()}
+        id={this.uniqueId}
+        aria-controls={this.uniqueId}
+        role="tab"
       >
-        <button
-          onClick={() => this.uniSelect.emit()}
-          disabled={this.disabled}
-          value={this.value}
-          class="radio-elem"
-          tabIndex={-1}
-          type="button"
-        >
-          <slot />
-        </button>
+        <li>
+          <button
+            onClick={() => this.uniSelect.emit()}
+            disabled={this.disabled}
+            class="radio-elem"
+            tabIndex={-1}
+            type="button"
+          >
+            <slot />
+          </button>
+        </li>
       </Host>
     );
   }
