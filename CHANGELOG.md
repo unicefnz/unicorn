@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4-beta.3](https://github.com/unicefnz/unicorn/compare/v1.2.4-beta.2...v1.2.4-beta.3) (2021-01-18)
+
+
+### Bug Fixes
+
+* **react:** Export tabs from root ([9f0b386](https://github.com/unicefnz/unicorn/commit/9f0b38667967812b06337aa12323c5eba989d717))
+* **tabs:** Wrap tab list ([0797941](https://github.com/unicefnz/unicorn/commit/0797941c3013889c353be5160fa814682be52c8f))
+
+
+
+
+
 ## [1.2.4-beta.2](https://github.com/unicefnz/unicorn/compare/v1.2.4-beta.1...v1.2.4-beta.2) (2021-01-18)
 
 
