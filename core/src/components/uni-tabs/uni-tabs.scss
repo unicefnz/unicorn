@@ -2,6 +2,7 @@
   display: block;
 }
 .tab-list {
+  display: flex;
   padding: 0;
   margin: 0;
   border-bottom: 2px solid var(--uni-dark);

@@ -53,7 +53,7 @@ export class UniComboItem implements RadioItemComponentInterface {
   }
 
   connectedCallback() {
-    this.parentGroup = this.el.closest('[uni-radio-controller]');
+    this.parentGroup = this.el.closest('uni-combo-group');
     if (this.parentGroup) {
       this.updateState();
       this.parentGroup.addEventListener('uniInternalChange', this.updateState);
