@@ -10,6 +10,9 @@ describe('uni-tabs', () => {
     expect(page.root).toEqualHtml(`
       <uni-tabs uni-radio-controller="">
         <mock:shadow-root>
+          <ul class="tab-list" role="tablist">
+            <slot name="tabs"></slot>
+          </ul>
           <slot></slot>
         </mock:shadow-root>
       </uni-tabs>

@@ -4,9 +4,9 @@ export default {
 
 export const Default = () => `
 <uni-tabs style="max-width: 40rem">
-    <uni-tab value="one">Tab One</uni-tab>
-    <uni-tab value="two">Tab Two</uni-tab>
-    <uni-tab value="three">Tab Three</uni-tab>
+    <uni-tab value="one" slot="tabs">Tab One</uni-tab>
+    <uni-tab value="two" slot="tabs">Tab Two</uni-tab>
+    <uni-tab value="three" slot="tabs">Tab Three</uni-tab>
     <uni-tab-content value="one">
         Vel voluptatem laboriosam reprehenderit laudantium unde perferendis accusamus minus. Officia rem quisquam dolorem corrupti aspernatur.
          Temporibus accusamus accusamus neque dolorem. Deleniti distinctio accusamus numquam. A aut consequatur est dolores est blanditiis voluptatem.…
