@@ -9,6 +9,7 @@ export * from './UniExpandableField';
 export * from './UniOutsideClick';
 export * from './UniProgressLinear';
 export * from './UniSelect';
+export * from './UniTab';
 export * from './UniTagChip';
 export * from './UniTextField';
 export * from './UniTooltip';
