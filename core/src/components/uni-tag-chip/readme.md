@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description                | Type     | Default     |
-| -------- | --------- | -------------------------- | -------- | ----------- |
-| `color`  | `color`   | Override the default color | `string` | `undefined` |
+| Property | Attribute | Description                | Type     | Default    |
+| -------- | --------- | -------------------------- | -------- | ---------- |
+| `color`  | `color`   | Override the default color | `string` | `'accent'` |
 
 
 ----------------------------------------------

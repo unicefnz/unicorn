@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                                      | Type          | Default     |
-| -------- | --------- | ------------------------------------------------------------------------------------------------ | ------------- | ----------- |
-| `root`   | --        | Specify a root to listen on, anything "outside" this will trigger. Useful for escaping shadowDOM | `HTMLElement` | `undefined` |
+| Property | Attribute | Description                                                                                      | Type                       | Default     |
+| -------- | --------- | ------------------------------------------------------------------------------------------------ | -------------------------- | ----------- |
+| `root`   | --        | Specify a root to listen on, anything "outside" this will trigger. Useful for escaping shadowDOM | `HTMLElement \| undefined` | `undefined` |
 
 
 ## Events

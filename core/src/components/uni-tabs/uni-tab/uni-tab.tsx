@@ -25,12 +25,12 @@ export class UniTab implements RadioItemComponentInterface {
    * Render this option as selected
    * (used internally)
    *  */
-  @Prop() selected: boolean;
+  @Prop() selected: boolean = false;
 
   /**
    * Machine value for the option
    * */
-  @Prop() value: string | number;
+  @Prop() value: string | number = this.uniqueId;
 
   /**
    * Marks this option as disabled
@@ -40,7 +40,7 @@ export class UniTab implements RadioItemComponentInterface {
   /**
    * Emitted when this option is selected (usually when clicked and not disabled)
    * */
-  @Event() uniSelect: EventEmitter<void>;
+  @Event() uniSelect!: EventEmitter<void>;
 
   /** @internal */
   @Method()
@@ -57,9 +57,6 @@ export class UniTab implements RadioItemComponentInterface {
   }
 
   connectedCallback() {
-    // If no value is set, use the uniqueId
-    if (this.value === undefined) this.value = this.uniqueId;
-
     this.parentGroup = this.el.closest(parentTag);
 
     if (this.parentGroup) {

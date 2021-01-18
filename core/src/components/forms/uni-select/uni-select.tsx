@@ -16,7 +16,7 @@ export class UniSelect {
   /**
    * Label to display above the select box
    * */
-  @Prop() public label: string;
+  @Prop() public label?: string;
 
   render() {
     const isErrored = !!this.error?.length;

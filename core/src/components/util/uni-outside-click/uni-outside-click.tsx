@@ -7,7 +7,7 @@ import {
   shadow: true
 })
 export class UniOutsideClick implements ComponentInterface {
-  @Element() el: HTMLUniOutsideClickElement;
+  @Element() el!: HTMLUniOutsideClickElement;
 
   /**
    * Specify a root to listen on, anything "outside" this will trigger. Useful for escaping shadowDOM
@@ -17,7 +17,7 @@ export class UniOutsideClick implements ComponentInterface {
   /**
    * Emitted when the document is clicked outside this tree
    * */
-  @Event({ bubbles: false }) public uniOutsideClick: EventEmitter<MouseEvent>;
+  @Event({ bubbles: false }) public uniOutsideClick!: EventEmitter<MouseEvent>;
 
   private get rootOrEl() {
     return this.root || this.el;

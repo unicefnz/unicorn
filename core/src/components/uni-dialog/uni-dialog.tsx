@@ -12,7 +12,7 @@ import {
   scoped: true
 })
 export class UniDialog implements ComponentInterface, OverlayInterface {
-  @Element() el: HTMLUniDialogElement;
+  @Element() el!: HTMLUniDialogElement;
 
   /** @internal */
   @Prop() public presented = false;

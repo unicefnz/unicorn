@@ -8,22 +8,22 @@ import {
   shadow: true
 })
 export class UniTooltip implements ComponentInterface {
-  @Element() el: HTMLUniTooltipElement;
+  @Element() el!: HTMLUniTooltipElement;
 
   /**
    * Whether to display an arrow pointing from the tooltip bubble
    * */
-  @Prop() arrow = true;
+  @Prop() arrow: boolean = true;
 
   /**
    * Delay before hiding the tooltip after mouseleave/blur
    * */
-  @Prop() hideDelay = 300;
+  @Prop() hideDelay: number = 300;
 
   /**
    * Which side to position the tooltip on
    * */
-  @Prop() position?: 'top' | 'bottom' | 'left' | 'right' = 'right';
+  @Prop() position: 'top' | 'bottom' | 'left' | 'right' = 'right';
 
   /**
    * Text content to display inside the tooltip. Overrides the `content` slot
@@ -52,7 +52,7 @@ export class UniTooltip implements ComponentInterface {
   // In theory, we don't need a disconnectedCallback to remove listeners, because the element has just been destroyed
 
   @Watch('value')
-  onValueChange(newVal) {
+  onValueChange(newVal: boolean) {
     if (newVal && !this.shown) {
       this.show();
     } else if (this.shown) {
@@ -61,7 +61,7 @@ export class UniTooltip implements ComponentInterface {
   }
 
   @Watch('useHover')
-  useHoverChange(newVal) {
+  useHoverChange(newVal: boolean) {
     if (newVal) {
       this.el.addEventListener('mouseenter', this.onMouseEnter);
     } else {
@@ -70,7 +70,7 @@ export class UniTooltip implements ComponentInterface {
   }
 
   @Watch('useFocus')
-  useFocusChange(newVal) {
+  useFocusChange(newVal: boolean) {
     if (newVal) {
       this.el.addEventListener('focusin', this.onFocus);
     } else {
@@ -107,7 +107,7 @@ export class UniTooltip implements ComponentInterface {
 
   @State() shown = false;
 
-  private hideTimeout: NodeJS.Timeout;
+  private hideTimeout?: NodeJS.Timeout | null;
 
   private focused = false;
 
@@ -159,15 +159,15 @@ export class UniTooltip implements ComponentInterface {
    * as well as ensuring it doesn't render offscreen
    * */
   private computeOffsets() {
-    const contentEl = this.el.shadowRoot.querySelector('.tooltip-content') as HTMLDivElement;
+    const contentEl = this.el.shadowRoot!.querySelector('.tooltip-content') as HTMLDivElement;
 
     contentEl.style.visibility = 'hidden';
     contentEl.style.display = 'block';
 
     const contentBox = contentEl.getBoundingClientRect();
 
-    contentEl.style.visibility = null;
-    contentEl.style.display = null;
+    contentEl.style.visibility = '';
+    contentEl.style.display = '';
 
     const triggerBox = this.el.getBoundingClientRect();
 

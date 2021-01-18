@@ -21,12 +21,12 @@ export class UniComboItem implements RadioItemComponentInterface {
   @Element() el!: HTMLUniComboItemElement;
 
   /** @internal */
-  @Prop() selected: boolean;
+  @Prop() selected: boolean = false;
 
   /**
    * Machine value for the option
    * */
-  @Prop() value: string | number;
+  @Prop() value: string | number = this.uniqueId;
 
   /**
    * Marks this option as disabled
@@ -36,7 +36,7 @@ export class UniComboItem implements RadioItemComponentInterface {
   /**
    * Emitted when this option is selected (usually when clicked and not disabled)
    * */
-  @Event() uniSelect: EventEmitter<void>;
+  @Event() uniSelect!: EventEmitter<void>;
 
   /** @internal */
   @Method()
@@ -53,9 +53,6 @@ export class UniComboItem implements RadioItemComponentInterface {
   }
 
   connectedCallback() {
-    // If no value is set, use the uniqueId
-    if (this.value === undefined) this.value = this.uniqueId;
-
     this.parentGroup = this.el.closest('[uni-radio-controller]');
     if (this.parentGroup) {
       this.updateState();
