@@ -24,9 +24,9 @@
   },
   "devDependencies": {
     "@unicefnz/eslint-config": "^2.0.1",
-    "eslint": "^7.15.0",
+    "eslint": "^7.18.0",
     "typescript": "^4.1.3",
-    "vuepress": "^1.7.1",
+    "vuepress": "^1.8.0",
     "vuepress-plugin-mermaidjs": "^1.8.1"
   }
 }
