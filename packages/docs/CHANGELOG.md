@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/unicefnz/unicorn/compare/v1.2.4-beta.3...v1.2.4) (2021-02-01)
+
+**Note:** Version bump only for package @unicorndesign/docs
+
+
+
+
+
 ## [1.2.4-beta.1](https://github.com/unicefnz/unicorn/compare/v1.2.4-beta.0...v1.2.4-beta.1) (2021-01-17)
 
 
