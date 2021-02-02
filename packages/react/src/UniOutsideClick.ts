@@ -1,6 +1,4 @@
-import {
-  UniOutsideClick as UniOutsideClickCls
-} from '@unicorndesign/core/dist/custom-elements';
+import { UniOutsideClick as UniOutsideClickCls } from '@unicorndesign/core/dist/components/uni-outside-click';
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 

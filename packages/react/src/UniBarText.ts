@@ -1,6 +1,4 @@
-import {
-  UniBarText as UniBarTextCls
-} from '@unicorndesign/core/dist/custom-elements';
+import { UniBarText as UniBarTextCls } from '@unicorndesign/core/dist/components/uni-bar-text';
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 

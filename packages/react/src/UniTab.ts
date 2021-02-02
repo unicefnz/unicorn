@@ -1,8 +1,6 @@
-import {
-  UniTabs as UniTabsCls,
-  UniTab as UniTabCls,
-  UniTabContent as UniTabContentCls
-} from '@unicorndesign/core/dist/custom-elements';
+import { UniTabs as UniTabsCls } from '@unicorndesign/core/dist/components/uni-tabs';
+import { UniTab as UniTabCls } from '@unicorndesign/core/dist/components/uni-tab';
+import { UniTabContent as UniTabContentCls } from '@unicorndesign/core/dist/components/uni-tab-content';
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 

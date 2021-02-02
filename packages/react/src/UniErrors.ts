@@ -1,6 +1,4 @@
-import {
-  UniErrors as UniErrorsCls
-} from '@unicorndesign/core/dist/custom-elements';
+import { UniErrors as UniErrorsCls } from '@unicorndesign/core/dist/components/uni-errors';
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 

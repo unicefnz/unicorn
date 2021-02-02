@@ -1,6 +1,4 @@
-import {
-  UniExpandableField as UniExpandableFieldCls
-} from '@unicorndesign/core/dist/custom-elements';
+import { UniExpandableField as UniExpandableFieldCls } from '@unicorndesign/core/dist/components/uni-expandable-field';
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 import './UniErrors';

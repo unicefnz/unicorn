@@ -1,10 +1,8 @@
 import { dialogController } from '@unicorndesign/core';
-import {
-  UniDialog as UniDialogCls,
-  UniDialogActions as UniDialogActionsCls,
-  UniDialogContent as UniDialogContentCls,
-  UniDialogTitle as UniDialogTitleCls
-} from '@unicorndesign/core/dist/custom-elements';
+import { UniDialog as UniDialogCls } from '@unicorndesign/core/dist/components/uni-dialog';
+import { UniDialogActions as UniDialogActionsCls } from '@unicorndesign/core/dist/components/uni-dialog-actions';
+import { UniDialogContent as UniDialogContentCls } from '@unicorndesign/core/dist/components/uni-dialog-content';
+import { UniDialogTitle as UniDialogTitleCls } from '@unicorndesign/core/dist/components/uni-dialog-title';
 import { createOverlayComponent, createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 import './UniBackdrop';
