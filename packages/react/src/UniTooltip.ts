@@ -1,6 +1,4 @@
-import {
-  UniTooltip as UniTooltipCls
-} from '@unicorndesign/core/dist/custom-elements';
+import { UniTooltip as UniTooltipCls } from '@unicorndesign/core/dist/components/uni-tooltip';
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 

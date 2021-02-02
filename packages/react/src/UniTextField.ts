@@ -1,6 +1,4 @@
-import {
-  UniTextField as UniTextFieldCls
-} from '@unicorndesign/core/dist/custom-elements';
+import { UniTextField as UniTextFieldCls } from '@unicorndesign/core/dist/components/uni-text-field';
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 import './UniErrors';

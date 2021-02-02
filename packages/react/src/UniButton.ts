@@ -1,4 +1,4 @@
-import { UniButton as UniButtonCls } from '@unicorndesign/core/dist/custom-elements';
+import { UniButton as UniButtonCls } from '@unicorndesign/core/dist/components/uni-button';
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 

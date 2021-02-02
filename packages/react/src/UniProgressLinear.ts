@@ -1,6 +1,4 @@
-import {
-  UniProgressLinear as UniProgressLinearCls
-} from '@unicorndesign/core/dist/custom-elements';
+import { UniProgressLinear as UniProgressLinearCls } from '@unicorndesign/core/dist/components/uni-progress-linear';
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 

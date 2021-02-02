@@ -1,6 +1,4 @@
-import {
-  UniCheckbox as UniCheckboxCls
-} from '@unicorndesign/core/dist/custom-elements';
+import { UniCheckbox as UniCheckboxCls } from '@unicorndesign/core/dist/components/uni-checkbox';
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 

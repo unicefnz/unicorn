@@ -1,6 +1,4 @@
-import {
-  UniTagChip as UniTagChipCls
-} from '@unicorndesign/core/dist/custom-elements';
+import { UniTagChip as UniTagChipCls } from '@unicorndesign/core/dist/components/uni-tag-chip';
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 

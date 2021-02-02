@@ -1,6 +1,4 @@
-import {
-  UniBackdrop as UniBackdropCls
-} from '@unicorndesign/core/dist/custom-elements';
+import { UniBackdrop as UniBackdropCls } from '@unicorndesign/core/dist/components/uni-backdrop';
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 
