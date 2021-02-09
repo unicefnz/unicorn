@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0-beta.0](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.4...v1.3.0-beta.0) (2021-02-09)
+
+
+### Bug Fixes
+
+* **combo:** Fix element not finding parent ([465f646](https://github.com/unicef-new-zealand/unicorn/commit/465f646dae2a92b64854bc0758a1f79c8bb34da2))
+
+
+
+
+
 ## [1.2.4](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.4-beta.3...v1.2.4) (2021-02-01)
 
 **Note:** Version bump only for package @unicorndesign/core
