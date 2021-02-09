@@ -5,6 +5,7 @@ import { RadioItemComponentInterface } from '../../../lib/radio/radio-item';
 import { HTMLUniRadioControllerElement } from '../../../lib/radio/radio-controller';
 
 let itemId = 0;
+const parentTag = 'uni-combo-group';
 
 @Component({
   tag: 'uni-combo-text',
@@ -54,7 +55,7 @@ export class UniComboText implements RadioItemComponentInterface {
   connectedCallback() {
     this.onSelectTriggerChange(this.selectOn);
 
-    this.parentGroup = this.el.closest('[uni-radio-controller]');
+    this.parentGroup = this.el.closest(parentTag);
     if (this.parentGroup) {
       this.updateState();
       this.parentGroup.addEventListener('uniInternalChange', this.updateState);
