@@ -1,4 +1,5 @@
-import React, { MutableRefObject, useEffect, useRef } from 'react';
+import { createElement, forwardRef, useEffect, useRef } from 'react';
+import type { HTMLAttributes, MutableRefObject } from 'react';
 import type { JSX } from '@unicorndesign/core';
 import { attachUnsupportedProps, getReactSupportedProps } from './attachUnsupportedProps';
 
@@ -6,7 +7,7 @@ export function createReactComponent<
   Tag extends keyof (JSX.IntrinsicElements | HTMLElementTagNameMap)
 >(tagName: Tag) {
   type Element = HTMLElementTagNameMap[Tag];
-  type ReactProps = React.HTMLAttributes<Element> & JSX.IntrinsicElements[Tag];
+  type ReactProps = HTMLAttributes<Element> & JSX.IntrinsicElements[Tag];
 
   const WrapperComponent = (
     { children, style, ...props }: ReactProps,
@@ -30,7 +31,7 @@ export function createReactComponent<
     }, [props]);
 
     const { className, ...reactProps } = props;
-    return React.createElement(tagName, {
+    return createElement(tagName, {
       ref: cbRef,
       style,
       ...getReactSupportedProps(reactProps) // attachProps ignores events that react handles, so we have to give them to react ourselves
@@ -39,5 +40,5 @@ export function createReactComponent<
 
   WrapperComponent.displayName = tagName;
 
-  return React.forwardRef(WrapperComponent);
+  return forwardRef(WrapperComponent);
 }
