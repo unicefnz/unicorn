@@ -7,8 +7,8 @@
 VERSION_TAG=$(git describe --exact-match 2> /dev/null || :)
 PUBLISH_STRATEGY=from-git
 
-# If the current commit contains "Chore: Recover" use the last available tag instead
-if [[ $(git log -1 --pretty=tformat:%s) =~ "Chore: Recover" ]];then
+# If the current commit contains "chore(release): Recover" use the last available tag instead
+if [[ $(git log -1 --pretty=tformat:%s) == "chore(release): Recover"* ]];then
   echo "Republishing from last tag"
   VERSION_TAG=$(git describe --abbrev=0 2> /dev/null || :)
   PUBLISH_STRATEGY=from-package
