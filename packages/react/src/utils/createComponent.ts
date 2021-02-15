@@ -11,7 +11,7 @@ export function createReactComponent<
   type Element = HTMLElementTagNameMap[Tag];
   type ReactProps = HTMLAttributes<Element> & JSX.IntrinsicElements[Tag];
 
-  function WrapperComponent (
+  function WrapperComponent(
     { children, style, ...props }: ReactProps,
     forwardedRef?: ((instance: Element | null) => void) | MutableRefObject<Element | null> | null
   ) {
