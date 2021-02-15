@@ -13,14 +13,12 @@ export interface DialogOptions {
   keyboardClose?: boolean;
 }
 
-if (typeof window === 'object' && typeof window.customElements === 'object') {
-  [
-    UniDialogCls,
-    UniDialogActionsCls,
-    UniDialogContentCls,
-    UniDialogTitleCls
-  ].map(defineElement);
-}
+[
+  UniDialogCls,
+  UniDialogActionsCls,
+  UniDialogContentCls,
+  UniDialogTitleCls
+].map(defineElement);
 
 export const UniDialog = /*#__PURE__*/createOverlayComponent<DialogOptions, HTMLUniDialogElement>('uni-dialog', dialogController);
 export const UniDialogActions = /*#__PURE__*/createReactComponent('uni-dialog-actions');

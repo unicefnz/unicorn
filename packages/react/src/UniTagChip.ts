@@ -2,8 +2,6 @@ import { UniTagChip as UniTagChipCls } from '@unicorndesign/core/dist/components
 import { createReactComponent } from './utils';
 import { defineElement } from './utils/defineElement';
 
-if (typeof window === 'object' && typeof window.customElements === 'object') {
-  defineElement(UniTagChipCls);
-}
+defineElement(UniTagChipCls);
 
 export const UniTagChip = /*#__PURE__*/createReactComponent('uni-tag-chip');
