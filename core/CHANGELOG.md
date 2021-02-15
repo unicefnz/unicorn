@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/unicef-new-zealand/unicorn/compare/v1.3.1-beta.1...v1.3.1) (2021-02-15)
+
+
+### Bug Fixes
+
+* **tab:** Move list-style-type to item ([1425d72](https://github.com/unicef-new-zealand/unicorn/commit/1425d72bf8077d05c6451f7e4caa2ccf19d0a05e))
+
+
+
+
+
 ## [1.3.1-beta.1](https://github.com/unicef-new-zealand/unicorn/compare/v1.3.1-beta.0...v1.3.1-beta.1) (2021-02-15)
 
 
