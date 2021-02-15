@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/unicef-new-zealand/unicorn/compare/v1.3.0-beta.0...v1.3.0) (2021-02-15)
+
+
+### Features
+
+* **tabs:** Add support for setting a background color ([#30](https://github.com/unicef-new-zealand/unicorn/issues/30)) ([d205c3e](https://github.com/unicef-new-zealand/unicorn/commit/d205c3e51e1c5f9553bb7c4c893363ea29cb675c))
+
+
+
+
+
 # [1.3.0-beta.0](https://github.com/unicef-new-zealand/unicorn/compare/v1.2.4...v1.3.0-beta.0) (2021-02-09)
 
 
