@@ -11,10 +11,10 @@ export function createReactComponent<
   type Element = HTMLElementTagNameMap[Tag];
   type ReactProps = HTMLAttributes<Element> & JSX.IntrinsicElements[Tag];
 
-  const WrapperComponent = (
+  function WrapperComponent (
     { children, style, ...props }: ReactProps,
     forwardedRef?: ((instance: Element | null) => void) | MutableRefObject<Element | null> | null
-  ) => {
+  ) {
     const localRef = useRef<Element>();
     const cbRef = (el: Element) => {
       localRef.current = el;
@@ -38,7 +38,7 @@ export function createReactComponent<
       style,
       ...getReactSupportedProps(reactProps) // attachProps ignores events that react handles, so we have to give them to react ourselves
     }, children);
-  };
+  }
 
   WrapperComponent.displayName = tagName;
 
