@@ -13,6 +13,8 @@ export interface HTMLUniRadioControllerElement extends HTMLStencilElement {
   value?: string | number;
 }
 
+const childSelector = 'example';
+
 /*
   Stencil doesn't support @Components extending classes.
   Instead, copy and paste this code into classes that require it.
@@ -71,12 +73,12 @@ export abstract class RadioController implements ComponentInterface {
   };
 
   private getOpts(): HTMLRadioItemElement[] {
-    return Array.from(this.el.querySelectorAll('[uni-radio-option]'));
+    return Array.from(this.el.querySelectorAll(childSelector));
   }
 
   // @ts-ignore
   private onSelect(e: CustomEvent) {
-    const target = e.target && (e.target as HTMLElement).closest('[uni-radio-option]') as HTMLRadioItemElement;
+    const target = e.target && (e.target as HTMLElement).closest(childSelector) as HTMLRadioItemElement;
 
     if (!target) return; // We don't care about this click event
 

@@ -12,6 +12,8 @@ import {
 import { RadioControllerComponentInterface } from '../../lib/radio/radio-controller';
 import { HTMLRadioItemElement } from '../../lib/radio/radio-item';
 
+const childSelector = 'uni-tab';
+
 @Component({
   tag: 'uni-tabs',
   styleUrl: 'uni-tabs.scss',
@@ -69,11 +71,11 @@ export class UniTabs implements RadioControllerComponentInterface {
   };
 
   private getOpts(): HTMLRadioItemElement[] {
-    return Array.from(this.el.querySelectorAll('[uni-radio-option]'));
+    return Array.from(this.el.querySelectorAll(childSelector));
   }
 
   private onSelect(e: CustomEvent) {
-    const target = e.target && (e.target as HTMLElement).closest('[uni-radio-option]') as HTMLRadioItemElement;
+    const target = e.target && (e.target as HTMLElement).closest(childSelector) as HTMLRadioItemElement;
 
     if (!target) return; // We don't care about this click event
 
