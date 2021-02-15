@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1-beta.1](https://github.com/unicefnz/unicorn/compare/v1.3.1-beta.0...v1.3.1-beta.1) (2021-02-15)
+
+
+### Bug Fixes
+
+* **core:** Use tag selector for radio controllers ([5f50ac8](https://github.com/unicefnz/unicorn/commit/5f50ac8beca4fe2565d0fa70bb2f32e6f52189d9))
+
+
+
+
+
 ## [1.3.1-beta.0](https://github.com/unicefnz/unicorn/compare/v1.3.0...v1.3.1-beta.0) (2021-02-15)
 
 **Note:** Version bump only for package root
