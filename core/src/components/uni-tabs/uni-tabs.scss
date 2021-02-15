@@ -1,5 +1,10 @@
 :host {
   display: block;
+  /**
+   * @prop --uni-color: Background color. Recommended to add a .uni-color-black or .uni-color-white class only
+   * @prop --uni-color-shade: Background color. Recommended to add a .uni-color-black or .uni-color-white class only
+   * @prop --uni-color-contrast: Background color. Recommended to add a .uni-color-black or .uni-color-white class only
+   */
 }
 .tab-list {
   display: flex;

@@ -1,6 +1,7 @@
 :host {
   display: none;
   padding-top: 0.5rem;
+  background: var(--uni-color, none);
 }
 :host([uni-selected]) {
   display: block;

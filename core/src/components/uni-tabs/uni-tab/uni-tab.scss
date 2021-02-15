@@ -21,14 +21,16 @@ button {
   text-align: center;
   border-top: 2px solid transparent;
   cursor: pointer;
+  color: var(--uni-color, var(--uni-black));
   transition: background-color 0.2s, border-top-color 0.2s;
 }
 button:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(128, 128, 128, 0.1);
   border-top-color: var(--uni-dark);
 }
 :host(.uni-selected) button {
-  background: rgba(0, 0, 0, 0.08);
+  background:  var(--uni-color, var(--uni-white-shade));
+  color: var(--uni-color-contrast);
   border-top-color: var(--uni-accent);
 }
 button:disabled {
