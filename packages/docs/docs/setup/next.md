@@ -11,16 +11,27 @@ import '@unicorndesign/core/theming/prebuilt/unicef.css';
 
 ## Transpilation
 
-Unfortunately, some of Stencil's helper code doesn't play nice with the CommonJS runtime
+Unfortunately, Unicorn doesn't play nice with the CommonJS runtime
 used during SSR.
 
 The best way to work around this is using [`next-transpile-modules`](https://www.npmjs.com/package/next-transpile-modules)
 to transpile Unicorn's incompatible code.
 
+Additionally, because components are immediately imported, a HTMLElement shim must be present in SSG.
+
 ```js
 const withTM = require('next-transpile-modules')(['@unicorndesign/core', '@unicorndesign/react', '@stencil/core']);
 
-const nextConfig = {};
+const nextConfig = {
+  webpack: (config, { isServer, webpack }) => {
+    if (isServer) {
+      // Include a dummy HTMLElement replacement
+      config.plugins.push(new webpack.DefinePlugin({
+        HTMLElement: '(class {})'
+      }));
+    }
+  }
+};
 
 // Make sure withTM is the innermost call, eg withOtherPlugin(withTM(nextConfig));
 module.exports = withTM(nextConfig);

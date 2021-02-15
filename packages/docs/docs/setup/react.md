@@ -26,7 +26,7 @@ for more info.
 import '@unicorndesign/core/theming/prebuilt/default.css';
 
 // OR
-<link rel="stylesheet" href="https://unpkg.com/@unicorndesign/core@1.0.0/theming/prebuilt/default.css">
+<link rel="stylesheet" href="https://unpkg.com/@unicorndesign/core@latest/theming/prebuilt/default.css">
 ```
 
 ## Step 3: Polyfills
@@ -42,7 +42,6 @@ await applyPolyfills();
 Done! You're ready to use Unicorn.
 
 ```jsx
-import React from 'react';
 import { UniButton } from '@unicorndesign/react/UniButton';
 
 export default () => (
