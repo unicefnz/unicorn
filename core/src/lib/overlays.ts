@@ -79,21 +79,22 @@ export function prepareOverlay<T extends HTMLUniOverlayElement>(el: T) {
   }
 }
 
-export function createOverlay<T extends HTMLUniOverlayElement>(tagName: string, opts: object | undefined): Promise<T> {
-  return customElements.whenDefined(tagName).then(() => {
-    const doc = document;
-    const element = doc.createElement(tagName) as T;
-    element.classList.add('overlay-hidden');
+export async function createOverlay<T extends HTMLUniOverlayElement>(tagName: string, opts: object | undefined): Promise<T> {
+  await customElements.whenDefined(tagName);
 
-    // convert the passed in overlay options into props
-    // that get passed down into the new overlay
-    Object.assign(element, opts);
+  const element = document.createElement(tagName) as T;
+  element.classList.add('overlay-hidden');
 
-    // append the overlay element to the document body
-    getAppRoot(doc).appendChild(element);
+  // convert the passed in overlay options into props
+  // that get passed down into the new overlay
+  Object.assign(element, opts);
 
-    return typeof element.componentOnReady === 'function' ? element.componentOnReady() : element;
-  });
+  // append the overlay element to the document body
+  getAppRoot(document).appendChild(element);
+
+  if (typeof element.componentOnReady === 'function') await element.componentOnReady();
+
+  return element;
 }
 
 export function dismissOverlay(
