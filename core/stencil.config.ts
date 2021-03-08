@@ -13,7 +13,8 @@ export const config: Config = {
       externalRuntime: false
     },
     {
-      type: 'dist-custom-elements'
+      type: 'dist-custom-elements',
+      externalRuntime: false
     },
     {
       type: 'docs-readme'
