@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/unicef-new-zealand/unicorn/compare/v1.3.1...v1.3.2) (2021-03-08)
+
+
+### Bug Fixes
+
+* **build:** Inline stencil runtime for dist-custom-elements ([6fe7ae7](https://github.com/unicef-new-zealand/unicorn/commit/6fe7ae759239b701d47186012d9b01bed0a52093))
+* **select:** Override text color ([ca22a70](https://github.com/unicef-new-zealand/unicorn/commit/ca22a706d59addbc2d6b786685566059feec2af9))
+
+
+
+
+
 ## [1.3.1](https://github.com/unicef-new-zealand/unicorn/compare/v1.3.1-beta.1...v1.3.1) (2021-02-15)
 
 
