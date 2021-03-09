@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  position: relative;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border-radius: 0.5rem;
+  border: 2px solid var(--uni-dark);
+  overflow: hidden;
+}
+.menu-open {
+  display: block;
+}

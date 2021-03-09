@@ -170,6 +170,18 @@ export namespace Components {
          */
         "optional": boolean;
     }
+    interface UniList {
+    }
+    interface UniListItem {
+        "disabled"?: boolean;
+        "href"?: string;
+    }
+    interface UniMenu {
+        /**
+          * Programmatically set the menu as open
+         */
+        "open": boolean;
+    }
     interface UniOutsideClick {
         /**
           * Specify a root to listen on, anything "outside" this will trigger. Useful for escaping shadowDOM
@@ -412,6 +424,24 @@ declare global {
         prototype: HTMLUniExpandableFieldElement;
         new (): HTMLUniExpandableFieldElement;
     };
+    interface HTMLUniListElement extends Components.UniList, HTMLStencilElement {
+    }
+    var HTMLUniListElement: {
+        prototype: HTMLUniListElement;
+        new (): HTMLUniListElement;
+    };
+    interface HTMLUniListItemElement extends Components.UniListItem, HTMLStencilElement {
+    }
+    var HTMLUniListItemElement: {
+        prototype: HTMLUniListItemElement;
+        new (): HTMLUniListItemElement;
+    };
+    interface HTMLUniMenuElement extends Components.UniMenu, HTMLStencilElement {
+    }
+    var HTMLUniMenuElement: {
+        prototype: HTMLUniMenuElement;
+        new (): HTMLUniMenuElement;
+    };
     interface HTMLUniOutsideClickElement extends Components.UniOutsideClick, HTMLStencilElement {
     }
     var HTMLUniOutsideClickElement: {
@@ -486,6 +516,9 @@ declare global {
         "uni-dialog-title": HTMLUniDialogTitleElement;
         "uni-errors": HTMLUniErrorsElement;
         "uni-expandable-field": HTMLUniExpandableFieldElement;
+        "uni-list": HTMLUniListElement;
+        "uni-list-item": HTMLUniListItemElement;
+        "uni-menu": HTMLUniMenuElement;
         "uni-outside-click": HTMLUniOutsideClickElement;
         "uni-progress-linear": HTMLUniProgressLinearElement;
         "uni-select": HTMLUniSelectElement;
@@ -685,6 +718,18 @@ declare namespace LocalJSX {
           * Displays a visual (optional) marker
          */
         "optional"?: boolean;
+    }
+    interface UniList {
+    }
+    interface UniListItem {
+        "disabled"?: boolean;
+        "href"?: string;
+    }
+    interface UniMenu {
+        /**
+          * Programmatically set the menu as open
+         */
+        "open"?: boolean;
     }
     interface UniOutsideClick {
         /**
@@ -886,6 +931,9 @@ declare namespace LocalJSX {
         "uni-dialog-title": UniDialogTitle;
         "uni-errors": UniErrors;
         "uni-expandable-field": UniExpandableField;
+        "uni-list": UniList;
+        "uni-list-item": UniListItem;
+        "uni-menu": UniMenu;
         "uni-outside-click": UniOutsideClick;
         "uni-progress-linear": UniProgressLinear;
         "uni-select": UniSelect;
@@ -915,6 +963,9 @@ declare module "@stencil/core" {
             "uni-dialog-title": LocalJSX.UniDialogTitle & JSXBase.HTMLAttributes<HTMLUniDialogTitleElement>;
             "uni-errors": LocalJSX.UniErrors & JSXBase.HTMLAttributes<HTMLUniErrorsElement>;
             "uni-expandable-field": LocalJSX.UniExpandableField & JSXBase.HTMLAttributes<HTMLUniExpandableFieldElement>;
+            "uni-list": LocalJSX.UniList & JSXBase.HTMLAttributes<HTMLUniListElement>;
+            "uni-list-item": LocalJSX.UniListItem & JSXBase.HTMLAttributes<HTMLUniListItemElement>;
+            "uni-menu": LocalJSX.UniMenu & JSXBase.HTMLAttributes<HTMLUniMenuElement>;
             "uni-outside-click": LocalJSX.UniOutsideClick & JSXBase.HTMLAttributes<HTMLUniOutsideClickElement>;
             "uni-progress-linear": LocalJSX.UniProgressLinear & JSXBase.HTMLAttributes<HTMLUniProgressLinearElement>;
             "uni-select": LocalJSX.UniSelect & JSXBase.HTMLAttributes<HTMLUniSelectElement>;
