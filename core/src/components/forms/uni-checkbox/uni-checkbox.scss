@@ -1,5 +1,7 @@
 :host {
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .uni-checkbox-indeterminate {
@@ -18,13 +20,13 @@
 }
 
 label {
-  vertical-align: middle;
+  flex: 1;
 }
 
 .uni-checkbox {
   position: relative;
   vertical-align: middle;
-  margin-right: 0.5rem;
+  margin: 0.1rem 0.5rem 0.1rem 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;

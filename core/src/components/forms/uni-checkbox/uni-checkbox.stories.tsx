@@ -10,4 +10,6 @@ export const Default = () => `
 <uni-checkbox checked>Checkedbox</uni-checkbox>
 <uni-checkbox checked indeterminate>Checkedbox</uni-checkbox>
 <uni-checkbox checked disabled>Checkedbox</uni-checkbox>
+
+<uni-checkbox style="max-width: 200px">Looooooooong text that should definitely wrap eventually</uni-checkbox>
 `;
