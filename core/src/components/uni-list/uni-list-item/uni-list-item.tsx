@@ -12,17 +12,29 @@ export class UniListItem {
   @Prop()
   public disabled?: boolean;
 
+  @Prop()
+  public button: boolean = false;
+
   render() {
-    const TagName = this.href ? 'a' : 'button';
+    let TagName = 'div';
+    if (this.href) TagName = 'a';
+    else if (this.button) TagName = 'button';
 
     return (
-      <Host>
+      <Host
+        class={{
+          'uni-button': TagName === 'button',
+          'uni-link': TagName === 'a',
+          'uni-clickable': !this.disabled && (TagName === 'button' || TagName === 'a'),
+          'uni-disabled': !!this.disabled
+        }}
+      >
         <li class="item">
           <TagName
             href={this.href}
             disabled={this.disabled}
             aria-disabled={this.disabled}
-            class="item-button"
+            class="item-inner"
           >
             <slot />
           </TagName>

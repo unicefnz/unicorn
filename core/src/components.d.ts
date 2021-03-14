@@ -173,6 +173,7 @@ export namespace Components {
     interface UniList {
     }
     interface UniListItem {
+        "button": boolean;
         "disabled"?: boolean;
         "href"?: string;
     }
@@ -722,6 +723,7 @@ declare namespace LocalJSX {
     interface UniList {
     }
     interface UniListItem {
+        "button"?: boolean;
         "disabled"?: boolean;
         "href"?: string;
     }

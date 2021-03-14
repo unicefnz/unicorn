@@ -7,7 +7,9 @@
   padding: 0;
 }
 
-.item-button {
+.item-inner {
+  display: block;
+  color: inherit;
   width: 100%;
   padding: 0.4rem 0.7rem;
   text-align: left;
@@ -15,13 +17,17 @@
   border: none;
   font: inherit;
   font-size: 1rem;
-  transition: background-color 0.2s;
-  cursor: pointer;
 }
-.item-button:disabled, .item-button[disabled] {
+:host(.uni-disabled) .item-inner {
   cursor: not-allowed;
   opacity: 0.7;
 }
-.item-button:hover:not([disabled]), .item-button:focus:not([disabled]) {
-  background: rgba(0,0,0,0.1);
+:host(.uni-clickable) {
+  .item-inner {
+    transition: background-color 0.2s;
+    cursor: pointer;
+  }
+  .item-inner:hover, .item-inner:focus {
+    background: rgba(0,0,0,0.1);
+  }
 }

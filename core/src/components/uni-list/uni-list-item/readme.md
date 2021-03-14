@@ -9,6 +9,7 @@
 
 | Property   | Attribute  | Description | Type                   | Default     |
 | ---------- | ---------- | ----------- | ---------------------- | ----------- |
+| `button`   | `button`   |             | `boolean`              | `false`     |
 | `disabled` | `disabled` |             | `boolean \| undefined` | `undefined` |
 | `href`     | `href`     |             | `string \| undefined`  | `undefined` |
 
