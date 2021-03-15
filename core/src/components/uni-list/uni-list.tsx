@@ -1,4 +1,6 @@
-import { Component, Host, h } from '@stencil/core';
+import {
+  Component, Host, h, Prop
+} from '@stencil/core';
 
 @Component({
   tag: 'uni-list',
@@ -6,12 +8,19 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true
 })
 export class UniList {
+  /**
+   * If true, uses an <ol> element instead
+   * */
+  @Prop() public ordered: boolean = false;
+
   render() {
+    const List = this.ordered ? 'ol' : 'ul';
+
     return (
       <Host>
-        <ul>
+        <List>
           <slot />
-        </ul>
+        </List>
       </Host>
     );
   }

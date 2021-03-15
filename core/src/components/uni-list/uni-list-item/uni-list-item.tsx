@@ -1,4 +1,6 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import {
+  Component, Host, h, Prop
+} from '@stencil/core';
 
 @Component({
   tag: 'uni-list-item',
@@ -6,14 +8,22 @@ import { Component, Host, h, Prop } from '@stencil/core';
   shadow: true
 })
 export class UniListItem {
-  @Prop()
-  public href?: string;
+  /**
+   * A url to pass to the underlying <a> tag
+   * Optional, will not use an anchor tag unless this is set
+   * */
+  @Prop() public href?: string;
 
-  @Prop()
-  public disabled?: boolean;
+  /**
+   * Disable this item (only works with button type)
+   * */
+  @Prop() public disabled?: boolean;
 
-  @Prop()
-  public button: boolean = false;
+  /**
+   * Use an underling <button> element for actions
+   * Note: href will take precedence, remove href to use a button
+   * */
+  @Prop() public button: boolean = false;
 
   render() {
     let TagName = 'div';

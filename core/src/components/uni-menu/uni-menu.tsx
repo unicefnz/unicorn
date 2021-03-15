@@ -43,6 +43,8 @@ export class UniMenu {
   render() {
     return (
       <Host>
+        {/* This element is designed to work with a button within the slot, which will provide these a11y features */}
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
         <div
           class="trigger"
           onClick={() => this.onTriggerClick()}

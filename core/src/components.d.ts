@@ -171,10 +171,23 @@ export namespace Components {
         "optional": boolean;
     }
     interface UniList {
+        /**
+          * If true, uses an <ol> element instead
+         */
+        "ordered": boolean;
     }
     interface UniListItem {
+        /**
+          * Use an underling <button> element for actions Note: href will take precedence, remove href to use a button
+         */
         "button": boolean;
+        /**
+          * Disable this item (only works with button type)
+         */
         "disabled"?: boolean;
+        /**
+          * A url to pass to the underlying <a> tag Optional, will not use an anchor tag unless this is set
+         */
         "href"?: string;
     }
     interface UniMenu {
@@ -721,10 +734,23 @@ declare namespace LocalJSX {
         "optional"?: boolean;
     }
     interface UniList {
+        /**
+          * If true, uses an <ol> element instead
+         */
+        "ordered"?: boolean;
     }
     interface UniListItem {
+        /**
+          * Use an underling <button> element for actions Note: href will take precedence, remove href to use a button
+         */
         "button"?: boolean;
+        /**
+          * Disable this item (only works with button type)
+         */
         "disabled"?: boolean;
+        /**
+          * A url to pass to the underlying <a> tag Optional, will not use an anchor tag unless this is set
+         */
         "href"?: string;
     }
     interface UniMenu {
