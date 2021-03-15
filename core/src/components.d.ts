@@ -88,7 +88,7 @@ export namespace Components {
          */
         "disabled": boolean;
         "selected": boolean;
-        "setFocus": (ev: any) => Promise<void>;
+        "setFocus": (ev?: unknown) => Promise<void>;
         /**
           * Machine value for the option
          */
@@ -175,6 +175,7 @@ export namespace Components {
           * If true, uses an <ol> element instead
          */
         "ordered": boolean;
+        "setFocus": (ev: any) => Promise<void>;
     }
     interface UniListItem {
         /**
@@ -189,6 +190,7 @@ export namespace Components {
           * A url to pass to the underlying <a> tag Optional, will not use an anchor tag unless this is set
          */
         "href"?: string;
+        "setFocus": (ev?: unknown) => Promise<void>;
     }
     interface UniMenu {
         /**

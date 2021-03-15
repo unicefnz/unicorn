@@ -13,9 +13,11 @@ describe('uni-menu', () => {
           <div class="trigger">
             <slot name="trigger"></slot>
           </div>
-          <div class="menu">
-            <slot></slot>
-          </div>
+          <uni-outside-click>
+            <div class="menu">
+              <slot></slot>
+            </div>
+          </uni-outside-click>
         </mock:shadow-root>
       </uni-menu>
     `);

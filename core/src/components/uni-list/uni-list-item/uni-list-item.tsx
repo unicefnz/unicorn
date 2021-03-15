@@ -1,6 +1,8 @@
 import {
-  Component, Host, h, Prop
+  Component, Element, Host, h, Prop, Method
 } from '@stencil/core';
+
+type HTMLInnerElement = HTMLButtonElement | HTMLAnchorElement | HTMLDivElement;
 
 @Component({
   tag: 'uni-list-item',
@@ -8,6 +10,8 @@ import {
   shadow: true
 })
 export class UniListItem {
+  @Element() el!: HTMLUniListItemElement;
+
   /**
    * A url to pass to the underlying <a> tag
    * Optional, will not use an anchor tag unless this is set
@@ -24,6 +28,19 @@ export class UniListItem {
    * Note: href will take precedence, remove href to use a button
    * */
   @Prop() public button: boolean = false;
+
+  private innerEl!: HTMLInnerElement;
+
+  /** @internal */
+  @Method()
+  async setFocus(ev?: unknown) {
+    if (ev instanceof window.Event) {
+      ev.stopPropagation();
+      ev.preventDefault();
+    }
+
+    this.innerEl.focus();
+  }
 
   render() {
     let TagName = 'div';
@@ -45,6 +62,7 @@ export class UniListItem {
             disabled={this.disabled}
             aria-disabled={this.disabled}
             class="item-inner"
+            ref={(el: HTMLInnerElement) => { this.innerEl = el; }}
           >
             <slot />
           </TagName>

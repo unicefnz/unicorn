@@ -1,5 +1,5 @@
 import {
-  Component, Host, h, State, Prop, Watch
+  Component, Host, h, State, Prop, Watch, Element, readTask
 } from '@stencil/core';
 
 @Component({
@@ -8,6 +8,8 @@ import {
   shadow: true
 })
 export class UniMenu {
+  @Element() el!: HTMLUniMenuElement;
+
   /**
    * Programmatically set the menu as open
    * */
@@ -16,27 +18,44 @@ export class UniMenu {
   @State() isOpen: boolean = false;
 
   @Watch('open')
-  onOpenPropChange(newVal: boolean) {
-    this.isOpen = newVal;
+  setOpen(newVal: boolean) {
+    if (newVal) this.openMenu();
+    else this.closeMenu();
   }
 
-  private onTriggerClick(): void {
-    this.isOpen = true; // We could make this toggle, however this behaviour isn't really needed
+  private openMenu() {
+    this.isOpen = true;
+    this.getMenuItems().some((el: any) => {
+      if (typeof el.setFocus === 'function') {
+        // setTimeout(() => el.setFocus(), 0);
+        // eslint-disable-next-line no-new
+        readTask(() => el.setFocus());
+        return true;
+      }
+      return false;
+    });
+  }
+
+  private closeMenu() {
+    this.isOpen = false;
   }
 
   private slotRef: HTMLSlotElement | null = null;
 
+  private getMenuItems(): Element[] {
+    return this.slotRef?.assignedElements({ flatten: true }) || [];
+  }
+
   private onContentBlur(e: FocusEvent): void {
-    // console.log(e.currentTarget, 'Blur from', e.target, 'to', e.relatedTarget);
     // TODO will this be needed once keyboard nav is implemented
     if (
       // if the focus has gone off the page...
       !e.relatedTarget
       // ...or if the focussed element can't be found as a child...
-      || !this.slotRef?.assignedElements({ flatten: true }).some(child => child.contains(e.relatedTarget as Node))
+      || !this.getMenuItems().some(child => child.contains(e.relatedTarget as Node))
     ) {
       // ...then hide the menu
-      this.isOpen = false;
+      this.closeMenu();
     }
   }
 
@@ -47,17 +66,19 @@ export class UniMenu {
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
         <div
           class="trigger"
-          onClick={() => this.onTriggerClick()}
+          onClick={() => this.openMenu()}
         >
           <slot name="trigger" />
         </div>
-        <div
-          class={'menu' + (this.isOpen ? ' menu-open' : '')}
-          onFocusout={e => this.onContentBlur(e)}
-        >
-          {/* <slot /> types don't have the slot prop, so hack the types to work around it */}
-          <slot {...{ ref: (el: HTMLSlotElement) => { this.slotRef = el; } } as any} />
-        </div>
+        <uni-outside-click onUniOutsideClick={() => this.closeMenu()}>
+          <div
+            class={'menu' + (this.isOpen ? ' menu-open' : '')}
+            onFocusout={e => this.onContentBlur(e)}
+          >
+            {/* <slot /> types don't have the slot prop, so hack the types to work around it */}
+            <slot {...{ ref: (el: HTMLSlotElement) => { this.slotRef = el; } } as any} />
+          </div>
+        </uni-outside-click>
       </Host>
     );
   }

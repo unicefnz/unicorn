@@ -77,8 +77,8 @@ export class UniComboGroup implements RadioControllerComponentInterface {
   }
 
   @Listen('keydown', { target: 'document' })
-  onKeydown(ev: any) {
-    if (ev.target && !this.el.contains(ev.target)) {
+  onKeydown(ev: KeyboardEvent) {
+    if (ev.target && !this.el.contains(ev.target as Node)) {
       return;
     }
 
@@ -87,7 +87,7 @@ export class UniComboGroup implements RadioControllerComponentInterface {
     const radios = this.getOpts().filter(radio => !radio.disabled);
 
     // Only move the radio if the current focus is in the radio group
-    if (ev.target && radios.includes(ev.target)) {
+    if (ev.target && radios.includes(ev.target as any)) {
       const index = radios.findIndex(radio => radio === ev.target);
 
       let next;
