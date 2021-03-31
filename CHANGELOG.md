@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.4](https://github.com/unicefnz/unicorn/compare/v1.3.3...v1.3.4) (2021-03-31)
+
+
+### Bug Fixes
+
+* **dialog:** Use shadow encapsulation ([27686aa](https://github.com/unicefnz/unicorn/commit/27686aa2207b9e79e0d90fd5d7527b3d5a5505cc))
+
+
+### Features
+
+* **checkbox:** Add focus ring ([efb90c7](https://github.com/unicefnz/unicorn/commit/efb90c7bbd367535ef8c70b90371ba4e13799576))
+
+
+
+
+
 ## [1.3.3](https://github.com/unicefnz/unicorn/compare/v1.3.2...v1.3.3) (2021-03-15)
 
 
