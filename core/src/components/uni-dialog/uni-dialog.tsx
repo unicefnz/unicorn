@@ -9,7 +9,7 @@ import {
 @Component({
   tag: 'uni-dialog',
   styleUrl: 'uni-dialog.scss',
-  scoped: true
+  shadow: true
 })
 export class UniDialog implements ComponentInterface, OverlayInterface {
   @Element() el!: HTMLUniDialogElement;
