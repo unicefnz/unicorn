@@ -6,7 +6,7 @@ import type { ReactOverlayProps } from './utils';
 
 export function createOverlayComponent<
   OverlayProps extends object,
-  OverlayEl extends HTMLUniOverlayElement,
+  OverlayEl extends HTMLUniOverlayElement
 >(displayName: string, controller: OverlayController<OverlayEl>) {
   type Props = OverlayProps & ReactOverlayProps;
 
