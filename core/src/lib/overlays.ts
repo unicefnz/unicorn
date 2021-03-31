@@ -1,5 +1,4 @@
-/* eslint-disable no-param-reassign */
-import { HTMLUniOverlayElement, OverlayController, OverlayInterface } from './OverlayInterface';
+import type { HTMLUniOverlayElement, OverlayController, OverlayInterface } from './OverlayInterface';
 
 let lastId = 0;
 
@@ -26,10 +25,8 @@ function isDescendant(parent: HTMLElement, child: HTMLElement | null) {
   return false;
 }
 
-export function getOverlays<E extends HTMLUniOverlayElement = HTMLUniOverlayElement>(doc: Document, selector?: string): E[] {
-  if (selector === undefined) {
-    selector = '[uni-overlay]';
-  }
+export function getOverlays<E extends HTMLUniOverlayElement = HTMLUniOverlayElement>(doc: Document, selectorProp?: string): E[] {
+  const selector = selectorProp ?? '[uni-overlay]';
   return (Array.from(doc.querySelectorAll(selector)) as E[])
     .filter(c => c.overlayIndex > 0);
 }

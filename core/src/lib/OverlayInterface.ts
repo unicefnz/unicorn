@@ -1,5 +1,5 @@
-import { EventEmitter } from '@stencil/core';
-import { HTMLStencilElement } from '@stencil/core/internal';
+import type { EventEmitter } from '@stencil/core';
+import type { HTMLStencilElement } from '@stencil/core/internal';
 
 export interface OverlayEventDetail<T = any> {
   data?: T;
@@ -28,7 +28,12 @@ export interface OverlayController<T extends HTMLUniOverlayElement> {
 }
 
 export interface HTMLUniOverlayElement extends HTMLStencilElement {
+  /** @internal */
+  presented: boolean;
+
+  /** @internal */
   overlayIndex: number;
+
   backdropDismiss?: boolean;
 
   present(): Promise<void>;
