@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.5](https://github.com/unicef-new-zealand/unicorn/compare/v1.3.4...v1.3.5) (2021-04-01)
+
+
+### Bug Fixes
+
+* **core:** Reset actions run ([9b9dcf2](https://github.com/unicef-new-zealand/unicorn/commit/9b9dcf2fcb96cb2d008cf85b03b2e0bb83df9e52))
+
+
+### Features
+
+* **dialog:** Switch dialog-title to shadow encapsulation ([c0551a0](https://github.com/unicef-new-zealand/unicorn/commit/c0551a096e0dbca3c547fcf47cbb81ad8fc25868))
+
+
+
+
+
 ## [1.3.4](https://github.com/unicef-new-zealand/unicorn/compare/v1.3.3...v1.3.4) (2021-03-31)
 
 
