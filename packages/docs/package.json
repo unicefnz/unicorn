@@ -23,9 +23,9 @@
     "url": "https://github.com/unicefnz/unicorn/issues"
   },
   "devDependencies": {
-    "@unicefnz/eslint-config": "^2.0.1",
-    "eslint": "^7.18.0",
-    "typescript": "^4.1.3",
+    "@unicefnz/eslint-config": "^2.0.6",
+    "eslint": "^7.26.0",
+    "typescript": "^4.2.4",
     "vuepress": "^1.8.2",
     "vuepress-plugin-mermaidjs": "^1.8.1"
   }
