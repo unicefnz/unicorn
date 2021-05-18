@@ -3,7 +3,7 @@ import {
   Listen, Prop, Watch
 } from '@stencil/core';
 import type { HTMLStencilElement } from '@stencil/core/internal';
-import { HTMLRadioItemElement } from './radio-item';
+import type { HTMLRadioItemElement } from './radio-item';
 
 export interface RadioControllerComponentInterface extends ComponentInterface {
   value?: string | number;
