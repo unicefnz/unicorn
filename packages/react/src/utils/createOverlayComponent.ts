@@ -18,7 +18,7 @@ export function createOverlayComponent<
     // To fix this, we render to a intermediate div, and place that inside the overlayEl
     // No matter where this div moves, React doesn't care because the child tree remains intact
     const renderRoot = useRef<HTMLDivElement>(document.createElement('div'));
-    const prevPropsRef = useRef<Omit<Props, 'isOpen'|'children'>>(); // Keep track of the last props, used for dom binding.
+    const prevPropsRef = useRef<Omit<Props, 'isOpen' | 'children'>>(); // Keep track of the last props, used for dom binding.
 
     useEffect(() => {
       function maybeDismiss() {
