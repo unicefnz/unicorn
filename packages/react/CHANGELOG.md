@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.7](https://github.com/unicef-new-zealand/unicorn/compare/v1.3.6...v1.3.7) (2021-07-13)
+
+
+### Bug Fixes
+
+* **misc:** Unbreak build ([58c6122](https://github.com/unicef-new-zealand/unicorn/commit/58c6122fbc6b3bcb82dd96ae7ffd25b2bdaae734))
+
+
+
+
+
 ## [1.3.6](https://github.com/unicef-new-zealand/unicorn/compare/v1.3.5...v1.3.6) (2021-07-13)
 
 **Note:** Version bump only for package @unicorndesign/react

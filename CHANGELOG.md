@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.7](https://github.com/unicefnz/unicorn/compare/v1.3.6...v1.3.7) (2021-07-13)
+
+
+### Bug Fixes
+
+* **deps:** Downgrade sass-loader ([71c64df](https://github.com/unicefnz/unicorn/commit/71c64df2cf3fb222bf17d881f1f4ad2770506dc8))
+* **misc:** Unbreak build ([58c6122](https://github.com/unicefnz/unicorn/commit/58c6122fbc6b3bcb82dd96ae7ffd25b2bdaae734))
+
+
+
+
+
 ## [1.3.6](https://github.com/unicefnz/unicorn/compare/v1.3.5...v1.3.6) (2021-07-13)
 
 **Note:** Version bump only for package root
