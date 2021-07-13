@@ -41,9 +41,11 @@ export class UniComboItem implements RadioItemComponentInterface {
 
   /** @internal */
   @Method()
-  async setFocus(ev: any) {
-    ev.stopPropagation();
-    ev.preventDefault();
+  async setFocus(ev?: unknown) {
+    if (ev instanceof window.Event) {
+      ev.stopPropagation();
+      ev.preventDefault();
+    }
 
     this.el.focus();
   }
