@@ -33,8 +33,8 @@ echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
 # If the tag contains "-beta" publish to the beta dist-tag
 if [[ $VERSION_TAG =~ -beta ]];then
   echo "Publishing beta"
-  echo "Exec: lerna publish $PUBLISH_STRATEGY --dist-tag beta"
-  npx lerna publish $PUBLISH_STRATEGY --dist-tag beta --yes
+  echo "$ lerna publish $PUBLISH_STRATEGY --dist-tag beta --yes --no-verify-access"
+  npx lerna publish $PUBLISH_STRATEGY --dist-tag beta --yes --no-verify-access
 
   # Make sure to exit script with code 1 if publish failed
   if [[ ! $? -eq 0 ]];then
@@ -47,8 +47,8 @@ fi
 # Otherwise, publish to the latest tag!
 if [[ ! $VERSION_TAG =~ -beta ]];then
   echo "Publishing stable"
-  echo "Exec: lerna publish $PUBLISH_STRATEGY"
-  npx lerna publish $PUBLISH_STRATEGY --yes
+  echo "$ lerna publish $PUBLISH_STRATEGY --yes --no-verify-access"
+  npx lerna publish $PUBLISH_STRATEGY --yes --no-verify-access
 
   # Make sure to exit script with code 1 if publish failed
   if [[ ! $? -eq 0 ]];then
