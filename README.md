@@ -4,3 +4,5 @@
 
 - [//unicorn.is](https://unicorn.is)
 - [//unicorn.is/docs](https://unicorn.is/docs/)
+
+## [Core package README](/core/README.md)
