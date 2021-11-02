@@ -1,4 +1,4 @@
-[![Logo](packages/site/public/img/icon-med.png)](https://unicorn.is)
+[![Logo](packages/docs/docs/.vuepress/public/img/icon-med.png)](ttps://unicorn-design-system.surge.sh/)
 
 # 🦄 Unicorn Design System
 
