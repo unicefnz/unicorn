@@ -2,7 +2,7 @@
 
 # 🦄 Unicorn Design System
 
-- [//unicorn.is](https://unicorn.is)
-- [//unicorn.is/docs](https://unicorn.is/docs/)
+- [website](https://unicorn-design-system.surge.sh/)
+- [documentation](https://unicorn-design-system.surge.sh/api/)
 
 ## [Core package README](/core/README.md)
