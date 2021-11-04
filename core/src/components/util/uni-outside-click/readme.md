@@ -24,11 +24,13 @@
 ### Used by
 
  - [uni-expandable-field](../../forms/uni-expandable-field)
+ - [uni-menu](../../uni-menu)
 
 ### Graph
 ```mermaid
 graph TD;
   uni-expandable-field --> uni-outside-click
+  uni-menu --> uni-outside-click
   style uni-outside-click fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

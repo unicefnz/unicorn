@@ -88,7 +88,7 @@ export namespace Components {
          */
         "disabled": boolean;
         "selected": boolean;
-        "setFocus": (ev: any) => Promise<void>;
+        "setFocus": (ev?: unknown) => Promise<void>;
         /**
           * Machine value for the option
          */
@@ -169,6 +169,34 @@ export namespace Components {
           * Displays a visual (optional) marker
          */
         "optional": boolean;
+    }
+    interface UniList {
+        /**
+          * If true, uses an <ol> element instead
+         */
+        "ordered": boolean;
+        "setFocus": (ev: any) => Promise<void>;
+    }
+    interface UniListItem {
+        /**
+          * Use an underling <button> element for actions Note: href will take precedence, remove href to use a button
+         */
+        "button": boolean;
+        /**
+          * Disable this item (only works with button type)
+         */
+        "disabled"?: boolean;
+        /**
+          * A url to pass to the underlying <a> tag Optional, will not use an anchor tag unless this is set
+         */
+        "href"?: string;
+        "setFocus": (ev?: unknown) => Promise<void>;
+    }
+    interface UniMenu {
+        /**
+          * Programmatically set the menu as open
+         */
+        "open": boolean;
     }
     interface UniOutsideClick {
         /**
@@ -412,6 +440,24 @@ declare global {
         prototype: HTMLUniExpandableFieldElement;
         new (): HTMLUniExpandableFieldElement;
     };
+    interface HTMLUniListElement extends Components.UniList, HTMLStencilElement {
+    }
+    var HTMLUniListElement: {
+        prototype: HTMLUniListElement;
+        new (): HTMLUniListElement;
+    };
+    interface HTMLUniListItemElement extends Components.UniListItem, HTMLStencilElement {
+    }
+    var HTMLUniListItemElement: {
+        prototype: HTMLUniListItemElement;
+        new (): HTMLUniListItemElement;
+    };
+    interface HTMLUniMenuElement extends Components.UniMenu, HTMLStencilElement {
+    }
+    var HTMLUniMenuElement: {
+        prototype: HTMLUniMenuElement;
+        new (): HTMLUniMenuElement;
+    };
     interface HTMLUniOutsideClickElement extends Components.UniOutsideClick, HTMLStencilElement {
     }
     var HTMLUniOutsideClickElement: {
@@ -486,6 +532,9 @@ declare global {
         "uni-dialog-title": HTMLUniDialogTitleElement;
         "uni-errors": HTMLUniErrorsElement;
         "uni-expandable-field": HTMLUniExpandableFieldElement;
+        "uni-list": HTMLUniListElement;
+        "uni-list-item": HTMLUniListItemElement;
+        "uni-menu": HTMLUniMenuElement;
         "uni-outside-click": HTMLUniOutsideClickElement;
         "uni-progress-linear": HTMLUniProgressLinearElement;
         "uni-select": HTMLUniSelectElement;
@@ -685,6 +734,32 @@ declare namespace LocalJSX {
           * Displays a visual (optional) marker
          */
         "optional"?: boolean;
+    }
+    interface UniList {
+        /**
+          * If true, uses an <ol> element instead
+         */
+        "ordered"?: boolean;
+    }
+    interface UniListItem {
+        /**
+          * Use an underling <button> element for actions Note: href will take precedence, remove href to use a button
+         */
+        "button"?: boolean;
+        /**
+          * Disable this item (only works with button type)
+         */
+        "disabled"?: boolean;
+        /**
+          * A url to pass to the underlying <a> tag Optional, will not use an anchor tag unless this is set
+         */
+        "href"?: string;
+    }
+    interface UniMenu {
+        /**
+          * Programmatically set the menu as open
+         */
+        "open"?: boolean;
     }
     interface UniOutsideClick {
         /**
@@ -886,6 +961,9 @@ declare namespace LocalJSX {
         "uni-dialog-title": UniDialogTitle;
         "uni-errors": UniErrors;
         "uni-expandable-field": UniExpandableField;
+        "uni-list": UniList;
+        "uni-list-item": UniListItem;
+        "uni-menu": UniMenu;
         "uni-outside-click": UniOutsideClick;
         "uni-progress-linear": UniProgressLinear;
         "uni-select": UniSelect;
@@ -915,6 +993,9 @@ declare module "@stencil/core" {
             "uni-dialog-title": LocalJSX.UniDialogTitle & JSXBase.HTMLAttributes<HTMLUniDialogTitleElement>;
             "uni-errors": LocalJSX.UniErrors & JSXBase.HTMLAttributes<HTMLUniErrorsElement>;
             "uni-expandable-field": LocalJSX.UniExpandableField & JSXBase.HTMLAttributes<HTMLUniExpandableFieldElement>;
+            "uni-list": LocalJSX.UniList & JSXBase.HTMLAttributes<HTMLUniListElement>;
+            "uni-list-item": LocalJSX.UniListItem & JSXBase.HTMLAttributes<HTMLUniListItemElement>;
+            "uni-menu": LocalJSX.UniMenu & JSXBase.HTMLAttributes<HTMLUniMenuElement>;
             "uni-outside-click": LocalJSX.UniOutsideClick & JSXBase.HTMLAttributes<HTMLUniOutsideClickElement>;
             "uni-progress-linear": LocalJSX.UniProgressLinear & JSXBase.HTMLAttributes<HTMLUniProgressLinearElement>;
             "uni-select": LocalJSX.UniSelect & JSXBase.HTMLAttributes<HTMLUniSelectElement>;
